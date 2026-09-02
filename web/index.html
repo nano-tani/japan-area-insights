@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="公的データを中心に東京23区を比較する街データサイト">
+  <title>街スコア | 東京23区をデータで比較</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./">街スコア <span>BETA</span></a>
+    <a class="method-link" href="https://github.com/nano-tani/japan-area-insights" target="_blank" rel="noreferrer">計算方法・出典</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">TOKYO 23 WARDS / PUBLIC DATA</p>
+      <h1>日本の街を、<br>データで比べる。</h1>
+      <p class="lead">価格だけでも、人口だけでも判断しない。複数の公的データを同じ画面で比較します。</p>
+      <label class="search-box">
+        <span>エリア検索</span>
+        <input id="search" type="search" placeholder="例：港区、世田谷区" autocomplete="off">
+      </label>
+      <div class="meta-row">
+        <span id="area-count">対象 23区</span>
+        <span id="generated-at">更新状況を確認中</span>
+        <span>災害リスクは総合点に含めません</span>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="ranking-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">RANKING</p>
+          <h2 id="ranking-title">東京23区 総合評価</h2>
+        </div>
+        <p class="section-note">対象地域内での相対評価。データ不足時は採点しません。</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>順位</th><th>エリア</th><th>総合</th><th>価格</th><th>人口</th><th>将来人口</th><th>信頼度</th>
+            </tr>
+          </thead>
+          <tbody id="ranking-body"></tbody>
+        </table>
+      </div>
+      <p id="empty-ranking" class="empty-state" hidden>スコア用データはまだ生成されていません。エリア一覧と比較画面の基盤のみ利用できます。</p>
+    </section>
+
+    <section class="section compare-section" aria-labelledby="compare-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">COMPARE</p>
+          <h2 id="compare-title">2地域を比較</h2>
+        </div>
+        <p class="section-note">単独の点数より、差を見るための機能です。</p>
+      </div>
+      <div class="compare-controls">
+        <select id="compare-a" aria-label="比較する1つ目の地域"></select>
+        <span>VS</span>
+        <select id="compare-b" aria-label="比較する2つ目の地域"></select>
+      </div>
+      <div id="compare-grid" class="compare-grid"></div>
+    </section>
+
+    <section class="section" aria-labelledby="areas-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">ALL AREAS</p>
+          <h2 id="areas-title">23区一覧</h2>
+        </div>
+      </div>
+      <div id="area-grid" class="area-grid"></div>
+    </section>
+  </main>
+
+  <dialog id="detail-dialog" class="detail-dialog">
+    <button id="dialog-close" class="dialog-close" type="button" aria-label="閉じる">×</button>
+    <div id="detail-content"></div>
+  </dialog>
+
+  <footer>
+    <p>本サイトは投資助言ではありません。表示値は公的データ等を加工した相対評価であり、将来の価格・収益を保証しません。</p>
+    <p>AIは説明文の生成にのみ使用し、スコア計算には使用しません。</p>
+  </footer>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>

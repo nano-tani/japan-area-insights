@@ -1,0 +1,1 @@
+# japan-area-insights

@@ -27,9 +27,13 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -e ".[dev]"
-      - run: python scripts/init_db.py
-      - run: python scripts/seed_areas.py
-      - run: python scripts/build_site.py
+      - name: Ensure public data exists
+        run: |
+          if [ ! -f web/data/areas.json ]; then
+            python scripts/init_db.py
+            python scripts/seed_areas.py
+            python scripts/build_site.py
+          fi
       - run: pytest -q
       - uses: actions/configure-pages@v5
         with:

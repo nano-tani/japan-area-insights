@@ -12,7 +12,7 @@
 - AI: 説明文生成だけに使用し、スコア計算には使用しない
 - 災害リスク: 総合点に混ぜず別表示
 
-公開サイト側にAPIキーは置きません。公的APIはPython側で取得し、加工済みJSONだけを公開します。
+公開サイト側にAPIキーは置きません。公的APIはPython/GitHub Actions側で取得し、加工済みJSONだけを公開します。
 
 ## 開発
 
@@ -29,57 +29,44 @@ pytest
 
 生成物は `web/data/` に出力されます。
 
-## 公的データの取得
-
-国土交通省「不動産情報ライブラリ」のAPIキーと、e-StatのアプリケーションIDを環境変数へ設定します。秘密情報はリポジトリへコミットしません。
-
-PowerShell:
-
-```powershell
-$env:REINFOLIB_API_KEY="発行されたAPIキー"
-$env:ESTAT_APP_ID="発行されたアプリケーションID"
-```
-
-macOS / Linux:
-
-```bash
-export REINFOLIB_API_KEY="発行されたAPIキー"
-export ESTAT_APP_ID="発行されたアプリケーションID"
-```
+## 公的データ
 
 ### 不動産取引価格
 
-```bash
-python scripts/fetch_reinfolib_transactions.py --from-year 2021 --to-year 2025
-```
+不動産情報ライブラリ XIT001 を使用します。
 
-XIT001から取引明細、平方メートル単価の平均・中央値、取引件数を保存します。
+```bash
+python scripts/fetch_reinfolib_transactions.py --from-year 2021 --to-year 2026
+```
 
 ### 地価公示・都道府県地価調査
 
+不動産情報ライブラリ XPT002 を使用します。
+
 ```bash
-python scripts/fetch_land_prices.py --from-year 2020 --to-year 2026
+python scripts/fetch_land_prices.py --from-year 2021 --to-year 2026
 ```
 
-XPT002を東京23区の範囲で取得し、市区ごとの平均地価と前年比・3年・5年変化率を保存します。
+### 人口・世帯
 
-### 2025年国勢調査速報
+e-Statの令和7年国勢調査速報集計を使用します。
+
+- 表1-1 `0004050397`: 2025年人口
+- 表1-2 `0004050417`: 2020年組替人口・世帯、2025年世帯、5年間増減率
 
 ```bash
 python scripts/fetch_population.py
 ```
 
-e-Statの令和7年国勢調査速報集計、表1-1（0004050397）と表1-2（0004050417）から2025年人口・世帯数・5年間増減率と、組替済み2020年人口・世帯数を保存します。
-
 ### 250mメッシュ将来人口
 
-国土数値情報の「250mメッシュ別将来推計人口（R6国政局推計）」から東京都CSV ZIP `250m_mesh_suikei_2024_csv_13.zip` を取得し、次を実行します。
+不動産情報ライブラリ XKT013 を使用します。国土数値情報「250mメッシュ別将来推計人口（R6国政局推計）」と同じデータを、東京23区のタイル範囲から取得します。
 
 ```bash
-python scripts/import_future_population.py path/to/250m_mesh_suikei_2024_csv_13.zip
+python scripts/fetch_future_population.py
 ```
 
-2020年から2070年までの5年刻みの推計人口を、250mメッシュ単位でSQLiteへ保存します。公開JSONでは23区単位へ集約します。
+CSV ZIPを直接取り込む `scripts/import_future_population.py` も予備経路として残しています。
 
 ### スコアと公開JSON
 
@@ -89,7 +76,20 @@ python scripts/build_site.py
 pytest
 ```
 
-現時点の `v0.2` では、価格動向・人口動向・将来人口・取引活性度を相対評価できます。生活利便性と交通利便性が未実装のため、総合100点は意図的に算出しません。未実装項目を0点扱いして見かけだけの総合点を作ることはしません。
+現時点の `v0.2` では、価格動向・人口動向・将来人口・取引活性度を相対評価できます。生活利便性と交通利便性が未実装のため、総合100点は意図的に算出しません。
+
+## GitHub Actionsで実データを更新する
+
+Repository Settings → Secrets and variables → Actions に次のRepository secretsを登録します。
+
+- `REINFOLIB_API_KEY`: 不動産情報ライブラリのAPIキー
+- `ESTAT_APP_ID`: e-StatのアプリケーションID
+
+登録後、Actions → `Refresh public data` → `Run workflow` を実行します。
+
+このWorkflowは、23区の取引価格・地価・2025年国勢調査速報・250m将来人口を取得し、SQLiteで集計・採点した後、`web/data/` の加工済みJSONだけをmainへ保存してGitHub Pagesへ公開します。秘密情報とSQLite本体は保存しません。
+
+通常のPages公開は、すでに `web/data/` が存在する場合はそのスナップショットを使用します。そのためコード更新のたびに高コストな公的API取得を繰り返しません。
 
 ## ディレクトリ
 

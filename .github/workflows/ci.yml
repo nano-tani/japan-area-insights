@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -e ".[dev]"
+      - run: python -m compileall -q src scripts
+      - run: python scripts/init_db.py
+      - run: python scripts/seed_areas.py
+      - run: python scripts/build_site.py
+      - run: pytest -q
+      - name: Verify Tokyo 23 wards export
+        run: |
+          test -f web/data/areas.json
+          test -f web/data/area/13101.json
+          test -f web/data/area/13123.json

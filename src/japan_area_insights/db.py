@@ -36,8 +36,12 @@ CREATE TABLE IF NOT EXISTS area_prices (
 CREATE TABLE IF NOT EXISTS transactions (
     transaction_id TEXT PRIMARY KEY,
     area_id TEXT NOT NULL,
+    year INTEGER NOT NULL,
+    quarter INTEGER,
     transaction_date TEXT,
+    price_category TEXT,
     property_type TEXT,
+    district_name TEXT,
     total_price REAL,
     unit_price REAL,
     area_sqm REAL,
@@ -45,6 +49,8 @@ CREATE TABLE IF NOT EXISTS transactions (
     FOREIGN KEY (area_id) REFERENCES areas(area_id),
     FOREIGN KEY (source_id) REFERENCES data_sources(source_id)
 );
+
+CREATE INDEX IF NOT EXISTS idx_transactions_area_year ON transactions(area_id, year);
 
 CREATE TABLE IF NOT EXISTS population (
     area_id TEXT NOT NULL,

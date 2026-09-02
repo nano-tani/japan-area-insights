@@ -11,6 +11,12 @@ def _rows(conn, sql: str, params: tuple = ()) -> list[dict]:
     return [dict(row) for row in conn.execute(sql, params).fetchall()]
 
 
+def _rank(areas: list[dict], key: str) -> list[dict]:
+    ranked = [area for area in areas if area.get(key) is not None]
+    ranked.sort(key=lambda x: (-float(x[key]), x["area_id"]))
+    return ranked
+
+
 def export_site_data(db_path: str | Path, output_dir: str | Path) -> None:
     output = Path(output_dir)
     area_dir = output / "area"
@@ -42,7 +48,8 @@ def export_site_data(db_path: str | Path, output_dir: str | Path) -> None:
             detail = dict(area)
             detail["prices"] = _rows(conn, "SELECT * FROM area_prices WHERE area_id=? ORDER BY year", (area_id,))
             detail["population"] = _rows(conn, "SELECT * FROM population WHERE area_id=? ORDER BY year", (area_id,))
-            detail["future_population"] = _rows(
+
+            future_rows = _rows(
                 conn,
                 """
                 SELECT year, SUM(projected_population) AS projected_population
@@ -51,6 +58,16 @@ def export_site_data(db_path: str | Path, output_dir: str | Path) -> None:
                 """,
                 (area_id,),
             )
+            baseline = next((row["projected_population"] for row in future_rows if row["year"] == 2025), None)
+            for row in future_rows:
+                value = row.get("projected_population")
+                row["retention_rate"] = (
+                    round(float(value) / float(baseline) * 100.0, 2)
+                    if value is not None and baseline not in (None, 0)
+                    else None
+                )
+            detail["future_population"] = future_rows
+
             detail["facilities"] = _rows(
                 conn,
                 "SELECT facility_type, COUNT(*) AS count FROM facilities WHERE area_id=? GROUP BY facility_type ORDER BY facility_type",
@@ -78,18 +95,27 @@ def export_site_data(db_path: str | Path, output_dir: str | Path) -> None:
             )
             (area_dir / f"{area_id}.json").write_text(json.dumps(detail, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    ranked = [area for area in areas if area.get("total_score") is not None]
-    ranked.sort(key=lambda x: (-float(x["total_score"]), x["area_id"]))
+    rankings = {
+        "total_score": _rank(areas, "total_score"),
+        "price_score": _rank(areas, "price_score"),
+        "population_score": _rank(areas, "population_score"),
+        "future_population_score": _rank(areas, "future_population_score"),
+        "transaction_score": _rank(areas, "transaction_score"),
+    }
 
     output.mkdir(parents=True, exist_ok=True)
     (output / "areas.json").write_text(json.dumps(areas, ensure_ascii=False, indent=2), encoding="utf-8")
-    (output / "rankings.json").write_text(json.dumps({"total_score": ranked}, ensure_ascii=False, indent=2), encoding="utf-8")
+    (output / "rankings.json").write_text(json.dumps(rankings, ensure_ascii=False, indent=2), encoding="utf-8")
     (output / "meta.json").write_text(
         json.dumps(
             {
                 "generated_at": datetime.now(timezone.utc).isoformat(),
                 "area_count": len(areas),
-                "scored_area_count": len(ranked),
+                "scored_area_count": len(rankings["total_score"]),
+                "partially_scored_area_count": sum(
+                    any(area.get(key) is not None for key in ("price_score", "population_score", "future_population_score", "transaction_score"))
+                    for area in areas
+                ),
             },
             ensure_ascii=False,
             indent=2,

@@ -29,6 +29,28 @@ pytest
 
 生成物は `web/data/` に出力されます。
 
+## 不動産取引データを取得する
+
+国土交通省「不動産情報ライブラリ」のAPI利用承認後、APIキーを環境変数へ設定します。キーはリポジトリへコミットしません。
+
+PowerShell:
+
+```powershell
+$env:REINFOLIB_API_KEY="発行されたAPIキー"
+python scripts/fetch_reinfolib_transactions.py --from-year 2021 --to-year 2025
+python scripts/build_site.py
+```
+
+macOS / Linux:
+
+```bash
+export REINFOLIB_API_KEY="発行されたAPIキー"
+python scripts/fetch_reinfolib_transactions.py --from-year 2021 --to-year 2025
+python scripts/build_site.py
+```
+
+この取得処理はXIT001の「不動産取引価格情報」を市区×年で取得し、取引明細と平方メートル単価の平均・中央値・取引件数をSQLiteへ保存します。APIへの連続アクセスを避けるため、標準では1秒以上の間隔を空けます。
+
 ## ディレクトリ
 
 - `src/japan_area_insights/`: データベース・計算・出力処理

@@ -1,8 +1,15 @@
-const state = { areas: [], meta: null };
+const state = { areas: [], meta: null, rankingMetric: "total_score" };
 
 const $ = (selector) => document.querySelector(selector);
 const score = (value) => value === null || value === undefined ? "—" : Number(value).toFixed(Number(value) % 1 ? 1 : 0);
 const confidence = (value) => value || "—";
+const metricLabels = {
+  total_score: "総合",
+  price_score: "価格動向",
+  population_score: "人口動向",
+  future_population_score: "将来人口",
+  transaction_score: "取引活性度",
+};
 
 async function loadJson(path) {
   const response = await fetch(path, { cache: "no-store" });
@@ -10,20 +17,27 @@ async function loadJson(path) {
   return response.json();
 }
 
+function chooseInitialRankingMetric() {
+  const candidates = ["total_score", "price_score", "population_score", "future_population_score", "transaction_score"];
+  return candidates.find((key) => state.areas.some((area) => area[key] !== null && area[key] !== undefined)) || "total_score";
+}
+
 function renderRanking(filter = "") {
   const body = $("#ranking-body");
   const empty = $("#empty-ranking");
   const query = filter.trim().toLowerCase();
+  const metric = state.rankingMetric;
   const ranked = state.areas
-    .filter((area) => area.total_score !== null && area.total_score !== undefined)
+    .filter((area) => area[metric] !== null && area[metric] !== undefined)
     .filter((area) => area.municipality_name.toLowerCase().includes(query))
-    .sort((a, b) => Number(b.total_score) - Number(a.total_score) || a.area_id.localeCompare(b.area_id));
+    .sort((a, b) => Number(b[metric]) - Number(a[metric]) || a.area_id.localeCompare(b.area_id));
 
+  $("#ranking-score-label").textContent = metricLabels[metric] || "評価";
   body.innerHTML = ranked.map((area, index) => `
     <tr data-area-id="${area.area_id}">
       <td>${index + 1}</td>
       <td><strong>${area.municipality_name}</strong></td>
-      <td><span class="score-pill">${score(area.total_score)}</span></td>
+      <td><span class="score-pill">${score(area[metric])}</span></td>
       <td>${score(area.price_score)}</td>
       <td>${score(area.population_score)}</td>
       <td>${score(area.future_population_score)}</td>
@@ -33,6 +47,16 @@ function renderRanking(filter = "") {
 
   empty.hidden = ranked.length !== 0;
   body.querySelectorAll("tr").forEach((row) => row.addEventListener("click", () => openDetail(row.dataset.areaId)));
+}
+
+function setupRanking() {
+  state.rankingMetric = chooseInitialRankingMetric();
+  $("#ranking-metric").value = state.rankingMetric;
+  $("#ranking-metric").addEventListener("change", (event) => {
+    state.rankingMetric = event.target.value;
+    renderRanking($("#search").value);
+  });
+  renderRanking();
 }
 
 function renderAreaGrid(filter = "") {
@@ -85,7 +109,7 @@ function renderCompare() {
 function rowsOrMissing(rows, columns) {
   if (!rows || rows.length === 0) return `<div class="data-missing">データ未生成</div>`;
   const recent = rows.slice(-6).reverse();
-  return recent.map((row) => `<div class="metric-row">${columns.map(([label, key]) => `<span>${label}: <strong>${row[key] ?? "—"}</strong></span>`).join("")}</div>`).join("");
+  return recent.map((row) => `<div class="metric-row">${columns.map(([label, key, suffix = ""]) => `<span>${label}: <strong>${row[key] ?? "—"}${row[key] === null || row[key] === undefined ? "" : suffix}</strong></span>`).join("")}</div>`).join("");
 }
 
 async function openDetail(areaId) {
@@ -96,12 +120,15 @@ async function openDetail(areaId) {
 
   try {
     const detail = await loadJson(`./data/area/${areaId}.json`);
+    const totalDisplay = detail.total_score === null || detail.total_score === undefined
+      ? `<div class="data-missing">総合100点は生活利便性・交通利便性の実装後に算出します。</div>`
+      : `<div class="detail-score"><strong>${score(detail.total_score)}</strong><span>/ 100</span></div>`;
     $("#detail-content").innerHTML = `
       <div class="detail-body">
         <p class="section-kicker">AREA ${detail.area_id}</p>
         <h3>${detail.municipality_name}</h3>
         <p class="detail-sub">${detail.prefecture_name} / 対象地域内での相対評価</p>
-        <div class="detail-score"><strong>${score(detail.total_score)}</strong><span>/ 100</span></div>
+        ${totalDisplay}
         <div class="metric-row"><span>価格動向</span><strong>${score(detail.price_score)} / 20</strong></div>
         <div class="metric-row"><span>人口動向</span><strong>${score(detail.population_score)} / 20</strong></div>
         <div class="metric-row"><span>将来人口</span><strong>${score(detail.future_population_score)} / 20</strong></div>
@@ -109,9 +136,9 @@ async function openDetail(areaId) {
         <div class="metric-row"><span>交通利便性</span><strong>${score(detail.transport_score)} / 15</strong></div>
         <div class="metric-row"><span>取引活性度</span><strong>${score(detail.transaction_score)} / 10</strong></div>
         <div class="metric-row"><span>データ信頼度</span><strong>${confidence(detail.confidence)}</strong></div>
-        <section class="detail-section"><h4>地価推移</h4>${rowsOrMissing(detail.prices, [["年", "year"], ["公示地価", "official_land_price"]])}</section>
-        <section class="detail-section"><h4>人口推移</h4>${rowsOrMissing(detail.population, [["年", "year"], ["人口", "population"]])}</section>
-        <section class="detail-section"><h4>将来人口</h4>${rowsOrMissing(detail.future_population, [["年", "year"], ["推計人口", "projected_population"]])}</section>
+        <section class="detail-section"><h4>地価推移</h4>${rowsOrMissing(detail.prices, [["年", "year"], ["公示地価", "official_land_price", "円/㎡"], ["前年比", "yoy_change", "%"], ["5年変化", "change_5y", "%"]])}</section>
+        <section class="detail-section"><h4>人口推移</h4>${rowsOrMissing(detail.population, [["年", "year"], ["人口", "population", "人"], ["人口増減率", "population_change_rate", "%"], ["世帯", "households", "世帯"]])}</section>
+        <section class="detail-section"><h4>将来人口</h4>${rowsOrMissing(detail.future_population, [["年", "year"], ["推計人口", "projected_population", "人"], ["2025年比", "retention_rate", "%"]])}</section>
         <section class="detail-section"><h4>データ出典</h4>${detail.sources?.length ? detail.sources.map((source) => `<div class="metric-row"><a href="${source.source_url}" target="_blank" rel="noreferrer">${source.source_name}</a><span>${source.dataset_id ?? ""}</span></div>`).join("") : `<div class="data-missing">出典データ未生成</div>`}</section>
       </div>`;
   } catch (error) {
@@ -131,7 +158,7 @@ async function init() {
       const date = new Date(state.meta.generated_at);
       $("#generated-at").textContent = `生成 ${date.toLocaleString("ja-JP")}`;
     }
-    renderRanking();
+    setupRanking();
     renderAreaGrid();
     setupCompare();
   } catch (error) {

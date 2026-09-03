@@ -50,9 +50,7 @@
     const target = $(selector);
     if (!target) return;
     const latest = latestByMetric(rows);
-    target.innerHTML = latest.length
-      ? latest.map(metricRow).join("")
-      : `<div class="data-missing">${emptyText}</div>`;
+    target.innerHTML = latest.length ? latest.map(metricRow).join("") : `<div class="data-missing">${emptyText}</div>`;
   }
 
   function combine(metrics, categories) {
@@ -71,7 +69,7 @@
     `);
   }
 
-  function renderExposures(rows) {
+  function renderExposures(rows, bands) {
     const target = $("#analysis-exposures");
     if (!target) return;
     const latest = (rows || []).filter((row) => String(row.period) === "2025");
@@ -80,10 +78,20 @@
       return;
     }
     const categoryLabels = { hazard: "防災", urban: "都市計画", environment: "環境", community: "生活圏" };
+    const severityByLayer = new Map();
+    for (const band of (bands || []).filter((row) => String(row.period) === "2025")) {
+      if (!severityByLayer.has(band.layer_key)) severityByLayer.set(band.layer_key, []);
+      severityByLayer.get(band.layer_key).push(band);
+    }
     target.innerHTML = latest.map((row) => {
       const isHazard = row.category === "hazard";
       const primary = isHazard ? row.population_share : row.mesh_share;
       const primaryLabel = isHazard ? "2025人口曝露" : "250mメッシュ対象率";
+      const detailRows = (severityByLayer.get(row.layer_key) || []).map((band) => `
+        <div class="analysis-metric-row exposure-band-row">
+          <div><span>${band.band_label}</span><small>${formatNumber(band.exposed_population, 0)}人 / ${band.exposed_mesh_count}メッシュ</small></div>
+          <div class="analysis-value"><strong>${band.population_share === null ? "—" : `${formatNumber(band.population_share, 1)}%`}</strong></div>
+        </div>`).join("");
       return `<div class="exposure-row">
         <div class="exposure-title">
           <span>${categoryLabels[row.category] || "空間情報"}</span>
@@ -91,7 +99,7 @@
           <small>${row.source_vintage || ""}</small>
         </div>
         <div class="exposure-value"><strong>${primary === null || primary === undefined ? "—" : `${formatNumber(primary, 1)}%`}</strong><span>${primaryLabel}</span></div>
-      </div>`;
+      </div>${detailRows}`;
     }).join("");
   }
 
@@ -105,7 +113,7 @@
     renderMetricCategory("#analysis-work-education", combine(metrics, ["labor", "education"]), "労働・教育統計は拡張データ更新後に表示されます。");
     renderMetricCategory("#analysis-health-welfare", combine(metrics, ["health", "welfare", "culture"]), "医療・福祉・文化統計は拡張データ更新後に表示されます。");
     renderMetricCategory("#analysis-resilience", metrics.resilience, "避難場所・災害履歴は拡張データ更新後に表示されます。");
-    renderExposures(payload.exposures);
+    renderExposures(payload.exposures, payload.exposure_bands);
   }
 
   async function init() {
@@ -116,11 +124,7 @@
       if (!response.ok) throw new Error(String(response.status));
       renderAll(await response.json());
     } catch (error) {
-      [
-        "#analysis-market", "#analysis-migration", "#analysis-economy",
-        "#analysis-housing", "#analysis-work-education", "#analysis-health-welfare",
-        "#analysis-resilience", "#analysis-exposures"
-      ].forEach((selector) => {
+      ["#analysis-market", "#analysis-migration", "#analysis-economy", "#analysis-housing", "#analysis-work-education", "#analysis-health-welfare", "#analysis-resilience", "#analysis-exposures"].forEach((selector) => {
         const target = $(selector);
         if (target) target.innerHTML = `<div class="data-missing">詳細分析データはまだ生成されていません。</div>`;
       });

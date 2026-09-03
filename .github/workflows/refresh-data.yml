@@ -27,6 +27,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    timeout-minutes: 180
     env:
       REINFOLIB_API_KEY: ${{ secrets.REINFOLIB_API_KEY }}
       ESTAT_APP_ID: ${{ secrets.ESTAT_APP_ID }}
@@ -59,7 +60,14 @@ jobs:
         run: python scripts/fetch_facilities.py --zoom 13 --interval 0.3
       - name: Fetch station and ridership data
         run: python scripts/fetch_transport.py --zoom 12 --interval 0.3
-      - run: python scripts/compute_scores.py
+      - name: Build 1km station areas
+        run: python scripts/sync_station_areas.py
+      - name: Fetch station-filtered transaction history
+        run: python scripts/fetch_station_transactions.py --from-year ${{ inputs.from_year }} --to-year ${{ inputs.to_year }} --interval 0.3
+      - name: Compute ward scores
+        run: python scripts/compute_scores.py
+      - name: Compute station-area metrics and scores
+        run: python scripts/compute_station_scores.py
       - run: python scripts/build_site.py
       - run: pytest -q
       - name: Commit generated public JSON

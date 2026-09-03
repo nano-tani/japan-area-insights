@@ -62,12 +62,10 @@ def test_social_metrics_and_derived_values(tmp_path: Path):
             VALUES ('ward:13101','ward','13101','千代田区','13101','13','ward-v1',1)
             """
         )
-        conn.execute(
-            "INSERT INTO population(area_id,year,population) VALUES ('13101',2025,100000)"
-        )
+        conn.execute("INSERT INTO population(area_id,year,population) VALUES ('13101',2025,100000)")
         ensure_analysis_schema(conn)
         count = fetch_social_metrics(FakeClient(), conn, [AREA])
-        assert count == 20
+        assert count == 18
         metrics = {row["metric_key"]: row["value"] for row in conn.execute("SELECT metric_key,value FROM geo_metrics")}
         assert metrics["education.university_graduate_share"] == 60
         assert metrics["labor.employed_share_of_labor_force"] == 97

@@ -10,12 +10,21 @@ from urllib.error import HTTPError
 from japan_area_insights.analysis_catalog import REINFOLIB_SPATIAL_LAYERS
 from japan_area_insights.analysis_schema import ensure_analysis_schema
 from japan_area_insights.db import connect, initialize
+from japan_area_insights.hazard_severity import compute_hazard_severity_bands
 from japan_area_insights.land_prices import tiles_for_bbox
 from japan_area_insights.sources.reinfolib import BASE_URL, ReinfolibClient
 from japan_area_insights.spatial_analysis import compute_layer_exposures, normalize_spatial_features
 
 ROOT = Path(__file__).resolve().parents[1]
 DB_PATH = ROOT / "database" / "area_insights.db"
+
+# Some API manuals require a higher minimum zoom than the generic urban layers.
+# The workflow accepts a base zoom and raises only the layers that require it.
+API_MIN_ZOOM = {
+    "XKT026": 14,  # flood maximum-scale inundation
+    "XKT027": 13,  # storm surge
+    "XKT028": 14,  # tsunami inundation
+}
 
 
 def parse_args() -> argparse.Namespace:
@@ -47,11 +56,12 @@ def main() -> None:
         raise SystemExit("future_population is empty; fetch XKT013 before extended spatial analysis")
 
     client = ReinfolibClient(min_interval_seconds=max(0.0, args.interval))
-    tiles = tiles_for_bbox(zoom=args.zoom)
     total_stored = 0
 
     for api_id in api_ids:
         layer_key, category, title, vintage = REINFOLIB_SPATIAL_LAYERS[api_id]
+        effective_zoom = max(args.zoom, API_MIN_ZOOM.get(api_id, args.zoom))
+        tiles = tiles_for_bbox(zoom=effective_zoom)
         digest = hashlib.sha256()
         collected: dict[str, dict] = {}
         skipped = 0
@@ -59,7 +69,7 @@ def main() -> None:
             try:
                 payload = client.get_json(
                     api_id,
-                    {"response_format": "geojson", "z": args.zoom, "x": x, "y": y},
+                    {"response_format": "geojson", "z": effective_zoom, "x": x, "y": y},
                 )
             except HTTPError as exc:
                 if not args.strict and exc.code in {400, 404, 422}:
@@ -115,11 +125,13 @@ def main() -> None:
             exposure_rows = compute_layer_exposures(conn, api_id, source_id=source_id)
         total_stored += len(collected)
         print(
-            f"{api_id} {title}: stored {len(collected)} features, "
+            f"{api_id} {title}: z={effective_zoom}, stored {len(collected)} features, "
             f"{exposure_rows} exposure rows, skipped tiles={skipped}"
         )
 
-    print(f"stored {total_stored} extended spatial features")
+    with connect(DB_PATH) as conn:
+        severity_rows = compute_hazard_severity_bands(conn)
+    print(f"stored {total_stored} extended spatial features; computed {severity_rows} severity-band rows")
 
 
 if __name__ == "__main__":

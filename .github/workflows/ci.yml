@@ -17,6 +17,7 @@ jobs:
       - run: python -m compileall -q src scripts
       - run: python scripts/init_db.py
       - run: python scripts/seed_areas.py
+      - run: python scripts/sync_geo_units.py
       - run: python scripts/build_site.py
       - run: pytest -q
       - name: Verify Tokyo 23 wards export

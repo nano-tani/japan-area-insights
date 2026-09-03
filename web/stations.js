@@ -12,6 +12,15 @@ const metricLabels = {
   transport_score: "交通利便性",
   transaction_score: "取引活性度",
 };
+const metricMax = {
+  total_score: 100,
+  price_score: 20,
+  population_score: 20,
+  future_population_score: 20,
+  convenience_score: 15,
+  transport_score: 15,
+  transaction_score: 10,
+};
 const facilityLabels = {
   school: "学校",
   childcare: "保育園・幼稚園等",
@@ -24,6 +33,25 @@ async function loadJson(path) {
   const response = await fetch(path, { cache: "no-store" });
   if (!response.ok) throw new Error(`${path}: ${response.status}`);
   return response.json();
+}
+
+function percent(value, max) {
+  if (value === null || value === undefined || !max) return 0;
+  return Math.max(0, Math.min(100, Number(value) / max * 100));
+}
+
+function visualMetric(label, value, max) {
+  return `<div class="visual-metric">
+    <div class="visual-metric-head"><span>${label}</span><strong>${score(value)} / ${max}</strong></div>
+    <div class="bar-track"><span class="bar-fill" style="width:${percent(value, max)}%"></span></div>
+  </div>`;
+}
+
+function scoreRing(value) {
+  if (value === null || value === undefined) return "";
+  return `<div class="score-ring" style="--score-pct:${percent(value, 100)}%" aria-label="総合スコア ${score(value)}点">
+    <div class="score-ring-inner"><strong>${score(value)}</strong><span>/ 100</span></div>
+  </div>`;
 }
 
 function stationLabel(station) {
@@ -47,6 +75,42 @@ function filteredStations() {
   );
 }
 
+function pickStationInsight(key, used) {
+  const rows = stationState.stations
+    .filter((station) => station[key] !== null && station[key] !== undefined)
+    .sort((a, b) => Number(b[key]) - Number(a[key]) || a.station_code.localeCompare(b.station_code));
+  return rows.find((station) => !used.has(station.station_code)) || rows[0] || null;
+}
+
+function renderStationInsights() {
+  const target = $("#station-insights");
+  if (!target) return;
+  const definitions = [
+    ["総合バランス", "total_score", "6項目が揃った駅だけを対象"],
+    ["将来人口", "future_population_score", "2045年までの人口維持を相対評価"],
+    ["交通利便性", "transport_score", "駅・路線・乗降客数を相対評価"],
+  ];
+  const used = new Set();
+  const cards = definitions.map(([label, key, note]) => {
+    const station = pickStationInsight(key, used);
+    if (!station) return "";
+    used.add(station.station_code);
+    return `<article class="insight-card" data-station-code="${station.station_code}" tabindex="0" role="button">
+      <span class="insight-label">${label}</span>
+      <h3>${station.name}</h3>
+      <span class="insight-note">${station.primary_ward_name ?? ""} / ${note}</span>
+      <div class="insight-value"><strong>${score(station[key])}</strong><span>/ ${metricMax[key]}</span></div>
+    </article>`;
+  }).filter(Boolean);
+
+  target.innerHTML = cards.length ? cards.join("") : `<div class="data-missing">駅エリアのスコア生成後に注目駅を表示します。</div>`;
+  target.querySelectorAll(".insight-card").forEach((card) => {
+    const open = () => openStationDetail(card.dataset.stationCode);
+    card.addEventListener("click", open);
+    card.addEventListener("keydown", (event) => { if (event.key === "Enter") open(); });
+  });
+}
+
 function renderRanking() {
   const metric = stationState.rankingMetric;
   const ranked = filteredStations()
@@ -55,7 +119,7 @@ function renderRanking() {
 
   $("#station-ranking-score-label").textContent = metricLabels[metric] || "評価";
   $("#station-ranking-body").innerHTML = ranked.map((station, index) => `
-    <tr data-station-code="${station.station_code}">
+    <tr data-station-code="${station.station_code}" data-rank="${index + 1}">
       <td>${index + 1}</td>
       <td><strong>${station.name}</strong><br><small>${station.primary_ward_name ?? ""}</small></td>
       <td><span class="score-pill">${score(station[metric])}</span></td>
@@ -79,21 +143,19 @@ function compareCard(station) {
   const eligibility = station.eligibility === "eligible"
     ? "総合点算出対象"
     : (station.eligibility_reason || "総合点: データ不足");
-  const metrics = [
-    ["総合", station.total_score],
-    ["価格動向", station.price_score],
-    ["人口動向（推計）", station.population_score],
-    ["将来人口", station.future_population_score],
-    ["生活利便性", station.convenience_score],
-    ["交通利便性", station.transport_score],
-    ["取引活性度", station.transaction_score],
-  ];
   return `<article class="compare-card">
-    <h3>${station.name}</h3>
-    <p class="detail-sub">${station.primary_ward_name ?? ""} / 駅中心1km圏</p>
-    ${metrics.map(([label, value]) => `<div class="metric-row"><span>${label}</span><strong>${score(value)}</strong></div>`).join("")}
+    <div class="compare-card-top">
+      <div><span class="pref">${station.primary_ward_name ?? ""}</span><h3>${station.name}</h3><p class="detail-sub">駅中心1km圏</p></div>
+      <div class="compare-score"><strong>${score(station.total_score)}</strong><span>総合 / 100</span></div>
+    </div>
+    ${visualMetric("価格動向", station.price_score, 20)}
+    ${visualMetric("人口動向（推計）", station.population_score, 20)}
+    ${visualMetric("将来人口", station.future_population_score, 20)}
+    ${visualMetric("生活利便性", station.convenience_score, 15)}
+    ${visualMetric("交通利便性", station.transport_score, 15)}
+    ${visualMetric("取引活性度", station.transaction_score, 10)}
     <div class="metric-row"><span>信頼度</span><strong>${station.confidence ?? "—"}</strong></div>
-    <div class="data-missing" style="margin-top:12px">${eligibility}</div>
+    <div class="context-box" style="margin-top:12px">${eligibility}</div>
   </article>`;
 }
 
@@ -144,6 +206,17 @@ function transactionSummary(rows) {
   `).join("");
 }
 
+function detailScorePanel(detail) {
+  return `<div class="score-panel">
+    ${visualMetric("価格動向", detail.price_score, 20)}
+    ${visualMetric("人口動向（推計）", detail.population_score, 20)}
+    ${visualMetric("将来人口", detail.future_population_score, 20)}
+    ${visualMetric("生活利便性", detail.convenience_score, 15)}
+    ${visualMetric("交通利便性", detail.transport_score, 15)}
+    ${visualMetric("取引活性度", detail.transaction_score, 10)}
+  </div>`;
+}
+
 async function openStationDetail(stationCode) {
   const dialog = $("#station-detail-dialog");
   $("#station-detail-content").innerHTML = `<div class="detail-body"><p>読み込み中...</p></div>`;
@@ -151,9 +224,6 @@ async function openStationDetail(stationCode) {
 
   try {
     const detail = await loadJson(`./data/geo/station/${stationCode}.json`);
-    const total = detail.total_score === null || detail.total_score === undefined
-      ? `<div class="data-missing">総合点は未算出です。${detail.eligibility_reason ?? "必要データが不足しています。"}</div>`
-      : `<div class="detail-score"><strong>${score(detail.total_score)}</strong><span>/ 100</span></div>`;
     const lines = detail.lines?.length
       ? [...new Set(detail.lines.map((row) => `${row.operator_name ?? ""} ${row.line_name ?? ""}`.trim()))].join(" / ")
       : "—";
@@ -161,21 +231,21 @@ async function openStationDetail(stationCode) {
     const facilities = Object.entries(facilityLabels).map(([key, label]) => `
       <div class="metric-row"><span>${label}</span><strong>${number(metric(detail, `facility_${key}_count`))}施設</strong></div>
     `).join("");
+    const ineligible = detail.total_score === null || detail.total_score === undefined;
 
     $("#station-detail-content").innerHTML = `
       <div class="detail-body">
-        <p class="section-kicker">STATION ${detail.station_code}</p>
-        <h3>${detail.name}</h3>
-        <p class="detail-sub">${detail.primary_ward_name ?? ""} / 駅中心 ${detail.radius_m ?? 1000}m / ${detail.mesh_count ?? 0}メッシュ</p>
-        <p class="detail-sub">${lines}</p>
-        ${total}
-        <div class="metric-row"><span>価格動向</span><strong>${score(detail.price_score)} / 20</strong></div>
-        <div class="metric-row"><span>人口動向（2020→2025推計）</span><strong>${score(detail.population_score)} / 20</strong></div>
-        <div class="metric-row"><span>将来人口</span><strong>${score(detail.future_population_score)} / 20</strong></div>
-        <div class="metric-row"><span>生活利便性</span><strong>${score(detail.convenience_score)} / 15</strong></div>
-        <div class="metric-row"><span>交通利便性</span><strong>${score(detail.transport_score)} / 15</strong></div>
-        <div class="metric-row"><span>取引活性度</span><strong>${score(detail.transaction_score)} / 10</strong></div>
-        <div class="metric-row"><span>データ信頼度</span><strong>${detail.confidence ?? "—"}</strong></div>
+        <div class="detail-hero">
+          <div>
+            <p class="section-kicker">STATION ${detail.station_code}</p>
+            <h3>${detail.name}</h3>
+            <p class="detail-sub">${detail.primary_ward_name ?? ""} / 駅中心 ${detail.radius_m ?? 1000}m / ${detail.mesh_count ?? 0}メッシュ / 信頼度 ${detail.confidence ?? "—"}</p>
+            <p class="detail-sub">${lines}</p>
+          </div>
+          ${scoreRing(detail.total_score)}
+        </div>
+        ${ineligible ? `<div class="context-box">総合点は未算出です。${detail.eligibility_reason ?? "必要データが不足しています。"}</div>` : ""}
+        ${detailScorePanel(detail)}
 
         <section class="detail-section"><h4>人口・将来人口</h4>
           <div class="metric-row"><span>2020→2025推計変化</span><strong>${number(metric(detail, "population_change_2020_2025_projection"), 1)}%</strong></div>
@@ -192,7 +262,7 @@ async function openStationDetail(stationCode) {
         </section>
 
         <section class="detail-section"><h4>駅指定の取引価格</h4>
-          <div class="data-missing">ここは1km圏内の物件位置を推測した集計ではありません。XIT001をこの駅のグループコードで検索した取引です。</div>
+          <div class="context-box">ここは1km圏内の物件位置を推測した集計ではありません。XIT001をこの駅のグループコードで検索した取引です。</div>
           ${transactionSummary(detail.transactions)}
         </section>
 
@@ -214,6 +284,7 @@ async function init() {
     if (stationState.meta.generated_at) {
       $("#station-generated-at").textContent = `生成 ${new Date(stationState.meta.generated_at).toLocaleString("ja-JP")}`;
     }
+    renderStationInsights();
     stationState.rankingMetric = chooseInitialMetric();
     $("#station-ranking-metric").value = stationState.rankingMetric;
     $("#station-ranking-metric").addEventListener("change", (event) => {
@@ -227,6 +298,7 @@ async function init() {
     $("#station-count").textContent = "対象 0駅";
     $("#station-ranking-body").innerHTML = "";
     $("#station-empty-ranking").hidden = false;
+    $("#station-insights").innerHTML = `<div class="data-missing">駅エリアデータは次回の公開データ更新後に生成されます。</div>`;
     $("#station-compare-grid").innerHTML = `<div class="data-missing">駅エリアデータは次回の公開データ更新後に生成されます。</div>`;
     console.error(error);
   }

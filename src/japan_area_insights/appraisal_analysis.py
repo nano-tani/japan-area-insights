@@ -39,7 +39,14 @@ DEFINITIONS = [
     ("market.appraisal_public_price_median", "market", "鑑定標準地価格中央値", "円/㎡", "neutral", "ward", "reinfolib_xct001", 3, "鑑定評価書の1㎡当たり価格中央値"),
     ("market.appraisal_comparison_price_median", "market", "比準価格中央値", "円/㎡", "neutral", "ward", "reinfolib_xct001", 3, "取引事例比較法の比準価格中央値"),
     ("market.appraisal_income_price_median", "market", "収益価格中央値", "円/㎡", "neutral", "ward", "reinfolib_xct001", 3, "収益還元法が適用され価格が正数の標準地の中央値"),
+    ("market.appraisal_cost_price_median", "market", "積算価格中央値", "円/㎡", "neutral", "ward", "reinfolib_xct001", 3, "原価法の積算価格中央値"),
+    ("market.appraisal_development_price_median", "market", "開発法価格中央値", "円/㎡", "neutral", "ward", "reinfolib_xct001", 3, "開発法による価格中央値"),
+    ("market.appraisal_capitalization_rate_median", "market", "還元利回り中央値", "%", "neutral", "ward", "reinfolib_xct001", 3, "収益価格算定内訳の還元利回り中央値"),
     ("market.appraisal_income_method_share", "market", "収益価格算定あり比率", "%", "neutral", "ward", "reinfolib_xct001", 3, "収益価格が正数の鑑定評価書比率"),
+    ("market.appraisal_cost_method_share", "market", "原価法適用比率", "%", "neutral", "ward", "reinfolib_xct001", 3, "積算価格が正数の鑑定評価書比率"),
+    ("market.appraisal_development_method_share", "market", "開発法適用比率", "%", "neutral", "ward", "reinfolib_xct001", 3, "開発法価格が正数の鑑定評価書比率"),
+    ("market.appraisal_comparison_public_ratio", "market", "比準価格/公示価格中央値", "%", "neutral", "ward", "reinfolib_xct001", 3, "比準価格÷1㎡当たり価格の比率中央値"),
+    ("market.appraisal_income_public_ratio", "market", "収益価格/公示価格中央値", "%", "neutral", "ward", "reinfolib_xct001", 3, "収益価格÷1㎡当たり価格の比率中央値"),
     ("market.inheritance_road_value_ratio", "market", "相続税路線価/公示価格中央値", "%", "neutral", "ward", "reinfolib_xct001", 3, "相続税路線価を1㎡当たり価格で除した比率の中央値"),
 ]
 
@@ -90,7 +97,6 @@ def _records(payload: Any) -> list[Mapping[str, Any]]:
             value = payload.get(key)
             if isinstance(value, list):
                 return [row for row in value if isinstance(row, Mapping)]
-        # Some responses may be a single record object.
         if "価格時点" in payload:
             return [payload]
     return []
@@ -138,6 +144,18 @@ def _med(values: Iterable[float | None]) -> float | None:
     return round(float(median(vals)), 2) if vals else None
 
 
+def _positive(rows: list[dict[str, Any]], key: str) -> list[dict[str, Any]]:
+    return [row for row in rows if row.get(key) is not None and float(row[key]) > 0]
+
+
+def _ratio_values(rows: list[dict[str, Any]], numerator: str, denominator: str = "public_price") -> list[float]:
+    return [
+        float(row[numerator]) / float(row[denominator]) * 100.0
+        for row in rows
+        if row.get(numerator) not in (None, 0) and row.get(denominator) not in (None, 0)
+    ]
+
+
 def compute_appraisal_metrics(conn) -> int:
     ensure_appraisal_schema(conn)
     year_row = conn.execute("SELECT MAX(year) AS y FROM appraisal_records").fetchone()
@@ -155,19 +173,27 @@ def compute_appraisal_metrics(conn) -> int:
             continue
         source_ids = [int(row["source_id"]) for row in rows if row.get("source_id") is not None]
         source_id = max(source_ids) if source_ids else None
-        income_positive = [row for row in rows if row.get("income_price") is not None and float(row["income_price"]) > 0]
-        ratios = [
-            float(row["inheritance_road_value"]) / float(row["public_price"]) * 100.0
-            for row in rows
-            if row.get("inheritance_road_value") not in (None, 0) and row.get("public_price") not in (None, 0)
-        ]
+        income_positive = _positive(rows, "income_price")
+        cost_positive = _positive(rows, "cost_price")
+        development_positive = _positive(rows, "development_price")
+        cap_rates = [row.get("capitalization_rate") for row in rows]
+        inheritance_ratios = _ratio_values(rows, "inheritance_road_value")
+        comparison_ratios = _ratio_values(rows, "comparison_price")
+        income_ratios = _ratio_values(rows, "income_price")
         metrics = {
             "market.appraisal_count": (float(len(rows)), len(rows)),
             "market.appraisal_public_price_median": (_med(row.get("public_price") for row in rows), len(rows)),
             "market.appraisal_comparison_price_median": (_med(row.get("comparison_price") for row in rows), len(rows)),
             "market.appraisal_income_price_median": (_med(row.get("income_price") for row in income_positive), len(income_positive)),
+            "market.appraisal_cost_price_median": (_med(row.get("cost_price") for row in cost_positive), len(cost_positive)),
+            "market.appraisal_development_price_median": (_med(row.get("development_price") for row in development_positive), len(development_positive)),
+            "market.appraisal_capitalization_rate_median": (_med(cap_rates), len([value for value in cap_rates if value not in (None, 0)])),
             "market.appraisal_income_method_share": (round(len(income_positive) / len(rows) * 100.0, 2), len(rows)),
-            "market.inheritance_road_value_ratio": (_med(ratios), len(ratios)),
+            "market.appraisal_cost_method_share": (round(len(cost_positive) / len(rows) * 100.0, 2), len(rows)),
+            "market.appraisal_development_method_share": (round(len(development_positive) / len(rows) * 100.0, 2), len(rows)),
+            "market.appraisal_comparison_public_ratio": (_med(comparison_ratios), len(comparison_ratios)),
+            "market.appraisal_income_public_ratio": (_med(income_ratios), len(income_ratios)),
+            "market.inheritance_road_value_ratio": (_med(inheritance_ratios), len(inheritance_ratios)),
         }
         for metric_key, (value, sample) in metrics.items():
             quality = "A" if sample >= 30 else "B" if sample >= 10 else "C" if sample >= 3 else "D"
@@ -182,7 +208,7 @@ def compute_appraisal_metrics(conn) -> int:
                 metric_version=METRIC_VERSION,
                 quality_grade=quality,
                 source_year=str(year),
-                notes="XCT001鑑定評価書。0または空欄の価格手法は中央値から除外。",
+                notes="XCT001鑑定評価書。0または空欄の価格手法は中央値・比率計算から除外。",
             )
             written += 1
     return written

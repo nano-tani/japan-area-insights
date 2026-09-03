@@ -11,16 +11,18 @@
     const value = metric?.value;
     const unit = metric?.unit || "";
     if (value === null || value === undefined) return "—";
-    const zeroDigitUnits = new Set(["人", "件", "戸", "施設", "床"]);
+    const zeroDigitUnits = new Set(["人", "件", "戸", "施設", "床", "箇所"]);
     if (unit === "%") return `${formatNumber(value, 1)}%`;
     if (unit === "円/㎡") return `${formatNumber(value, 0)}円/㎡`;
     if (unit === "千円") return `${formatNumber(value, 0)}千円`;
     if (unit === "千円/人") return `${formatNumber(value, 1)}千円/人`;
     if (unit === "㎡") return `${formatNumber(value, 1)}㎡`;
-    if (unit === "m") return `${formatNumber(value, 1)}m`;
-    if (unit === "年") return `${formatNumber(value, 1)}年`;
+    if (unit === "m") return `${formatNumber(value, 0)}m`;
+    if (unit === "年") return `${formatNumber(value, 0)}年`;
     if (unit === "床/万人") return `${formatNumber(value, 1)}床/万人`;
     if (unit === "人/万人") return `${formatNumber(value, 1)}人/万人`;
+    if (unit === "箇所/万人") return `${formatNumber(value, 2)}箇所/万人`;
+    if (unit === "倍") return `${formatNumber(value, 2)}倍`;
     if (zeroDigitUnits.has(unit)) return `${formatNumber(value, 0)}${unit}`;
     if (unit === "指数") return formatNumber(value, 3);
     return `${formatNumber(value, 2)}${unit}`;
@@ -65,6 +67,7 @@
       <article class="analysis-card"><div class="analysis-card-head"><span>HOUSING</span><h3>住宅ストック</h3></div><div id="analysis-housing"></div></article>
       <article class="analysis-card"><div class="analysis-card-head"><span>WORK & EDUCATION</span><h3>労働・教育</h3></div><div id="analysis-work-education"></div></article>
       <article class="analysis-card"><div class="analysis-card-head"><span>HEALTH & WELFARE</span><h3>医療・福祉・文化</h3></div><div id="analysis-health-welfare"></div></article>
+      <article class="analysis-card"><div class="analysis-card-head"><span>RESILIENCE</span><h3>避難・災害履歴</h3></div><div id="analysis-resilience"></div></article>
     `);
   }
 
@@ -101,6 +104,7 @@
     renderMetricCategory("#analysis-housing", metrics.housing, "住宅統計は拡張データ更新後に表示されます。");
     renderMetricCategory("#analysis-work-education", combine(metrics, ["labor", "education"]), "労働・教育統計は拡張データ更新後に表示されます。");
     renderMetricCategory("#analysis-health-welfare", combine(metrics, ["health", "welfare", "culture"]), "医療・福祉・文化統計は拡張データ更新後に表示されます。");
+    renderMetricCategory("#analysis-resilience", metrics.resilience, "避難場所・災害履歴は拡張データ更新後に表示されます。");
     renderExposures(payload.exposures);
   }
 
@@ -115,7 +119,7 @@
       [
         "#analysis-market", "#analysis-migration", "#analysis-economy",
         "#analysis-housing", "#analysis-work-education", "#analysis-health-welfare",
-        "#analysis-exposures"
+        "#analysis-resilience", "#analysis-exposures"
       ].forEach((selector) => {
         const target = $(selector);
         if (target) target.innerHTML = `<div class="data-missing">詳細分析データはまだ生成されていません。</div>`;

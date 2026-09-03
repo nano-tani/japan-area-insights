@@ -14,6 +14,12 @@
 
 公開サイト側にAPIキーは置きません。公的APIはPython/GitHub Actions側で取得し、加工済みJSONだけを公開します。
 
+## 地理粒度拡張
+
+区より細かい分析は、区・駅エリア・町丁目・250mメッシュを同一基盤で扱う方針です。駅エリアは区境をまたげる独立した比較単位とし、250mメッシュには無理に総合点を付けません。
+
+詳細設計: [`docs/AREA_GRANULARITY_DESIGN.md`](docs/AREA_GRANULARITY_DESIGN.md)
+
 ## 開発
 
 ```bash

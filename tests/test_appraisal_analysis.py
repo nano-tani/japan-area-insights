@@ -15,6 +15,7 @@ def test_normalize_xct001_and_compute_metrics(tmp_path: Path):
                 "鑑定評価手法の適用 取引事例比較法比準価格": "1050000",
                 "鑑定評価手法の適用 収益還元法 収益価格": "900000",
                 "鑑定評価手法の適用 原価法 積算価格": "950000",
+                "鑑定評価手法の適用 開発法 開発法による価格": "920000",
                 "収益価格算定内訳還元利回り": "3.5",
                 "緯度": "35.68",
                 "経度": "139.75",
@@ -26,6 +27,8 @@ def test_normalize_xct001_and_compute_metrics(tmp_path: Path):
                 "路線価　相続税路線価": "960000",
                 "鑑定評価手法の適用 取引事例比較法比準価格": "1250000",
                 "鑑定評価手法の適用 収益還元法 収益価格": "0",
+                "鑑定評価手法の適用 原価法 積算価格": "1100000",
+                "収益価格算定内訳還元利回り": "4.0",
             },
             {
                 "標準地番号　市区町村コード　県コード": "13",
@@ -34,6 +37,8 @@ def test_normalize_xct001_and_compute_metrics(tmp_path: Path):
                 "路線価　相続税路線価": "1120000",
                 "鑑定評価手法の適用 取引事例比較法比準価格": "1450000",
                 "鑑定評価手法の適用 収益還元法 収益価格": "1100000",
+                "鑑定評価手法の適用 原価法 積算価格": "0",
+                "収益価格算定内訳還元利回り": "4.5",
             },
         ]
     }
@@ -42,6 +47,7 @@ def test_normalize_xct001_and_compute_metrics(tmp_path: Path):
     assert rows[0]["area_id"] == "13101"
     assert rows[0]["inheritance_road_value"] == 800000
     assert rows[0]["income_price"] == 900000
+    assert rows[0]["development_price"] == 920000
     assert '"1㎡当たりの価格"' in rows[0]["raw_json"]
 
     db_path = tmp_path / "appraisal.db"
@@ -73,10 +79,14 @@ def test_normalize_xct001_and_compute_metrics(tmp_path: Path):
             [{**row, "source_id": source_id} for row in rows],
         )
         count = compute_appraisal_metrics(conn)
-        assert count == 6
+        assert count == 13
         metrics = {row["metric_key"]: row["value"] for row in conn.execute("SELECT metric_key,value FROM geo_metrics")}
         assert metrics["market.appraisal_count"] == 3
         assert metrics["market.appraisal_public_price_median"] == 1200000
         assert metrics["market.appraisal_income_price_median"] == 1000000
+        assert metrics["market.appraisal_cost_price_median"] == 1025000
+        assert metrics["market.appraisal_capitalization_rate_median"] == 4.0
         assert round(metrics["market.appraisal_income_method_share"], 2) == 66.67
+        assert round(metrics["market.appraisal_cost_method_share"], 2) == 66.67
+        assert round(metrics["market.appraisal_development_method_share"], 2) == 33.33
         assert metrics["market.inheritance_road_value_ratio"] == 80

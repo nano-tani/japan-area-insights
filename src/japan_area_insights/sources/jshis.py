@@ -45,6 +45,8 @@ class JShisClient:
                 if exc.code == 404:
                     return None
                 last_error = exc
+                if exc.code == 429 and attempt >= self.retries:
+                    raise JShisRateLimit("J-SHIS returned HTTP 429; stopping this partial refresh") from exc
                 if exc.code not in {429, 500, 502, 503, 504} or attempt >= self.retries:
                     raise
             except (urllib.error.URLError, TimeoutError) as exc:

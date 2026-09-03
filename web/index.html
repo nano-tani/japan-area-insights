@@ -6,14 +6,16 @@
   <meta name="description" content="公的データを中心に東京23区を比較する街データサイト">
   <title>街スコア | 東京23区をデータで比較</title>
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./polish.css">
 </head>
 <body>
   <header class="site-header">
     <a class="brand" href="./">街スコア <span>BETA</span></a>
-    <div style="display:flex;gap:18px;align-items:center">
-      <a class="method-link" href="./stations.html">駅エリア比較</a>
-      <a class="method-link" href="https://github.com/nano-tani/japan-area-insights" target="_blank" rel="noreferrer">計算方法・出典</a>
-    </div>
+    <nav class="site-nav" aria-label="主要ナビゲーション">
+      <a href="./" aria-current="page">区で比較</a>
+      <a href="./stations.html">駅で比較</a>
+      <a class="nav-source" href="https://github.com/nano-tani/japan-area-insights" target="_blank" rel="noreferrer">計算方法・出典</a>
+    </nav>
   </header>
 
   <main>
@@ -32,6 +34,14 @@
       </div>
     </section>
 
+    <section class="insight-strip" aria-labelledby="area-insights-title">
+      <div class="insight-heading">
+        <h2 id="area-insights-title">まず見るなら</h2>
+        <p>現在の公開データから、特徴の異なる上位エリアを3つ表示します。</p>
+      </div>
+      <div id="area-insights" class="insight-grid" aria-live="polite"></div>
+    </section>
+
     <section class="section" aria-labelledby="ranking-title">
       <div class="section-heading">
         <div>
@@ -40,8 +50,8 @@
         </div>
         <p class="section-note">対象地域内での相対評価。欠損項目を0点扱いせず、必要データが揃った場合のみ総合点を算出します。</p>
       </div>
-      <div class="compare-controls" style="grid-template-columns:1fr;max-width:360px;margin-bottom:16px">
-        <select id="ranking-metric" aria-label="ランキング指標">
+      <div class="ranking-toolbar">
+        <select id="ranking-metric" class="metric-select" aria-label="ランキング指標">
           <option value="total_score">総合評価</option>
           <option value="price_score">価格動向</option>
           <option value="population_score">人口動向</option>
@@ -50,6 +60,7 @@
           <option value="transport_score">交通利便性</option>
           <option value="transaction_score">取引活性度</option>
         </select>
+        <span class="ranking-caption">行を選ぶと詳細を表示</span>
       </div>
       <div class="table-wrap">
         <table>
@@ -70,7 +81,7 @@
           <p class="section-kicker">COMPARE</p>
           <h2 id="compare-title">2地域を比較</h2>
         </div>
-        <p class="section-note">単独の点数より、差を見るための機能です。</p>
+        <p class="section-note">点数だけでなく、6項目の強弱を同じ尺度で見比べます。</p>
       </div>
       <div class="compare-controls">
         <select id="compare-a" aria-label="比較する1つ目の地域"></select>
@@ -84,8 +95,9 @@
       <div class="section-heading">
         <div>
           <p class="section-kicker">ALL AREAS</p>
-          <h2 id="areas-title">23区一覧</h2>
+          <h2 id="areas-title">東京23区から探す</h2>
         </div>
+        <p class="section-note">カードでは総合点と主要3項目を先に確認できます。</p>
       </div>
       <div id="area-grid" class="area-grid"></div>
     </section>

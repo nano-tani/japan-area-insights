@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="東京23区の駅1km圏を公的データで比較する街データサイト">
+  <title>駅エリア比較 | 街スコア</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./">街スコア <span>BETA</span></a>
+    <a class="method-link" href="./">23区比較へ戻る</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">TOKYO 23 WARDS / STATION AREA 1KM</p>
+      <h1>駅のまわりを、<br>データで比べる。</h1>
+      <p class="lead">駅中心から1km以内に中心点を持つ250mメッシュを集計し、区境をまたいで比較します。価格・取引だけは位置を推測せず、その駅コードを条件に取得した取引データを使います。</p>
+      <label class="search-box">
+        <span>駅検索</span>
+        <input id="station-search" type="search" placeholder="例：中野、赤羽、二子玉川" autocomplete="off">
+      </label>
+      <div class="meta-row">
+        <span id="station-count">対象駅を確認中</span>
+        <span id="station-generated-at">更新状況を確認中</span>
+        <span>比較半径 1km</span>
+        <span>区ランキングとは別の母集団です</span>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="station-ranking-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">STATION RANKING</p>
+          <h2 id="station-ranking-title">駅エリア ランキング</h2>
+        </div>
+        <p class="section-note">総合点は6項目、取引30件以上、価格3年以上などの条件を満たす駅だけ表示します。人口動向は現段階ではXKT013の2020年人口→2025年推計人口を暫定利用します。</p>
+      </div>
+      <div class="compare-controls" style="grid-template-columns:1fr;max-width:360px;margin-bottom:16px">
+        <select id="station-ranking-metric" aria-label="駅ランキング指標">
+          <option value="total_score">総合評価</option>
+          <option value="price_score">価格動向</option>
+          <option value="population_score">人口動向（推計）</option>
+          <option value="future_population_score">将来人口</option>
+          <option value="convenience_score">生活利便性</option>
+          <option value="transport_score">交通利便性</option>
+          <option value="transaction_score">取引活性度</option>
+        </select>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>順位</th><th>駅</th><th id="station-ranking-score-label">評価</th><th>価格</th><th>人口*</th><th>将来人口</th><th>生活</th><th>交通</th><th>取引</th><th>信頼度</th>
+            </tr>
+          </thead>
+          <tbody id="station-ranking-body"></tbody>
+        </table>
+      </div>
+      <p id="station-empty-ranking" class="empty-state" hidden>駅エリアの実データはまだ生成されていません。次回の公開データ更新後に表示されます。</p>
+    </section>
+
+    <section class="section compare-section" aria-labelledby="station-compare-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">COMPARE</p>
+          <h2 id="station-compare-title">2駅を比較</h2>
+        </div>
+        <p class="section-note">駅1km圏どうしだけで比較します。区スコアとは直接比較しません。</p>
+      </div>
+      <div class="compare-controls">
+        <select id="station-compare-a" aria-label="比較する1つ目の駅"></select>
+        <span>VS</span>
+        <select id="station-compare-b" aria-label="比較する2つ目の駅"></select>
+      </div>
+      <div id="station-compare-grid" class="compare-grid"></div>
+    </section>
+
+    <section class="section" aria-labelledby="station-method-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">DEFINITION</p>
+          <h2 id="station-method-title">駅エリアの定義</h2>
+        </div>
+      </div>
+      <div class="compare-grid">
+        <article class="compare-card">
+          <h3>1km圏データ</h3>
+          <div class="metric-row"><span>人口・将来人口</span><strong>250mメッシュ集計</strong></div>
+          <div class="metric-row"><span>生活施設</span><strong>1km圏メッシュ内</strong></div>
+          <div class="metric-row"><span>交通</span><strong>1km圏内の駅・路線</strong></div>
+        </article>
+        <article class="compare-card">
+          <h3>駅条件データ</h3>
+          <div class="metric-row"><span>取引価格</span><strong>XIT001 駅コード指定</strong></div>
+          <div class="metric-row"><span>取引件数</span><strong>直近5完了年</strong></div>
+          <div class="metric-row"><span>位置の推測</span><strong>しない</strong></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="station-detail-dialog" class="detail-dialog">
+    <button id="station-dialog-close" class="dialog-close" type="button" aria-label="閉じる">×</button>
+    <div id="station-detail-content"></div>
+  </dialog>
+
+  <footer>
+    <p>本サイトは投資助言ではありません。表示値は公的データ等を加工した相対評価であり、将来の価格・収益を保証しません。</p>
+    <p>駅エリア総合点は東京23区内の駅1km圏だけを母集団とする相対評価です。区スコアと直接比較できる点数ではありません。</p>
+    <p>このサービスは、国土交通省の不動産情報ライブラリのAPI機能を使用していますが、提供情報の最新性、正確性、完全性等が保証されたものではありません</p>
+    <p>このサービスは、政府統計総合窓口(e-Stat)のAPI機能を使用していますが、サービスの内容は国によって保証されたものではありません。</p>
+  </footer>
+
+  <script src="./stations.js" defer></script>
+</body>
+</html>

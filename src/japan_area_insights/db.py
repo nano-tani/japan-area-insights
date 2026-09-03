@@ -174,6 +174,77 @@ CREATE TABLE IF NOT EXISTS data_sources (
     fetched_at TEXT NOT NULL,
     raw_hash TEXT
 );
+
+CREATE TABLE IF NOT EXISTS geo_units (
+    geo_id TEXT PRIMARY KEY,
+    geo_type TEXT NOT NULL CHECK (geo_type IN ('ward', 'station_area', 'neighborhood', 'mesh250')),
+    canonical_code TEXT NOT NULL,
+    name TEXT NOT NULL,
+    parent_geo_id TEXT,
+    primary_area_id TEXT,
+    prefecture_code TEXT,
+    latitude REAL,
+    longitude REAL,
+    radius_m INTEGER,
+    definition_version TEXT NOT NULL,
+    is_active INTEGER NOT NULL DEFAULT 1 CHECK (is_active IN (0, 1)),
+    FOREIGN KEY (parent_geo_id) REFERENCES geo_units(geo_id),
+    FOREIGN KEY (primary_area_id) REFERENCES areas(area_id),
+    UNIQUE (geo_type, canonical_code, definition_version)
+);
+
+CREATE INDEX IF NOT EXISTS idx_geo_units_type_active ON geo_units(geo_type, is_active);
+CREATE INDEX IF NOT EXISTS idx_geo_units_primary_area ON geo_units(primary_area_id);
+
+CREATE TABLE IF NOT EXISTS geo_unit_meshes (
+    geo_id TEXT NOT NULL,
+    mesh_id TEXT NOT NULL,
+    weight REAL NOT NULL DEFAULT 1.0 CHECK (weight >= 0.0 AND weight <= 1.0),
+    method TEXT NOT NULL,
+    distance_m REAL,
+    PRIMARY KEY (geo_id, mesh_id),
+    FOREIGN KEY (geo_id) REFERENCES geo_units(geo_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_geo_unit_meshes_mesh ON geo_unit_meshes(mesh_id);
+
+CREATE TABLE IF NOT EXISTS geo_metrics (
+    geo_id TEXT NOT NULL,
+    metric_key TEXT NOT NULL,
+    period TEXT NOT NULL,
+    value REAL,
+    sample_size INTEGER,
+    source_id INTEGER,
+    metric_version TEXT NOT NULL,
+    calculated_at TEXT NOT NULL,
+    PRIMARY KEY (geo_id, metric_key, period, metric_version),
+    FOREIGN KEY (geo_id) REFERENCES geo_units(geo_id),
+    FOREIGN KEY (source_id) REFERENCES data_sources(source_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_geo_metrics_geo_key ON geo_metrics(geo_id, metric_key);
+
+CREATE TABLE IF NOT EXISTS geo_scores (
+    geo_id TEXT NOT NULL,
+    calculation_date TEXT NOT NULL,
+    peer_group TEXT NOT NULL,
+    price_score REAL,
+    population_score REAL,
+    future_population_score REAL,
+    convenience_score REAL,
+    transport_score REAL,
+    transaction_score REAL,
+    total_score REAL,
+    confidence TEXT NOT NULL,
+    data_completeness REAL,
+    score_version TEXT NOT NULL,
+    eligibility TEXT NOT NULL,
+    eligibility_reason TEXT,
+    PRIMARY KEY (geo_id, calculation_date, score_version),
+    FOREIGN KEY (geo_id) REFERENCES geo_units(geo_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_geo_scores_peer_group ON geo_scores(peer_group, calculation_date);
 """
 
 MIGRATION_COLUMNS = {

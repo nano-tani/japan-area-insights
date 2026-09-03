@@ -74,3 +74,43 @@ def mesh_code_250m(lon: float, lat: float) -> str:
         f"{first_lat:02d}{first_lon:02d}"
         f"{second_lat}{second_lon}{third_lat}{third_lon}{half}{quarter}"
     )
+
+
+def mesh250_center(mesh_id: str) -> tuple[float, float]:
+    """Return the center lon/lat of a 10-digit Japanese 250m mesh code."""
+    code = str(mesh_id).strip()
+    if len(code) != 10 or not code.isdigit():
+        raise ValueError(f"invalid 250m mesh code: {mesh_id!r}")
+
+    first_lat = int(code[0:2])
+    first_lon = int(code[2:4])
+    second_lat = int(code[4])
+    second_lon = int(code[5])
+    third_lat = int(code[6])
+    third_lon = int(code[7])
+    half = int(code[8])
+    quarter = int(code[9])
+
+    if second_lat > 7 or second_lon > 7 or half not in {1, 2, 3, 4} or quarter not in {1, 2, 3, 4}:
+        raise ValueError(f"invalid 250m mesh code: {mesh_id!r}")
+
+    lat_minutes = first_lat * 40.0 + second_lat * 5.0 + third_lat * 0.5
+    lon_degrees = 100 + first_lon
+    lon_minutes = second_lon * 7.5 + third_lon * 0.75
+
+    if half in {3, 4}:
+        lat_minutes += 15.0 / 60.0
+    if half in {2, 4}:
+        lon_minutes += 22.5 / 60.0
+    if quarter in {3, 4}:
+        lat_minutes += 7.5 / 60.0
+    if quarter in {2, 4}:
+        lon_minutes += 11.25 / 60.0
+
+    # Quarter-grid size is 7.5 seconds latitude x 11.25 seconds longitude.
+    lat_minutes += 3.75 / 60.0
+    lon_minutes += 5.625 / 60.0
+
+    latitude = lat_minutes / 60.0
+    longitude = lon_degrees + lon_minutes / 60.0
+    return longitude, latitude

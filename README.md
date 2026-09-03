@@ -20,6 +20,23 @@
 
 詳細設計: [`docs/AREA_GRANULARITY_DESIGN.md`](docs/AREA_GRANULARITY_DESIGN.md)
 
+### Phase A: 地理基盤
+
+Phase Aは実装済みです。既存の区単位DBを壊さず、次の汎用テーブルを追加しています。
+
+- `geo_units`: 区・駅エリア・町丁目・250mメッシュの共通マスタ
+- `geo_unit_meshes`: 各地理単位を250mメッシュ集合で定義
+- `geo_metrics`: 粒度別の計算済み指標
+- `geo_scores`: 粒度別・比較母集団別のスコア
+
+XKT013の将来人口を取得した後に次を実行すると、23区と250mメッシュを新しい地理モデルへ同期します。
+
+```bash
+python scripts/sync_geo_units.py
+```
+
+同期処理は、区を `ward:<市区町村コード>`、250mメッシュを `mesh250:<メッシュコード>` として登録し、XKT013の `SHICODE` に基づく区→メッシュ対応を保存します。250mメッシュの中心座標もメッシュコードから再現して保持します。
+
 ## 開発
 
 ```bash
@@ -29,6 +46,7 @@ python -m venv .venv
 pip install -e .[dev]
 python scripts/init_db.py
 python scripts/seed_areas.py
+python scripts/sync_geo_units.py
 python scripts/build_site.py
 pytest
 ```
@@ -70,6 +88,7 @@ python scripts/fetch_population.py
 
 ```bash
 python scripts/fetch_future_population.py
+python scripts/sync_geo_units.py
 ```
 
 CSV ZIPを直接取り込む `scripts/import_future_population.py` も予備経路として残しています。
@@ -138,7 +157,7 @@ Repository Settings → Secrets and variables → Actions に次のRepository se
 
 登録後、Actions → `Refresh public data` → `Run workflow` を実行します。
 
-このWorkflowは、23区の取引価格・地価・2025年国勢調査速報・250m将来人口・生活利便施設・駅/乗降客数を取得し、SQLiteで集計・採点した後、`web/data/` の加工済みJSONだけをmainへ保存してGitHub Pagesへ公開します。秘密情報とSQLite本体は保存しません。
+このWorkflowは、23区の取引価格・地価・2025年国勢調査速報・250m将来人口・生活利便施設・駅/乗降客数を取得し、地理基盤を同期してからSQLiteで集計・採点し、`web/data/` の加工済みJSONだけをmainへ保存してGitHub Pagesへ公開します。秘密情報とSQLite本体は保存しません。
 
 通常のPages公開は、すでに `web/data/` が存在する場合はそのスナップショットを使用します。そのためコード更新のたびに高コストな公的API取得を繰り返しません。
 

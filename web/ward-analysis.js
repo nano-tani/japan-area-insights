@@ -18,6 +18,9 @@
     if (unit === "千円/人") return `${formatNumber(value, 1)}千円/人`;
     if (unit === "㎡") return `${formatNumber(value, 1)}㎡`;
     if (unit === "m") return `${formatNumber(value, 0)}m`;
+    if (unit === "m/s") return `${formatNumber(value, 0)}m/s`;
+    if (unit === "cm/s") return `${formatNumber(value, 1)}cm/s`;
+    if (unit === "震度") return formatNumber(value, 2);
     if (unit === "年") return `${formatNumber(value, 0)}年`;
     if (unit === "床/万人") return `${formatNumber(value, 1)}床/万人`;
     if (unit === "人/万人") return `${formatNumber(value, 1)}人/万人`;
@@ -66,7 +69,26 @@
       <article class="analysis-card"><div class="analysis-card-head"><span>WORK & EDUCATION</span><h3>労働・教育</h3></div><div id="analysis-work-education"></div></article>
       <article class="analysis-card"><div class="analysis-card-head"><span>HEALTH & WELFARE</span><h3>医療・福祉・文化</h3></div><div id="analysis-health-welfare"></div></article>
       <article class="analysis-card"><div class="analysis-card-head"><span>RESILIENCE</span><h3>避難・災害履歴</h3></div><div id="analysis-resilience"></div></article>
+      <article class="analysis-card"><div class="analysis-card-head"><span>SEISMIC</span><h3>地震・表層地盤</h3></div><div id="analysis-seismic"></div></article>
     `);
+  }
+
+  function renderSeismic(rows, groundTypes, note) {
+    const target = $("#analysis-seismic");
+    if (!target) return;
+    const latest = latestByMetric(rows || []);
+    if (!latest.length) {
+      target.innerHTML = `<div class="data-missing">J-SHIS地震・表層地盤データは拡張データ更新後に表示されます。</div>`;
+      return;
+    }
+    const types = (groundTypes || []).slice(0, 5).map((row) => `
+      <div class="analysis-metric-row">
+        <div><span>${row.name}</span><small>${row.mesh_count}メッシュ / ${formatNumber(row.population_2025, 0)}人</small></div>
+        <div class="analysis-value"><strong>${row.population_share === null ? "—" : `${formatNumber(row.population_share, 1)}%`}</strong></div>
+      </div>`).join("");
+    target.innerHTML = `${latest.map(metricRow).join("")}
+      ${types ? `<div class="context-box"><strong>主な微地形区分（2025人口構成）</strong>${types}</div>` : ""}
+      <div class="context-box"><strong>出典：防災科学技術研究所 J-SHIS（地震ハザードステーション）</strong><span>${note?.note || "250m代表値・確率論モデルです。個別地点の安全性や将来の地震発生を保証するものではありません。"}</span></div>`;
   }
 
   function renderExposures(rows, bands) {
@@ -113,6 +135,7 @@
     renderMetricCategory("#analysis-work-education", combine(metrics, ["labor", "education"]), "労働・教育統計は拡張データ更新後に表示されます。");
     renderMetricCategory("#analysis-health-welfare", combine(metrics, ["health", "welfare", "culture"]), "医療・福祉・文化統計は拡張データ更新後に表示されます。");
     renderMetricCategory("#analysis-resilience", metrics.resilience, "避難場所・災害履歴は拡張データ更新後に表示されます。");
+    renderSeismic(metrics.seismic, payload.seismic_ground_types, payload.seismic_note);
     renderExposures(payload.exposures, payload.exposure_bands);
   }
 
@@ -124,7 +147,7 @@
       if (!response.ok) throw new Error(String(response.status));
       renderAll(await response.json());
     } catch (error) {
-      ["#analysis-market", "#analysis-migration", "#analysis-economy", "#analysis-housing", "#analysis-work-education", "#analysis-health-welfare", "#analysis-resilience", "#analysis-exposures"].forEach((selector) => {
+      ["#analysis-market", "#analysis-migration", "#analysis-economy", "#analysis-housing", "#analysis-work-education", "#analysis-health-welfare", "#analysis-resilience", "#analysis-seismic", "#analysis-exposures"].forEach((selector) => {
         const target = $(selector);
         if (target) target.innerHTML = `<div class="data-missing">詳細分析データはまだ生成されていません。</div>`;
       });

@@ -35,7 +35,7 @@
           <p class="section-kicker">RANKING</p>
           <h2 id="ranking-title">東京23区 ランキング</h2>
         </div>
-        <p class="section-note">対象地域内での相対評価。未実装項目を0点扱いせず、取得済み指標だけを個別表示します。</p>
+        <p class="section-note">対象地域内での相対評価。欠損項目を0点扱いせず、必要データが揃った場合のみ総合点を算出します。</p>
       </div>
       <div class="compare-controls" style="grid-template-columns:1fr;max-width:360px;margin-bottom:16px">
         <select id="ranking-metric" aria-label="ランキング指標">
@@ -43,6 +43,8 @@
           <option value="price_score">価格動向</option>
           <option value="population_score">人口動向</option>
           <option value="future_population_score">将来人口</option>
+          <option value="convenience_score">生活利便性</option>
+          <option value="transport_score">交通利便性</option>
           <option value="transaction_score">取引活性度</option>
         </select>
       </div>
@@ -50,7 +52,7 @@
         <table>
           <thead>
             <tr>
-              <th>順位</th><th>エリア</th><th id="ranking-score-label">評価</th><th>価格</th><th>人口</th><th>将来人口</th><th>信頼度</th>
+              <th>順位</th><th>エリア</th><th id="ranking-score-label">評価</th><th>価格</th><th>人口</th><th>将来人口</th><th>生活</th><th>交通</th><th>信頼度</th>
             </tr>
           </thead>
           <tbody id="ranking-body"></tbody>

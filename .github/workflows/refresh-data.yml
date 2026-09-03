@@ -53,6 +53,10 @@ jobs:
         run: python scripts/fetch_population.py
       - name: Fetch 250m future population
         run: python scripts/fetch_future_population.py --zoom 12 --interval 0.3
+      - name: Fetch public facilities
+        run: python scripts/fetch_facilities.py --zoom 13 --interval 0.3
+      - name: Fetch station and ridership data
+        run: python scripts/fetch_transport.py --zoom 12 --interval 0.3
       - run: python scripts/compute_scores.py
       - run: python scripts/build_site.py
       - run: pytest -q

@@ -8,7 +8,16 @@ const metricLabels = {
   price_score: "価格動向",
   population_score: "人口動向",
   future_population_score: "将来人口",
+  convenience_score: "生活利便性",
+  transport_score: "交通利便性",
   transaction_score: "取引活性度",
+};
+const facilityLabels = {
+  school: "学校",
+  childcare: "保育園・幼稚園等",
+  medical: "医療機関",
+  library: "図書館",
+  public_facility: "公共施設",
 };
 
 async function loadJson(path) {
@@ -18,7 +27,10 @@ async function loadJson(path) {
 }
 
 function chooseInitialRankingMetric() {
-  const candidates = ["total_score", "price_score", "population_score", "future_population_score", "transaction_score"];
+  const candidates = [
+    "total_score", "price_score", "population_score", "future_population_score",
+    "convenience_score", "transport_score", "transaction_score"
+  ];
   return candidates.find((key) => state.areas.some((area) => area[key] !== null && area[key] !== undefined)) || "total_score";
 }
 
@@ -41,6 +53,8 @@ function renderRanking(filter = "") {
       <td>${score(area.price_score)}</td>
       <td>${score(area.population_score)}</td>
       <td>${score(area.future_population_score)}</td>
+      <td>${score(area.convenience_score)}</td>
+      <td>${score(area.transport_score)}</td>
       <td>${confidence(area.confidence)}</td>
     </tr>
   `).join("");
@@ -112,6 +126,27 @@ function rowsOrMissing(rows, columns) {
   return recent.map((row) => `<div class="metric-row">${columns.map(([label, key, suffix = ""]) => `<span>${label}: <strong>${row[key] ?? "—"}${row[key] === null || row[key] === undefined ? "" : suffix}</strong></span>`).join("")}</div>`).join("");
 }
 
+function facilitySummary(rows) {
+  if (!rows || rows.length === 0) return `<div class="data-missing">データ未生成</div>`;
+  const byType = Object.fromEntries(rows.map((row) => [row.facility_type, row.count]));
+  return Object.entries(facilityLabels).map(([key, label]) => `
+    <div class="metric-row"><span>${label}</span><strong>${byType[key] ?? 0}施設</strong></div>
+  `).join("");
+}
+
+function transportSummary(summary) {
+  if (!summary || summary.station_count === undefined) return `<div class="data-missing">データ未生成</div>`;
+  const passenger = summary.passenger_count === null || summary.passenger_count === undefined
+    ? "—"
+    : `${Number(summary.passenger_count).toLocaleString("ja-JP")}人/日`;
+  return `
+    <div class="metric-row"><span>駅数</span><strong>${summary.station_count}駅</strong></div>
+    <div class="metric-row"><span>路線数</span><strong>${summary.line_count}路線</strong></div>
+    <div class="metric-row"><span>駅別乗降客数 合計</span><strong>${passenger}</strong></div>
+    <div class="metric-row"><span>乗降客数の基準年</span><strong>${summary.passenger_year ?? "—"}年</strong></div>
+  `;
+}
+
 async function openDetail(areaId) {
   const dialog = $("#detail-dialog");
   const basic = state.areas.find((area) => area.area_id === areaId);
@@ -121,7 +156,7 @@ async function openDetail(areaId) {
   try {
     const detail = await loadJson(`./data/area/${areaId}.json`);
     const totalDisplay = detail.total_score === null || detail.total_score === undefined
-      ? `<div class="data-missing">総合100点は生活利便性・交通利便性の実装後に算出します。</div>`
+      ? `<div class="data-missing">総合スコアに必要なデータが不足しています。</div>`
       : `<div class="detail-score"><strong>${score(detail.total_score)}</strong><span>/ 100</span></div>`;
     $("#detail-content").innerHTML = `
       <div class="detail-body">
@@ -139,6 +174,8 @@ async function openDetail(areaId) {
         <section class="detail-section"><h4>地価推移</h4>${rowsOrMissing(detail.prices, [["年", "year"], ["公示地価", "official_land_price", "円/㎡"], ["前年比", "yoy_change", "%"], ["5年変化", "change_5y", "%"]])}</section>
         <section class="detail-section"><h4>人口推移</h4>${rowsOrMissing(detail.population, [["年", "year"], ["人口", "population", "人"], ["人口増減率", "population_change_rate", "%"], ["世帯", "households", "世帯"]])}</section>
         <section class="detail-section"><h4>将来人口</h4>${rowsOrMissing(detail.future_population, [["年", "year"], ["推計人口", "projected_population", "人"], ["2025年比", "retention_rate", "%"]])}</section>
+        <section class="detail-section"><h4>生活利便施設</h4>${facilitySummary(detail.facilities)}</section>
+        <section class="detail-section"><h4>交通</h4>${transportSummary(detail.transport_summary)}</section>
         <section class="detail-section"><h4>データ出典</h4>${detail.sources?.length ? detail.sources.map((source) => `<div class="metric-row"><a href="${source.source_url}" target="_blank" rel="noreferrer">${source.source_name}</a><span>${source.dataset_id ?? ""}</span></div>`).join("") : `<div class="data-missing">出典データ未生成</div>`}</section>
       </div>`;
   } catch (error) {

@@ -17,6 +17,32 @@ def _rank(areas: list[dict], key: str) -> list[dict]:
     return ranked
 
 
+def _transport_summary(stations: list[dict]) -> dict[str, int | None]:
+    groups: set[str] = set()
+    lines: set[str] = set()
+    passenger_by_group: dict[str, int] = {}
+    passenger_years: set[int] = set()
+
+    for row in stations:
+        group = str(row.get("group_code") or row.get("station_id") or "")
+        if group:
+            groups.add(group)
+        if row.get("line_name"):
+            lines.add(str(row["line_name"]))
+        if row.get("passenger_count") is not None and group:
+            count = int(row["passenger_count"])
+            passenger_by_group[group] = max(passenger_by_group.get(group, 0), count)
+        if row.get("passenger_year") is not None:
+            passenger_years.add(int(row["passenger_year"]))
+
+    return {
+        "station_count": len(groups),
+        "line_count": len(lines),
+        "passenger_count": sum(passenger_by_group.values()) if passenger_by_group else None,
+        "passenger_year": max(passenger_years) if passenger_years else None,
+    }
+
+
 def export_site_data(db_path: str | Path, output_dir: str | Path) -> None:
     output = Path(output_dir)
     area_dir = output / "area"
@@ -70,11 +96,32 @@ def export_site_data(db_path: str | Path, output_dir: str | Path) -> None:
 
             detail["facilities"] = _rows(
                 conn,
-                "SELECT facility_type, COUNT(*) AS count FROM facilities WHERE area_id=? GROUP BY facility_type ORDER BY facility_type",
+                """
+                SELECT facility_type, COUNT(*) AS count
+                FROM facilities WHERE area_id=?
+                GROUP BY facility_type ORDER BY facility_type
+                """,
                 (area_id,),
             )
-            detail["stations"] = _rows(conn, "SELECT station_name, line_name FROM stations WHERE area_id=? ORDER BY station_name", (area_id,))
-            detail["hazards"] = _rows(conn, "SELECT hazard_type, risk_label, source_id FROM hazards WHERE area_id=? ORDER BY hazard_type", (area_id,))
+
+            station_rows = _rows(
+                conn,
+                """
+                SELECT station_id, station_code, group_code, station_name, line_name,
+                       operator_name, passenger_count, passenger_year
+                FROM stations WHERE area_id=?
+                ORDER BY station_name, line_name
+                """,
+                (area_id,),
+            )
+            detail["stations"] = station_rows
+            detail["transport_summary"] = _transport_summary(station_rows)
+
+            detail["hazards"] = _rows(
+                conn,
+                "SELECT hazard_type, risk_label, source_id FROM hazards WHERE area_id=? ORDER BY hazard_type",
+                (area_id,),
+            )
             detail["sources"] = _rows(
                 conn,
                 """
@@ -89,23 +136,42 @@ def export_site_data(db_path: str | Path, output_dir: str | Path) -> None:
                     UNION SELECT source_id FROM stations WHERE area_id=? AND source_id IS NOT NULL
                     UNION SELECT source_id FROM hazards WHERE area_id=? AND source_id IS NOT NULL
                 )
-                ORDER BY ds.source_name
+                ORDER BY ds.source_name, ds.dataset_id
                 """,
                 (area_id, area_id, area_id, area_id, area_id, area_id),
             )
-            (area_dir / f"{area_id}.json").write_text(json.dumps(detail, ensure_ascii=False, indent=2), encoding="utf-8")
+            (area_dir / f"{area_id}.json").write_text(
+                json.dumps(detail, ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
 
     rankings = {
         "total_score": _rank(areas, "total_score"),
         "price_score": _rank(areas, "price_score"),
         "population_score": _rank(areas, "population_score"),
         "future_population_score": _rank(areas, "future_population_score"),
+        "convenience_score": _rank(areas, "convenience_score"),
+        "transport_score": _rank(areas, "transport_score"),
         "transaction_score": _rank(areas, "transaction_score"),
     }
 
     output.mkdir(parents=True, exist_ok=True)
-    (output / "areas.json").write_text(json.dumps(areas, ensure_ascii=False, indent=2), encoding="utf-8")
-    (output / "rankings.json").write_text(json.dumps(rankings, ensure_ascii=False, indent=2), encoding="utf-8")
+    (output / "areas.json").write_text(
+        json.dumps(areas, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    (output / "rankings.json").write_text(
+        json.dumps(rankings, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    component_keys = (
+        "price_score",
+        "population_score",
+        "future_population_score",
+        "convenience_score",
+        "transport_score",
+        "transaction_score",
+    )
     (output / "meta.json").write_text(
         json.dumps(
             {
@@ -113,7 +179,7 @@ def export_site_data(db_path: str | Path, output_dir: str | Path) -> None:
                 "area_count": len(areas),
                 "scored_area_count": len(rankings["total_score"]),
                 "partially_scored_area_count": sum(
-                    any(area.get(key) is not None for key in ("price_score", "population_score", "future_population_score", "transaction_score"))
+                    any(area.get(key) is not None for key in component_keys)
                     for area in areas
                 ),
             },

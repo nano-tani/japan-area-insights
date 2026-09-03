@@ -1,0 +1,441 @@
+{
+  "geo_id": "station:003305:r1000:v1",
+  "station_code": "003305",
+  "name": "豊島園",
+  "primary_area_id": "13120",
+  "primary_ward_name": "練馬区",
+  "latitude": 35.74182306212437,
+  "longitude": 139.64860618114471,
+  "radius_m": 1000,
+  "calculation_date": "2026-09-03",
+  "price_score": 3.0,
+  "population_score": 13.0,
+  "future_population_score": 3.0,
+  "convenience_score": 2.25,
+  "transport_score": 6.0,
+  "transaction_score": 4.0,
+  "total_score": 31.25,
+  "confidence": "A",
+  "data_completeness": 1.0,
+  "score_version": "station-v0.1",
+  "eligibility": "eligible",
+  "eligibility_reason": null,
+  "lines": [
+    {
+      "station_name": "豊島園",
+      "line_name": "12号線大江戸線",
+      "operator_name": "東京都",
+      "passenger_count": 13526,
+      "passenger_year": 2023,
+      "source_id": 152
+    },
+    {
+      "station_name": "豊島園",
+      "line_name": "豊島線",
+      "operator_name": "西武鉄道",
+      "passenger_count": 14849,
+      "passenger_year": 2023,
+      "source_id": 152
+    }
+  ],
+  "metrics": {
+    "convenience_index": {
+      "metric_key": "convenience_index",
+      "period": "r1000",
+      "value": 0.2274891774891775,
+      "sample_size": null,
+      "source_id": null,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    },
+    "facility_childcare_count": {
+      "metric_key": "facility_childcare_count",
+      "period": "r1000",
+      "value": 19.0,
+      "sample_size": 19,
+      "source_id": 148,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    },
+    "facility_childcare_per_10k": {
+      "metric_key": "facility_childcare_per_10k",
+      "period": "r1000/2025",
+      "value": 3.301784407983711,
+      "sample_size": null,
+      "source_id": 148,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    },
+    "facility_library_count": {
+      "metric_key": "facility_library_count",
+      "period": "r1000",
+      "value": 1.0,
+      "sample_size": 1,
+      "source_id": 150,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    },
+    "facility_library_per_10k": {
+      "metric_key": "facility_library_per_10k",
+      "period": "r1000/2025",
+      "value": 0.17377812673598478,
+      "sample_size": null,
+      "source_id": 150,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    },
+    "facility_medical_count": {
+      "metric_key": "facility_medical_count",
+      "period": "r1000",
+      "value": 106.0,
+      "sample_size": 106,
+      "source_id": 149,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    },
+    "facility_medical_per_10k": {
+      "metric_key": "facility_medical_per_10k",
+      "period": "r1000/2025",
+      "value": 18.420481434014388,
+      "sample_size": null,
+      "source_id": 149,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    },
+    "facility_public_facility_count": {
+      "metric_key": "facility_public_facility_count",
+      "period": "r1000",
+      "value": 7.0,
+      "sample_size": 7,
+      "source_id": 151,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    },
+    "facility_public_facility_per_10k": {
+      "metric_key": "facility_public_facility_per_10k",
+      "period": "r1000/2025",
+      "value": 1.2164468871518934,
+      "sample_size": null,
+      "source_id": 151,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    },
+    "facility_school_count": {
+      "metric_key": "facility_school_count",
+      "period": "r1000",
+      "value": 5.0,
+      "sample_size": 5,
+      "source_id": 147,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    },
+    "facility_school_per_10k": {
+      "metric_key": "facility_school_per_10k",
+      "period": "r1000/2025",
+      "value": 0.8688906336799239,
+      "sample_size": null,
+      "source_id": 147,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    },
+    "future_population_2045": {
+      "metric_key": "future_population_2045",
+      "period": "2045",
+      "value": 57230.05596923828,
+      "sample_size": null,
+      "source_id": 146,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    },
+    "future_population_retention_2045": {
+      "metric_key": "future_population_retention_2045",
+      "period": "2045/2025",
+      "value": 99.45331919329792,
+      "sample_size": null,
+      "source_id": 146,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    },
+    "mesh_count": {
+      "metric_key": "mesh_count",
+      "period": "r1000",
+      "value": 46.0,
+      "sample_size": 46,
+      "source_id": null,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    },
+    "nearby_line_count": {
+      "metric_key": "nearby_line_count",
+      "period": "r1000",
+      "value": 4.0,
+      "sample_size": 4,
+      "source_id": 152,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    },
+    "nearby_station_count": {
+      "metric_key": "nearby_station_count",
+      "period": "r1000",
+      "value": 2.0,
+      "sample_size": 2,
+      "source_id": 152,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    },
+    "population_2020": {
+      "metric_key": "population_2020",
+      "period": "2020",
+      "value": 56431.454650878906,
+      "sample_size": null,
+      "source_id": 146,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    },
+    "population_2025_projection": {
+      "metric_key": "population_2025_projection",
+      "period": "2025",
+      "value": 57544.64147949219,
+      "sample_size": null,
+      "source_id": 146,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    },
+    "population_change_2020_2025_projection": {
+      "metric_key": "population_change_2020_2025_projection",
+      "period": "2020-2025",
+      "value": 1.9726353600136193,
+      "sample_size": null,
+      "source_id": 146,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    },
+    "price_year_count": {
+      "metric_key": "price_year_count",
+      "period": "2021-2025",
+      "value": 5.0,
+      "sample_size": 5,
+      "source_id": 153,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    },
+    "ridership_daily": {
+      "metric_key": "ridership_daily",
+      "period": "latest",
+      "value": 131106.0,
+      "sample_size": null,
+      "source_id": 152,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    },
+    "ridership_per_capita": {
+      "metric_key": "ridership_per_capita",
+      "period": "latest/2025",
+      "value": 2.278335508384802,
+      "sample_size": null,
+      "source_id": 152,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    },
+    "transaction_count_5y": {
+      "metric_key": "transaction_count_5y",
+      "period": "2021-2025",
+      "value": 163.0,
+      "sample_size": 163,
+      "source_id": 153,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    },
+    "transaction_unit_price_change": {
+      "metric_key": "transaction_unit_price_change",
+      "period": "2021-2025",
+      "value": 0.2673796791443861,
+      "sample_size": null,
+      "source_id": 153,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    },
+    "transaction_unit_price_median_latest": {
+      "metric_key": "transaction_unit_price_median_latest",
+      "period": "<= 2025",
+      "value": 681818.1818181818,
+      "sample_size": null,
+      "source_id": 153,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    },
+    "transport_index": {
+      "metric_key": "transport_index",
+      "period": "r1000",
+      "value": 0.45346320346320346,
+      "sample_size": null,
+      "source_id": null,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+    }
+  },
+  "future_population": [
+    {
+      "year": 2020,
+      "projected_population": 56431.454650878906,
+      "retention_rate": 98.07
+    },
+    {
+      "year": 2025,
+      "projected_population": 57544.64147949219,
+      "retention_rate": 100.0
+    },
+    {
+      "year": 2030,
+      "projected_population": 57737.138763427734,
+      "retention_rate": 100.33
+    },
+    {
+      "year": 2035,
+      "projected_population": 57752.679931640625,
+      "retention_rate": 100.36
+    },
+    {
+      "year": 2040,
+      "projected_population": 57568.32876586914,
+      "retention_rate": 100.04
+    },
+    {
+      "year": 2045,
+      "projected_population": 57230.05596923828,
+      "retention_rate": 99.45
+    },
+    {
+      "year": 2050,
+      "projected_population": 56801.52975463867,
+      "retention_rate": 98.71
+    },
+    {
+      "year": 2055,
+      "projected_population": 56143.21694946289,
+      "retention_rate": 97.56
+    },
+    {
+      "year": 2060,
+      "projected_population": 55292.97702026367,
+      "retention_rate": 96.09
+    },
+    {
+      "year": 2065,
+      "projected_population": 54218.79766845703,
+      "retention_rate": 94.22
+    },
+    {
+      "year": 2070,
+      "projected_population": 52988.997955322266,
+      "retention_rate": 92.08
+    }
+  ],
+  "transactions": [
+    {
+      "year": 2021,
+      "transaction_count": 31,
+      "priced_transaction_count": 31,
+      "median_unit_price": 680000.0
+    },
+    {
+      "year": 2022,
+      "transaction_count": 27,
+      "priced_transaction_count": 27,
+      "median_unit_price": 740000.0
+    },
+    {
+      "year": 2023,
+      "transaction_count": 34,
+      "priced_transaction_count": 34,
+      "median_unit_price": 672794.12
+    },
+    {
+      "year": 2024,
+      "transaction_count": 40,
+      "priced_transaction_count": 40,
+      "median_unit_price": 800292.4
+    },
+    {
+      "year": 2025,
+      "transaction_count": 31,
+      "priced_transaction_count": 31,
+      "median_unit_price": 681818.18
+    }
+  ],
+  "mesh_count": 46,
+  "sources": [
+    {
+      "source_id": 147,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
+      "dataset_id": "XKT006:学校（令和5年度）",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT006",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T19:56:50.797520+00:00"
+    },
+    {
+      "source_id": 148,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
+      "dataset_id": "XKT007:保育園・幼稚園等（令和5年度）",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT007",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T19:58:13.394679+00:00"
+    },
+    {
+      "source_id": 149,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
+      "dataset_id": "XKT010:医療機関（令和2年度）",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT010",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T20:00:06.189913+00:00"
+    },
+    {
+      "source_id": 150,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
+      "dataset_id": "XKT017:図書館（文化施設・平成25年度）",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT017",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T20:01:27.816340+00:00"
+    },
+    {
+      "source_id": 151,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
+      "dataset_id": "XKT018:市区町村役場及び集会施設等（令和4年度）",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT018",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T20:02:52.229251+00:00"
+    },
+    {
+      "source_id": 146,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報 将来推計人口250mメッシュ",
+      "dataset_id": "XKT013:R6",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT013",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T19:55:21.116072+00:00"
+    },
+    {
+      "source_id": 152,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報 駅別乗降客数",
+      "dataset_id": "XKT015:令和5年度",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT015",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T20:03:27.812659+00:00"
+    },
+    {
+      "source_id": 153,
+      "source_name": "国土交通省 不動産情報ライブラリ / 駅指定不動産取引価格情報",
+      "dataset_id": "XIT001:station:2021-2025:01",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XIT001",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T20:33:45.213746+00:00"
+    }
+  ]
+}

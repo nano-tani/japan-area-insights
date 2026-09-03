@@ -6,13 +6,13 @@
   "price_score": 13.0,
   "population_score": 3.0,
   "future_population_score": 8.0,
-  "convenience_score": null,
-  "transport_score": null,
+  "convenience_score": 12.75,
+  "transport_score": 6.0,
   "transaction_score": 1.5,
-  "total_score": null,
-  "confidence": "C",
-  "data_completeness": 0.6666666666666666,
-  "score_version": "v0.2",
+  "total_score": 44.25,
+  "confidence": "A",
+  "data_completeness": 1.0,
+  "score_version": "v0.3",
   "prices": [
     {
       "area_id": "13110",
@@ -180,8 +180,146 @@
       "retention_rate": 100.35
     }
   ],
-  "facilities": [],
-  "stations": [],
+  "facilities": [
+    {
+      "facility_type": "childcare",
+      "count": 130
+    },
+    {
+      "facility_type": "library",
+      "count": 10
+    },
+    {
+      "facility_type": "medical",
+      "count": 649
+    },
+    {
+      "facility_type": "public_facility",
+      "count": 72
+    },
+    {
+      "facility_type": "school",
+      "count": 62
+    }
+  ],
+  "stations": [
+    {
+      "station_id": "6687bf266b53691edf8952406dd9e659f065ca95ca6203274bb1bb34de1ea017",
+      "station_code": "004014",
+      "group_code": "004014",
+      "station_name": "中目黒",
+      "line_name": "2号線日比谷線",
+      "operator_name": "東京地下鉄",
+      "passenger_count": 0,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "10ad50b169984b714704f53ef57d95be42e638a7a25a6bdf192e01a03c201521",
+      "station_code": "004015",
+      "group_code": "004014",
+      "station_name": "中目黒",
+      "line_name": "東横線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 363724,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "0ce3d6b335e2b5ed8c57bfc2cc5b55583ccb06c4637ac518f3f9780223ecf582",
+      "station_code": "004094",
+      "group_code": "004094",
+      "station_name": "学芸大学",
+      "line_name": "東横線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 70598,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "e356637d61dcf94017dee27d157b891ad57a6d0d608638e8e5718ebc0e66699e",
+      "station_code": "003972",
+      "group_code": "003972",
+      "station_name": "池尻大橋",
+      "line_name": "田園都市線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 60918,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "6eb52a9f7cc91234e0c70d2da3b2b94712bd921998a514c4c09f79551e5871a2",
+      "station_code": "004180",
+      "group_code": "004180",
+      "station_name": "洗足",
+      "line_name": "目黒線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 13969,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "7959e341a4ba6ef2745b7f8a03c88ae51dc439c9e304a8bde312e5051ec1ae73",
+      "station_code": "004050",
+      "group_code": "004050",
+      "station_name": "祐天寺",
+      "line_name": "東横線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 28970,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "8ecc81a74117efd9ca91d3c70dc524e8d0ed588247f7907dcac4c2423f67b362",
+      "station_code": "004210",
+      "group_code": "004210",
+      "station_name": "緑が丘",
+      "line_name": "大井町線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 9786,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "7f2eeaf00795e75795e8b77179ee23bc277125bd09d496677b16b65742c62ae8",
+      "station_code": "004196",
+      "group_code": "004196",
+      "station_name": "自由が丘",
+      "line_name": "大井町線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 0,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "8b2d5418e19b75119fae788882a15e37fba1f639429906446e5bc767766da2a4",
+      "station_code": "004199",
+      "group_code": "004196",
+      "station_name": "自由が丘",
+      "line_name": "東横線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 132419,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "66f9cdb06d646a303afda8b34540f85fe5f0a984ec7729781431cf1015c85d14",
+      "station_code": "004143",
+      "group_code": "004143",
+      "station_name": "都立大学",
+      "line_name": "東横線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 45350,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "e3f7b4f66505fd482a31ba52366911aeadcbf650d487664ddb4324f80294d0e9",
+      "station_code": "003929",
+      "group_code": "003929",
+      "station_name": "駒場東大前",
+      "line_name": "井の頭線",
+      "operator_name": "京王電鉄",
+      "passenger_count": 34257,
+      "passenger_year": 2023
+    }
+  ],
+  "transport_summary": {
+    "station_count": 9,
+    "line_count": 6,
+    "passenger_count": 759991,
+    "passenger_year": 2023
+  },
   "hazards": [],
   "sources": [
     {
@@ -191,7 +329,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T11:42:31.300334+00:00"
+      "fetched_at": "2026-09-03T19:33:09.219214+00:00"
     },
     {
       "source_id": 140,
@@ -200,7 +338,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T11:46:20.955313+00:00"
+      "fetched_at": "2026-09-03T19:37:04.021514+00:00"
     },
     {
       "source_id": 141,
@@ -209,7 +347,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T11:50:04.654807+00:00"
+      "fetched_at": "2026-09-03T19:40:53.129374+00:00"
     },
     {
       "source_id": 142,
@@ -218,7 +356,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T11:53:54.061081+00:00"
+      "fetched_at": "2026-09-03T19:44:54.958687+00:00"
     },
     {
       "source_id": 143,
@@ -227,7 +365,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T11:57:51.874354+00:00"
+      "fetched_at": "2026-09-03T19:48:48.842400+00:00"
     },
     {
       "source_id": 144,
@@ -236,7 +374,52 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T12:01:23.583424+00:00"
+      "fetched_at": "2026-09-03T19:52:17.321713+00:00"
+    },
+    {
+      "source_id": 147,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
+      "dataset_id": "XKT006:学校（令和5年度）",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT006",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T19:56:50.797520+00:00"
+    },
+    {
+      "source_id": 148,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
+      "dataset_id": "XKT007:保育園・幼稚園等（令和5年度）",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT007",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T19:58:13.394679+00:00"
+    },
+    {
+      "source_id": 149,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
+      "dataset_id": "XKT010:医療機関（令和2年度）",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT010",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T20:00:06.189913+00:00"
+    },
+    {
+      "source_id": 150,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
+      "dataset_id": "XKT017:図書館（文化施設・平成25年度）",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT017",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T20:01:27.816340+00:00"
+    },
+    {
+      "source_id": 151,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
+      "dataset_id": "XKT018:市区町村役場及び集会施設等（令和4年度）",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT018",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T20:02:52.229251+00:00"
     },
     {
       "source_id": 146,
@@ -245,7 +428,16 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT013",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T12:04:10.804675+00:00"
+      "fetched_at": "2026-09-03T19:55:21.116072+00:00"
+    },
+    {
+      "source_id": 152,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報 駅別乗降客数",
+      "dataset_id": "XKT015:令和5年度",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT015",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T20:03:27.812659+00:00"
     },
     {
       "source_id": 145,
@@ -254,7 +446,7 @@
       "source_url": "https://www.e-stat.go.jp/stat-search/database?statdisp_id=0004050417",
       "terms_url": "https://www.e-stat.go.jp/terms-of-use",
       "published_at": "2026-05-29",
-      "fetched_at": "2026-09-03T12:01:32.751352+00:00"
+      "fetched_at": "2026-09-03T19:52:24.288956+00:00"
     }
   ]
 }

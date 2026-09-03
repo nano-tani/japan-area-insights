@@ -6,13 +6,13 @@
   "price_score": 8.0,
   "population_score": 8.0,
   "future_population_score": 8.0,
-  "convenience_score": null,
-  "transport_score": null,
-  "transaction_score": 8.5,
-  "total_score": null,
-  "confidence": "C",
-  "data_completeness": 0.6666666666666666,
-  "score_version": "v0.2",
+  "convenience_score": 2.25,
+  "transport_score": 9.75,
+  "transaction_score": 10.0,
+  "total_score": 46.0,
+  "confidence": "A",
+  "data_completeness": 1.0,
+  "score_version": "v0.3",
   "prices": [
     {
       "area_id": "13111",
@@ -180,8 +180,416 @@
       "retention_rate": 97.2
     }
   ],
-  "facilities": [],
-  "stations": [],
+  "facilities": [
+    {
+      "facility_type": "childcare",
+      "count": 275
+    },
+    {
+      "facility_type": "library",
+      "count": 16
+    },
+    {
+      "facility_type": "medical",
+      "count": 1193
+    },
+    {
+      "facility_type": "public_facility",
+      "count": 77
+    },
+    {
+      "facility_type": "school",
+      "count": 129
+    }
+  ],
+  "stations": [
+    {
+      "station_id": "d04a5290d2c5812f0ea9d3058e8d84bc60e3e8cf249ad00e06cd66273fb8dc5b",
+      "station_code": "004310",
+      "group_code": "004310",
+      "station_name": "下丸子",
+      "line_name": "東急多摩川線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 30381,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "eaafab929465dca2d6590db596bfb6cb6715754c3fc865039d80099374cd4303",
+      "station_code": "004292",
+      "group_code": "004292",
+      "station_name": "久が原",
+      "line_name": "池上線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 15247,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "bb65c90332173270be55d9ce0086b85afddb5fdf03ee7d413bafa0ab048c9e63",
+      "station_code": "004332",
+      "group_code": "004331",
+      "station_name": "京急蒲田",
+      "line_name": "本線",
+      "operator_name": "京浜急行電鉄",
+      "passenger_count": 59288,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "f878e50db97fef59f2931afbd0b965388500b278c264eaba4145bdd511defd62",
+      "station_code": "004331",
+      "group_code": "004331",
+      "station_name": "京急蒲田",
+      "line_name": "空港線",
+      "operator_name": "京浜急行電鉄",
+      "passenger_count": 0,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "af18ecbe76a7bd62807417a2329f2f1d3549bbff4b665f405a9380aab061259e",
+      "station_code": "004399",
+      "group_code": "004399",
+      "station_name": "六郷土手",
+      "line_name": "本線",
+      "operator_name": "京浜急行電鉄",
+      "passenger_count": 15740,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "150f1bf8ecf32daed56d210b732c6c9713a23fa57e248131e5b935941b4b8aff",
+      "station_code": "004212",
+      "group_code": "004212",
+      "station_name": "北千束",
+      "line_name": "大井町線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 7069,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "670cb4348ddadca189a752c9491a29074478a2f577e4d08977c5ba9592876d80",
+      "station_code": "004305",
+      "group_code": "004305",
+      "station_name": "千鳥町",
+      "line_name": "池上線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 14744,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "fe5b6df06b2b53b391455ee6142aec21edb9c3392a666459284cd6185b773e2f",
+      "station_code": "004261",
+      "group_code": "004261",
+      "station_name": "多摩川",
+      "line_name": "東急多摩川線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 0,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "24e35952b99e3e898ba8b0161e1c344aa97c1ca50d83aa860d4b0d26a6a03ee2",
+      "station_code": "004262",
+      "group_code": "004261",
+      "station_name": "多摩川",
+      "line_name": "東横線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 0,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "d8d20b9dcc8752aae0517409580f1d61e80ba530443a3b83bf0654e03be4f713",
+      "station_code": "004262",
+      "group_code": "004261",
+      "station_name": "多摩川",
+      "line_name": "東横線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 16641,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "a0f42a6499f4d5b5514dfa90097a02273cf499b38b8e62147c0f4fd975c6a3bc",
+      "station_code": "004202",
+      "group_code": "004200",
+      "station_name": "大岡山",
+      "line_name": "大井町線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 0,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "6b1ac89fbdf05edb44882c94b4edcde488fa09233fa16ec62ea750b10a76bb0b",
+      "station_code": "004200",
+      "group_code": "004200",
+      "station_name": "大岡山",
+      "line_name": "目黒線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 45216,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "556f1a49933407d60fea0d734f63a04ec3cd8e0693e54d767974cae275409d47",
+      "station_code": "004264",
+      "group_code": "004264",
+      "station_name": "大森",
+      "line_name": "東海道線",
+      "operator_name": "東日本旅客鉄道",
+      "passenger_count": 156466,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "3f21daf73f348060057be34a4afa78a0fe45f30b7b8c98277b6b5903eb881606",
+      "station_code": "004307",
+      "group_code": "004307",
+      "station_name": "大森町",
+      "line_name": "本線",
+      "operator_name": "京浜急行電鉄",
+      "passenger_count": 20738,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "1f158639e6c6c660968393195605eaeead49888a32e0ca221d255b690eeff08c",
+      "station_code": "004356",
+      "group_code": "004356",
+      "station_name": "大鳥居",
+      "line_name": "空港線",
+      "operator_name": "京浜急行電鉄",
+      "passenger_count": 28495,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "63d3f88e92877fbae23ab9500a8ce41dc29df721ad40b9bdd465b35be4220aa6",
+      "station_code": "004294",
+      "group_code": "004294",
+      "station_name": "平和島",
+      "line_name": "本線",
+      "operator_name": "京浜急行電鉄",
+      "passenger_count": 42038,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "a442ead34e6dec1f46f7577b04e8f63c8a66a597a46e6a0dfa6841adf724daf7",
+      "station_code": "004273",
+      "group_code": "004273",
+      "station_name": "御嶽山",
+      "line_name": "池上線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 22959,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "b2c49bedc421ef966460681d9202e0f238b9ab92a8d57f8e1f949ce6c50c16ce",
+      "station_code": "004319",
+      "group_code": "004319",
+      "station_name": "梅屋敷",
+      "line_name": "本線",
+      "operator_name": "京浜急行電鉄",
+      "passenger_count": 15634,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "0419a492917dedb89897c7b2e441b8c6f48850f3e50b71c374157ef8843ef2ef",
+      "station_code": "004317",
+      "group_code": "004317",
+      "station_name": "武蔵新田",
+      "line_name": "東急多摩川線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 24739,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "276d8bec68cef4885f5990d055fc8aa1f86ab0ab6f59ca47c77573ab63690cd8",
+      "station_code": "004309",
+      "group_code": "004309",
+      "station_name": "池上",
+      "line_name": "池上線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 34089,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "827d8af61f63819c4bffcadbd6dae9147c5ec9b7d807ba1fdfae5905c0646209",
+      "station_code": "004279",
+      "group_code": "004279",
+      "station_name": "沼部",
+      "line_name": "東急多摩川線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 9937,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "7484329aeb4c62005d1035a26b1611bae8920e4101ae5cce61194c76d6e95a92",
+      "station_code": "004239",
+      "group_code": "004239",
+      "station_name": "洗足池",
+      "line_name": "池上線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 16529,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "6f90d42d452e4dc3ca0d6a8be8511773c1441f3f84c3d0bfef9aa644aa56d0bc",
+      "station_code": "004245",
+      "group_code": "004245",
+      "station_name": "田園調布",
+      "line_name": "東横線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 29464,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "be92f0e1d20c50d60b236e45303c5137c61e4c82c093b70b4e8f8f7576bad741",
+      "station_code": "004246",
+      "group_code": "004245",
+      "station_name": "田園調布",
+      "line_name": "目黒線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 0,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "4ca7a6f6d5f2a11984e48156489c5c8c7a3e7c8b54eb599c1539b2da05530061",
+      "station_code": "004329",
+      "group_code": "004329",
+      "station_name": "矢口渡",
+      "line_name": "東急多摩川線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 24574,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "5fc898e2b76e19b3b51eb74f69509a21f3ace1a4f6c004ac9006b1e33759027d",
+      "station_code": "004247",
+      "group_code": "004247",
+      "station_name": "石川台",
+      "line_name": "池上線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 14213,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "1f2f96c8ca6eaf19b73774a8dcac2371ea7b54bdb34982c6d6d0a44c03dad4b9",
+      "station_code": "004364",
+      "group_code": "004364",
+      "station_name": "穴守稲荷",
+      "line_name": "空港線",
+      "operator_name": "京浜急行電鉄",
+      "passenger_count": 19293,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "e8f54a6316d9a06699fb745b52be66f9603668540f80f2fdb603a307c1f81a69",
+      "station_code": "004349",
+      "group_code": "004349",
+      "station_name": "糀谷",
+      "line_name": "空港線",
+      "operator_name": "京浜急行電鉄",
+      "passenger_count": 27152,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "60d938e631247001f78d99a78711f07f21ff31192accf60b87de0f7953d75ac5",
+      "station_code": "004333",
+      "group_code": "004330",
+      "station_name": "蒲田",
+      "line_name": "東急多摩川線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 0,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "a207d5099840ce59129efa1c249a0c2f88b966b75cba9041fcd7ec102ed63a47",
+      "station_code": "004328",
+      "group_code": "004330",
+      "station_name": "蒲田",
+      "line_name": "東海道線",
+      "operator_name": "東日本旅客鉄道",
+      "passenger_count": 242214,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "e904229bdc393d4504adac581aaf34318f04df0f319fb1f1b5b3cc62da7290dd",
+      "station_code": "004330",
+      "group_code": "004330",
+      "station_name": "蒲田",
+      "line_name": "池上線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 156965,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "00fb582fa8c93dc319d621267cbf50efade0100ea3eb4c0d34866a2a51fe8588",
+      "station_code": "004323",
+      "group_code": "004323",
+      "station_name": "蓮沼",
+      "line_name": "池上線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 7872,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "358a023f1523c337bf087c0d97d87391460be56b24dd5441bc3f8cdb1d96c42b",
+      "station_code": "004270",
+      "group_code": "004270",
+      "station_name": "西馬込",
+      "line_name": "1号線浅草線",
+      "operator_name": "東京都",
+      "passenger_count": 42045,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "e36690d99f9ccba4c417db4478a28d04f3b5064508429ab61d367cabbebea6fd",
+      "station_code": "004232",
+      "group_code": "004232",
+      "station_name": "長原",
+      "line_name": "池上線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 14415,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "a560b46c1f180d1bb0a98c0e9e521d76a1d69acd9425985d4a9ff2b6a83a8a9b",
+      "station_code": "004367",
+      "group_code": "004367",
+      "station_name": "雑色",
+      "line_name": "本線",
+      "operator_name": "京浜急行電鉄",
+      "passenger_count": 29756,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "37764030a25446f9400cdaf5b0635d345dd25b0a4998142fa74afa75ae0d580b",
+      "station_code": "004259",
+      "group_code": "004259",
+      "station_name": "雪が谷大塚",
+      "line_name": "池上線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 21632,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "c6b64729a70b0ffdfbc4519794412ab4b5df853a55c96ad2271e7edc037b0ab3",
+      "station_code": "004248",
+      "group_code": "004248",
+      "station_name": "馬込",
+      "line_name": "1号線浅草線",
+      "operator_name": "東京都",
+      "passenger_count": 25129,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "336c97efb9e8213a0b20475289baf7e24892c369d49df0914698a2ff2495f5b5",
+      "station_code": "004299",
+      "group_code": "004299",
+      "station_name": "鵜の木",
+      "line_name": "東急多摩川線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 18846,
+      "passenger_year": 2023
+    }
+  ],
+  "transport_summary": {
+    "station_count": 31,
+    "line_count": 9,
+    "passenger_count": 1092555,
+    "passenger_year": 2023
+  },
   "hazards": [],
   "sources": [
     {
@@ -191,7 +599,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T11:42:31.300334+00:00"
+      "fetched_at": "2026-09-03T19:33:09.219214+00:00"
     },
     {
       "source_id": 140,
@@ -200,7 +608,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T11:46:20.955313+00:00"
+      "fetched_at": "2026-09-03T19:37:04.021514+00:00"
     },
     {
       "source_id": 141,
@@ -209,7 +617,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T11:50:04.654807+00:00"
+      "fetched_at": "2026-09-03T19:40:53.129374+00:00"
     },
     {
       "source_id": 142,
@@ -218,7 +626,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T11:53:54.061081+00:00"
+      "fetched_at": "2026-09-03T19:44:54.958687+00:00"
     },
     {
       "source_id": 143,
@@ -227,7 +635,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T11:57:51.874354+00:00"
+      "fetched_at": "2026-09-03T19:48:48.842400+00:00"
     },
     {
       "source_id": 144,
@@ -236,7 +644,52 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T12:01:23.583424+00:00"
+      "fetched_at": "2026-09-03T19:52:17.321713+00:00"
+    },
+    {
+      "source_id": 147,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
+      "dataset_id": "XKT006:学校（令和5年度）",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT006",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T19:56:50.797520+00:00"
+    },
+    {
+      "source_id": 148,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
+      "dataset_id": "XKT007:保育園・幼稚園等（令和5年度）",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT007",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T19:58:13.394679+00:00"
+    },
+    {
+      "source_id": 149,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
+      "dataset_id": "XKT010:医療機関（令和2年度）",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT010",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T20:00:06.189913+00:00"
+    },
+    {
+      "source_id": 150,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
+      "dataset_id": "XKT017:図書館（文化施設・平成25年度）",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT017",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T20:01:27.816340+00:00"
+    },
+    {
+      "source_id": 151,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
+      "dataset_id": "XKT018:市区町村役場及び集会施設等（令和4年度）",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT018",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T20:02:52.229251+00:00"
     },
     {
       "source_id": 146,
@@ -245,7 +698,16 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT013",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T12:04:10.804675+00:00"
+      "fetched_at": "2026-09-03T19:55:21.116072+00:00"
+    },
+    {
+      "source_id": 152,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報 駅別乗降客数",
+      "dataset_id": "XKT015:令和5年度",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT015",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T20:03:27.812659+00:00"
     },
     {
       "source_id": 145,
@@ -254,7 +716,7 @@
       "source_url": "https://www.e-stat.go.jp/stat-search/database?statdisp_id=0004050417",
       "terms_url": "https://www.e-stat.go.jp/terms-of-use",
       "published_at": "2026-05-29",
-      "fetched_at": "2026-09-03T12:01:32.751352+00:00"
+      "fetched_at": "2026-09-03T19:52:24.288956+00:00"
     }
   ]
 }

@@ -6,13 +6,13 @@
   "price_score": 8.0,
   "population_score": 3.0,
   "future_population_score": 13.0,
-  "convenience_score": null,
-  "transport_score": null,
+  "convenience_score": 15.0,
+  "transport_score": 12.75,
   "transaction_score": 1.5,
-  "total_score": null,
-  "confidence": "C",
-  "data_completeness": 0.6666666666666666,
-  "score_version": "v0.2",
+  "total_score": 53.25,
+  "confidence": "A",
+  "data_completeness": 1.0,
+  "score_version": "v0.3",
   "prices": [
     {
       "area_id": "13113",
@@ -180,8 +180,336 @@
       "retention_rate": 104.35
     }
   ],
-  "facilities": [],
-  "stations": [],
+  "facilities": [
+    {
+      "facility_type": "childcare",
+      "count": 97
+    },
+    {
+      "facility_type": "library",
+      "count": 12
+    },
+    {
+      "facility_type": "medical",
+      "count": 1066
+    },
+    {
+      "facility_type": "public_facility",
+      "count": 73
+    },
+    {
+      "facility_type": "school",
+      "count": 110
+    }
+  ],
+  "stations": [
+    {
+      "station_id": "6169326af8dc981454175bb45f3c0dac84555962fb7e6171858f9441d0437fae",
+      "station_code": "003746",
+      "group_code": "003743",
+      "station_name": "代々木",
+      "line_name": "12号線大江戸線",
+      "operator_name": "東京都",
+      "passenger_count": 30760,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "ea18422d9e5c1f069382cb791c7b9a99019ab0d5c94ca6d799165c0fb28cb4da",
+      "station_code": "003744",
+      "group_code": "003743",
+      "station_name": "代々木",
+      "line_name": "中央線",
+      "operator_name": "東日本旅客鉄道",
+      "passenger_count": 109408,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "bc8e7b898e52162d2d66cec4543d3adc1362a2d6fdb9f479e1984a3685e5a680",
+      "station_code": "003743",
+      "group_code": "003743",
+      "station_name": "代々木",
+      "line_name": "山手線",
+      "operator_name": "東日本旅客鉄道",
+      "passenger_count": 0,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "6ff3698b1c130aaf9a7afd895ba74a9ee2c79af7455a9c9cfb07e595f751772e",
+      "station_code": "003847",
+      "group_code": "003847",
+      "station_name": "代々木上原",
+      "line_name": "9号線千代田線",
+      "operator_name": "東京地下鉄",
+      "passenger_count": 0,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "ca46ba792eb751de51db1649daa579edb2d4294256b3bb86242d6a1aa8143492",
+      "station_code": "003848",
+      "group_code": "003847",
+      "station_name": "代々木上原",
+      "line_name": "小田原線",
+      "operator_name": "小田急電鉄",
+      "passenger_count": 257017,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "ae18e91b64db0a756c7a5a2159fdbb7ae3e35a604ecdbf42faf9d0f558e1db37",
+      "station_code": "003837",
+      "group_code": "003837",
+      "station_name": "代々木八幡",
+      "line_name": "小田原線",
+      "operator_name": "小田急電鉄",
+      "passenger_count": 18237,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "6f7859d70e5931f26128e9a30db56e7601ab261341cf0b563a216f918db8203c",
+      "station_code": "003845",
+      "group_code": "003845",
+      "station_name": "代々木公園",
+      "line_name": "9号線千代田線",
+      "operator_name": "東京地下鉄",
+      "passenger_count": 27333,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "7ff32f504058ed9c1d1fd74817500d280eab49133db0c99a39693fc5926cc5a2",
+      "station_code": "003985",
+      "group_code": "003985",
+      "station_name": "代官山",
+      "line_name": "東横線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 27591,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "b79407bc66ebdb3d898f1e07acf5bad4708937a85ffab9e74c928d52ab61b813",
+      "station_code": "003764",
+      "group_code": "003764",
+      "station_name": "初台",
+      "line_name": "京王線",
+      "operator_name": "京王電鉄",
+      "passenger_count": 54828,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "adb13d1351d7c334ffa7f469c01786267d3ceefa78132efcbc3846292c4f828d",
+      "station_code": "003780",
+      "group_code": "003780",
+      "station_name": "北参道",
+      "line_name": "13号線副都心線",
+      "operator_name": "東京地下鉄",
+      "passenger_count": 22635,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "c42736f48e3292b9b7bff01e0471a32046ddfe8f81394eef02a168e8fb3a9535",
+      "station_code": "003767",
+      "group_code": "003767",
+      "station_name": "千駄ヶ谷",
+      "line_name": "中央線",
+      "operator_name": "東日本旅客鉄道",
+      "passenger_count": 33134,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "b834a62359d01659078b05b2c01df9798238b95ceb0b5653256dcd5e473c9beb",
+      "station_code": "003750",
+      "group_code": "003750",
+      "station_name": "南新宿",
+      "line_name": "小田原線",
+      "operator_name": "小田急電鉄",
+      "passenger_count": 3875,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "4231c28e9e3cfa6588a1d4ac501e0ef63a2caf41bd4b08b31d0e973db587695a",
+      "station_code": "003778",
+      "group_code": "003778",
+      "station_name": "参宮橋",
+      "line_name": "小田原線",
+      "operator_name": "小田急電鉄",
+      "passenger_count": 12634,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "10c146885dc645a682f46458952be2a81477cecc1904fa5ad7b6c1c028af0798",
+      "station_code": "003775",
+      "group_code": "003775",
+      "station_name": "国立競技場",
+      "line_name": "12号線大江戸線",
+      "operator_name": "東京都",
+      "passenger_count": 12767,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "3d62542fb9a7f05a9bc28c1e98ccdce7f539f81d6d99e66a6cfd73318eb72705",
+      "station_code": "003791",
+      "group_code": "003791",
+      "station_name": "幡ヶ谷",
+      "line_name": "京王線",
+      "operator_name": "京王電鉄",
+      "passenger_count": 29540,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "584fef612158ab263e4fdd22d23a8da21828def357f99461780d16f48bec7a4e",
+      "station_code": "003991",
+      "group_code": "003991",
+      "station_name": "恵比寿",
+      "line_name": "2号線日比谷線",
+      "operator_name": "東京地下鉄",
+      "passenger_count": 98329,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "b0ded11f572c6a43077f0814915d03f51c6a3039d1a0d13ca1b185b8f81548ed",
+      "station_code": "003992",
+      "group_code": "003991",
+      "station_name": "恵比寿",
+      "line_name": "山手線",
+      "operator_name": "東日本旅客鉄道",
+      "passenger_count": 242206,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "852f5b29dcd6ae30d73664d263cd08cb3903154b7b00c6bea65d68aaa35a7153",
+      "station_code": "003701",
+      "group_code": "003700",
+      "station_name": "新宿",
+      "line_name": "山手線",
+      "operator_name": "東日本旅客鉄道",
+      "passenger_count": 0,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "6aaea6a05a1b62d562fd78af7d60b3ecf88caa4676e8f2965639fb254a0cd96e",
+      "station_code": "003701",
+      "group_code": "003700",
+      "station_name": "新宿",
+      "line_name": "山手線",
+      "operator_name": "東日本旅客鉄道",
+      "passenger_count": 0,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "94ba18a4b5ac18587542af3719b2eb453418f3e912a94716220a04ed892889cf",
+      "station_code": "003857",
+      "group_code": "003844",
+      "station_name": "明治神宮前",
+      "line_name": "13号線副都心線",
+      "operator_name": "東京地下鉄",
+      "passenger_count": 0,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "c9fdd18775498d1c6c59f7db84ae2d840266574f56767aeb290ffbc5d0400b84",
+      "station_code": "003844",
+      "group_code": "003844",
+      "station_name": "明治神宮前",
+      "line_name": "9号線千代田線",
+      "operator_name": "東京地下鉄",
+      "passenger_count": 96345,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "f98bfe18082b17c7037e4bd6e726acf2356142ed9f98b8bcbbcfc3639617fa24",
+      "station_code": "003922",
+      "group_code": "003922",
+      "station_name": "渋谷",
+      "line_name": "11号線半蔵門線",
+      "operator_name": "東京地下鉄",
+      "passenger_count": 0,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "5712976a3a4cc676e0bd06bb021eddebfe967f01187a39b6067002bb26dc416d",
+      "station_code": "003925",
+      "group_code": "003922",
+      "station_name": "渋谷",
+      "line_name": "13号線副都心線",
+      "operator_name": "東京地下鉄",
+      "passenger_count": 0,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "1a8157e20d65b92cf3f9cb555329c84085142f49f1192a07b1178fec35c4cd8b",
+      "station_code": "003924",
+      "group_code": "003922",
+      "station_name": "渋谷",
+      "line_name": "3号線銀座線",
+      "operator_name": "東京地下鉄",
+      "passenger_count": 179645,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "733b609406e24aada5d0e2b9cc96749938585e15fb89913de7a292c254d6e533",
+      "station_code": "003930",
+      "group_code": "003922",
+      "station_name": "渋谷",
+      "line_name": "井の頭線",
+      "operator_name": "京王電鉄",
+      "passenger_count": 285759,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "83a31b8533db1a8e70ed65ab106130d683d57ec3375dd7e59018ddc7af57bd98",
+      "station_code": "003932",
+      "group_code": "003922",
+      "station_name": "渋谷",
+      "line_name": "山手線",
+      "operator_name": "東日本旅客鉄道",
+      "passenger_count": 628118,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "34ccd6d16fcb44280793d4fcb87ad0959526e8f9f3268ba0a34922552b5bdc93",
+      "station_code": "003926",
+      "group_code": "003922",
+      "station_name": "渋谷",
+      "line_name": "東横線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 1036352,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "4bdb0a5fdecefc8ef17967d51dfcd52661d19c91b92a391312d7ce1a3d4cdc6f",
+      "station_code": "003923",
+      "group_code": "003922",
+      "station_name": "渋谷",
+      "line_name": "田園都市線",
+      "operator_name": "東急電鉄",
+      "passenger_count": 0,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "d1ccc946effdb242462c98254166430f07607dfebab480c722118517ddf3e48f",
+      "station_code": "003938",
+      "group_code": "003938",
+      "station_name": "神泉",
+      "line_name": "井の頭線",
+      "operator_name": "京王電鉄",
+      "passenger_count": 10870,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "23600cfaa084df07481df98c8e70c772be1f29ed5014664f12b7f4ec96604e4d",
+      "station_code": "003806",
+      "group_code": "003806",
+      "station_name": "笹塚",
+      "line_name": "京王線",
+      "operator_name": "京王電鉄",
+      "passenger_count": 70603,
+      "passenger_year": 2023
+    }
+  ],
+  "transport_summary": {
+    "station_count": 18,
+    "line_count": 13,
+    "passenger_count": 2065375,
+    "passenger_year": 2023
+  },
   "hazards": [],
   "sources": [
     {
@@ -191,7 +519,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T11:42:31.300334+00:00"
+      "fetched_at": "2026-09-03T19:33:09.219214+00:00"
     },
     {
       "source_id": 140,
@@ -200,7 +528,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T11:46:20.955313+00:00"
+      "fetched_at": "2026-09-03T19:37:04.021514+00:00"
     },
     {
       "source_id": 141,
@@ -209,7 +537,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T11:50:04.654807+00:00"
+      "fetched_at": "2026-09-03T19:40:53.129374+00:00"
     },
     {
       "source_id": 142,
@@ -218,7 +546,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T11:53:54.061081+00:00"
+      "fetched_at": "2026-09-03T19:44:54.958687+00:00"
     },
     {
       "source_id": 143,
@@ -227,7 +555,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T11:57:51.874354+00:00"
+      "fetched_at": "2026-09-03T19:48:48.842400+00:00"
     },
     {
       "source_id": 144,
@@ -236,7 +564,52 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T12:01:23.583424+00:00"
+      "fetched_at": "2026-09-03T19:52:17.321713+00:00"
+    },
+    {
+      "source_id": 147,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
+      "dataset_id": "XKT006:学校（令和5年度）",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT006",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T19:56:50.797520+00:00"
+    },
+    {
+      "source_id": 148,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
+      "dataset_id": "XKT007:保育園・幼稚園等（令和5年度）",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT007",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T19:58:13.394679+00:00"
+    },
+    {
+      "source_id": 149,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
+      "dataset_id": "XKT010:医療機関（令和2年度）",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT010",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T20:00:06.189913+00:00"
+    },
+    {
+      "source_id": 150,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
+      "dataset_id": "XKT017:図書館（文化施設・平成25年度）",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT017",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T20:01:27.816340+00:00"
+    },
+    {
+      "source_id": 151,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
+      "dataset_id": "XKT018:市区町村役場及び集会施設等（令和4年度）",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT018",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T20:02:52.229251+00:00"
     },
     {
       "source_id": 146,
@@ -245,7 +618,16 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT013",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T12:04:10.804675+00:00"
+      "fetched_at": "2026-09-03T19:55:21.116072+00:00"
+    },
+    {
+      "source_id": 152,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報 駅別乗降客数",
+      "dataset_id": "XKT015:令和5年度",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT015",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T20:03:27.812659+00:00"
     },
     {
       "source_id": 145,
@@ -254,7 +636,7 @@
       "source_url": "https://www.e-stat.go.jp/stat-search/database?statdisp_id=0004050417",
       "terms_url": "https://www.e-stat.go.jp/terms-of-use",
       "published_at": "2026-05-29",
-      "fetched_at": "2026-09-03T12:01:32.751352+00:00"
+      "fetched_at": "2026-09-03T19:52:24.288956+00:00"
     }
   ]
 }

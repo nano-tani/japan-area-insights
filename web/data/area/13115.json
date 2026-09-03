@@ -6,13 +6,13 @@
   "price_score": 13.0,
   "population_score": 3.0,
   "future_population_score": 13.0,
-  "convenience_score": null,
-  "transport_score": null,
-  "transaction_score": 8.5,
-  "total_score": null,
-  "confidence": "C",
-  "data_completeness": 0.6666666666666666,
-  "score_version": "v0.2",
+  "convenience_score": 2.25,
+  "transport_score": 2.25,
+  "transaction_score": 6.5,
+  "total_score": 40.0,
+  "confidence": "A",
+  "data_completeness": 1.0,
+  "score_version": "v0.3",
   "prices": [
     {
       "area_id": "13115",
@@ -180,8 +180,236 @@
       "retention_rate": 99.03
     }
   ],
-  "facilities": [],
-  "stations": [],
+  "facilities": [
+    {
+      "facility_type": "childcare",
+      "count": 229
+    },
+    {
+      "facility_type": "library",
+      "count": 17
+    },
+    {
+      "facility_type": "medical",
+      "count": 973
+    },
+    {
+      "facility_type": "public_facility",
+      "count": 73
+    },
+    {
+      "facility_type": "school",
+      "count": 115
+    }
+  ],
+  "stations": [
+    {
+      "station_id": "3548a3f86666a1c381f6e83d50b1dafe3a0cf81a640f30860d83524e77a6bf07",
+      "station_code": "003674",
+      "group_code": "003674",
+      "station_name": "三鷹台",
+      "line_name": "井の頭線",
+      "operator_name": "京王電鉄",
+      "passenger_count": 19085,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "ef765a5e424bee91085472754f83c9c30a42dc80fe7b2c4c23a12737a5747877",
+      "station_code": "003444",
+      "group_code": "003444",
+      "station_name": "下井草",
+      "line_name": "新宿線",
+      "operator_name": "西武鉄道",
+      "passenger_count": 21827,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "46b472dab2ebeb6217e6d5a03f3d7dd3a8125aa59ebc507bd241e59505ac1374",
+      "station_code": "003710",
+      "group_code": "003710",
+      "station_name": "久我山",
+      "line_name": "井の頭線",
+      "operator_name": "京王電鉄",
+      "passenger_count": 37302,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "6c91aa884aaf3eb4a00e4a95aa1ac93856ffaf67df968284d5be211425c6ef09",
+      "station_code": "003440",
+      "group_code": "003440",
+      "station_name": "井荻",
+      "line_name": "新宿線",
+      "operator_name": "西武鉄道",
+      "passenger_count": 17843,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "5ba0a2476be1a9eeb7ff721f1ff396bb29db394fec73d7ec7552b75225eff740",
+      "station_code": "003619",
+      "group_code": "003619",
+      "station_name": "南阿佐ヶ谷",
+      "line_name": "4号線丸ノ内線",
+      "operator_name": "東京地下鉄",
+      "passenger_count": 26654,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "711b3df1d573029419f347368644cd0fad1249ce644eda4df4343066e640105e",
+      "station_code": "003736",
+      "group_code": "003736",
+      "station_name": "富士見ヶ丘",
+      "line_name": "井の頭線",
+      "operator_name": "京王電鉄",
+      "passenger_count": 12575,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "54c631f5c88dd47bfec042a45f6aa0ae283696fc0b13329c48adc155ef48994d",
+      "station_code": "003632",
+      "group_code": "003632",
+      "station_name": "新高円寺",
+      "line_name": "4号線丸ノ内線",
+      "operator_name": "東京地下鉄",
+      "passenger_count": 34052,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "0429f062d5064554b43b9f00b1444d7bf0e5705584c9f0bdbd2a32a4353e5373",
+      "station_code": "003751",
+      "group_code": "003751",
+      "station_name": "方南町",
+      "line_name": "4号線丸ノ内線分岐線",
+      "operator_name": "東京地下鉄",
+      "passenger_count": 38148,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "1fc70a9cacd02824a11d152e5cec57cb10d66e4200a0af76f4b16ed107589cac",
+      "station_code": "003751",
+      "group_code": "003751",
+      "station_name": "方南町",
+      "line_name": "4号線丸ノ内線分岐線",
+      "operator_name": "東京地下鉄",
+      "passenger_count": 38148,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "699066050afae0de45010975db30e24e2ec5a77a1131d0739c68e657daf5e12d",
+      "station_code": "003628",
+      "group_code": "003628",
+      "station_name": "東高円寺",
+      "line_name": "4号線丸ノ内線",
+      "operator_name": "東京地下鉄",
+      "passenger_count": 31918,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "8a9d2957c0ae1a80b8fe6054497470fb36d13e3be5d14ff6ac05da1880379831",
+      "station_code": "003628",
+      "group_code": "003628",
+      "station_name": "東高円寺",
+      "line_name": "4号線丸ノ内線",
+      "operator_name": "東京地下鉄",
+      "passenger_count": 31918,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "5e54a06f4ab935df54573341d44d81dea57f11a176de89d02ecec19d611d2f2e",
+      "station_code": "003794",
+      "group_code": "003794",
+      "station_name": "永福町",
+      "line_name": "井の頭線",
+      "operator_name": "京王電鉄",
+      "passenger_count": 29479,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "67091b5ae544fab8346e4fbe8100ff431253d60dd70051e468c83f635b03c545",
+      "station_code": "003763",
+      "group_code": "003763",
+      "station_name": "浜田山",
+      "line_name": "井の頭線",
+      "operator_name": "京王電鉄",
+      "passenger_count": 26853,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "a13c4ea3a961f3ed52bc0c6056c19fdd5a4010eeab22f93d0fffe3a31b36f6e5",
+      "station_code": "003577",
+      "group_code": "003575",
+      "station_name": "荻窪",
+      "line_name": "4号線丸ノ内線",
+      "operator_name": "東京地下鉄",
+      "passenger_count": 82039,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "54ae9fcbd1956985cb3b203be59f4497052b9434bcff5ab6a2717df8397c9be5",
+      "station_code": "003575",
+      "group_code": "003575",
+      "station_name": "荻窪",
+      "line_name": "中央線",
+      "operator_name": "東日本旅客鉄道",
+      "passenger_count": 160004,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "804e7be8a22401af31893cd416a951b202eecfb930e76cbf580bf710354ae22e",
+      "station_code": "003777",
+      "group_code": "003777",
+      "station_name": "西永福",
+      "line_name": "井の頭線",
+      "operator_name": "京王電鉄",
+      "passenger_count": 17087,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "6842fd447b5c5aab8b2000d384a5eb28e2339df5b0f42b7fd0f57c72748ad2e5",
+      "station_code": "003579",
+      "group_code": "003579",
+      "station_name": "西荻窪",
+      "line_name": "中央線",
+      "operator_name": "東日本旅客鉄道",
+      "passenger_count": 83258,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "dcbcbe1baa37f4607a1d66c1f8bfaadca1c338cef4c6ef1a2e0dd0003eca3873",
+      "station_code": "003574",
+      "group_code": "003574",
+      "station_name": "阿佐ヶ谷",
+      "line_name": "中央線",
+      "operator_name": "東日本旅客鉄道",
+      "passenger_count": 80642,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "4de9d3269da305e990f586a2ba22c8c554a71a334efd26c8818a59e496386b40",
+      "station_code": "003752",
+      "group_code": "003752",
+      "station_name": "高井戸",
+      "line_name": "井の頭線",
+      "operator_name": "京王電鉄",
+      "passenger_count": 37317,
+      "passenger_year": 2023
+    },
+    {
+      "station_id": "3aaa1db3ed90ca40ca534e98120a21458333bef6367d6b4cdeec817f82d17d5b",
+      "station_code": "003573",
+      "group_code": "003573",
+      "station_name": "高円寺",
+      "line_name": "中央線",
+      "operator_name": "東日本旅客鉄道",
+      "passenger_count": 92138,
+      "passenger_year": 2023
+    }
+  ],
+  "transport_summary": {
+    "station_count": 17,
+    "line_count": 5,
+    "passenger_count": 766182,
+    "passenger_year": 2023
+  },
   "hazards": [],
   "sources": [
     {
@@ -191,7 +419,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T11:42:31.300334+00:00"
+      "fetched_at": "2026-09-03T19:33:09.219214+00:00"
     },
     {
       "source_id": 140,
@@ -200,7 +428,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T11:46:20.955313+00:00"
+      "fetched_at": "2026-09-03T19:37:04.021514+00:00"
     },
     {
       "source_id": 141,
@@ -209,7 +437,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T11:50:04.654807+00:00"
+      "fetched_at": "2026-09-03T19:40:53.129374+00:00"
     },
     {
       "source_id": 142,
@@ -218,7 +446,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T11:53:54.061081+00:00"
+      "fetched_at": "2026-09-03T19:44:54.958687+00:00"
     },
     {
       "source_id": 143,
@@ -227,7 +455,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T11:57:51.874354+00:00"
+      "fetched_at": "2026-09-03T19:48:48.842400+00:00"
     },
     {
       "source_id": 144,
@@ -236,7 +464,52 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T12:01:23.583424+00:00"
+      "fetched_at": "2026-09-03T19:52:17.321713+00:00"
+    },
+    {
+      "source_id": 147,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
+      "dataset_id": "XKT006:学校（令和5年度）",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT006",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T19:56:50.797520+00:00"
+    },
+    {
+      "source_id": 148,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
+      "dataset_id": "XKT007:保育園・幼稚園等（令和5年度）",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT007",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T19:58:13.394679+00:00"
+    },
+    {
+      "source_id": 149,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
+      "dataset_id": "XKT010:医療機関（令和2年度）",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT010",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T20:00:06.189913+00:00"
+    },
+    {
+      "source_id": 150,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
+      "dataset_id": "XKT017:図書館（文化施設・平成25年度）",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT017",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T20:01:27.816340+00:00"
+    },
+    {
+      "source_id": 151,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
+      "dataset_id": "XKT018:市区町村役場及び集会施設等（令和4年度）",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT018",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T20:02:52.229251+00:00"
     },
     {
       "source_id": 146,
@@ -245,7 +518,16 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT013",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T12:04:10.804675+00:00"
+      "fetched_at": "2026-09-03T19:55:21.116072+00:00"
+    },
+    {
+      "source_id": 152,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報 駅別乗降客数",
+      "dataset_id": "XKT015:令和5年度",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT015",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T20:03:27.812659+00:00"
     },
     {
       "source_id": 145,
@@ -254,7 +536,7 @@
       "source_url": "https://www.e-stat.go.jp/stat-search/database?statdisp_id=0004050417",
       "terms_url": "https://www.e-stat.go.jp/terms-of-use",
       "published_at": "2026-05-29",
-      "fetched_at": "2026-09-03T12:01:32.751352+00:00"
+      "fetched_at": "2026-09-03T19:52:24.288956+00:00"
     }
   ]
 }

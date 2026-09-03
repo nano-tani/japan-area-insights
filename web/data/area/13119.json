@@ -1,0 +1,260 @@
+{
+  "area_id": "13119",
+  "prefecture_name": "東京都",
+  "municipality_name": "板橋区",
+  "calculation_date": "2026-09-03",
+  "price_score": 8.0,
+  "population_score": 13.0,
+  "future_population_score": 8.0,
+  "convenience_score": null,
+  "transport_score": null,
+  "transaction_score": 10.0,
+  "total_score": null,
+  "confidence": "C",
+  "data_completeness": 0.6666666666666666,
+  "score_version": "v0.2",
+  "prices": [
+    {
+      "area_id": "13119",
+      "year": 2021,
+      "official_land_price": 498300.0,
+      "prefectural_land_price": 549625.0,
+      "avg_transaction_unit_price": 706841.82,
+      "median_transaction_unit_price": 690909.09,
+      "yoy_change": null,
+      "change_3y": null,
+      "change_5y": null,
+      "transaction_count": 1533,
+      "source_id": 139
+    },
+    {
+      "area_id": "13119",
+      "year": 2022,
+      "official_land_price": 503814.29,
+      "prefectural_land_price": 560875.0,
+      "avg_transaction_unit_price": 720858.91,
+      "median_transaction_unit_price": 730000.0,
+      "yoy_change": 1.1066,
+      "change_3y": null,
+      "change_5y": null,
+      "transaction_count": 1491,
+      "source_id": 140
+    },
+    {
+      "area_id": "13119",
+      "year": 2023,
+      "official_land_price": 522628.57,
+      "prefectural_land_price": 590312.5,
+      "avg_transaction_unit_price": 742702.57,
+      "median_transaction_unit_price": 740000.0,
+      "yoy_change": 3.7344,
+      "change_3y": null,
+      "change_5y": null,
+      "transaction_count": 1475,
+      "source_id": 141
+    },
+    {
+      "area_id": "13119",
+      "year": 2024,
+      "official_land_price": 553785.71,
+      "prefectural_land_price": 635687.5,
+      "avg_transaction_unit_price": 799468.69,
+      "median_transaction_unit_price": 790000.0,
+      "yoy_change": 5.9616,
+      "change_3y": 11.135,
+      "change_5y": null,
+      "transaction_count": 1495,
+      "source_id": 142
+    },
+    {
+      "area_id": "13119",
+      "year": 2025,
+      "official_land_price": 604434.78,
+      "prefectural_land_price": 699500.0,
+      "avg_transaction_unit_price": 830806.89,
+      "median_transaction_unit_price": 814835.16,
+      "yoy_change": 9.146,
+      "change_3y": 19.9717,
+      "change_5y": null,
+      "transaction_count": 1380,
+      "source_id": 143
+    },
+    {
+      "area_id": "13119",
+      "year": 2026,
+      "official_land_price": 668159.42,
+      "prefectural_land_price": null,
+      "avg_transaction_unit_price": 933887.9,
+      "median_transaction_unit_price": 920000.0,
+      "yoy_change": 10.5428,
+      "change_3y": 27.8459,
+      "change_5y": 34.0878,
+      "transaction_count": 170,
+      "source_id": 144
+    }
+  ],
+  "population": [
+    {
+      "area_id": "13119",
+      "year": 2020,
+      "population": 584483,
+      "households": 314446,
+      "population_change_rate": null,
+      "household_change_rate": null,
+      "age_0_19": null,
+      "age_20_39": null,
+      "age_40_64": null,
+      "age_65_plus": null,
+      "single_households": null,
+      "source_id": 145
+    },
+    {
+      "area_id": "13119",
+      "year": 2025,
+      "population": 595000,
+      "households": 331637,
+      "population_change_rate": 1.79937,
+      "household_change_rate": 5.46708,
+      "age_0_19": null,
+      "age_20_39": null,
+      "age_40_64": null,
+      "age_65_plus": null,
+      "single_households": null,
+      "source_id": 145
+    }
+  ],
+  "future_population": [
+    {
+      "year": 2020,
+      "projected_population": 584482.9999359846,
+      "retention_rate": 98.77
+    },
+    {
+      "year": 2025,
+      "projected_population": 591742.997962594,
+      "retention_rate": 100.0
+    },
+    {
+      "year": 2030,
+      "projected_population": 598135.0014479905,
+      "retention_rate": 101.08
+    },
+    {
+      "year": 2035,
+      "projected_population": 603745.0014114454,
+      "retention_rate": 102.03
+    },
+    {
+      "year": 2040,
+      "projected_population": 606997.0008806288,
+      "retention_rate": 102.58
+    },
+    {
+      "year": 2045,
+      "projected_population": 607175.9983495027,
+      "retention_rate": 102.61
+    },
+    {
+      "year": 2050,
+      "projected_population": 605109.0014097053,
+      "retention_rate": 102.26
+    },
+    {
+      "year": 2055,
+      "projected_population": 600699.9996142304,
+      "retention_rate": 101.51
+    },
+    {
+      "year": 2060,
+      "projected_population": 594434.9991656339,
+      "retention_rate": 100.45
+    },
+    {
+      "year": 2065,
+      "projected_population": 585500.9996180163,
+      "retention_rate": 98.95
+    },
+    {
+      "year": 2070,
+      "projected_population": 574472.9998268834,
+      "retention_rate": 97.08
+    }
+  ],
+  "facilities": [],
+  "stations": [],
+  "hazards": [],
+  "sources": [
+    {
+      "source_id": 139,
+      "source_name": "国土交通省 不動産情報ライブラリ",
+      "dataset_id": "XPT002:2021",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T11:42:31.300334+00:00"
+    },
+    {
+      "source_id": 140,
+      "source_name": "国土交通省 不動産情報ライブラリ",
+      "dataset_id": "XPT002:2022",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T11:46:20.955313+00:00"
+    },
+    {
+      "source_id": 141,
+      "source_name": "国土交通省 不動産情報ライブラリ",
+      "dataset_id": "XPT002:2023",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T11:50:04.654807+00:00"
+    },
+    {
+      "source_id": 142,
+      "source_name": "国土交通省 不動産情報ライブラリ",
+      "dataset_id": "XPT002:2024",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T11:53:54.061081+00:00"
+    },
+    {
+      "source_id": 143,
+      "source_name": "国土交通省 不動産情報ライブラリ",
+      "dataset_id": "XPT002:2025",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T11:57:51.874354+00:00"
+    },
+    {
+      "source_id": 144,
+      "source_name": "国土交通省 不動産情報ライブラリ",
+      "dataset_id": "XPT002:2026",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T12:01:23.583424+00:00"
+    },
+    {
+      "source_id": 146,
+      "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報 将来推計人口250mメッシュ",
+      "dataset_id": "XKT013:R6",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT013",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-03T12:04:10.804675+00:00"
+    },
+    {
+      "source_id": 145,
+      "source_name": "政府統計の総合窓口 e-Stat / 令和7年国勢調査 速報集計",
+      "dataset_id": "0004050397,0004050417",
+      "source_url": "https://www.e-stat.go.jp/stat-search/database?statdisp_id=0004050417",
+      "terms_url": "https://www.e-stat.go.jp/terms-of-use",
+      "published_at": "2026-05-29",
+      "fetched_at": "2026-09-03T12:01:32.751352+00:00"
+    }
+  ]
+}

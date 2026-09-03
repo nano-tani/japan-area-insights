@@ -5,6 +5,7 @@ from pathlib import Path
 
 from .analysis_schema import ensure_analysis_schema
 from .db import connect
+from .resilience_analysis import ensure_resilience_schema
 
 
 def _rows(conn, sql: str, params: tuple = ()) -> list[dict]:
@@ -18,6 +19,7 @@ def export_analysis_data(db_path: str | Path, output_dir: str | Path) -> None:
 
     with connect(db_path) as conn:
         ensure_analysis_schema(conn)
+        ensure_resilience_schema(conn)
         areas = _rows(conn, "SELECT area_id, municipality_name FROM areas ORDER BY area_id")
         definitions = _rows(
             conn,
@@ -97,12 +99,38 @@ def export_analysis_data(db_path: str | Path, output_dir: str | Path) -> None:
                 exposed_mesh = exposure.get("exposed_mesh_count") or 0
                 exposure["mesh_share"] = round(exposed_mesh / total_mesh * 100.0, 3) if total_mesh else None
 
+            evacuation_sites = _rows(
+                conn,
+                """
+                SELECT common_id,facility_name,address,flood_flag,landslide_flag,
+                       high_tide_flag,earthquake_flag,tsunami_flag,large_fire_flag,
+                       inland_flooding_flag,volcanic_phenomenon_flag,same_address_flag,
+                       remarks,latitude,longitude
+                FROM evacuation_sites WHERE area_id=? ORDER BY facility_name,common_id
+                """,
+                (area_id,),
+            )
+            disaster_history = _rows(
+                conn,
+                """
+                SELECT dh.event_id,dh.disastertype_code,dh.disaster_name,dh.disaster_date,
+                       dh.disaster_source,dh.geometry_type,dh.centroid_lat,dh.centroid_lon
+                FROM disaster_history dh
+                JOIN disaster_history_areas dha ON dha.event_id=dh.event_id
+                WHERE dha.area_id=?
+                ORDER BY dh.disaster_date DESC,dh.disastertype_code,dh.event_id
+                """,
+                (area_id,),
+            )
+
             payload = {
                 "area_id": area_id,
                 "municipality_name": area["municipality_name"],
                 "metric_version": "detail-v1",
                 "metrics": metrics,
                 "exposures": exposures,
+                "evacuation_sites": evacuation_sites,
+                "disaster_history": disaster_history,
             }
             (ward_dir / f"{area_id}.json").write_text(
                 json.dumps(payload, ensure_ascii=False, indent=2),

@@ -12,6 +12,15 @@ const metricLabels = {
   transport_score: "交通利便性",
   transaction_score: "取引活性度",
 };
+const metricMax = {
+  total_score: 100,
+  price_score: 20,
+  population_score: 20,
+  future_population_score: 20,
+  convenience_score: 15,
+  transport_score: 15,
+  transaction_score: 10,
+};
 const facilityLabels = {
   school: "学校",
   childcare: "保育園・幼稚園等",
@@ -26,12 +35,75 @@ async function loadJson(path) {
   return response.json();
 }
 
+function percent(value, max) {
+  if (value === null || value === undefined || !max) return 0;
+  return Math.max(0, Math.min(100, Number(value) / max * 100));
+}
+
+function visualMetric(label, value, max) {
+  return `<div class="visual-metric">
+    <div class="visual-metric-head"><span>${label}</span><strong>${score(value)} / ${max}</strong></div>
+    <div class="bar-track"><span class="bar-fill" style="width:${percent(value, max)}%"></span></div>
+  </div>`;
+}
+
+function miniBar(label, value, max) {
+  return `<div class="mini-bar-row">
+    <span>${label}</span>
+    <div class="bar-track"><span class="bar-fill" style="width:${percent(value, max)}%"></span></div>
+    <strong>${score(value)}</strong>
+  </div>`;
+}
+
+function scoreRing(value) {
+  if (value === null || value === undefined) return "";
+  return `<div class="score-ring" style="--score-pct:${percent(value, 100)}%" aria-label="総合スコア ${score(value)}点">
+    <div class="score-ring-inner"><strong>${score(value)}</strong><span>/ 100</span></div>
+  </div>`;
+}
+
 function chooseInitialRankingMetric() {
   const candidates = [
     "total_score", "price_score", "population_score", "future_population_score",
     "convenience_score", "transport_score", "transaction_score"
   ];
   return candidates.find((key) => state.areas.some((area) => area[key] !== null && area[key] !== undefined)) || "total_score";
+}
+
+function pickInsight(key, used) {
+  const rows = state.areas
+    .filter((area) => area[key] !== null && area[key] !== undefined)
+    .sort((a, b) => Number(b[key]) - Number(a[key]) || a.area_id.localeCompare(b.area_id));
+  return rows.find((area) => !used.has(area.area_id)) || rows[0] || null;
+}
+
+function renderInsights() {
+  const target = $("#area-insights");
+  if (!target) return;
+  const definitions = [
+    ["総合バランス", "total_score", "6項目の総合評価"],
+    ["将来人口", "future_population_score", "長期の人口維持を相対評価"],
+    ["価格動向", "price_score", "中長期の価格変化を相対評価"],
+  ];
+  const used = new Set();
+  const cards = definitions.map(([label, key, note]) => {
+    const area = pickInsight(key, used);
+    if (!area) return "";
+    used.add(area.area_id);
+    return `<article class="insight-card" data-area-id="${area.area_id}" tabindex="0" role="button">
+      <span class="insight-label">${label}</span>
+      <h3>${area.municipality_name}</h3>
+      <span class="insight-note">${note}</span>
+      <div class="insight-value"><strong>${score(area[key])}</strong><span>/ ${metricMax[key]}</span></div>
+    </article>`;
+  }).filter(Boolean);
+
+  target.innerHTML = cards.length ? cards.join("") : `<div class="data-missing">スコアデータ生成後に注目エリアを表示します。</div>`;
+  target.querySelectorAll(".insight-card").forEach((card) => {
+    const open = () => openDetail(card.dataset.areaId);
+    card.addEventListener("click", open);
+    card.addEventListener("keydown", (event) => { if (event.key === "Enter") open(); });
+  });
 }
 
 function renderRanking(filter = "") {
@@ -46,7 +118,7 @@ function renderRanking(filter = "") {
 
   $("#ranking-score-label").textContent = metricLabels[metric] || "評価";
   body.innerHTML = ranked.map((area, index) => `
-    <tr data-area-id="${area.area_id}">
+    <tr data-area-id="${area.area_id}" data-rank="${index + 1}">
       <td>${index + 1}</td>
       <td><strong>${area.municipality_name}</strong></td>
       <td><span class="score-pill">${score(area[metric])}</span></td>
@@ -78,9 +150,18 @@ function renderAreaGrid(filter = "") {
   const rows = state.areas.filter((area) => area.municipality_name.toLowerCase().includes(query));
   $("#area-grid").innerHTML = rows.map((area) => `
     <article class="area-card" data-area-id="${area.area_id}" tabindex="0" role="button">
-      <span class="pref">${area.prefecture_name}</span>
-      <h3>${area.municipality_name}</h3>
-      <div class="card-foot"><span>総合 ${score(area.total_score)}</span><span>信頼度 ${confidence(area.confidence)}</span></div>
+      <div>
+        <div class="area-card-head">
+          <div><span class="pref">${area.prefecture_name}</span><h3>${area.municipality_name}</h3></div>
+          <div class="area-card-score"><strong>${score(area.total_score)}</strong><span>総合 / 100</span></div>
+        </div>
+        <div class="mini-bars">
+          ${miniBar("価格", area.price_score, 20)}
+          ${miniBar("将来", area.future_population_score, 20)}
+          ${miniBar("交通", area.transport_score, 15)}
+        </div>
+      </div>
+      <div class="card-foot"><span>詳細を見る</span><span>信頼度 ${confidence(area.confidence)}</span></div>
     </article>
   `).join("");
 
@@ -102,14 +183,18 @@ function setupCompare() {
 }
 
 function compareCard(area) {
-  const metrics = [
-    ["総合", area.total_score], ["価格動向", area.price_score], ["人口動向", area.population_score],
-    ["将来人口", area.future_population_score], ["生活利便性", area.convenience_score],
-    ["交通利便性", area.transport_score], ["取引活性度", area.transaction_score], ["データ信頼度", area.confidence]
-  ];
   return `<article class="compare-card">
-    <h3>${area.municipality_name}</h3>
-    ${metrics.map(([label, value]) => `<div class="metric-row"><span>${label}</span><strong>${label === "データ信頼度" ? confidence(value) : score(value)}</strong></div>`).join("")}
+    <div class="compare-card-top">
+      <div><span class="pref">東京都</span><h3>${area.municipality_name}</h3></div>
+      <div class="compare-score"><strong>${score(area.total_score)}</strong><span>総合 / 100</span></div>
+    </div>
+    ${visualMetric("価格動向", area.price_score, 20)}
+    ${visualMetric("人口動向", area.population_score, 20)}
+    ${visualMetric("将来人口", area.future_population_score, 20)}
+    ${visualMetric("生活利便性", area.convenience_score, 15)}
+    ${visualMetric("交通利便性", area.transport_score, 15)}
+    ${visualMetric("取引活性度", area.transaction_score, 10)}
+    <div class="metric-row"><span>データ信頼度</span><strong>${confidence(area.confidence)}</strong></div>
   </article>`;
 }
 
@@ -147,6 +232,17 @@ function transportSummary(summary) {
   `;
 }
 
+function detailScorePanel(detail) {
+  return `<div class="score-panel">
+    ${visualMetric("価格動向", detail.price_score, 20)}
+    ${visualMetric("人口動向", detail.population_score, 20)}
+    ${visualMetric("将来人口", detail.future_population_score, 20)}
+    ${visualMetric("生活利便性", detail.convenience_score, 15)}
+    ${visualMetric("交通利便性", detail.transport_score, 15)}
+    ${visualMetric("取引活性度", detail.transaction_score, 10)}
+  </div>`;
+}
+
 async function openDetail(areaId) {
   const dialog = $("#detail-dialog");
   const basic = state.areas.find((area) => area.area_id === areaId);
@@ -155,22 +251,19 @@ async function openDetail(areaId) {
 
   try {
     const detail = await loadJson(`./data/area/${areaId}.json`);
-    const totalDisplay = detail.total_score === null || detail.total_score === undefined
-      ? `<div class="data-missing">総合スコアに必要なデータが不足しています。</div>`
-      : `<div class="detail-score"><strong>${score(detail.total_score)}</strong><span>/ 100</span></div>`;
+    const missingTotal = detail.total_score === null || detail.total_score === undefined;
     $("#detail-content").innerHTML = `
       <div class="detail-body">
-        <p class="section-kicker">AREA ${detail.area_id}</p>
-        <h3>${detail.municipality_name}</h3>
-        <p class="detail-sub">${detail.prefecture_name} / 対象地域内での相対評価</p>
-        ${totalDisplay}
-        <div class="metric-row"><span>価格動向</span><strong>${score(detail.price_score)} / 20</strong></div>
-        <div class="metric-row"><span>人口動向</span><strong>${score(detail.population_score)} / 20</strong></div>
-        <div class="metric-row"><span>将来人口</span><strong>${score(detail.future_population_score)} / 20</strong></div>
-        <div class="metric-row"><span>生活利便性</span><strong>${score(detail.convenience_score)} / 15</strong></div>
-        <div class="metric-row"><span>交通利便性</span><strong>${score(detail.transport_score)} / 15</strong></div>
-        <div class="metric-row"><span>取引活性度</span><strong>${score(detail.transaction_score)} / 10</strong></div>
-        <div class="metric-row"><span>データ信頼度</span><strong>${confidence(detail.confidence)}</strong></div>
+        <div class="detail-hero">
+          <div>
+            <p class="section-kicker">AREA ${detail.area_id}</p>
+            <h3>${detail.municipality_name}</h3>
+            <p class="detail-sub">${detail.prefecture_name} / 東京23区内での相対評価 / 信頼度 ${confidence(detail.confidence)}</p>
+          </div>
+          ${scoreRing(detail.total_score)}
+        </div>
+        ${missingTotal ? `<div class="context-box">総合スコアに必要なデータが不足しています。算出できる項目だけを表示しています。</div>` : ""}
+        ${detailScorePanel(detail)}
         <section class="detail-section"><h4>地価推移</h4>${rowsOrMissing(detail.prices, [["年", "year"], ["公示地価", "official_land_price", "円/㎡"], ["前年比", "yoy_change", "%"], ["5年変化", "change_5y", "%"]])}</section>
         <section class="detail-section"><h4>人口推移</h4>${rowsOrMissing(detail.population, [["年", "year"], ["人口", "population", "人"], ["人口増減率", "population_change_rate", "%"], ["世帯", "households", "世帯"]])}</section>
         <section class="detail-section"><h4>将来人口</h4>${rowsOrMissing(detail.future_population, [["年", "year"], ["推計人口", "projected_population", "人"], ["2025年比", "retention_rate", "%"]])}</section>
@@ -195,6 +288,7 @@ async function init() {
       const date = new Date(state.meta.generated_at);
       $("#generated-at").textContent = `生成 ${date.toLocaleString("ja-JP")}`;
     }
+    renderInsights();
     setupRanking();
     renderAreaGrid();
     setupCompare();

@@ -12,7 +12,7 @@ on:
         required: true
         default: "2026"
       extended_analysis:
-        description: "Fetch migration, economy, urban-planning and hazard analysis"
+        description: "Fetch migration, economy, appraisal, urban-planning and hazard analysis"
         required: true
         type: boolean
         default: true
@@ -69,10 +69,14 @@ jobs:
         run: python scripts/sync_station_areas.py
       - name: Fetch station-filtered transaction history
         run: python scripts/fetch_station_transactions.py --from-year ${{ inputs.from_year }} --to-year ${{ inputs.to_year }} --interval 0.3
-      - name: Fetch migration and economic statistics
+      - name: Fetch migration, housing, labor, education, health and economic statistics
         if: ${{ inputs.extended_analysis }}
         continue-on-error: true
         run: python scripts/fetch_extended_estat.py
+      - name: Fetch appraisal reports
+        if: ${{ inputs.extended_analysis }}
+        continue-on-error: true
+        run: python scripts/fetch_appraisals.py --from-year ${{ inputs.from_year }} --to-year ${{ inputs.to_year }} --interval 0.5
       - name: Fetch urban planning and hazard layers
         if: ${{ inputs.extended_analysis }}
         continue-on-error: true

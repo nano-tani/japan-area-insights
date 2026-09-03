@@ -12,7 +12,7 @@ on:
         required: true
         default: "2026"
       extended_analysis:
-        description: "Fetch migration, economy, appraisal, urban-planning and resilience analysis"
+        description: "Fetch migration, economy, appraisal, urban-planning, resilience and seismic analysis"
         required: true
         type: boolean
         default: true
@@ -85,6 +85,10 @@ jobs:
         if: ${{ inputs.extended_analysis }}
         continue-on-error: true
         run: python scripts/fetch_resilience.py --zoom 12 --interval 0.2
+      - name: Fetch J-SHIS seismic and surface-ground meshes
+        if: ${{ inputs.extended_analysis }}
+        continue-on-error: true
+        run: python scripts/fetch_jshis.py --interval 0.2
       - name: Compute ward scores
         run: python scripts/compute_scores.py
       - name: Compute station-area metrics and scores

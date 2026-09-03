@@ -6,6 +6,7 @@ from pathlib import Path
 from .analysis_schema import ensure_analysis_schema
 from .db import connect
 from .hazard_severity import ensure_severity_schema
+from .jshis_analysis import ensure_jshis_schema, ground_type_distribution
 from .resilience_analysis import ensure_resilience_schema
 
 
@@ -22,6 +23,7 @@ def export_analysis_data(db_path: str | Path, output_dir: str | Path) -> None:
         ensure_analysis_schema(conn)
         ensure_resilience_schema(conn)
         ensure_severity_schema(conn)
+        ensure_jshis_schema(conn)
         areas = _rows(conn, "SELECT area_id, municipality_name FROM areas ORDER BY area_id")
         definitions = _rows(
             conn,
@@ -152,6 +154,13 @@ def export_analysis_data(db_path: str | Path, output_dir: str | Path) -> None:
                 "exposure_bands": exposure_bands,
                 "evacuation_sites": evacuation_sites,
                 "disaster_history": disaster_history,
+                "seismic_ground_types": ground_type_distribution(conn, area_id),
+                "seismic_note": {
+                    "provider": "防災科学技術研究所 J-SHIS（地震ハザードステーション）",
+                    "ground_version": "V4",
+                    "hazard_version": "Y2024",
+                    "note": "250mメッシュの代表値・確率論的地震動予測モデルです。個別地点の安全性や将来の地震発生を保証するものではありません。",
+                },
             }
             (ward_dir / f"{area_id}.json").write_text(
                 json.dumps(payload, ensure_ascii=False, indent=2),

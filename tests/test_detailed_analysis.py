@@ -120,7 +120,7 @@ def test_compute_market_metrics_and_export(tmp_path: Path):
                     total_price, unit_price, area_sqm, building_year, structure,
                     renovation, road_breadth_m, frontage_m, land_shape, use_name,
                     purpose, floor_plan, floor_area_ratio, coverage_ratio, source_id
-                ) VALUES (?, '13101', ?, '不動産取引価格情報', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ) VALUES (?, '13101', ?, '不動産取引価格情報', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (tx_id, year, kind, unit * area, unit, area, built, structure, renovation, width, frontage, shape, use_name, purpose, plan, far, coverage, source_id),
             )

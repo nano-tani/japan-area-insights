@@ -12,7 +12,7 @@ on:
         required: true
         default: "2026"
       extended_analysis:
-        description: "Fetch migration, economy, appraisal, urban-planning, resilience and seismic analysis"
+        description: "Fetch migration, economy, appraisal, urban-planning, resilience, seismic and terrain analysis"
         required: true
         type: boolean
         default: true
@@ -89,6 +89,10 @@ jobs:
         if: ${{ inputs.extended_analysis }}
         continue-on-error: true
         run: python scripts/fetch_jshis.py --interval 0.2
+      - name: Fetch GSI elevation for populated meshes
+        if: ${{ inputs.extended_analysis }}
+        continue-on-error: true
+        run: python scripts/fetch_gsi_elevation.py --interval 0.15
       - name: Compute ward scores
         run: python scripts/compute_scores.py
       - name: Compute station-area metrics and scores

@@ -86,7 +86,9 @@ CREATE TABLE IF NOT EXISTS facilities (
     facility_id TEXT PRIMARY KEY,
     area_id TEXT NOT NULL,
     facility_type TEXT NOT NULL,
+    facility_subtype TEXT,
     facility_name TEXT,
+    address TEXT,
     latitude REAL,
     longitude REAL,
     source_id INTEGER,
@@ -94,17 +96,26 @@ CREATE TABLE IF NOT EXISTS facilities (
     FOREIGN KEY (source_id) REFERENCES data_sources(source_id)
 );
 
+CREATE INDEX IF NOT EXISTS idx_facilities_area_type ON facilities(area_id, facility_type);
+
 CREATE TABLE IF NOT EXISTS stations (
     station_id TEXT PRIMARY KEY,
     area_id TEXT NOT NULL,
+    station_code TEXT,
+    group_code TEXT,
     station_name TEXT NOT NULL,
     line_name TEXT,
+    operator_name TEXT,
+    passenger_count INTEGER,
+    passenger_year INTEGER,
     latitude REAL,
     longitude REAL,
     source_id INTEGER,
     FOREIGN KEY (area_id) REFERENCES areas(area_id),
     FOREIGN KEY (source_id) REFERENCES data_sources(source_id)
 );
+
+CREATE INDEX IF NOT EXISTS idx_stations_area ON stations(area_id);
 
 CREATE TABLE IF NOT EXISTS urban_planning (
     planning_id TEXT PRIMARY KEY,
@@ -165,6 +176,20 @@ CREATE TABLE IF NOT EXISTS data_sources (
 );
 """
 
+MIGRATION_COLUMNS = {
+    "facilities": {
+        "facility_subtype": "TEXT",
+        "address": "TEXT",
+    },
+    "stations": {
+        "station_code": "TEXT",
+        "group_code": "TEXT",
+        "operator_name": "TEXT",
+        "passenger_count": "INTEGER",
+        "passenger_year": "INTEGER",
+    },
+}
+
 
 def connect(db_path: str | Path) -> sqlite3.Connection:
     path = Path(db_path)
@@ -175,6 +200,15 @@ def connect(db_path: str | Path) -> sqlite3.Connection:
     return conn
 
 
+def _ensure_columns(conn: sqlite3.Connection) -> None:
+    for table, columns in MIGRATION_COLUMNS.items():
+        existing = {str(row["name"]) for row in conn.execute(f"PRAGMA table_info({table})")}
+        for column, declaration in columns.items():
+            if column not in existing:
+                conn.execute(f"ALTER TABLE {table} ADD COLUMN {column} {declaration}")
+
+
 def initialize(db_path: str | Path) -> None:
     with connect(db_path) as conn:
         conn.executescript(SCHEMA)
+        _ensure_columns(conn)

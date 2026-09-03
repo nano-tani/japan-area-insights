@@ -117,6 +117,27 @@ CREATE TABLE IF NOT EXISTS stations (
 
 CREATE INDEX IF NOT EXISTS idx_stations_area ON stations(area_id);
 
+CREATE TABLE IF NOT EXISTS station_transactions (
+    station_group_code TEXT NOT NULL,
+    transaction_id TEXT NOT NULL,
+    year INTEGER NOT NULL,
+    quarter INTEGER,
+    transaction_date TEXT,
+    municipality_code TEXT,
+    district_name TEXT,
+    price_category TEXT,
+    property_type TEXT,
+    total_price REAL,
+    unit_price REAL,
+    area_sqm REAL,
+    source_id INTEGER,
+    PRIMARY KEY (station_group_code, transaction_id),
+    FOREIGN KEY (source_id) REFERENCES data_sources(source_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_station_transactions_group_year
+    ON station_transactions(station_group_code, year);
+
 CREATE TABLE IF NOT EXISTS urban_planning (
     planning_id TEXT PRIMARY KEY,
     area_id TEXT NOT NULL,

@@ -6,6 +6,7 @@ from typing import Any
 
 from .db import connect
 from .geo import mesh250_center
+from .jshis_analysis import ensure_jshis_schema
 
 MESH_LAT_DEG = 7.5 / 3600.0
 MESH_LON_DEG = 11.25 / 3600.0
@@ -19,25 +20,39 @@ def _number(value: Any) -> float | None:
 
 
 def build_ward_mesh_payload(conn, area_id: str) -> dict[str, Any]:
+    ensure_jshis_schema(conn)
     rows = conn.execute(
         """
-        SELECT mesh_id, year, projected_population
-        FROM future_population
-        WHERE area_id=? AND year IN (2025, 2045)
-        ORDER BY mesh_id, year
+        SELECT fp.mesh_id, fp.year, fp.projected_population,
+               msm.microtopography_name,msm.avs,msm.arv,
+               msm.t30_i45_ps,msm.t30_i50_ps,msm.t30_i55_ps,msm.t30_i60_ps,
+               msm.t30_p03_si,msm.t30_p06_si
+        FROM future_population fp
+        LEFT JOIN mesh_seismic_metrics msm ON msm.mesh_id=fp.mesh_id
+        WHERE fp.area_id=? AND fp.year IN (2025, 2045)
+        ORDER BY fp.mesh_id, fp.year
         """,
         (area_id,),
     ).fetchall()
 
-    by_mesh: dict[str, dict[int, float | None]] = {}
+    by_mesh: dict[str, dict[str, Any]] = {}
     for row in rows:
         mesh_id = str(row["mesh_id"])
-        by_mesh.setdefault(mesh_id, {})[int(row["year"])] = _number(row["projected_population"])
+        item = by_mesh.setdefault(mesh_id, {"population": {}})
+        item["population"][int(row["year"])] = _number(row["projected_population"])
+        for key in (
+            "microtopography_name", "avs", "arv",
+            "t30_i45_ps", "t30_i50_ps", "t30_i55_ps", "t30_i60_ps",
+            "t30_p03_si", "t30_p06_si",
+        ):
+            if row[key] is not None:
+                item[key] = row[key]
 
     meshes: list[dict[str, Any]] = []
     longitudes: list[float] = []
     latitudes: list[float] = []
-    for mesh_id, values in by_mesh.items():
+    for mesh_id, item in by_mesh.items():
+        values = item["population"]
         try:
             longitude, latitude = mesh250_center(mesh_id)
         except ValueError:
@@ -57,6 +72,23 @@ def build_ward_mesh_payload(conn, area_id: str) -> dict[str, Any]:
                 "population_2025": pop_2025,
                 "population_2045": pop_2045,
                 "retention_2045": retention,
+                "microtopography": item.get("microtopography_name"),
+                "avs30": _number(item.get("avs")),
+                "amplification_arv": _number(item.get("arv")),
+                "earthquake_probability_30y_5lower": (
+                    round(float(item["t30_i45_ps"]) * 100.0, 3) if item.get("t30_i45_ps") is not None else None
+                ),
+                "earthquake_probability_30y_5upper": (
+                    round(float(item["t30_i50_ps"]) * 100.0, 3) if item.get("t30_i50_ps") is not None else None
+                ),
+                "earthquake_probability_30y_6lower": (
+                    round(float(item["t30_i55_ps"]) * 100.0, 3) if item.get("t30_i55_ps") is not None else None
+                ),
+                "earthquake_probability_30y_6upper": (
+                    round(float(item["t30_i60_ps"]) * 100.0, 3) if item.get("t30_i60_ps") is not None else None
+                ),
+                "earthquake_intensity_30y_p03": _number(item.get("t30_p03_si")),
+                "earthquake_intensity_30y_p06": _number(item.get("t30_p06_si")),
             }
         )
         longitudes.append(longitude)
@@ -122,6 +154,12 @@ def build_ward_mesh_payload(conn, area_id: str) -> dict[str, Any]:
                 else None
             ),
         },
+        "seismic": {
+            "provider": "防災科学技術研究所 J-SHIS（地震ハザードステーション）",
+            "ground_version": "V4",
+            "hazard_version": "Y2024",
+            "note": "250m代表値・確率論モデル。個別地点の安全性や将来の発生を保証しません。",
+        },
         "meshes": meshes,
         "stations": list(stations_by_group.values()),
     }
@@ -132,6 +170,7 @@ def export_ward_mesh_maps(db_path: str | Path, output_dir: str | Path) -> None:
     output.mkdir(parents=True, exist_ok=True)
 
     with connect(db_path) as conn:
+        ensure_jshis_schema(conn)
         area_ids = [str(row["area_id"]) for row in conn.execute("SELECT area_id FROM areas ORDER BY area_id")]
         for area_id in area_ids:
             area_dir = output / area_id

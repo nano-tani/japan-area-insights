@@ -6,6 +6,7 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
+from japan_area_insights.analysis_schema import ensure_analysis_schema
 from japan_area_insights.db import connect, initialize
 from japan_area_insights.sources.reinfolib import BASE_URL, ReinfolibClient
 from japan_area_insights.transactions import aggregate_transactions, normalize_xit001
@@ -15,7 +16,7 @@ DB_PATH = ROOT / "database" / "area_insights.db"
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Fetch XIT001 transaction data for Tokyo 23 wards")
+    parser = argparse.ArgumentParser(description="Fetch XIT001 transaction data for configured municipalities")
     parser.add_argument("--from-year", type=int, required=True)
     parser.add_argument("--to-year", type=int, required=True)
     parser.add_argument("--price-classification", choices=["01", "02"], default="01")
@@ -33,19 +34,23 @@ def main() -> None:
         raise SystemExit("--from-year must be <= --to-year")
 
     initialize(DB_PATH)
+    with connect(DB_PATH) as conn:
+        ensure_analysis_schema(conn)
     client = ReinfolibClient(min_interval_seconds=max(1.0, args.interval))
 
     with connect(DB_PATH) as conn:
-        areas = conn.execute("SELECT area_id, municipality_name FROM areas ORDER BY municipality_code").fetchall()
+        areas = conn.execute(
+            "SELECT area_id, prefecture_code, municipality_name FROM areas ORDER BY municipality_code"
+        ).fetchall()
         if not areas:
             raise SystemExit("No areas found. Run: python scripts/seed_areas.py")
 
     for year in range(args.from_year, args.to_year + 1):
         for area in areas:
-            area_id = area["area_id"]
+            area_id = str(area["area_id"])
             params = {
                 "year": year,
-                "area": "13",
+                "area": str(area["prefecture_code"]),
                 "city": area_id,
                 "priceClassification": args.price_classification,
                 "language": "ja",
@@ -57,6 +62,7 @@ def main() -> None:
             fetched_at = datetime.now(timezone.utc).isoformat()
 
             with connect(DB_PATH) as conn:
+                ensure_analysis_schema(conn)
                 cursor = conn.execute(
                     """
                     INSERT INTO data_sources (
@@ -68,7 +74,7 @@ def main() -> None:
                         "国土交通省 不動産情報ライブラリ",
                         f"XIT001:{year}:{area_id}:{args.price_classification}",
                         f"{BASE_URL}/XIT001",
-                        None,
+                        "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
                         None,
                         fetched_at,
                         raw_hash,
@@ -83,22 +89,51 @@ def main() -> None:
                     """
                     INSERT INTO transactions (
                         transaction_id, area_id, year, quarter, transaction_date,
-                        price_category, property_type, district_name,
-                        total_price, unit_price, area_sqm, source_id
+                        price_category, property_type, region, district_name, district_code,
+                        total_price, price_per_unit, unit_price, area_sqm,
+                        floor_plan, land_shape, frontage_m, total_floor_area_sqm,
+                        building_year, structure, use_name, purpose,
+                        road_direction, road_classification, road_breadth_m,
+                        city_planning, coverage_ratio, floor_area_ratio,
+                        renovation, remarks, source_id
                     ) VALUES (
                         :transaction_id, :area_id, :year, :quarter, :transaction_date,
-                        :price_category, :property_type, :district_name,
-                        :total_price, :unit_price, :area_sqm, :source_id
+                        :price_category, :property_type, :region, :district_name, :district_code,
+                        :total_price, :price_per_unit, :unit_price, :area_sqm,
+                        :floor_plan, :land_shape, :frontage_m, :total_floor_area_sqm,
+                        :building_year, :structure, :use_name, :purpose,
+                        :road_direction, :road_classification, :road_breadth_m,
+                        :city_planning, :coverage_ratio, :floor_area_ratio,
+                        :renovation, :remarks, :source_id
                     )
                     ON CONFLICT(transaction_id) DO UPDATE SET
                         quarter=excluded.quarter,
                         transaction_date=excluded.transaction_date,
                         price_category=excluded.price_category,
                         property_type=excluded.property_type,
+                        region=excluded.region,
                         district_name=excluded.district_name,
+                        district_code=excluded.district_code,
                         total_price=excluded.total_price,
+                        price_per_unit=excluded.price_per_unit,
                         unit_price=excluded.unit_price,
                         area_sqm=excluded.area_sqm,
+                        floor_plan=excluded.floor_plan,
+                        land_shape=excluded.land_shape,
+                        frontage_m=excluded.frontage_m,
+                        total_floor_area_sqm=excluded.total_floor_area_sqm,
+                        building_year=excluded.building_year,
+                        structure=excluded.structure,
+                        use_name=excluded.use_name,
+                        purpose=excluded.purpose,
+                        road_direction=excluded.road_direction,
+                        road_classification=excluded.road_classification,
+                        road_breadth_m=excluded.road_breadth_m,
+                        city_planning=excluded.city_planning,
+                        coverage_ratio=excluded.coverage_ratio,
+                        floor_area_ratio=excluded.floor_area_ratio,
+                        renovation=excluded.renovation,
+                        remarks=excluded.remarks,
                         source_id=excluded.source_id
                     """,
                     [{**row, "source_id": source_id} for row in rows],

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="東京23区の価格・人口・将来人口・生活・交通を公的データで詳しく見る街データページ">
+  <meta name="description" content="東京23区の価格・人口・移動・経済・都市計画・防災を公的データで詳しく見る街データページ">
   <title>区詳細 | 街スコア</title>
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./polish.css">
@@ -102,6 +102,23 @@
       </div>
     </section>
 
+    <section class="ward-section" aria-labelledby="ward-analysis-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">DEEP ANALYSIS</p>
+          <h2 id="ward-analysis-title">街を多角的に分析する</h2>
+        </div>
+        <p class="section-note">総合100点とは別に、不動産市場・人口移動・経済/財政・都市/防災を原数値で確認します。防災情報は総合点に含めません。</p>
+      </div>
+      <div class="analysis-grid">
+        <article class="analysis-card"><div class="analysis-card-head"><span>MARKET</span><h3>不動産市場の中身</h3></div><div id="analysis-market"></div></article>
+        <article class="analysis-card"><div class="analysis-card-head"><span>MIGRATION</span><h3>誰が入って、出ているか</h3></div><div id="analysis-migration"></div></article>
+        <article class="analysis-card"><div class="analysis-card-head"><span>ECONOMY</span><h3>所得・自治体財政</h3></div><div id="analysis-economy"></div></article>
+        <article class="analysis-card analysis-card-wide"><div class="analysis-card-head"><span>URBAN & RISK</span><h3>都市計画・災害曝露</h3></div><div id="analysis-exposures"></div></article>
+      </div>
+      <p id="analysis-note" class="map-note">詳細分析データはコアデータと別周期で更新されます。指標ごとに原典年度・サンプル数・信頼度を表示します。</p>
+    </section>
+
     <section class="ward-section" aria-labelledby="ward-sources-title">
       <div class="section-heading">
         <div>
@@ -115,11 +132,12 @@
 
   <footer>
     <p>本サイトは投資助言ではありません。表示値は公的データ等を加工した相対評価であり、将来の価格・収益を保証しません。</p>
-    <p>250mメッシュには総合点を付けず、将来人口の分布確認に使用します。</p>
+    <p>250mメッシュ・都市計画・災害曝露には総合点を付けず、分布と原数値の確認に使用します。</p>
     <p>このサービスは、国土交通省の不動産情報ライブラリのAPI機能を使用していますが、提供情報の最新性、正確性、完全性等が保証されたものではありません</p>
     <p>このサービスは、政府統計総合窓口(e-Stat)のAPI機能を使用していますが、サービスの内容は国によって保証されたものではありません。</p>
   </footer>
 
   <script src="./ward.js" defer></script>
+  <script src="./ward-analysis.js" defer></script>
 </body>
 </html>

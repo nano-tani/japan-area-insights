@@ -66,11 +66,38 @@
 .source-card strong { font-size:13px; }
 .source-card small { color:var(--accent); margin-top:5px; font-size:10px; }
 
+.analysis-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+.analysis-card { border:1px solid var(--line); border-radius:20px; background:var(--panel); padding:20px; min-width:0; }
+.analysis-card-wide { grid-column:1 / -1; }
+.analysis-card-head { padding-bottom:14px; border-bottom:1px solid var(--line); }
+.analysis-card-head > span { color:var(--accent); font-size:9px; font-weight:900; letter-spacing:.14em; }
+.analysis-card-head h3 { margin:4px 0 0; font-size:19px; letter-spacing:-.035em; }
+.analysis-metric-row { display:flex; justify-content:space-between; gap:14px; align-items:center; padding:12px 0; border-bottom:1px solid var(--line); }
+.analysis-metric-row:last-child { border-bottom:0; }
+.analysis-metric-row > div:first-child { display:grid; gap:3px; min-width:0; }
+.analysis-metric-row span { font-size:11px; color:var(--ink-soft); }
+.analysis-metric-row small { font-size:9px; color:var(--muted); }
+.analysis-value { display:flex; align-items:center; gap:7px; text-align:right; flex-shrink:0; }
+.analysis-value strong { font-size:14px; color:var(--accent-strong); }
+.quality-badge { display:inline-grid; place-items:center; width:22px; height:22px; border-radius:50%; border:1px solid var(--line); font-size:9px; font-weight:900; color:var(--muted); }
+.quality-A,.quality-B { color:var(--accent-strong); background:var(--accent-faint); }
+.exposure-row { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:18px; padding:13px 0; border-bottom:1px solid var(--line); }
+.exposure-row:last-child { border-bottom:0; }
+.exposure-title { display:grid; gap:2px; }
+.exposure-title > span { color:var(--accent); font-size:9px; font-weight:800; letter-spacing:.08em; }
+.exposure-title strong { font-size:12px; }
+.exposure-title small { color:var(--muted); font-size:9px; }
+.exposure-value { text-align:right; }
+.exposure-value strong { display:block; font-size:17px; color:var(--accent-strong); }
+.exposure-value span { color:var(--muted); font-size:9px; }
+
 @media (max-width: 920px) {
   .key-stat-grid { grid-template-columns:repeat(2,1fr); }
   .mesh-layout { grid-template-columns:1fr; }
   .mesh-map { min-height:440px; }
   .trend-grid { grid-template-columns:1fr; }
+  .analysis-grid { grid-template-columns:1fr 1fr; }
+  .analysis-card-wide { grid-column:1 / -1; }
 }
 
 @media (max-width: 700px) {
@@ -83,6 +110,8 @@
   .mesh-toolbar .metric-select { min-width:0; width:100%; }
   .mesh-legend { justify-content:flex-start; }
   .source-list { grid-template-columns:1fr; }
+  .analysis-grid { grid-template-columns:1fr; }
+  .analysis-card-wide { grid-column:auto; }
 }
 
 @media (max-width: 480px) {
@@ -92,4 +121,7 @@
   .mesh-map { min-height:360px; padding:8px; }
   .timeline-row { grid-template-columns:36px 1fr; }
   .timeline-row strong { grid-column:1 / -1; text-align:left; padding-left:45px; }
+  .analysis-metric-row { align-items:flex-start; }
+  .exposure-row { grid-template-columns:1fr; gap:7px; }
+  .exposure-value { text-align:left; }
 }

@@ -11,6 +11,11 @@ on:
         description: "End year for price/transaction history"
         required: true
         default: "2026"
+      extended_analysis:
+        description: "Fetch migration, economy, appraisal, urban-planning and hazard analysis"
+        required: true
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -27,7 +32,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 300
     env:
       REINFOLIB_API_KEY: ${{ secrets.REINFOLIB_API_KEY }}
       ESTAT_APP_ID: ${{ secrets.ESTAT_APP_ID }}
@@ -46,9 +51,9 @@ jobs:
           test -n "$ESTAT_APP_ID" || (echo "ESTAT_APP_ID is missing" && exit 1)
       - run: python scripts/init_db.py
       - run: python scripts/seed_areas.py
-      - name: Fetch transaction prices
+      - name: Fetch transaction prices and detailed attributes
         run: python scripts/fetch_reinfolib_transactions.py --from-year ${{ inputs.from_year }} --to-year ${{ inputs.to_year }}
-      - name: Fetch official land prices
+      - name: Fetch official land prices and point attributes
         run: python scripts/fetch_land_prices.py --from-year ${{ inputs.from_year }} --to-year ${{ inputs.to_year }} --interval 0.5
       - name: Fetch 2025 census preliminary population
         run: python scripts/fetch_population.py
@@ -64,10 +69,24 @@ jobs:
         run: python scripts/sync_station_areas.py
       - name: Fetch station-filtered transaction history
         run: python scripts/fetch_station_transactions.py --from-year ${{ inputs.from_year }} --to-year ${{ inputs.to_year }} --interval 0.3
+      - name: Fetch migration, housing, labor, education, health and economic statistics
+        if: ${{ inputs.extended_analysis }}
+        continue-on-error: true
+        run: python scripts/fetch_extended_estat.py
+      - name: Fetch appraisal reports
+        if: ${{ inputs.extended_analysis }}
+        continue-on-error: true
+        run: python scripts/fetch_appraisals.py --from-year ${{ inputs.from_year }} --to-year ${{ inputs.to_year }} --interval 0.5
+      - name: Fetch urban planning and hazard layers
+        if: ${{ inputs.extended_analysis }}
+        continue-on-error: true
+        run: python scripts/fetch_extended_spatial.py --zoom 12 --interval 0.2
       - name: Compute ward scores
         run: python scripts/compute_scores.py
       - name: Compute station-area metrics and scores
         run: python scripts/compute_station_scores.py
+      - name: Compute detailed market analysis
+        run: python scripts/compute_detailed_analysis.py
       - run: python scripts/build_site.py
       - run: pytest -q
       - name: Commit generated public JSON
@@ -79,6 +98,7 @@ jobs:
             echo "No public data changes"
           else
             git commit -m "data: refresh public area datasets"
+            git pull --rebase origin main
             git push origin HEAD:main
           fi
       - uses: actions/configure-pages@v5

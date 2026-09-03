@@ -7,6 +7,7 @@ from statistics import mean, median
 from typing import Any, Mapping
 
 _QUARTER_RE = re.compile(r"第([1-4])四半期")
+_YEAR_RE = re.compile(r"(\d{4})")
 
 
 def _number(value: Any) -> float | None:
@@ -18,7 +19,25 @@ def _number(value: Any) -> float | None:
     try:
         return float(text)
     except ValueError:
+        match = re.search(r"-?\d+(?:\.\d+)?", text)
+        return float(match.group()) if match else None
+
+
+def _integer(value: Any) -> int | None:
+    number = _number(value)
+    return int(number) if number is not None else None
+
+
+def _building_year(value: Any) -> int | None:
+    if value is None:
         return None
+    text = str(value).strip()
+    match = _YEAR_RE.search(text)
+    if match:
+        return int(match.group(1))
+    # XIT001 can return Japanese-era-style / nonnumeric values for very old stock;
+    # keep them as unknown rather than guessing.
+    return None
 
 
 def _quarter(period: str | None) -> int | None:
@@ -29,7 +48,11 @@ def _quarter(period: str | None) -> int | None:
 
 
 def normalize_xit001(payload: Mapping[str, Any], *, area_id: str, year: int) -> list[dict[str, Any]]:
-    """Normalize an XIT001 response without inventing missing values."""
+    """Normalize an XIT001 response while preserving analysis-grade attributes.
+
+    Values that cannot be interpreted safely are stored as ``None``.  No
+    geolocation is inferred from DistrictName or the transaction-point API.
+    """
     records = payload.get("data", [])
     if records is None:
         return []
@@ -68,10 +91,29 @@ def normalize_xit001(payload: Mapping[str, Any], *, area_id: str, year: int) -> 
                 "transaction_date": period,
                 "price_category": str(record.get("PriceCategory") or "") or None,
                 "property_type": str(record.get("Type") or "") or None,
+                "region": str(record.get("Region") or "") or None,
                 "district_name": str(record.get("DistrictName") or "") or None,
+                "district_code": str(record.get("DistrictCode") or "") or None,
                 "total_price": total_price,
+                "price_per_unit": _number(record.get("PricePerUnit")),
                 "unit_price": unit_price,
                 "area_sqm": area_sqm,
+                "floor_plan": str(record.get("FloorPlan") or "") or None,
+                "land_shape": str(record.get("LandShape") or "") or None,
+                "frontage_m": _number(record.get("Frontage")),
+                "total_floor_area_sqm": _number(record.get("TotalFloorArea")),
+                "building_year": _building_year(record.get("BuildingYear")),
+                "structure": str(record.get("Structure") or "") or None,
+                "use_name": str(record.get("Use") or "") or None,
+                "purpose": str(record.get("Purpose") or "") or None,
+                "road_direction": str(record.get("Direction") or "") or None,
+                "road_classification": str(record.get("Classification") or "") or None,
+                "road_breadth_m": _number(record.get("Breadth")),
+                "city_planning": str(record.get("CityPlanning") or "") or None,
+                "coverage_ratio": _number(record.get("CoverageRatio")),
+                "floor_area_ratio": _number(record.get("FloorAreaRatio")),
+                "renovation": str(record.get("Renovation") or "") or None,
+                "remarks": str(record.get("Remarks") or "") or None,
             }
         )
 

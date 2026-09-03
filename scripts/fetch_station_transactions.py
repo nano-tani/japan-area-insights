@@ -68,13 +68,13 @@ def main() -> None:
 
     digest = hashlib.sha256()
     collected: list[dict] = []
-    skipped_400: list[tuple[str, int]] = []
+    skipped: list[tuple[str, int, int | str]] = []
 
     for year in range(args.from_year, effective_to + 1):
         year_count = 0
         for index, (group_code, station_name) in enumerate(stations, start=1):
             if len(group_code) != 6 or not group_code.isdigit():
-                skipped_400.append((group_code, year))
+                skipped.append((group_code, year, "invalid"))
                 continue
             params = {
                 "year": year,
@@ -85,9 +85,13 @@ def main() -> None:
             try:
                 payload = client.get_json("XIT001", params)
             except HTTPError as exc:
-                if exc.code == 400:
-                    digest.update(f"HTTP400|{year}|{group_code}".encode("utf-8"))
-                    skipped_400.append((group_code, year))
+                # XIT001 returns 404 for a valid station/year pair when no
+                # transaction records exist. That is an empty sample, not a
+                # failed refresh. 400 is likewise skipped for unsupported or
+                # stale group codes discovered in the station master.
+                if exc.code in {400, 404}:
+                    digest.update(f"HTTP{exc.code}|{year}|{group_code}".encode("utf-8"))
+                    skipped.append((group_code, year, exc.code))
                     continue
                 raise
 
@@ -166,9 +170,13 @@ def main() -> None:
                 [{**row, "source_id": source_id} for row in collected],
             )
 
+    reason_counts: dict[str, int] = {}
+    for _, _, reason in skipped:
+        key = str(reason)
+        reason_counts[key] = reason_counts.get(key, 0) + 1
     print(
         f"stored {len(collected)} station transactions for {len(stations)} station areas "
-        f"({args.from_year}-{effective_to}); skipped HTTP/invalid code pairs: {len(skipped_400)}"
+        f"({args.from_year}-{effective_to}); skipped pairs={len(skipped)} {reason_counts}"
     )
 
 

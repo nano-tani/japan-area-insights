@@ -6,6 +6,7 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
+from japan_area_insights.analysis_schema import ensure_analysis_schema
 from japan_area_insights.db import connect, initialize
 from japan_area_insights.land_prices import aggregate_land_prices, normalize_xpt002, tiles_for_bbox
 from japan_area_insights.sources.reinfolib import BASE_URL, ReinfolibClient
@@ -15,7 +16,7 @@ DB_PATH = ROOT / "database" / "area_insights.db"
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Fetch XPT002 land-price data for Tokyo 23 wards")
+    parser = argparse.ArgumentParser(description="Fetch XPT002 land-price data for configured areas")
     parser.add_argument("--from-year", type=int, required=True)
     parser.add_argument("--to-year", type=int, required=True)
     parser.add_argument("--zoom", type=int, default=13, choices=[13, 14, 15])
@@ -60,6 +61,8 @@ def main() -> None:
         raise SystemExit("--from-year must be <= --to-year")
 
     initialize(DB_PATH)
+    with connect(DB_PATH) as conn:
+        ensure_analysis_schema(conn)
     client = ReinfolibClient(min_interval_seconds=max(0.0, args.interval))
     with connect(DB_PATH) as conn:
         area_rows = conn.execute("SELECT area_id, municipality_name FROM areas ORDER BY area_id").fetchall()
@@ -99,6 +102,7 @@ def main() -> None:
         fetched_at = datetime.now(timezone.utc).isoformat()
 
         with connect(DB_PATH) as conn:
+            ensure_analysis_schema(conn)
             cursor = conn.execute(
                 """
                 INSERT INTO data_sources (
@@ -116,7 +120,37 @@ def main() -> None:
                     hasher.hexdigest(),
                 ),
             )
-            source_id = cursor.lastrowid
+            source_id = int(cursor.lastrowid)
+            conn.execute("DELETE FROM land_price_points WHERE year=?", (year,))
+            if all_rows:
+                conn.executemany(
+                    """
+                    INSERT INTO land_price_points(
+                        point_id, area_id, year, price_classification, price,
+                        last_year_price, yoy_change, latitude, longitude,
+                        use_category, standard_lot_number, residence_display,
+                        location_text, cadastral_sqm, building_structure,
+                        ground_floors, underground_floors, front_road_type,
+                        front_road_azimuth, front_road_width_m, gas_supply,
+                        water_supply, sewer_supply, nearest_station,
+                        station_distance_m, usage_status, surrounding_land_use,
+                        area_division, zoning, fireproof_zone, coverage_ratio,
+                        floor_area_ratio, source_id
+                    ) VALUES (
+                        :point_id, :area_id, :year, :price_classification, :price,
+                        :last_year_price, :yoy_change, :latitude, :longitude,
+                        :use_category, :standard_lot_number, :residence_display,
+                        :location_text, :cadastral_sqm, :building_structure,
+                        :ground_floors, :underground_floors, :front_road_type,
+                        :front_road_azimuth, :front_road_width_m, :gas_supply,
+                        :water_supply, :sewer_supply, :nearest_station,
+                        :station_distance_m, :usage_status, :surrounding_land_use,
+                        :area_division, :zoning, :fireproof_zone, :coverage_ratio,
+                        :floor_area_ratio, :source_id
+                    )
+                    """,
+                    [{**row, "source_id": source_id} for row in all_rows],
+                )
             for area_id in area_ids:
                 conn.execute(
                     """

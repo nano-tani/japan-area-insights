@@ -1,3 +1,4 @@
+from japan_area_insights.station_transactions import normalize_xit001_station
 from japan_area_insights.transactions import aggregate_transactions, normalize_xit001
 
 
@@ -35,6 +36,30 @@ def test_identical_records_are_not_collapsed():
     rows = normalize_xit001({"data": [record, record]}, area_id="13101", year=2025)
     assert len(rows) == 2
     assert rows[0]["transaction_id"] != rows[1]["transaction_id"]
+
+
+def test_station_normalization_keeps_station_attribution_and_municipality():
+    payload = {
+        "status": "OK",
+        "data": [
+            {
+                "PriceCategory": "不動産取引価格情報",
+                "Type": "中古マンション等",
+                "MunicipalityCode": "13113",
+                "DistrictName": "恵比寿",
+                "TradePrice": "60000000",
+                "Area": "60",
+                "UnitPrice": "",
+                "Period": "2025年第3四半期",
+            }
+        ],
+    }
+    rows = normalize_xit001_station(payload, station_group_code="000123", year=2025)
+    assert len(rows) == 1
+    assert rows[0]["station_group_code"] == "000123"
+    assert rows[0]["municipality_code"] == "13113"
+    assert rows[0]["quarter"] == 3
+    assert rows[0]["unit_price"] == 1_000_000
 
 
 def test_aggregate_uses_numeric_unit_prices_only():

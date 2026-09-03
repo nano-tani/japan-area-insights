@@ -5,6 +5,7 @@ from pathlib import Path
 
 from .analysis_schema import ensure_analysis_schema
 from .db import connect
+from .hazard_severity import ensure_severity_schema
 from .resilience_analysis import ensure_resilience_schema
 
 
@@ -20,6 +21,7 @@ def export_analysis_data(db_path: str | Path, output_dir: str | Path) -> None:
     with connect(db_path) as conn:
         ensure_analysis_schema(conn)
         ensure_resilience_schema(conn)
+        ensure_severity_schema(conn)
         areas = _rows(conn, "SELECT area_id, municipality_name FROM areas ORDER BY area_id")
         definitions = _rows(
             conn,
@@ -99,6 +101,24 @@ def export_analysis_data(db_path: str | Path, output_dir: str | Path) -> None:
                 exposed_mesh = exposure.get("exposed_mesh_count") or 0
                 exposure["mesh_share"] = round(exposed_mesh / total_mesh * 100.0, 3) if total_mesh else None
 
+            exposure_bands = _rows(
+                conn,
+                """
+                SELECT geb.layer_key,geb.period,geb.band_key,geb.band_label,geb.band_order,
+                       geb.exposed_mesh_count,geb.exposed_population,geb.total_population,
+                       geb.population_share,geb.calculated_at,
+                       dc.title,dc.source_vintage,dc.api_id,
+                       ds.source_name,ds.dataset_id,ds.source_url
+                FROM geo_exposure_bands geb
+                LEFT JOIN dataset_catalog dc
+                  ON dc.api_id=(SELECT MIN(api_id) FROM spatial_features sf WHERE sf.layer_key=geb.layer_key)
+                LEFT JOIN data_sources ds ON ds.source_id=geb.source_id
+                WHERE geb.geo_id=?
+                ORDER BY geb.layer_key,geb.period,geb.band_order,geb.band_key
+                """,
+                (geo_id,),
+            )
+
             evacuation_sites = _rows(
                 conn,
                 """
@@ -129,6 +149,7 @@ def export_analysis_data(db_path: str | Path, output_dir: str | Path) -> None:
                 "metric_version": "detail-v1",
                 "metrics": metrics,
                 "exposures": exposures,
+                "exposure_bands": exposure_bands,
                 "evacuation_sites": evacuation_sites,
                 "disaster_history": disaster_history,
             }

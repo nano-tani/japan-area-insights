@@ -42,6 +42,10 @@ def test_xit001_preserves_detailed_attributes():
             "FloorPlan": "2LDK",
             "Renovation": "改装済",
             "Breadth": "8",
+            "Frontage": "9",
+            "LandShape": "長方形",
+            "Use": "住宅",
+            "Purpose": "投資",
             "CityPlanning": "商業地域",
             "CoverageRatio": "80",
             "FloorAreaRatio": "600",
@@ -53,6 +57,7 @@ def test_xit001_preserves_detailed_attributes():
     assert row["structure"] == "ＲＣ"
     assert row["floor_plan"] == "2LDK"
     assert row["road_breadth_m"] == 8.0
+    assert row["frontage_m"] == 9.0
     assert row["floor_area_ratio"] == 600.0
     assert row["district_code"] == "131010001"
 
@@ -75,6 +80,7 @@ def test_xpt002_preserves_point_context():
                 "nearest_station_name_ja": "大手町",
                 "u_road_distance_to_nearest_station_name_ja": "150m",
                 "regulations_use_category_name_ja": "商業地域",
+                "regulations_fireproof_name_ja": "防火地域",
                 "u_regulations_floor_area_ratio_ja": "800(%)",
             },
         }]
@@ -85,6 +91,7 @@ def test_xpt002_preserves_point_context():
     assert row["station_distance_m"] == 150
     assert row["floor_area_ratio"] == 800
     assert row["gas_supply"] == 1
+    assert row["fireproof_zone"] == "防火地域"
     assert row["longitude"] == 139.75
 
 
@@ -101,42 +108,55 @@ def test_compute_market_metrics_and_export(tmp_path: Path):
             """
         ).lastrowid
         rows = [
-            ("a", 2024, 1_000_000, 50, "中古マンション等", 2014, "ＲＣ", "改装済", 8),
-            ("b", 2025, 1_200_000, 60, "中古マンション等", 2015, "ＳＲＣ", "未改装", 10),
-            ("c", 2025, 800_000, 70, "宅地(土地と建物)", 2005, "木造", None, 6),
+            ("a", 2024, 1_000_000, 50, "中古マンション等", 2014, "ＲＣ", "改装済", 8, 9, "長方形", "住宅", "投資", "1K", 600, 80),
+            ("b", 2025, 1_200_000, 60, "中古マンション等", 2015, "ＳＲＣ", "未改装", 10, 10, "正方形", "住宅", "自己利用", "2LDK", 600, 80),
+            ("c", 2025, 800_000, 70, "宅地(土地と建物)", 1985, "木造", None, 4, 5, "不整形", "店舗", "自己利用", "3LDK", 200, 60),
         ]
-        for tx_id, year, unit, area, kind, built, structure, renovation, width in rows:
+        for tx_id, year, unit, area, kind, built, structure, renovation, width, frontage, shape, use_name, purpose, plan, far, coverage in rows:
             conn.execute(
                 """
                 INSERT INTO transactions(
                     transaction_id, area_id, year, price_category, property_type,
                     total_price, unit_price, area_sqm, building_year, structure,
-                    renovation, road_breadth_m, source_id
-                ) VALUES (?, '13101', ?, '不動産取引価格情報', ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    renovation, road_breadth_m, frontage_m, land_shape, use_name,
+                    purpose, floor_plan, floor_area_ratio, coverage_ratio, source_id
+                ) VALUES (?, '13101', ?, '不動産取引価格情報', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
-                (tx_id, year, kind, unit * area, unit, area, built, structure, renovation, width, source_id),
+                (tx_id, year, kind, unit * area, unit, area, built, structure, renovation, width, frontage, shape, use_name, purpose, plan, far, coverage, source_id),
             )
-        for point_id, distance, far in (("p1", 100, 600), ("p2", 300, 800), ("p3", 200, 700)):
+        point_rows = [
+            ("p1", 800_000, 100, 600, 12, "商業地域", "防火地域"),
+            ("p2", 1_000_000, 300, 800, 20, "商業地域", "防火地域"),
+            ("p3", 1_200_000, 1200, 200, 6, "第一種住居地域", "準防火地域"),
+        ]
+        for point_id, price, distance, far, width, zoning, fireproof in point_rows:
             conn.execute(
                 """
                 INSERT INTO land_price_points(
                     point_id, area_id, year, price_classification, price,
-                    station_distance_m, floor_area_ratio,
-                    gas_supply, water_supply, sewer_supply, source_id
-                ) VALUES (?, '13101', 2025, 0, 1000000, ?, ?, 1, 1, 1, ?)
+                    station_distance_m, floor_area_ratio, front_road_width_m,
+                    zoning, fireproof_zone, gas_supply, water_supply, sewer_supply, source_id
+                ) VALUES (?, '13101', 2025, 0, ?, ?, ?, ?, ?, ?, 1, 1, 1, ?)
                 """,
-                (point_id, distance, far, source_id),
+                (point_id, price, distance, far, width, zoning, fireproof, source_id),
             )
         count = compute_market_metrics(conn, from_year=2024, to_year=2025)
-        assert count == 11
+        assert count == 40
         metrics = {
             row["metric_key"]: row["value"]
             for row in conn.execute("SELECT metric_key, value FROM geo_metrics WHERE geo_id='ward:13101'")
         }
         assert metrics["market.transaction_count"] == 3
         assert metrics["market.median_unit_price"] == 1_000_000
+        assert metrics["market.unit_price_p25"] == 900_000
+        assert metrics["market.unit_price_p75"] == 1_100_000
         assert round(metrics["market.condo_share"], 2) == 66.67
-        assert metrics["market.land_price_station_distance"] == 200
+        assert round(metrics["market.road_6m_plus_share"], 2) == 66.67
+        assert round(metrics["market.investment_purpose_share"], 2) == 33.33
+        assert round(metrics["market.family_floor_plan_share"], 2) == 66.67
+        assert metrics["market.land_price_median"] == 1_000_000
+        assert metrics["market.land_price_station_distance"] == 300
+        assert round(metrics["market.land_price_within_500m_share"], 2) == 66.67
         assert metrics["market.land_price_utility_complete_share"] == 100
 
     output = tmp_path / "webdata"

@@ -20,10 +20,14 @@ document.addEventListener("keydown", (event) => {
   openWardPage(target.dataset.areaId);
 }, true);
 
-if (!document.querySelector('script[data-shortlist-loader]')) {
+function loadEnhancement(src, marker) {
+  if (document.querySelector(`script[data-enhancement="${marker}"]`)) return;
   const script = document.createElement("script");
-  script.src = "./shortlist.js";
+  script.src = src;
   script.async = false;
-  script.dataset.shortlistLoader = "true";
+  script.dataset.enhancement = marker;
   document.head.appendChild(script);
 }
+
+loadEnhancement("./shortlist.js", "shortlist");
+loadEnhancement("./explore-quality.js", "explore-quality");

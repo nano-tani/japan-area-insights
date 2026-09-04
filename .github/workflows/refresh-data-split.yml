@@ -57,7 +57,7 @@ jobs:
       - name: Fetch 250m future population
         run: python scripts/fetch_future_population.py --zoom 12 --interval 0.3
       - name: Sync geographic foundation
-        run: python scripts/sync_geography.py
+        run: python scripts/sync_geo_units.py
       - name: Fetch public facilities
         run: python scripts/fetch_facilities.py --zoom 13 --interval 0.3
       - name: Fetch station and ridership data

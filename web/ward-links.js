@@ -19,3 +19,15 @@ document.addEventListener("keydown", (event) => {
   event.stopImmediatePropagation();
   openWardPage(target.dataset.areaId);
 }, true);
+
+function loadEnhancement(src, marker) {
+  if (document.querySelector(`script[data-enhancement="${marker}"]`)) return;
+  const script = document.createElement("script");
+  script.src = src;
+  script.async = false;
+  script.dataset.enhancement = marker;
+  document.head.appendChild(script);
+}
+
+loadEnhancement("./shortlist.js", "shortlist");
+loadEnhancement("./explore-quality.js", "explore-quality");

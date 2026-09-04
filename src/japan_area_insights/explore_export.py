@@ -28,7 +28,7 @@ THEMES = [
             "core.future_population_score",
             "people.retention_2045",
             "demographics.natural_change",
-            "household.single_household_share",
+            "demographics2020.single_household_share",
         ],
     },
     {
@@ -56,11 +56,11 @@ THEMES = [
     {
         "key": "life",
         "label": "生活・子育て",
-        "description": "生活利便性と人口構成をまとめて見る",
+        "description": "生活利便性と世帯構成をまとめて見る",
         "metrics": [
             "core.convenience_score",
-            "people.child_share",
-            "people.elderly_share",
+            "demographics2020.four_plus_household_share",
+            "demographics2020.single_household_share",
             "core.transport_score",
         ],
     },
@@ -125,10 +125,10 @@ CUSTOM_METRICS = {
 
 ALIASES = {
     "market": ["地価", "価格", "不動産", "取引", "マンション", "土地"],
-    "people": ["人口", "将来人口", "出生", "死亡", "高齢化", "外国人", "世帯"],
+    "people": ["人口", "将来人口", "出生", "死亡", "自然増減", "外国人", "世帯", "単身"],
     "housing": ["住宅", "持ち家", "借家", "築古", "新築"],
     "economy": ["所得", "経済", "仕事", "雇用", "事業所", "昼間人口"],
-    "life": ["生活", "子育て", "学校", "保育", "病院", "医療", "福祉"],
+    "life": ["生活", "子育て", "家族", "単身", "学校", "保育", "病院", "医療", "福祉"],
     "mobility": ["交通", "駅", "鉄道", "通勤", "通学", "移動"],
     "urban": ["都市計画", "用途地域", "容積率", "開発", "DID"],
     "resilience": ["防災", "洪水", "液状化", "高潮", "津波", "土砂", "地震", "標高"],
@@ -318,15 +318,24 @@ def export_explore_data(db_path: str | Path, output_dir: str | Path) -> None:
             )
 
         _add_percentiles(wards, catalog)
+        available = {
+            key
+            for key in catalog
+            if any(ward["metrics"].get(key, {}).get("value") is not None for ward in wards)
+        }
 
         payload = {
             "generated_at": datetime.now(timezone.utc).isoformat(),
             "peer_group": "tokyo23:ward",
             "themes": [
-                {**theme, "aliases": ALIASES.get(theme["key"], [])}
+                {
+                    **theme,
+                    "metrics": [key for key in theme["metrics"] if key in available],
+                    "aliases": ALIASES.get(theme["key"], []),
+                }
                 for theme in THEMES
             ],
-            "metric_catalog": catalog,
+            "metric_catalog": {key: value for key, value in catalog.items() if key in available},
             "wards": wards,
             "notes": {
                 "ranking": "各指標は東京23区内で比較します。指標ごとに利用可能な地域だけを母集団とします。",

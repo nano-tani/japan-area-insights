@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="東京23区の駅1km圏を公的データで比較する街データサイト">
-  <title>駅エリア比較 | 街スコア</title>
+  <meta name="description" content="東京23区の駅1km圏を人口・生活・交通・価格・将来性から比較し、住む街の候補を探せる街選びページ">
+  <title>駅から住む街を探す | 街スコア</title>
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./polish.css">
   <link rel="stylesheet" href="./station-search.css">
@@ -13,34 +13,35 @@
   <header class="site-header">
     <a class="brand" href="./">街スコア <span>BETA</span></a>
     <nav class="site-nav" aria-label="主要ナビゲーション">
-      <a href="./">区で比較</a>
-      <a href="./stations.html" aria-current="page">駅で比較</a>
+      <a href="./#recommend">おすすめから探す</a>
+      <a href="./stations.html" aria-current="page">駅から探す</a>
+      <a href="./#discover">条件で比較</a>
       <a class="nav-source" href="https://github.com/nano-tani/japan-area-insights" target="_blank" rel="noreferrer">計算方法・出典</a>
     </nav>
   </header>
 
   <main>
     <section class="hero">
-      <p class="eyebrow">TOKYO 23 WARDS / STATION AREA 1KM</p>
-      <h1>駅のまわりを、<br>データで比べる。</h1>
-      <p class="lead">人口・施設・交通は駅中心1km圏を集計。価格・取引は位置を推測せず、その駅コードを条件に取得した取引データを使います。</p>
+      <p class="eyebrow">FIND A PLACE BY STATION / 1KM AREA</p>
+      <h1>駅から、<br>住む街を探す。</h1>
+      <p class="lead">通勤で使いたい駅や気になる駅があるなら、その周辺1kmの人口・生活施設・交通・将来人口を比較できます。価格・取引は駅コード指定の取引データを使い、物件位置は推測しません。</p>
       <label class="search-box">
-        <span>駅検索</span>
+        <span>気になる駅を検索</span>
         <input id="station-search" type="search" placeholder="例：中野、赤羽、二子玉川" autocomplete="off">
       </label>
       <div id="station-search-results" class="station-search-results" hidden aria-live="polite"></div>
       <div class="meta-row">
         <span id="station-count">対象駅を確認中</span>
         <span id="station-generated-at">更新状況を確認中</span>
-        <span>比較半径 1km</span>
+        <span>生活圏の比較半径 1km</span>
         <span>区ランキングとは別の母集団です</span>
       </div>
     </section>
 
     <section class="insight-strip" aria-labelledby="station-insights-title">
       <div class="insight-heading">
-        <h2 id="station-insights-title">まず見るなら</h2>
-        <p>総合・将来人口・交通から、特徴の異なる上位駅を表示します。</p>
+        <h2 id="station-insights-title">候補を広げたいなら</h2>
+        <p>総合・将来人口・交通から、特徴の異なる駅を表示します。</p>
       </div>
       <div id="station-insights" class="insight-grid" aria-live="polite"></div>
     </section>
@@ -48,10 +49,10 @@
     <section class="section" aria-labelledby="station-ranking-title">
       <div class="section-heading">
         <div>
-          <p class="section-kicker">STATION RANKING</p>
-          <h2 id="station-ranking-title">駅エリア ランキング</h2>
+          <p class="section-kicker">REFERENCE RANKING</p>
+          <h2 id="station-ranking-title">駅エリアを比較する</h2>
         </div>
-        <p class="section-note">総合点は6項目、取引30件以上、価格3年以上などの条件を満たす駅だけ表示します。人口動向は現段階では2020年人口→2025年推計人口です。</p>
+        <p class="section-note">ランキングは候補探しの参考情報です。総合点は6項目、取引30件以上、価格3年以上などの条件を満たす駅だけを対象にします。人口動向は現段階では2020年人口→2025年推計人口です。</p>
       </div>
       <div class="ranking-toolbar">
         <select id="station-ranking-metric" class="metric-select" aria-label="駅ランキング指標">
@@ -63,15 +64,11 @@
           <option value="transport_score">交通利便性</option>
           <option value="transaction_score">取引活性度</option>
         </select>
-        <span class="ranking-caption">行を選ぶと駅詳細を表示</span>
+        <span class="ranking-caption">行を選ぶと、その駅周辺の詳しいデータを表示</span>
       </div>
       <div class="table-wrap">
         <table>
-          <thead>
-            <tr>
-              <th>順位</th><th>駅</th><th id="station-ranking-score-label">評価</th><th>価格</th><th>人口*</th><th>将来人口</th><th>生活</th><th>交通</th><th>取引</th><th>信頼度</th>
-            </tr>
-          </thead>
+          <thead><tr><th>順位</th><th>駅</th><th id="station-ranking-score-label">評価</th><th>価格</th><th>人口*</th><th>将来人口</th><th>生活</th><th>交通</th><th>取引</th><th>信頼度</th></tr></thead>
           <tbody id="station-ranking-body"></tbody>
         </table>
       </div>
@@ -80,39 +77,27 @@
 
     <section class="section compare-section" aria-labelledby="station-compare-title">
       <div class="section-heading">
-        <div>
-          <p class="section-kicker">COMPARE</p>
-          <h2 id="station-compare-title">2駅を比較</h2>
-        </div>
-        <p class="section-note">駅1km圏どうしで、6項目の強弱を同じ尺度で比較します。</p>
+        <div><p class="section-kicker">COMPARE SHORTLIST</p><h2 id="station-compare-title">候補の2駅を比べる</h2></div>
+        <p class="section-note">駅1km圏どうしで、価格・人口・将来人口・生活・交通・取引の強弱を同じ尺度で比較します。</p>
       </div>
-      <div class="compare-controls">
-        <select id="station-compare-a" aria-label="比較する1つ目の駅"></select>
-        <span>VS</span>
-        <select id="station-compare-b" aria-label="比較する2つ目の駅"></select>
-      </div>
+      <div class="compare-controls"><select id="station-compare-a" aria-label="比較する1つ目の駅"></select><span>VS</span><select id="station-compare-b" aria-label="比較する2つ目の駅"></select></div>
       <div id="station-compare-grid" class="compare-grid"></div>
     </section>
 
     <section class="section" aria-labelledby="station-method-title">
       <div class="section-heading">
-        <div>
-          <p class="section-kicker">DEFINITION</p>
-          <h2 id="station-method-title">数字の範囲を混同しない</h2>
-        </div>
-        <p class="section-note">生活圏データと取引データは集計方法が異なります。</p>
+        <div><p class="section-kicker">HOW TO READ</p><h2 id="station-method-title">生活圏と取引データの範囲</h2></div>
+        <p class="section-note">街選びで誤解しないよう、人口・施設と取引価格では集計範囲を分けています。</p>
       </div>
       <div class="compare-grid definition-grid">
         <article class="compare-card">
-          <span class="insight-label">1KM AREA</span>
-          <h3>生活圏として集計</h3>
+          <span class="insight-label">1KM AREA</span><h3>生活圏として集計</h3>
           <div class="metric-row"><span>人口・将来人口</span><strong>250mメッシュ</strong></div>
           <div class="metric-row"><span>生活施設</span><strong>1km圏メッシュ内</strong></div>
           <div class="metric-row"><span>交通</span><strong>1km圏内の駅・路線</strong></div>
         </article>
         <article class="compare-card">
-          <span class="insight-label">STATION FILTER</span>
-          <h3>駅コード条件で集計</h3>
+          <span class="insight-label">STATION FILTER</span><h3>駅コード条件で集計</h3>
           <div class="metric-row"><span>取引価格</span><strong>XIT001 駅コード指定</strong></div>
           <div class="metric-row"><span>取引件数</span><strong>直近5完了年</strong></div>
           <div class="metric-row"><span>物件位置の推測</span><strong>しない</strong></div>
@@ -121,13 +106,10 @@
     </section>
   </main>
 
-  <dialog id="station-detail-dialog" class="detail-dialog">
-    <button id="station-dialog-close" class="dialog-close" type="button" aria-label="閉じる">×</button>
-    <div id="station-detail-content"></div>
-  </dialog>
+  <dialog id="station-detail-dialog" class="detail-dialog"><button id="station-dialog-close" class="dialog-close" type="button" aria-label="閉じる">×</button><div id="station-detail-content"></div></dialog>
 
   <footer>
-    <p>本サイトは投資助言ではありません。表示値は公的データ等を加工した相対評価であり、将来の価格・収益を保証しません。</p>
+    <p>本サイトは、住む場所を比較・検討するための参考情報を提供するもので、特定地域への居住・購入・投資を推奨するものではありません。</p>
     <p>駅エリア総合点は東京23区内の駅1km圏だけを母集団とする相対評価です。区スコアと直接比較できる点数ではありません。</p>
     <p>このサービスは、国土交通省の不動産情報ライブラリのAPI機能を使用していますが、提供情報の最新性、正確性、完全性等が保証されたものではありません</p>
     <p>このサービスは、政府統計総合窓口(e-Stat)のAPI機能を使用していますが、サービスの内容は国によって保証されたものではありません。</p>

@@ -1,0 +1,6186 @@
+{
+  "generated_at": "2026-09-04T10:42:24.361839+00:00",
+  "peer_group": "tokyo23:ward",
+  "themes": [
+    {
+      "key": "market",
+      "label": "価格・不動産",
+      "description": "地価・取引価格・取引量から街の市場を探す",
+      "metrics": [
+        "core.price_score",
+        "market.land_price_median",
+        "market.median_unit_price",
+        "market.transaction_count"
+      ],
+      "aliases": [
+        "地価",
+        "価格",
+        "不動産",
+        "取引",
+        "マンション",
+        "土地"
+      ]
+    },
+    {
+      "key": "people",
+      "label": "人口・将来",
+      "description": "将来人口・自然増減・世帯構成から探す",
+      "metrics": [
+        "core.future_population_score",
+        "people.retention_2045",
+        "demographics.natural_change",
+        "household.single_household_share"
+      ],
+      "aliases": [
+        "人口",
+        "将来人口",
+        "出生",
+        "死亡",
+        "高齢化",
+        "外国人",
+        "世帯"
+      ]
+    },
+    {
+      "key": "housing",
+      "label": "住宅",
+      "description": "持ち家・借家・築年構成から住宅ストックを見る",
+      "metrics": [
+        "housing2023.owner_occupied_share",
+        "housing2023.rental_share",
+        "housing2023.pre1980_share",
+        "housing2023.post2011_share"
+      ],
+      "aliases": [
+        "住宅",
+        "持ち家",
+        "借家",
+        "築古",
+        "新築"
+      ]
+    },
+    {
+      "key": "economy",
+      "label": "仕事・経済",
+      "description": "所得・従業者・昼夜人口から街の働く力を見る",
+      "metrics": [
+        "economy.taxable_income_per_taxpayer",
+        "economy.day_night_population_ratio",
+        "economy.employees",
+        "economy.establishments"
+      ],
+      "aliases": [
+        "所得",
+        "経済",
+        "仕事",
+        "雇用",
+        "事業所",
+        "昼間人口"
+      ]
+    },
+    {
+      "key": "life",
+      "label": "生活・子育て",
+      "description": "生活利便性と人口構成をまとめて見る",
+      "metrics": [
+        "core.convenience_score",
+        "people.child_share",
+        "people.elderly_share",
+        "core.transport_score"
+      ],
+      "aliases": [
+        "生活",
+        "子育て",
+        "学校",
+        "保育",
+        "病院",
+        "医療",
+        "福祉"
+      ]
+    },
+    {
+      "key": "mobility",
+      "label": "交通・移動",
+      "description": "交通利便性・昼夜人口・人口動向から探す",
+      "metrics": [
+        "core.transport_score",
+        "economy.day_night_population_ratio",
+        "core.population_score",
+        "core.transaction_score"
+      ],
+      "aliases": [
+        "交通",
+        "駅",
+        "鉄道",
+        "通勤",
+        "通学",
+        "移動"
+      ]
+    },
+    {
+      "key": "urban",
+      "label": "都市・開発",
+      "description": "用途地域・人口集中・容積率から都市構造を見る",
+      "metrics": [
+        "urban.zoning_mesh_share",
+        "urban.did_mesh_share",
+        "market.transaction_far_median",
+        "market.land_price_median"
+      ],
+      "aliases": [
+        "都市計画",
+        "用途地域",
+        "容積率",
+        "開発",
+        "DID"
+      ]
+    },
+    {
+      "key": "resilience",
+      "label": "防災・地形",
+      "description": "洪水・液状化・高潮・土砂の人口曝露を確認する",
+      "metrics": [
+        "hazard.flood_population_share",
+        "hazard.liquefaction_population_share",
+        "hazard.storm_surge_population_share",
+        "hazard.sediment_population_share"
+      ],
+      "aliases": [
+        "防災",
+        "洪水",
+        "液状化",
+        "高潮",
+        "津波",
+        "土砂",
+        "地震",
+        "標高"
+      ]
+    }
+  ],
+  "metric_catalog": {
+    "core.total_score": {
+      "key": "core.total_score",
+      "label": "総合評価",
+      "unit": "点",
+      "direction": "higher",
+      "kind": "core"
+    },
+    "core.price_score": {
+      "key": "core.price_score",
+      "label": "価格動向",
+      "unit": "点",
+      "direction": "higher",
+      "kind": "core"
+    },
+    "core.population_score": {
+      "key": "core.population_score",
+      "label": "人口動向",
+      "unit": "点",
+      "direction": "higher",
+      "kind": "core"
+    },
+    "core.future_population_score": {
+      "key": "core.future_population_score",
+      "label": "将来人口",
+      "unit": "点",
+      "direction": "higher",
+      "kind": "core"
+    },
+    "core.convenience_score": {
+      "key": "core.convenience_score",
+      "label": "生活利便性",
+      "unit": "点",
+      "direction": "higher",
+      "kind": "core"
+    },
+    "core.transport_score": {
+      "key": "core.transport_score",
+      "label": "交通利便性",
+      "unit": "点",
+      "direction": "higher",
+      "kind": "core"
+    },
+    "core.transaction_score": {
+      "key": "core.transaction_score",
+      "label": "取引活性度",
+      "unit": "点",
+      "direction": "higher",
+      "kind": "core"
+    },
+    "hazard.flood_population_share": {
+      "key": "hazard.flood_population_share",
+      "label": "洪水人口曝露",
+      "unit": "%",
+      "direction": "lower",
+      "kind": "exposure"
+    },
+    "hazard.liquefaction_population_share": {
+      "key": "hazard.liquefaction_population_share",
+      "label": "液状化人口曝露",
+      "unit": "%",
+      "direction": "lower",
+      "kind": "exposure"
+    },
+    "hazard.storm_surge_population_share": {
+      "key": "hazard.storm_surge_population_share",
+      "label": "高潮人口曝露",
+      "unit": "%",
+      "direction": "lower",
+      "kind": "exposure"
+    },
+    "hazard.sediment_population_share": {
+      "key": "hazard.sediment_population_share",
+      "label": "土砂災害人口曝露",
+      "unit": "%",
+      "direction": "lower",
+      "kind": "exposure"
+    },
+    "urban.zoning_mesh_share": {
+      "key": "urban.zoning_mesh_share",
+      "label": "用途地域指定メッシュ率",
+      "unit": "%",
+      "direction": "neutral",
+      "kind": "exposure"
+    },
+    "urban.did_mesh_share": {
+      "key": "urban.did_mesh_share",
+      "label": "人口集中地区メッシュ率",
+      "unit": "%",
+      "direction": "neutral",
+      "kind": "exposure"
+    },
+    "people.retention_2045": {
+      "key": "people.retention_2045",
+      "label": "2045年人口維持率",
+      "unit": "%",
+      "direction": "higher",
+      "kind": "derived"
+    },
+    "economy.day_night_population_ratio": {
+      "key": "economy.day_night_population_ratio",
+      "label": "昼夜間人口比率",
+      "unit": "%",
+      "direction": "neutral",
+      "description": "昼間人口÷夜間人口×100。100超は昼間流入型、100未満は流出型の傾向",
+      "kind": "detail"
+    },
+    "economy.employees": {
+      "key": "economy.employees",
+      "label": "従業者数",
+      "unit": "人",
+      "direction": "higher",
+      "description": "2021年経済センサスの男女計従業者数",
+      "kind": "detail"
+    },
+    "economy.establishments": {
+      "key": "economy.establishments",
+      "label": "事業所数",
+      "unit": "事業所",
+      "direction": "higher",
+      "description": "2021年経済センサスの全産業事業所数",
+      "kind": "detail"
+    },
+    "economy.taxable_income_per_taxpayer": {
+      "key": "economy.taxable_income_per_taxpayer",
+      "label": "納税義務者1人当たり課税対象所得",
+      "unit": "千円/人",
+      "direction": "higher",
+      "description": "課税対象所得を所得割納税義務者数で除した参考指標",
+      "kind": "detail"
+    },
+    "housing2023.owner_occupied_share": {
+      "key": "housing2023.owner_occupied_share",
+      "label": "持ち家比率",
+      "unit": "%",
+      "direction": "neutral",
+      "description": "持ち家÷住宅総数",
+      "kind": "detail"
+    },
+    "housing2023.post2011_share": {
+      "key": "housing2023.post2011_share",
+      "label": "2011年以降建築住宅比率",
+      "unit": "%",
+      "direction": "neutral",
+      "description": "2011年以降に建築された住宅数÷総数",
+      "kind": "detail"
+    },
+    "housing2023.pre1980_share": {
+      "key": "housing2023.pre1980_share",
+      "label": "1980年以前建築住宅比率",
+      "unit": "%",
+      "direction": "lower",
+      "description": "1970年以前と1971～1980年の住宅数÷総数",
+      "kind": "detail"
+    },
+    "housing2023.rental_share": {
+      "key": "housing2023.rental_share",
+      "label": "借家比率",
+      "unit": "%",
+      "direction": "neutral",
+      "description": "借家÷住宅総数",
+      "kind": "detail"
+    },
+    "market.land_price_median": {
+      "key": "market.land_price_median",
+      "label": "公示地価中央値",
+      "unit": "円/㎡",
+      "direction": "neutral",
+      "description": "最新年の地価公示地点価格中央値",
+      "kind": "detail"
+    },
+    "market.median_unit_price": {
+      "key": "market.median_unit_price",
+      "label": "取引単価中央値",
+      "unit": "円/㎡",
+      "direction": "neutral",
+      "description": "取引価格の平方メートル単価中央値",
+      "kind": "detail"
+    },
+    "market.transaction_count": {
+      "key": "market.transaction_count",
+      "label": "取引件数",
+      "unit": "件",
+      "direction": "neutral",
+      "description": "対象期間の不動産取引件数",
+      "kind": "detail"
+    },
+    "market.transaction_far_median": {
+      "key": "market.transaction_far_median",
+      "label": "取引物件の容積率中央値",
+      "unit": "%",
+      "direction": "neutral",
+      "description": "取引属性に記録された指定容積率中央値",
+      "kind": "detail"
+    },
+    "household.single_household_share": {
+      "key": "household.single_household_share",
+      "label": "household.single_household_share",
+      "unit": null,
+      "direction": "neutral",
+      "kind": "detail"
+    },
+    "people.elderly_share": {
+      "key": "people.elderly_share",
+      "label": "people.elderly_share",
+      "unit": null,
+      "direction": "neutral",
+      "kind": "detail"
+    },
+    "demographics.natural_change": {
+      "key": "demographics.natural_change",
+      "label": "demographics.natural_change",
+      "unit": null,
+      "direction": "neutral",
+      "kind": "detail"
+    },
+    "people.child_share": {
+      "key": "people.child_share",
+      "label": "people.child_share",
+      "unit": null,
+      "direction": "neutral",
+      "kind": "detail"
+    }
+  },
+  "wards": [
+    {
+      "area_id": "13101",
+      "prefecture_name": "東京都",
+      "municipality_name": "千代田区",
+      "confidence": "A",
+      "metrics": {
+        "core.total_score": {
+          "value": 54.5,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
+        "core.price_score": {
+          "value": 3.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
+        "core.population_score": {
+          "value": 3.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
+        "core.future_population_score": {
+          "value": 17.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
+        "core.convenience_score": {
+          "value": 15.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
+        "core.transport_score": {
+          "value": 15.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
+        "core.transaction_score": {
+          "value": 1.5,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
+        "household.single_household_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.employees": {
+          "value": 1199113.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        },
+        "market.land_price_median": {
+          "value": 4330000.0,
+          "period": "2026",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        },
+        "market.transaction_far_median": {
+          "value": 600.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        },
+        "demographics.natural_change": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 4655.371,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        },
+        "market.median_unit_price": {
+          "value": 1500000.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
+        "people.elderly_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.day_night_population_ratio": {
+          "value": 1355.39892,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        },
+        "market.transaction_count": {
+          "value": 1568.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
+        "economy.establishments": {
+          "value": 36346.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
+        "housing2023.rental_share": {
+          "value": 62.059,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        },
+        "housing2023.pre1980_share": {
+          "value": 9.157,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 8.7
+        },
+        "people.child_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "housing2023.post2011_share": {
+          "value": 32.925,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
+        "housing2023.owner_occupied_share": {
+          "value": 32.779,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
+        "people.retention_2045": {
+          "value": 113.528,
+          "period": "2045/2025",
+          "quality": "A",
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
+        "hazard.flood_population_share": {
+          "value": 48.068,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 56.5
+        },
+        "hazard.liquefaction_population_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 4.3
+        },
+        "hazard.storm_surge_population_share": {
+          "value": 21.29,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 47.8
+        },
+        "hazard.sediment_population_share": {
+          "value": 0.437,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 78.3
+        },
+        "urban.zoning_mesh_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
+        "urban.did_mesh_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        }
+      }
+    },
+    {
+      "area_id": "13102",
+      "prefecture_name": "東京都",
+      "municipality_name": "中央区",
+      "confidence": "A",
+      "metrics": {
+        "core.total_score": {
+          "value": 67.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
+        "core.price_score": {
+          "value": 3.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
+        "core.population_score": {
+          "value": 20.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
+        "core.future_population_score": {
+          "value": 20.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
+        "core.convenience_score": {
+          "value": 9.75,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
+        "core.transport_score": {
+          "value": 12.75,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
+        "core.transaction_score": {
+          "value": 1.5,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
+        "household.single_household_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.employees": {
+          "value": 782742.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
+        "market.land_price_median": {
+          "value": 3710000.0,
+          "period": "2026",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
+        "market.transaction_far_median": {
+          "value": 500.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
+        "demographics.natural_change": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 3399.682,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
+        "market.median_unit_price": {
+          "value": 1345454.55,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
+        "people.elderly_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.day_night_population_ratio": {
+          "value": 374.39044,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
+        "market.transaction_count": {
+          "value": 3883.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        },
+        "economy.establishments": {
+          "value": 34239.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
+        "housing2023.rental_share": {
+          "value": 53.486,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
+        "housing2023.pre1980_share": {
+          "value": 8.701,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 4.3
+        },
+        "people.child_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "housing2023.post2011_share": {
+          "value": 38.081,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        },
+        "housing2023.owner_occupied_share": {
+          "value": 43.313,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
+        "people.retention_2045": {
+          "value": 115.366,
+          "period": "2045/2025",
+          "quality": "A",
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        },
+        "hazard.flood_population_share": {
+          "value": 64.28,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 60.9
+        },
+        "hazard.liquefaction_population_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 8.7
+        },
+        "hazard.storm_surge_population_share": {
+          "value": 62.537,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 82.6
+        },
+        "hazard.sediment_population_share": {
+          "value": 0.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 4.3
+        },
+        "urban.zoning_mesh_share": {
+          "value": 86.66666666666667,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
+        "urban.did_mesh_share": {
+          "value": 91.11111111111111,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        }
+      }
+    },
+    {
+      "area_id": "13103",
+      "prefecture_name": "東京都",
+      "municipality_name": "港区",
+      "confidence": "A",
+      "metrics": {
+        "core.total_score": {
+          "value": 81.75,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        },
+        "core.price_score": {
+          "value": 13.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "core.population_score": {
+          "value": 17.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
+        "core.future_population_score": {
+          "value": 20.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        },
+        "core.convenience_score": {
+          "value": 12.75,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
+        "core.transport_score": {
+          "value": 15.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        },
+        "core.transaction_score": {
+          "value": 4.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        },
+        "household.single_household_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.employees": {
+          "value": 1134499.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
+        "market.land_price_median": {
+          "value": 4270000.0,
+          "period": "2026",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
+        "market.transaction_far_median": {
+          "value": 400.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
+        "demographics.natural_change": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 4520.071,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
+        "market.median_unit_price": {
+          "value": 1625000.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        },
+        "people.elderly_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.day_night_population_ratio": {
+          "value": 373.40702,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
+        "market.transaction_count": {
+          "value": 4649.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
+        "economy.establishments": {
+          "value": 41220.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        },
+        "housing2023.rental_share": {
+          "value": 54.213,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
+        "housing2023.pre1980_share": {
+          "value": 16.265,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 78.3
+        },
+        "people.child_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "housing2023.post2011_share": {
+          "value": 27.106,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
+        "housing2023.owner_occupied_share": {
+          "value": 39.581,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        },
+        "people.retention_2045": {
+          "value": 114.732,
+          "period": "2045/2025",
+          "quality": "A",
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
+        "hazard.flood_population_share": {
+          "value": 30.777,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 34.8
+        },
+        "hazard.liquefaction_population_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 13.0
+        },
+        "hazard.storm_surge_population_share": {
+          "value": 23.103,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "hazard.sediment_population_share": {
+          "value": 1.369,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 95.7
+        },
+        "urban.zoning_mesh_share": {
+          "value": 98.63013698630137,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
+        "urban.did_mesh_share": {
+          "value": 98.28767123287672,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        }
+      }
+    },
+    {
+      "area_id": "13104",
+      "prefecture_name": "東京都",
+      "municipality_name": "新宿区",
+      "confidence": "A",
+      "metrics": {
+        "core.total_score": {
+          "value": 48.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        },
+        "core.price_score": {
+          "value": 3.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
+        "core.population_score": {
+          "value": 13.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "core.future_population_score": {
+          "value": 3.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
+        "core.convenience_score": {
+          "value": 9.75,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
+        "core.transport_score": {
+          "value": 12.75,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
+        "core.transaction_score": {
+          "value": 6.5,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "household.single_household_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.employees": {
+          "value": 718620.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
+        "market.land_price_median": {
+          "value": 1930000.0,
+          "period": "2026",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
+        "market.transaction_far_median": {
+          "value": 400.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
+        "demographics.natural_change": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 3390.15,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
+        "market.median_unit_price": {
+          "value": 1200000.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
+        "people.elderly_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.day_night_population_ratio": {
+          "value": 227.12137,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
+        "market.transaction_count": {
+          "value": 5729.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
+        "economy.establishments": {
+          "value": 33313.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
+        "housing2023.rental_share": {
+          "value": 56.95,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
+        "housing2023.pre1980_share": {
+          "value": 15.965,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 69.6
+        },
+        "people.child_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "housing2023.post2011_share": {
+          "value": 22.959,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
+        "housing2023.owner_occupied_share": {
+          "value": 33.444,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
+        "people.retention_2045": {
+          "value": 102.58,
+          "period": "2045/2025",
+          "quality": "A",
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
+        "hazard.flood_population_share": {
+          "value": 33.527,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 43.5
+        },
+        "hazard.liquefaction_population_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 17.4
+        },
+        "hazard.storm_surge_population_share": {
+          "value": 4.261,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 34.8
+        },
+        "hazard.sediment_population_share": {
+          "value": 0.629,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 82.6
+        },
+        "urban.zoning_mesh_share": {
+          "value": 99.63099630996311,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
+        "urban.did_mesh_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        }
+      }
+    },
+    {
+      "area_id": "13105",
+      "prefecture_name": "東京都",
+      "municipality_name": "文京区",
+      "confidence": "A",
+      "metrics": {
+        "core.total_score": {
+          "value": 75.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
+        "core.price_score": {
+          "value": 17.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
+        "core.population_score": {
+          "value": 17.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
+        "core.future_population_score": {
+          "value": 17.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
+        "core.convenience_score": {
+          "value": 12.75,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
+        "core.transport_score": {
+          "value": 9.75,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "core.transaction_score": {
+          "value": 1.5,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
+        "household.single_household_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.employees": {
+          "value": 222078.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
+        "market.land_price_median": {
+          "value": 1535000.0,
+          "period": "2026",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
+        "market.transaction_far_median": {
+          "value": 400.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
+        "demographics.natural_change": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 3688.95,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
+        "market.median_unit_price": {
+          "value": 1200000.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
+        "people.elderly_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.day_night_population_ratio": {
+          "value": 147.31098,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
+        "market.transaction_count": {
+          "value": 3718.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
+        "economy.establishments": {
+          "value": 13907.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
+        "housing2023.rental_share": {
+          "value": 48.947,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        },
+        "housing2023.pre1980_share": {
+          "value": 15.107,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 43.5
+        },
+        "people.child_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "housing2023.post2011_share": {
+          "value": 24.496,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "housing2023.owner_occupied_share": {
+          "value": 43.432,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
+        "people.retention_2045": {
+          "value": 108.194,
+          "period": "2045/2025",
+          "quality": "A",
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
+        "hazard.flood_population_share": {
+          "value": 25.35,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 13.0
+        },
+        "hazard.liquefaction_population_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 21.7
+        },
+        "hazard.storm_surge_population_share": {
+          "value": 4.594,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 39.1
+        },
+        "hazard.sediment_population_share": {
+          "value": 0.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 8.7
+        },
+        "urban.zoning_mesh_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
+        "urban.did_mesh_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        }
+      }
+    },
+    {
+      "area_id": "13106",
+      "prefecture_name": "東京都",
+      "municipality_name": "台東区",
+      "confidence": "A",
+      "metrics": {
+        "core.total_score": {
+          "value": 80.5,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
+        "core.price_score": {
+          "value": 20.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
+        "core.population_score": {
+          "value": 20.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        },
+        "core.future_population_score": {
+          "value": 17.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
+        "core.convenience_score": {
+          "value": 9.75,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
+        "core.transport_score": {
+          "value": 9.75,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
+        "core.transaction_score": {
+          "value": 4.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
+        "household.single_household_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.employees": {
+          "value": 241112.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
+        "market.land_price_median": {
+          "value": 1600000.0,
+          "period": "2026",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
+        "market.transaction_far_median": {
+          "value": 500.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
+        "demographics.natural_change": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 3003.64,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
+        "market.median_unit_price": {
+          "value": 1085714.29,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
+        "people.elderly_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.day_night_population_ratio": {
+          "value": 145.27534,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
+        "market.transaction_count": {
+          "value": 3801.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
+        "economy.establishments": {
+          "value": 23012.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
+        "housing2023.rental_share": {
+          "value": 56.429,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
+        "housing2023.pre1980_share": {
+          "value": 14.342,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 30.4
+        },
+        "people.child_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "housing2023.post2011_share": {
+          "value": 35.757,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
+        "housing2023.owner_occupied_share": {
+          "value": 39.238,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
+        "people.retention_2045": {
+          "value": 109.874,
+          "period": "2045/2025",
+          "quality": "A",
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
+        "hazard.flood_population_share": {
+          "value": 90.524,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 78.3
+        },
+        "hazard.liquefaction_population_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 26.1
+        },
+        "hazard.storm_surge_population_share": {
+          "value": 47.665,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 65.2
+        },
+        "hazard.sediment_population_share": {
+          "value": 0.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 13.0
+        },
+        "urban.zoning_mesh_share": {
+          "value": 97.38562091503267,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "urban.did_mesh_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        }
+      }
+    },
+    {
+      "area_id": "13107",
+      "prefecture_name": "東京都",
+      "municipality_name": "墨田区",
+      "confidence": "A",
+      "metrics": {
+        "core.total_score": {
+          "value": 65.25,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
+        "core.price_score": {
+          "value": 13.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
+        "core.population_score": {
+          "value": 17.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
+        "core.future_population_score": {
+          "value": 13.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "core.convenience_score": {
+          "value": 6.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        },
+        "core.transport_score": {
+          "value": 9.75,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
+        "core.transaction_score": {
+          "value": 6.5,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
+        "household.single_household_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.employees": {
+          "value": 168392.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        },
+        "market.land_price_median": {
+          "value": 753500.0,
+          "period": "2026",
+          "quality": "B",
+          "is_estimate": false,
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
+        "market.transaction_far_median": {
+          "value": 300.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        },
+        "demographics.natural_change": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 2572.697,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
+        "market.median_unit_price": {
+          "value": 1000000.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "people.elderly_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.day_night_population_ratio": {
+          "value": 103.63342,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "market.transaction_count": {
+          "value": 4830.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "economy.establishments": {
+          "value": 15022.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
+        "housing2023.rental_share": {
+          "value": 58.551,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
+        "housing2023.pre1980_share": {
+          "value": 15.698,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 60.9
+        },
+        "people.child_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "housing2023.post2011_share": {
+          "value": 31.22,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
+        "housing2023.owner_occupied_share": {
+          "value": 37.764,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
+        "people.retention_2045": {
+          "value": 105.861,
+          "period": "2045/2025",
+          "quality": "A",
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
+        "hazard.flood_population_share": {
+          "value": 99.353,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 100.0
+        },
+        "hazard.liquefaction_population_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 30.4
+        },
+        "hazard.storm_surge_population_share": {
+          "value": 96.482,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 95.7
+        },
+        "hazard.sediment_population_share": {
+          "value": 0.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 17.4
+        },
+        "urban.zoning_mesh_share": {
+          "value": 94.08866995073892,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
+        "urban.did_mesh_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        }
+      }
+    },
+    {
+      "area_id": "13108",
+      "prefecture_name": "東京都",
+      "municipality_name": "江東区",
+      "confidence": "A",
+      "metrics": {
+        "core.total_score": {
+          "value": 63.5,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
+        "core.price_score": {
+          "value": 13.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
+        "core.population_score": {
+          "value": 17.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
+        "core.future_population_score": {
+          "value": 13.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
+        "core.convenience_score": {
+          "value": 6.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
+        "core.transport_score": {
+          "value": 6.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        },
+        "core.transaction_score": {
+          "value": 8.5,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
+        "household.single_household_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.employees": {
+          "value": 412421.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
+        "market.land_price_median": {
+          "value": 763000.0,
+          "period": "2026",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        },
+        "market.transaction_far_median": {
+          "value": 300.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
+        "demographics.natural_change": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 2622.561,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
+        "market.median_unit_price": {
+          "value": 1000000.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
+        "people.elderly_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.day_night_population_ratio": {
+          "value": 120.88516,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
+        "market.transaction_count": {
+          "value": 7129.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
+        "economy.establishments": {
+          "value": 19718.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
+        "housing2023.rental_share": {
+          "value": 52.5,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
+        "housing2023.pre1980_share": {
+          "value": 20.727,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 100.0
+        },
+        "people.child_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "housing2023.post2011_share": {
+          "value": 24.745,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
+        "housing2023.owner_occupied_share": {
+          "value": 44.221,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
+        "people.retention_2045": {
+          "value": 107.828,
+          "period": "2045/2025",
+          "quality": "A",
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
+        "hazard.flood_population_share": {
+          "value": 81.085,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 73.9
+        },
+        "hazard.liquefaction_population_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 34.8
+        },
+        "hazard.storm_surge_population_share": {
+          "value": 89.884,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 87.0
+        },
+        "hazard.sediment_population_share": {
+          "value": 0.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 21.7
+        },
+        "urban.zoning_mesh_share": {
+          "value": 93.35038363171356,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
+        "urban.did_mesh_share": {
+          "value": 95.14066496163683,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        }
+      }
+    },
+    {
+      "area_id": "13109",
+      "prefecture_name": "東京都",
+      "municipality_name": "品川区",
+      "confidence": "A",
+      "metrics": {
+        "core.total_score": {
+          "value": 63.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
+        "core.price_score": {
+          "value": 17.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
+        "core.population_score": {
+          "value": 3.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
+        "core.future_population_score": {
+          "value": 17.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
+        "core.convenience_score": {
+          "value": 9.75,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
+        "core.transport_score": {
+          "value": 9.75,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
+        "core.transaction_score": {
+          "value": 6.5,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
+        "household.single_household_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.employees": {
+          "value": 433444.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
+        "market.land_price_median": {
+          "value": 1370000.0,
+          "period": "2026",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
+        "market.transaction_far_median": {
+          "value": 300.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "demographics.natural_change": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 2951.803,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
+        "market.median_unit_price": {
+          "value": 1166666.67,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
+        "people.elderly_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.day_night_population_ratio": {
+          "value": 137.79232,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
+        "market.transaction_count": {
+          "value": 5895.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
+        "economy.establishments": {
+          "value": 20127.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
+        "housing2023.rental_share": {
+          "value": 53.306,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        },
+        "housing2023.pre1980_share": {
+          "value": 14.376,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 34.8
+        },
+        "people.child_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "housing2023.post2011_share": {
+          "value": 28.723,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
+        "housing2023.owner_occupied_share": {
+          "value": 39.747,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
+        "people.retention_2045": {
+          "value": 108.594,
+          "period": "2045/2025",
+          "quality": "A",
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
+        "hazard.flood_population_share": {
+          "value": 35.87,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 47.8
+        },
+        "hazard.liquefaction_population_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 39.1
+        },
+        "hazard.storm_surge_population_share": {
+          "value": 24.273,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 56.5
+        },
+        "hazard.sediment_population_share": {
+          "value": 0.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 26.1
+        },
+        "urban.zoning_mesh_share": {
+          "value": 94.30604982206405,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        },
+        "urban.did_mesh_share": {
+          "value": 95.37366548042705,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        }
+      }
+    },
+    {
+      "area_id": "13110",
+      "prefecture_name": "東京都",
+      "municipality_name": "目黒区",
+      "confidence": "A",
+      "metrics": {
+        "core.total_score": {
+          "value": 44.25,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
+        "core.price_score": {
+          "value": 13.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
+        "core.population_score": {
+          "value": 3.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
+        "core.future_population_score": {
+          "value": 8.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        },
+        "core.convenience_score": {
+          "value": 12.75,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
+        "core.transport_score": {
+          "value": 6.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
+        "core.transaction_score": {
+          "value": 1.5,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
+        "household.single_household_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.employees": {
+          "value": 140362.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
+        "market.land_price_median": {
+          "value": 1340000.0,
+          "period": "2026",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
+        "market.transaction_far_median": {
+          "value": 200.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
+        "demographics.natural_change": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 3643.867,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
+        "market.median_unit_price": {
+          "value": 1228571.43,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
+        "people.elderly_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.day_night_population_ratio": {
+          "value": 104.76,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
+        "market.transaction_count": {
+          "value": 3209.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
+        "economy.establishments": {
+          "value": 12419.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
+        "housing2023.rental_share": {
+          "value": 49.492,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
+        "housing2023.pre1980_share": {
+          "value": 16.024,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 73.9
+        },
+        "people.child_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "housing2023.post2011_share": {
+          "value": 23.131,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        },
+        "housing2023.owner_occupied_share": {
+          "value": 43.348,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
+        "people.retention_2045": {
+          "value": 104.515,
+          "period": "2045/2025",
+          "quality": "A",
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        },
+        "hazard.flood_population_share": {
+          "value": 29.131,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 30.4
+        },
+        "hazard.liquefaction_population_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 43.5
+        },
+        "hazard.storm_surge_population_share": {
+          "value": 0.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 4.3
+        },
+        "hazard.sediment_population_share": {
+          "value": 0.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 30.4
+        },
+        "urban.zoning_mesh_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
+        "urban.did_mesh_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        }
+      }
+    },
+    {
+      "area_id": "13111",
+      "prefecture_name": "東京都",
+      "municipality_name": "大田区",
+      "confidence": "A",
+      "metrics": {
+        "core.total_score": {
+          "value": 46.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
+        "core.price_score": {
+          "value": 8.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        },
+        "core.population_score": {
+          "value": 8.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        },
+        "core.future_population_score": {
+          "value": 8.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
+        "core.convenience_score": {
+          "value": 2.25,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
+        "core.transport_score": {
+          "value": 9.75,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
+        "core.transaction_score": {
+          "value": 10.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
+        "household.single_household_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.employees": {
+          "value": 371441.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
+        "market.land_price_median": {
+          "value": 674500.0,
+          "period": "2026",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
+        "market.transaction_far_median": {
+          "value": 200.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
+        "demographics.natural_change": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 3104.382,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "market.median_unit_price": {
+          "value": 870000.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
+        "people.elderly_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.day_night_population_ratio": {
+          "value": 96.51722,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
+        "market.transaction_count": {
+          "value": 10190.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        },
+        "economy.establishments": {
+          "value": 28839.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
+        "housing2023.rental_share": {
+          "value": 53.734,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
+        "housing2023.pre1980_share": {
+          "value": 14.966,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 39.1
+        },
+        "people.child_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "housing2023.post2011_share": {
+          "value": 26.115,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
+        "housing2023.owner_occupied_share": {
+          "value": 40.289,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
+        "people.retention_2045": {
+          "value": 102.957,
+          "period": "2045/2025",
+          "quality": "A",
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
+        "hazard.flood_population_share": {
+          "value": 68.885,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 69.6
+        },
+        "hazard.liquefaction_population_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 47.8
+        },
+        "hazard.storm_surge_population_share": {
+          "value": 49.561,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 69.6
+        },
+        "hazard.sediment_population_share": {
+          "value": 0.274,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 73.9
+        },
+        "urban.zoning_mesh_share": {
+          "value": 95.37671232876713,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        },
+        "urban.did_mesh_share": {
+          "value": 99.48630136986301,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        }
+      }
+    },
+    {
+      "area_id": "13112",
+      "prefecture_name": "東京都",
+      "municipality_name": "世田谷区",
+      "confidence": "A",
+      "metrics": {
+        "core.total_score": {
+          "value": 41.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
+        "core.price_score": {
+          "value": 3.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
+        "core.population_score": {
+          "value": 8.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
+        "core.future_population_score": {
+          "value": 8.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
+        "core.convenience_score": {
+          "value": 6.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
+        "core.transport_score": {
+          "value": 6.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
+        "core.transaction_score": {
+          "value": 10.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        },
+        "household.single_household_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.employees": {
+          "value": 292659.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
+        "market.land_price_median": {
+          "value": 833000.0,
+          "period": "2026",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "market.transaction_far_median": {
+          "value": 200.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
+        "demographics.natural_change": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 3741.707,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
+        "market.median_unit_price": {
+          "value": 940000.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
+        "people.elderly_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.day_night_population_ratio": {
+          "value": 90.58712,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
+        "market.transaction_count": {
+          "value": 9402.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
+        "economy.establishments": {
+          "value": 27909.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
+        "housing2023.rental_share": {
+          "value": 46.724,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
+        "housing2023.pre1980_share": {
+          "value": 13.698,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 21.7
+        },
+        "people.child_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "housing2023.post2011_share": {
+          "value": 24.488,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
+        "housing2023.owner_occupied_share": {
+          "value": 44.634,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
+        "people.retention_2045": {
+          "value": 104.596,
+          "period": "2045/2025",
+          "quality": "A",
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
+        "hazard.flood_population_share": {
+          "value": 28.387,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 26.1
+        },
+        "hazard.liquefaction_population_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "hazard.storm_surge_population_share": {
+          "value": 0.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 8.7
+        },
+        "hazard.sediment_population_share": {
+          "value": 0.044,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 69.6
+        },
+        "urban.zoning_mesh_share": {
+          "value": 97.9381443298969,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
+        "urban.did_mesh_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        }
+      }
+    },
+    {
+      "area_id": "13113",
+      "prefecture_name": "東京都",
+      "municipality_name": "渋谷区",
+      "confidence": "A",
+      "metrics": {
+        "core.total_score": {
+          "value": 53.25,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "core.price_score": {
+          "value": 8.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
+        "core.population_score": {
+          "value": 3.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
+        "core.future_population_score": {
+          "value": 13.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
+        "core.convenience_score": {
+          "value": 15.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        },
+        "core.transport_score": {
+          "value": 12.75,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
+        "core.transaction_score": {
+          "value": 1.5,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
+        "household.single_household_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.employees": {
+          "value": 589482.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
+        "market.land_price_median": {
+          "value": 2485000.0,
+          "period": "2026",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
+        "market.transaction_far_median": {
+          "value": 300.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
+        "demographics.natural_change": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 3891.375,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
+        "market.median_unit_price": {
+          "value": 1436130.54,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
+        "people.elderly_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.day_night_population_ratio": {
+          "value": 226.06906,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
+        "market.transaction_count": {
+          "value": 3484.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
+        "economy.establishments": {
+          "value": 33398.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
+        "housing2023.rental_share": {
+          "value": 53.592,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "housing2023.pre1980_share": {
+          "value": 18.243,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 87.0
+        },
+        "people.child_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "housing2023.post2011_share": {
+          "value": 24.806,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
+        "housing2023.owner_occupied_share": {
+          "value": 36.547,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
+        "people.retention_2045": {
+          "value": 107.974,
+          "period": "2045/2025",
+          "quality": "A",
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
+        "hazard.flood_population_share": {
+          "value": 22.795,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 4.3
+        },
+        "hazard.liquefaction_population_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 56.5
+        },
+        "hazard.storm_surge_population_share": {
+          "value": 0.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 13.0
+        },
+        "hazard.sediment_population_share": {
+          "value": 0.707,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 91.3
+        },
+        "urban.zoning_mesh_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
+        "urban.did_mesh_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        }
+      }
+    },
+    {
+      "area_id": "13114",
+      "prefecture_name": "東京都",
+      "municipality_name": "中野区",
+      "confidence": "A",
+      "metrics": {
+        "core.total_score": {
+          "value": 53.25,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
+        "core.price_score": {
+          "value": 20.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        },
+        "core.population_score": {
+          "value": 13.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
+        "core.future_population_score": {
+          "value": 8.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        },
+        "core.convenience_score": {
+          "value": 6.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        },
+        "core.transport_score": {
+          "value": 2.25,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
+        "core.transaction_score": {
+          "value": 4.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
+        "household.single_household_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.employees": {
+          "value": 129112.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
+        "market.land_price_median": {
+          "value": 951000.0,
+          "period": "2026",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
+        "market.transaction_far_median": {
+          "value": 200.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
+        "demographics.natural_change": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 3193.454,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
+        "market.median_unit_price": {
+          "value": 925000.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        },
+        "people.elderly_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.day_night_population_ratio": {
+          "value": 94.45807,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        },
+        "market.transaction_count": {
+          "value": 4177.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
+        "economy.establishments": {
+          "value": 12088.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
+        "housing2023.rental_share": {
+          "value": 59.067,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
+        "housing2023.pre1980_share": {
+          "value": 15.457,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 56.5
+        },
+        "people.child_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "housing2023.post2011_share": {
+          "value": 26.747,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
+        "housing2023.owner_occupied_share": {
+          "value": 32.426,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
+        "people.retention_2045": {
+          "value": 103.188,
+          "period": "2045/2025",
+          "quality": "A",
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
+        "hazard.flood_population_share": {
+          "value": 31.688,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 39.1
+        },
+        "hazard.liquefaction_population_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 60.9
+        },
+        "hazard.storm_surge_population_share": {
+          "value": 0.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 17.4
+        },
+        "hazard.sediment_population_share": {
+          "value": 0.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 34.8
+        },
+        "urban.zoning_mesh_share": {
+          "value": 99.14893617021276,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
+        "urban.did_mesh_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        }
+      }
+    },
+    {
+      "area_id": "13115",
+      "prefecture_name": "東京都",
+      "municipality_name": "杉並区",
+      "confidence": "A",
+      "metrics": {
+        "core.total_score": {
+          "value": 40.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
+        "core.price_score": {
+          "value": 13.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
+        "core.population_score": {
+          "value": 3.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
+        "core.future_population_score": {
+          "value": 13.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
+        "core.convenience_score": {
+          "value": 2.25,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
+        "core.transport_score": {
+          "value": 2.25,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
+        "core.transaction_score": {
+          "value": 6.5,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
+        "household.single_household_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.employees": {
+          "value": 166987.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
+        "market.land_price_median": {
+          "value": 748000.0,
+          "period": "2026",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        },
+        "market.transaction_far_median": {
+          "value": 200.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
+        "demographics.natural_change": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 3584.279,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
+        "market.median_unit_price": {
+          "value": 857142.86,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        },
+        "people.elderly_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.day_night_population_ratio": {
+          "value": 84.2599,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
+        "market.transaction_count": {
+          "value": 6987.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
+        "economy.establishments": {
+          "value": 19533.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        },
+        "housing2023.rental_share": {
+          "value": 53.765,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
+        "housing2023.pre1980_share": {
+          "value": 15.901,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 65.2
+        },
+        "people.child_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "housing2023.post2011_share": {
+          "value": 22.019,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
+        "housing2023.owner_occupied_share": {
+          "value": 38.447,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        },
+        "people.retention_2045": {
+          "value": 105.283,
+          "period": "2045/2025",
+          "quality": "A",
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "hazard.flood_population_share": {
+          "value": 28.146,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 21.7
+        },
+        "hazard.liquefaction_population_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 65.2
+        },
+        "hazard.storm_surge_population_share": {
+          "value": 0.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 21.7
+        },
+        "hazard.sediment_population_share": {
+          "value": 0.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 39.1
+        },
+        "urban.zoning_mesh_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
+        "urban.did_mesh_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        }
+      }
+    },
+    {
+      "area_id": "13116",
+      "prefecture_name": "東京都",
+      "municipality_name": "豊島区",
+      "confidence": "A",
+      "metrics": {
+        "core.total_score": {
+          "value": 63.5,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
+        "core.price_score": {
+          "value": 13.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
+        "core.population_score": {
+          "value": 8.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
+        "core.future_population_score": {
+          "value": 13.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
+        "core.convenience_score": {
+          "value": 12.75,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
+        "core.transport_score": {
+          "value": 12.75,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
+        "core.transaction_score": {
+          "value": 4.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        },
+        "household.single_household_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.employees": {
+          "value": 278087.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
+        "market.land_price_median": {
+          "value": 1230000.0,
+          "period": "2026",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
+        "market.transaction_far_median": {
+          "value": 400.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
+        "demographics.natural_change": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 2966.688,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        },
+        "market.median_unit_price": {
+          "value": 1080000.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
+        "people.elderly_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.day_night_population_ratio": {
+          "value": 136.62844,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
+        "market.transaction_count": {
+          "value": 4281.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        },
+        "economy.establishments": {
+          "value": 19292.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
+        "housing2023.rental_share": {
+          "value": 59.906,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
+        "housing2023.pre1980_share": {
+          "value": 15.3,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "people.child_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "housing2023.post2011_share": {
+          "value": 23.477,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
+        "housing2023.owner_occupied_share": {
+          "value": 32.731,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
+        "people.retention_2045": {
+          "value": 106.98,
+          "period": "2045/2025",
+          "quality": "A",
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
+        "hazard.flood_population_share": {
+          "value": 27.224,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 17.4
+        },
+        "hazard.liquefaction_population_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 69.6
+        },
+        "hazard.storm_surge_population_share": {
+          "value": 0.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 26.1
+        },
+        "hazard.sediment_population_share": {
+          "value": 0.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 43.5
+        },
+        "urban.zoning_mesh_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        },
+        "urban.did_mesh_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        }
+      }
+    },
+    {
+      "area_id": "13117",
+      "prefecture_name": "東京都",
+      "municipality_name": "北区",
+      "confidence": "A",
+      "metrics": {
+        "core.total_score": {
+          "value": 52.75,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
+        "core.price_score": {
+          "value": 17.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
+        "core.population_score": {
+          "value": 13.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
+        "core.future_population_score": {
+          "value": 3.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
+        "core.convenience_score": {
+          "value": 9.75,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
+        "core.transport_score": {
+          "value": 6.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        },
+        "core.transaction_score": {
+          "value": 4.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
+        "household.single_household_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.employees": {
+          "value": 137271.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
+        "market.land_price_median": {
+          "value": 766500.0,
+          "period": "2026",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
+        "market.transaction_far_median": {
+          "value": 300.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
+        "demographics.natural_change": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 2668.262,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        },
+        "market.median_unit_price": {
+          "value": 859411.76,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
+        "people.elderly_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.day_night_population_ratio": {
+          "value": 93.47012,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
+        "market.transaction_count": {
+          "value": 4202.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
+        "economy.establishments": {
+          "value": 11922.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
+        "housing2023.rental_share": {
+          "value": 56.944,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
+        "housing2023.pre1980_share": {
+          "value": 18.772,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 91.3
+        },
+        "people.child_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "housing2023.post2011_share": {
+          "value": 30.008,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
+        "housing2023.owner_occupied_share": {
+          "value": 38.942,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
+        "people.retention_2045": {
+          "value": 101.425,
+          "period": "2045/2025",
+          "quality": "A",
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
+        "hazard.flood_population_share": {
+          "value": 65.88,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 65.2
+        },
+        "hazard.liquefaction_population_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 73.9
+        },
+        "hazard.storm_surge_population_share": {
+          "value": 41.976,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 60.9
+        },
+        "hazard.sediment_population_share": {
+          "value": 1.662,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 100.0
+        },
+        "urban.zoning_mesh_share": {
+          "value": 94.63087248322147,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
+        "urban.did_mesh_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        }
+      }
+    },
+    {
+      "area_id": "13118",
+      "prefecture_name": "東京都",
+      "municipality_name": "荒川区",
+      "confidence": "A",
+      "metrics": {
+        "core.total_score": {
+          "value": 60.25,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
+        "core.price_score": {
+          "value": 17.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
+        "core.population_score": {
+          "value": 13.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
+        "core.future_population_score": {
+          "value": 13.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
+        "core.convenience_score": {
+          "value": 6.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
+        "core.transport_score": {
+          "value": 9.75,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
+        "core.transaction_score": {
+          "value": 1.5,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
+        "household.single_household_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.employees": {
+          "value": 80996.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
+        "market.land_price_median": {
+          "value": 748000.0,
+          "period": "2026",
+          "quality": "B",
+          "is_estimate": false,
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
+        "market.transaction_far_median": {
+          "value": 300.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
+        "demographics.natural_change": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 2511.992,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
+        "market.median_unit_price": {
+          "value": 770000.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
+        "people.elderly_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.day_night_population_ratio": {
+          "value": 89.04012,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
+        "market.transaction_count": {
+          "value": 2661.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
+        "economy.establishments": {
+          "value": 8469.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
+        "housing2023.rental_share": {
+          "value": 43.145,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
+        "housing2023.pre1980_share": {
+          "value": 13.702,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 26.1
+        },
+        "people.child_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "housing2023.post2011_share": {
+          "value": 24.446,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        },
+        "housing2023.owner_occupied_share": {
+          "value": 49.934,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
+        "people.retention_2045": {
+          "value": 106.019,
+          "period": "2045/2025",
+          "quality": "A",
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
+        "hazard.flood_population_share": {
+          "value": 97.714,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 87.0
+        },
+        "hazard.liquefaction_population_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 78.3
+        },
+        "hazard.storm_surge_population_share": {
+          "value": 50.333,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 73.9
+        },
+        "hazard.sediment_population_share": {
+          "value": 0.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 47.8
+        },
+        "urban.zoning_mesh_share": {
+          "value": 94.66666666666667,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
+        "urban.did_mesh_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        }
+      }
+    },
+    {
+      "area_id": "13119",
+      "prefecture_name": "東京都",
+      "municipality_name": "板橋区",
+      "confidence": "A",
+      "metrics": {
+        "core.total_score": {
+          "value": 42.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        },
+        "core.price_score": {
+          "value": 8.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
+        "core.population_score": {
+          "value": 13.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
+        "core.future_population_score": {
+          "value": 8.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
+        "core.convenience_score": {
+          "value": 2.25,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
+        "core.transport_score": {
+          "value": 2.25,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
+        "core.transaction_score": {
+          "value": 8.5,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
+        "household.single_household_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.employees": {
+          "value": 207012.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        },
+        "market.land_price_median": {
+          "value": 578000.0,
+          "period": "2026",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
+        "market.transaction_far_median": {
+          "value": 200.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
+        "demographics.natural_change": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 2818.48,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
+        "market.median_unit_price": {
+          "value": 750000.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
+        "people.elderly_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.day_night_population_ratio": {
+          "value": 89.54204,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        },
+        "market.transaction_count": {
+          "value": 7374.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
+        "economy.establishments": {
+          "value": 17472.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
+        "housing2023.rental_share": {
+          "value": 54.068,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
+        "housing2023.pre1980_share": {
+          "value": 20.107,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 95.7
+        },
+        "people.child_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "housing2023.post2011_share": {
+          "value": 21.392,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
+        "housing2023.owner_occupied_share": {
+          "value": 40.198,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "people.retention_2045": {
+          "value": 102.608,
+          "period": "2045/2025",
+          "quality": "A",
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        },
+        "hazard.flood_population_share": {
+          "value": 38.786,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "hazard.liquefaction_population_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 82.6
+        },
+        "hazard.storm_surge_population_share": {
+          "value": 8.346,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 43.5
+        },
+        "hazard.sediment_population_share": {
+          "value": 0.647,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 87.0
+        },
+        "urban.zoning_mesh_share": {
+          "value": 97.28033472803347,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
+        "urban.did_mesh_share": {
+          "value": 99.581589958159,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        }
+      }
+    },
+    {
+      "area_id": "13120",
+      "prefecture_name": "東京都",
+      "municipality_name": "練馬区",
+      "confidence": "A",
+      "metrics": {
+        "core.total_score": {
+          "value": 27.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
+        "core.price_score": {
+          "value": 3.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
+        "core.population_score": {
+          "value": 8.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        },
+        "core.future_population_score": {
+          "value": 3.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
+        "core.convenience_score": {
+          "value": 2.25,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
+        "core.transport_score": {
+          "value": 2.25,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
+        "core.transaction_score": {
+          "value": 8.5,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
+        "household.single_household_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.employees": {
+          "value": 197530.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
+        "market.land_price_median": {
+          "value": 505500.0,
+          "period": "2026",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
+        "market.transaction_far_median": {
+          "value": 200.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        },
+        "demographics.natural_change": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 3294.681,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
+        "market.median_unit_price": {
+          "value": 666666.67,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
+        "people.elderly_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.day_night_population_ratio": {
+          "value": 79.90335,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
+        "market.transaction_count": {
+          "value": 8603.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
+        "economy.establishments": {
+          "value": 20673.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
+        "housing2023.rental_share": {
+          "value": 48.615,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
+        "housing2023.pre1980_share": {
+          "value": 12.198,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 13.0
+        },
+        "people.child_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "housing2023.post2011_share": {
+          "value": 23.024,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
+        "housing2023.owner_occupied_share": {
+          "value": 41.692,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
+        "people.retention_2045": {
+          "value": 99.559,
+          "period": "2045/2025",
+          "quality": "A",
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
+        "hazard.flood_population_share": {
+          "value": 24.488,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 8.7
+        },
+        "hazard.liquefaction_population_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 87.0
+        },
+        "hazard.storm_surge_population_share": {
+          "value": 0.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 30.4
+        },
+        "hazard.sediment_population_share": {
+          "value": 0.02,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 65.2
+        },
+        "urban.zoning_mesh_share": {
+          "value": 99.8663101604278,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
+        "urban.did_mesh_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        }
+      }
+    },
+    {
+      "area_id": "13121",
+      "prefecture_name": "東京都",
+      "municipality_name": "足立区",
+      "confidence": "A",
+      "metrics": {
+        "core.total_score": {
+          "value": 35.75,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
+        "core.price_score": {
+          "value": 8.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        },
+        "core.population_score": {
+          "value": 8.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
+        "core.future_population_score": {
+          "value": 3.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
+        "core.convenience_score": {
+          "value": 2.25,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
+        "core.transport_score": {
+          "value": 6.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
+        "core.transaction_score": {
+          "value": 8.5,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
+        "household.single_household_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.employees": {
+          "value": 235458.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "market.land_price_median": {
+          "value": 390500.0,
+          "period": "2026",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
+        "market.transaction_far_median": {
+          "value": 300.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
+        "demographics.natural_change": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 2555.268,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
+        "market.median_unit_price": {
+          "value": 504761.9,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
+        "people.elderly_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.day_night_population_ratio": {
+          "value": 89.11319,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
+        "market.transaction_count": {
+          "value": 7315.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
+        "economy.establishments": {
+          "value": 23376.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
+        "housing2023.rental_share": {
+          "value": 48.363,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
+        "housing2023.pre1980_share": {
+          "value": 17.03,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 82.6
+        },
+        "people.child_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "housing2023.post2011_share": {
+          "value": 24.17,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
+        "housing2023.owner_occupied_share": {
+          "value": 44.242,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
+        "people.retention_2045": {
+          "value": 101.843,
+          "period": "2045/2025",
+          "quality": "A",
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
+        "hazard.flood_population_share": {
+          "value": 98.737,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 91.3
+        },
+        "hazard.liquefaction_population_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 91.3
+        },
+        "hazard.storm_surge_population_share": {
+          "value": 52.292,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 78.3
+        },
+        "hazard.sediment_population_share": {
+          "value": 0.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "urban.zoning_mesh_share": {
+          "value": 93.64089775561098,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
+        "urban.did_mesh_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        }
+      }
+    },
+    {
+      "area_id": "13122",
+      "prefecture_name": "東京都",
+      "municipality_name": "葛飾区",
+      "confidence": "A",
+      "metrics": {
+        "core.total_score": {
+          "value": 38.75,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
+        "core.price_score": {
+          "value": 8.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
+        "core.population_score": {
+          "value": 13.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
+        "core.future_population_score": {
+          "value": 3.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
+        "core.convenience_score": {
+          "value": 6.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "core.transport_score": {
+          "value": 2.25,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
+        "core.transaction_score": {
+          "value": 6.5,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
+        "household.single_household_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.employees": {
+          "value": 141421.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
+        "market.land_price_median": {
+          "value": 405000.0,
+          "period": "2026",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
+        "market.transaction_far_median": {
+          "value": 200.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
+        "demographics.natural_change": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 2554.943,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
+        "market.median_unit_price": {
+          "value": 530000.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
+        "people.elderly_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.day_night_population_ratio": {
+          "value": 83.1688,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
+        "market.transaction_count": {
+          "value": 4896.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
+        "economy.establishments": {
+          "value": 15883.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        },
+        "housing2023.rental_share": {
+          "value": 42.719,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
+        "housing2023.pre1980_share": {
+          "value": 15.158,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 47.8
+        },
+        "people.child_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "housing2023.post2011_share": {
+          "value": 22.364,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
+        "housing2023.owner_occupied_share": {
+          "value": 50.275,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        },
+        "people.retention_2045": {
+          "value": 99.447,
+          "period": "2045/2025",
+          "quality": "A",
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
+        "hazard.flood_population_share": {
+          "value": 99.187,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 95.7
+        },
+        "hazard.liquefaction_population_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 95.7
+        },
+        "hazard.storm_surge_population_share": {
+          "value": 97.221,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 100.0
+        },
+        "hazard.sediment_population_share": {
+          "value": 0.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 56.5
+        },
+        "urban.zoning_mesh_share": {
+          "value": 90.08097165991903,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
+        "urban.did_mesh_share": {
+          "value": 99.79757085020243,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        }
+      }
+    },
+    {
+      "area_id": "13123",
+      "prefecture_name": "東京都",
+      "municipality_name": "江戸川区",
+      "confidence": "A",
+      "metrics": {
+        "core.total_score": {
+          "value": 20.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
+        "core.price_score": {
+          "value": 3.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
+        "core.population_score": {
+          "value": 3.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
+        "core.future_population_score": {
+          "value": 3.0,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
+        "core.convenience_score": {
+          "value": 2.25,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
+        "core.transport_score": {
+          "value": 2.25,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
+        "core.transaction_score": {
+          "value": 6.5,
+          "period": "2026-09-04",
+          "quality": "A",
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
+        "household.single_household_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.employees": {
+          "value": 200245.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
+        "market.land_price_median": {
+          "value": 457000.0,
+          "period": "2026",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
+        "market.transaction_far_median": {
+          "value": 200.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
+        "demographics.natural_change": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 2667.828,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
+        "market.median_unit_price": {
+          "value": 560000.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
+        "people.elderly_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "economy.day_night_population_ratio": {
+          "value": 81.91586,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
+        "market.transaction_count": {
+          "value": 5177.0,
+          "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
+        "economy.establishments": {
+          "value": 20087.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "housing2023.rental_share": {
+          "value": 48.946,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
+        "housing2023.pre1980_share": {
+          "value": 13.672,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 17.4
+        },
+        "people.child_share": {
+          "value": null,
+          "period": null,
+          "quality": null,
+          "is_estimate": null
+        },
+        "housing2023.post2011_share": {
+          "value": 21.059,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
+        "housing2023.owner_occupied_share": {
+          "value": 44.067,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
+        "people.retention_2045": {
+          "value": 99.02,
+          "period": "2045/2025",
+          "quality": "A",
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
+        "hazard.flood_population_share": {
+          "value": 95.41,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 82.6
+        },
+        "hazard.liquefaction_population_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 100.0
+        },
+        "hazard.storm_surge_population_share": {
+          "value": 93.867,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 91.3
+        },
+        "hazard.sediment_population_share": {
+          "value": 0.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 60.9
+        },
+        "urban.zoning_mesh_share": {
+          "value": 90.2439024390244,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
+        "urban.did_mesh_share": {
+          "value": 100.0,
+          "period": "2025",
+          "quality": "A",
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        }
+      }
+    }
+  ],
+  "notes": {
+    "ranking": "各指標は東京23区内で比較します。指標ごとに利用可能な地域だけを母集団とします。",
+    "hazard": "防災指標は総合100点には含めません。人口曝露率は250mメッシュ中心点との重なりによる集計です。"
+  }
+}

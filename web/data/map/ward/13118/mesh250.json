@@ -18,6 +18,16 @@
     "retention_2045_area": 106.02,
     "retention_2045_mesh_median": 104.57
   },
+  "terrain": {
+    "provider": "国土地理院",
+    "note": "250mメッシュ中心点の標高。メッシュ内の最低・最高標高を示すものではありません。"
+  },
+  "seismic": {
+    "provider": "防災科学技術研究所 J-SHIS（地震ハザードステーション）",
+    "ground_version": "V4",
+    "hazard_version": "Y2024",
+    "note": "250m代表値・確率論モデル。個別地点の安全性や将来の発生を保証しません。"
+  },
   "meshes": [
     {
       "mesh_id": "5339467114",
@@ -25,7 +35,18 @@
       "latitude": 35.728125,
       "population_2025": 950.5524291992188,
       "population_2045": 876.54150390625,
-      "retention_2045": 92.21
+      "retention_2045": 92.21,
+      "elevation_m": 15.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467123",
@@ -33,7 +54,18 @@
       "latitude": 35.728125,
       "population_2025": 497.75421142578125,
       "population_2045": 493.2756042480469,
-      "retention_2045": 99.1
+      "retention_2045": 99.1,
+      "elevation_m": 6.4,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467124",
@@ -41,7 +73,18 @@
       "latitude": 35.728125,
       "population_2025": 2046.812255859375,
       "population_2045": 2188.407470703125,
-      "retention_2045": 106.92
+      "retention_2045": 106.92,
+      "elevation_m": 3.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467132",
@@ -49,7 +92,18 @@
       "latitude": 35.7302083,
       "population_2025": 437.5849914550781,
       "population_2045": 449.51239013671875,
-      "retention_2045": 102.73
+      "retention_2045": 102.73,
+      "elevation_m": 20.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467133",
@@ -57,7 +111,18 @@
       "latitude": 35.7322917,
       "population_2025": 1062.821044921875,
       "population_2045": 1112.914306640625,
-      "retention_2045": 104.71
+      "retention_2045": 104.71,
+      "elevation_m": 10.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467134",
@@ -65,7 +130,18 @@
       "latitude": 35.7322917,
       "population_2025": 381.7401123046875,
       "population_2045": 348.7322082519531,
-      "retention_2045": 91.35
+      "retention_2045": 91.35,
+      "elevation_m": 11.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467141",
@@ -73,7 +149,18 @@
       "latitude": 35.7302083,
       "population_2025": 2442.501708984375,
       "population_2045": 2578.13037109375,
-      "retention_2045": 105.55
+      "retention_2045": 105.55,
+      "elevation_m": 4.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467142",
@@ -81,7 +168,18 @@
       "latitude": 35.7302083,
       "population_2025": 2089.642333984375,
       "population_2045": 2234.485595703125,
-      "retention_2045": 106.93
+      "retention_2045": 106.93,
+      "elevation_m": 3.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467143",
@@ -89,7 +187,18 @@
       "latitude": 35.7322917,
       "population_2025": 1955.4371337890625,
       "population_2045": 2214.86181640625,
-      "retention_2045": 113.27
+      "retention_2045": 113.27,
+      "elevation_m": 4.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467144",
@@ -97,7 +206,18 @@
       "latitude": 35.7322917,
       "population_2025": 2048.2333984375,
       "population_2045": 2476.21435546875,
-      "retention_2045": 120.9
+      "retention_2045": 120.9,
+      "elevation_m": 3.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467211",
@@ -105,7 +225,18 @@
       "latitude": 35.7260417,
       "population_2025": 1866.8271484375,
       "population_2045": 2027.63134765625,
-      "retention_2045": 108.61
+      "retention_2045": 108.61,
+      "elevation_m": 3.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467212",
@@ -113,7 +244,18 @@
       "latitude": 35.7260417,
       "population_2025": 1490.0003662109375,
       "population_2045": 1545.6229248046875,
-      "retention_2045": 103.73
+      "retention_2045": 103.73,
+      "elevation_m": 3.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467213",
@@ -121,7 +263,18 @@
       "latitude": 35.728125,
       "population_2025": 1918.6224365234375,
       "population_2045": 1912.1297607421875,
-      "retention_2045": 99.66
+      "retention_2045": 99.66,
+      "elevation_m": 3.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467214",
@@ -129,7 +282,18 @@
       "latitude": 35.728125,
       "population_2025": 1666.995361328125,
       "population_2045": 1728.75537109375,
-      "retention_2045": 103.7
+      "retention_2045": 103.7,
+      "elevation_m": 2.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467223",
@@ -137,7 +301,18 @@
       "latitude": 35.728125,
       "population_2025": 1886.1756591796875,
       "population_2045": 1978.8564453125,
-      "retention_2045": 104.91
+      "retention_2045": 104.91,
+      "elevation_m": 2.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467224",
@@ -145,7 +320,18 @@
       "latitude": 35.728125,
       "population_2025": 2128.068603515625,
       "population_2045": 2247.92041015625,
-      "retention_2045": 105.63
+      "retention_2045": 105.63,
+      "elevation_m": 2.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467231",
@@ -153,7 +339,18 @@
       "latitude": 35.7302083,
       "population_2025": 2014.316650390625,
       "population_2045": 2263.34912109375,
-      "retention_2045": 112.36
+      "retention_2045": 112.36,
+      "elevation_m": 3.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467232",
@@ -161,7 +358,18 @@
       "latitude": 35.7302083,
       "population_2025": 1793.61572265625,
       "population_2045": 1888.24267578125,
-      "retention_2045": 105.28
+      "retention_2045": 105.28,
+      "elevation_m": 2.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467233",
@@ -169,7 +377,18 @@
       "latitude": 35.7322917,
       "population_2025": 1861.0423583984375,
       "population_2045": 2011.4932861328125,
-      "retention_2045": 108.08
+      "retention_2045": 108.08,
+      "elevation_m": 3.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467234",
@@ -177,7 +396,18 @@
       "latitude": 35.7322917,
       "population_2025": 2462.909912109375,
       "population_2045": 2540.696044921875,
-      "retention_2045": 103.16
+      "retention_2045": 103.16,
+      "elevation_m": 2.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467241",
@@ -185,7 +415,18 @@
       "latitude": 35.7302083,
       "population_2025": 1420.8134765625,
       "population_2045": 1539.586669921875,
-      "retention_2045": 108.36
+      "retention_2045": 108.36,
+      "elevation_m": 2.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467242",
@@ -193,7 +434,18 @@
       "latitude": 35.7302083,
       "population_2025": 1738.5604248046875,
       "population_2045": 1815.987548828125,
-      "retention_2045": 104.45
+      "retention_2045": 104.45,
+      "elevation_m": 1.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467243",
@@ -201,7 +453,18 @@
       "latitude": 35.7322917,
       "population_2025": 2014.80126953125,
       "population_2045": 2168.91796875,
-      "retention_2045": 107.65
+      "retention_2045": 107.65,
+      "elevation_m": 1.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467244",
@@ -209,7 +472,18 @@
       "latitude": 35.7322917,
       "population_2025": 1779.870361328125,
       "population_2045": 1893.522705078125,
-      "retention_2045": 106.39
+      "retention_2045": 106.39,
+      "elevation_m": 1.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467331",
@@ -217,7 +491,18 @@
       "latitude": 35.7302083,
       "population_2025": 1865.4141845703125,
       "population_2045": 1647.7252197265625,
-      "retention_2045": 88.33
+      "retention_2045": 88.33,
+      "elevation_m": 1.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467333",
@@ -225,7 +510,18 @@
       "latitude": 35.7322917,
       "population_2025": 1789.4215087890625,
       "population_2045": 1873.8470458984375,
-      "retention_2045": 104.72
+      "retention_2045": 104.72,
+      "elevation_m": 2.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467334",
@@ -233,7 +529,18 @@
       "latitude": 35.7322917,
       "population_2025": 1410.641845703125,
       "population_2045": 1410.370849609375,
-      "retention_2045": 99.98
+      "retention_2045": 99.98,
+      "elevation_m": 2.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467341",
@@ -241,7 +548,18 @@
       "latitude": 35.7302083,
       "population_2025": 1482.1514892578125,
       "population_2045": 1509.8804931640625,
-      "retention_2045": 101.87
+      "retention_2045": 101.87,
+      "elevation_m": 1.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467342",
@@ -249,7 +567,18 @@
       "latitude": 35.7302083,
       "population_2025": 1477.2425537109375,
       "population_2045": 1330.199951171875,
-      "retention_2045": 90.05
+      "retention_2045": 90.05,
+      "elevation_m": 0.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467343",
@@ -257,7 +586,18 @@
       "latitude": 35.7322917,
       "population_2025": 1644.96142578125,
       "population_2045": 1568.5552978515625,
-      "retention_2045": 95.36
+      "retention_2045": 95.36,
+      "elevation_m": 0.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467344",
@@ -265,7 +605,18 @@
       "latitude": 35.7322917,
       "population_2025": 975.30712890625,
       "population_2045": 1055.31494140625,
-      "retention_2045": 108.2
+      "retention_2045": 108.2,
+      "elevation_m": 1.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467431",
@@ -273,7 +624,18 @@
       "latitude": 35.7302083,
       "population_2025": 871.6846923828125,
       "population_2045": 702.9415283203125,
-      "retention_2045": 80.64
+      "retention_2045": 80.64,
+      "elevation_m": 1.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467432",
@@ -281,7 +643,18 @@
       "latitude": 35.7302083,
       "population_2025": 308.16119384765625,
       "population_2045": 324.6654968261719,
-      "retention_2045": 105.36
+      "retention_2045": 105.36,
+      "elevation_m": 1.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467434",
@@ -289,7 +662,18 @@
       "latitude": 35.7322917,
       "population_2025": 123.98359680175781,
       "population_2045": 146.2541046142578,
-      "retention_2045": 117.96
+      "retention_2045": 117.96,
+      "elevation_m": 1.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467441",
@@ -297,7 +681,18 @@
       "latitude": 35.7302083,
       "population_2025": 208.31179809570312,
       "population_2045": 222.43519592285156,
-      "retention_2045": 106.78
+      "retention_2045": 106.78,
+      "elevation_m": 1.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467443",
@@ -305,7 +700,18 @@
       "latitude": 35.7322917,
       "population_2025": 2834.119384765625,
       "population_2045": 3750.110595703125,
-      "retention_2045": 132.32
+      "retention_2045": 132.32,
+      "elevation_m": 0.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339467444",
@@ -313,7 +719,18 @@
       "latitude": 35.7322917,
       "population_2025": 205.56610107421875,
       "population_2045": 299.6476135253906,
-      "retention_2045": 145.77
+      "retention_2045": 145.77,
+      "elevation_m": 3.0,
+      "elevation_source": "10m",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468112",
@@ -321,7 +738,18 @@
       "latitude": 35.734375,
       "population_2025": 988.6058959960938,
       "population_2045": 1006.031982421875,
-      "retention_2045": 101.76
+      "retention_2045": 101.76,
+      "elevation_m": 4.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468114",
@@ -329,7 +757,18 @@
       "latitude": 35.7364583,
       "population_2025": 1947.201904296875,
       "population_2045": 2105.68310546875,
-      "retention_2045": 108.14
+      "retention_2045": 108.14,
+      "elevation_m": 4.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468121",
@@ -337,7 +776,18 @@
       "latitude": 35.734375,
       "population_2025": 1596.5338134765625,
       "population_2045": 1694.2884521484375,
-      "retention_2045": 106.12
+      "retention_2045": 106.12,
+      "elevation_m": 4.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468122",
@@ -345,7 +795,18 @@
       "latitude": 35.734375,
       "population_2025": 2156.913330078125,
       "population_2045": 2363.41064453125,
-      "retention_2045": 109.57
+      "retention_2045": 109.57,
+      "elevation_m": 3.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468123",
@@ -353,7 +814,18 @@
       "latitude": 35.7364583,
       "population_2025": 1746.3857421875,
       "population_2045": 1773.5372314453125,
-      "retention_2045": 101.55
+      "retention_2045": 101.55,
+      "elevation_m": 3.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468124",
@@ -361,7 +833,18 @@
       "latitude": 35.7364583,
       "population_2025": 1963.83642578125,
       "population_2045": 2030.9830322265625,
-      "retention_2045": 103.42
+      "retention_2045": 103.42,
+      "elevation_m": 3.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468141",
@@ -369,7 +852,18 @@
       "latitude": 35.7385417,
       "population_2025": 2560.466552734375,
       "population_2045": 2981.231201171875,
-      "retention_2045": 116.43
+      "retention_2045": 116.43,
+      "elevation_m": 3.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468142",
@@ -377,7 +871,18 @@
       "latitude": 35.7385417,
       "population_2025": 1490.108154296875,
       "population_2045": 1582.7784423828125,
-      "retention_2045": 106.22
+      "retention_2045": 106.22,
+      "elevation_m": 3.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468143",
@@ -385,7 +890,18 @@
       "latitude": 35.740625,
       "population_2025": 2192.34033203125,
       "population_2045": 2292.619384765625,
-      "retention_2045": 104.57
+      "retention_2045": 104.57,
+      "elevation_m": 3.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468144",
@@ -393,7 +909,18 @@
       "latitude": 35.740625,
       "population_2025": 1467.1453857421875,
       "population_2045": 1474.383544921875,
-      "retention_2045": 100.49
+      "retention_2045": 100.49,
+      "elevation_m": 2.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468211",
@@ -401,7 +928,18 @@
       "latitude": 35.734375,
       "population_2025": 1884.4368896484375,
       "population_2045": 1911.995849609375,
-      "retention_2045": 101.46
+      "retention_2045": 101.46,
+      "elevation_m": 3.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468212",
@@ -409,7 +947,18 @@
       "latitude": 35.734375,
       "population_2025": 1656.569091796875,
       "population_2045": 1613.700439453125,
-      "retention_2045": 97.41
+      "retention_2045": 97.41,
+      "elevation_m": 2.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468213",
@@ -417,7 +966,18 @@
       "latitude": 35.7364583,
       "population_2025": 2096.9306640625,
       "population_2045": 2336.947509765625,
-      "retention_2045": 111.45
+      "retention_2045": 111.45,
+      "elevation_m": 3.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468214",
@@ -425,7 +985,18 @@
       "latitude": 35.7364583,
       "population_2025": 1639.811279296875,
       "population_2045": 1648.9239501953125,
-      "retention_2045": 100.56
+      "retention_2045": 100.56,
+      "elevation_m": 2.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468221",
@@ -433,7 +1004,18 @@
       "latitude": 35.734375,
       "population_2025": 2218.71142578125,
       "population_2045": 2313.86328125,
-      "retention_2045": 104.29
+      "retention_2045": 104.29,
+      "elevation_m": 1.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468222",
@@ -441,7 +1023,18 @@
       "latitude": 35.734375,
       "population_2025": 1579.6103515625,
       "population_2045": 1766.262451171875,
-      "retention_2045": 111.82
+      "retention_2045": 111.82,
+      "elevation_m": 2.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468223",
@@ -449,7 +1042,18 @@
       "latitude": 35.7364583,
       "population_2025": 892.3541870117188,
       "population_2045": 877.443603515625,
-      "retention_2045": 98.33
+      "retention_2045": 98.33,
+      "elevation_m": 2.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468224",
@@ -457,7 +1061,18 @@
       "latitude": 35.7364583,
       "population_2025": 880.4376220703125,
       "population_2045": 911.7451171875,
-      "retention_2045": 103.56
+      "retention_2045": 103.56,
+      "elevation_m": 1.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468231",
@@ -465,7 +1080,18 @@
       "latitude": 35.7385417,
       "population_2025": 2094.98095703125,
       "population_2045": 2318.845458984375,
-      "retention_2045": 110.69
+      "retention_2045": 110.69,
+      "elevation_m": 2.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468232",
@@ -473,7 +1099,18 @@
       "latitude": 35.7385417,
       "population_2025": 2347.433837890625,
       "population_2045": 2480.8857421875,
-      "retention_2045": 105.69
+      "retention_2045": 105.69,
+      "elevation_m": 2.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468233",
@@ -481,7 +1118,18 @@
       "latitude": 35.740625,
       "population_2025": 1572.9202880859375,
       "population_2045": 1475.5185546875,
-      "retention_2045": 93.81
+      "retention_2045": 93.81,
+      "elevation_m": 2.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468234",
@@ -489,7 +1137,18 @@
       "latitude": 35.740625,
       "population_2025": 2150.087158203125,
       "population_2045": 2217.845947265625,
-      "retention_2045": 103.15
+      "retention_2045": 103.15,
+      "elevation_m": 2.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468241",
@@ -497,7 +1156,18 @@
       "latitude": 35.7385417,
       "population_2025": 1370.8060302734375,
       "population_2045": 1398.6124267578125,
-      "retention_2045": 102.03
+      "retention_2045": 102.03,
+      "elevation_m": 2.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468242",
@@ -505,7 +1175,18 @@
       "latitude": 35.7385417,
       "population_2025": 370.29071044921875,
       "population_2045": 411.356689453125,
-      "retention_2045": 111.09
+      "retention_2045": 111.09,
+      "elevation_m": 0.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468243",
@@ -513,7 +1194,18 @@
       "latitude": 35.740625,
       "population_2025": 1043.8397216796875,
       "population_2045": 994.8463745117188,
-      "retention_2045": 95.31
+      "retention_2045": 95.31,
+      "elevation_m": 1.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468244",
@@ -521,7 +1213,18 @@
       "latitude": 35.740625,
       "population_2025": 247.1591033935547,
       "population_2045": 367.28509521484375,
-      "retention_2045": 148.6
+      "retention_2045": 148.6,
+      "elevation_m": 2.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468311",
@@ -529,7 +1232,18 @@
       "latitude": 35.734375,
       "population_2025": 1421.9720458984375,
       "population_2045": 1460.3482666015625,
-      "retention_2045": 102.7
+      "retention_2045": 102.7,
+      "elevation_m": 1.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468312",
@@ -537,7 +1251,18 @@
       "latitude": 35.734375,
       "population_2025": 1400.7520751953125,
       "population_2045": 1356.787841796875,
-      "retention_2045": 96.86
+      "retention_2045": 96.86,
+      "elevation_m": 1.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468313",
@@ -545,7 +1270,18 @@
       "latitude": 35.7364583,
       "population_2025": 1832.6134033203125,
       "population_2045": 1920.1142578125,
-      "retention_2045": 104.77
+      "retention_2045": 104.77,
+      "elevation_m": 1.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468314",
@@ -553,7 +1289,18 @@
       "latitude": 35.7364583,
       "population_2025": 1154.07421875,
       "population_2045": 1540.1590576171875,
-      "retention_2045": 133.45
+      "retention_2045": 133.45,
+      "elevation_m": 2.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468321",
@@ -561,7 +1308,18 @@
       "latitude": 35.734375,
       "population_2025": 1372.4149169921875,
       "population_2045": 1340.1632080078125,
-      "retention_2045": 97.65
+      "retention_2045": 97.65,
+      "elevation_m": 1.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468322",
@@ -569,7 +1327,18 @@
       "latitude": 35.734375,
       "population_2025": 1053.63916015625,
       "population_2045": 971.22998046875,
-      "retention_2045": 92.18
+      "retention_2045": 92.18,
+      "elevation_m": 0.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468323",
@@ -577,7 +1346,18 @@
       "latitude": 35.7364583,
       "population_2025": 1676.915771484375,
       "population_2045": 1863.28564453125,
-      "retention_2045": 111.11
+      "retention_2045": 111.11,
+      "elevation_m": 1.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468324",
@@ -585,7 +1365,18 @@
       "latitude": 35.7364583,
       "population_2025": 2187.107177734375,
       "population_2045": 2197.427734375,
-      "retention_2045": 100.47
+      "retention_2045": 100.47,
+      "elevation_m": 0.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468331",
@@ -593,7 +1384,18 @@
       "latitude": 35.7385417,
       "population_2025": 1254.612060546875,
       "population_2045": 1403.477783203125,
-      "retention_2045": 111.87
+      "retention_2045": 111.87,
+      "elevation_m": 0.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468332",
@@ -601,7 +1403,18 @@
       "latitude": 35.7385417,
       "population_2025": 1525.11083984375,
       "population_2045": 1851.770751953125,
-      "retention_2045": 121.42
+      "retention_2045": 121.42,
+      "elevation_m": 2.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468333",
@@ -609,7 +1422,18 @@
       "latitude": 35.740625,
       "population_2025": 1422.8275146484375,
       "population_2045": 1492.9334716796875,
-      "retention_2045": 104.93
+      "retention_2045": 104.93,
+      "elevation_m": 1.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468334",
@@ -617,7 +1441,18 @@
       "latitude": 35.740625,
       "population_2025": 953.855712890625,
       "population_2045": 836.8895263671875,
-      "retention_2045": 87.74
+      "retention_2045": 87.74,
+      "elevation_m": 3.0,
+      "elevation_source": "10m",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468341",
@@ -625,7 +1460,18 @@
       "latitude": 35.7385417,
       "population_2025": 1206.0999755859375,
       "population_2045": 1295.2666015625,
-      "retention_2045": 107.39
+      "retention_2045": 107.39,
+      "elevation_m": 1.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468342",
@@ -633,7 +1479,18 @@
       "latitude": 35.7385417,
       "population_2025": 1917.6822509765625,
       "population_2045": 2448.150390625,
-      "retention_2045": 127.66
+      "retention_2045": 127.66,
+      "elevation_m": 0.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468412",
@@ -641,7 +1498,18 @@
       "latitude": 35.734375,
       "population_2025": 1040.0111083984375,
       "population_2045": 1415.3599853515625,
-      "retention_2045": 136.09
+      "retention_2045": 136.09,
+      "elevation_m": 1.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468413",
@@ -649,7 +1517,18 @@
       "latitude": 35.7364583,
       "population_2025": 2166.775634765625,
       "population_2045": 2471.453369140625,
-      "retention_2045": 114.06
+      "retention_2045": 114.06,
+      "elevation_m": 2.4,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468414",
@@ -657,7 +1536,18 @@
       "latitude": 35.7364583,
       "population_2025": 2908.177001953125,
       "population_2045": 3297.661865234375,
-      "retention_2045": 113.39
+      "retention_2045": 113.39,
+      "elevation_m": 3.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468421",
@@ -665,7 +1555,18 @@
       "latitude": 35.734375,
       "population_2025": 1761.32275390625,
       "population_2045": 2337.066650390625,
-      "retention_2045": 132.69
+      "retention_2045": 132.69,
+      "elevation_m": 1.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468423",
@@ -673,7 +1574,18 @@
       "latitude": 35.7364583,
       "population_2025": 1123.83935546875,
       "population_2045": 1219.020751953125,
-      "retention_2045": 108.47
+      "retention_2045": 108.47,
+      "elevation_m": 1.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468424",
@@ -681,7 +1593,18 @@
       "latitude": 35.7364583,
       "population_2025": 431.9371032714844,
       "population_2045": 459.8832092285156,
-      "retention_2045": 106.47
+      "retention_2045": 106.47,
+      "elevation_m": 3.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468431",
@@ -689,7 +1612,18 @@
       "latitude": 35.7385417,
       "population_2025": 303.1741943359375,
       "population_2045": 322.2225036621094,
-      "retention_2045": 106.28
+      "retention_2045": 106.28,
+      "elevation_m": 3.0,
+      "elevation_source": "10m",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468432",
@@ -697,7 +1631,18 @@
       "latitude": 35.7385417,
       "population_2025": 479.2001953125,
       "population_2045": 381.46600341796875,
-      "retention_2045": 79.6
+      "retention_2045": 79.6,
+      "elevation_m": 2.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468441",
@@ -705,7 +1650,18 @@
       "latitude": 35.7385417,
       "population_2025": 3317.623046875,
       "population_2045": 4204.947265625,
-      "retention_2045": 126.75
+      "retention_2045": 126.75,
+      "elevation_m": 1.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468442",
@@ -713,7 +1669,18 @@
       "latitude": 35.7385417,
       "population_2025": 2620.774658203125,
       "population_2045": 3449.06884765625,
-      "retention_2045": 131.6
+      "retention_2045": 131.6,
+      "elevation_m": 2.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468444",
@@ -721,7 +1688,18 @@
       "latitude": 35.740625,
       "population_2025": 1206.8128662109375,
       "population_2045": 1745.4749755859375,
-      "retention_2045": 144.64
+      "retention_2045": 144.64,
+      "elevation_m": 1.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339468513",
@@ -729,7 +1707,18 @@
       "latitude": 35.7364583,
       "population_2025": 5.1082000732421875,
       "population_2045": 7.934800148010254,
-      "retention_2045": 155.33
+      "retention_2045": 155.33,
+      "elevation_m": 3.0,
+      "elevation_source": "10m",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469024",
@@ -737,7 +1726,18 @@
       "latitude": 35.7447917,
       "population_2025": 1929.545654296875,
       "population_2045": 1802.6798095703125,
-      "retention_2045": 93.43
+      "retention_2045": 93.43,
+      "elevation_m": 3.4,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469041",
@@ -745,7 +1745,18 @@
       "latitude": 35.746875,
       "population_2025": 1502.8173828125,
       "population_2045": 1564.04345703125,
-      "retention_2045": 104.07
+      "retention_2045": 104.07,
+      "elevation_m": 2.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469042",
@@ -753,7 +1764,18 @@
       "latitude": 35.746875,
       "population_2025": 2121.099365234375,
       "population_2045": 2086.952880859375,
-      "retention_2045": 98.39
+      "retention_2045": 98.39,
+      "elevation_m": 2.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469043",
@@ -761,7 +1783,18 @@
       "latitude": 35.7489583,
       "population_2025": 1308.10546875,
       "population_2045": 1365.3009033203125,
-      "retention_2045": 104.37
+      "retention_2045": 104.37,
+      "elevation_m": 2.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469044",
@@ -769,7 +1802,18 @@
       "latitude": 35.7489583,
       "population_2025": 1569.933349609375,
       "population_2045": 1565.9930419921875,
-      "retention_2045": 99.75
+      "retention_2045": 99.75,
+      "elevation_m": 2.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469112",
@@ -777,7 +1821,18 @@
       "latitude": 35.7427083,
       "population_2025": 1649.4881591796875,
       "population_2045": 1559.9422607421875,
-      "retention_2045": 94.57
+      "retention_2045": 94.57,
+      "elevation_m": 3.4,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469113",
@@ -785,7 +1840,18 @@
       "latitude": 35.7447917,
       "population_2025": 1685.4127197265625,
       "population_2045": 1761.8416748046875,
-      "retention_2045": 104.53
+      "retention_2045": 104.53,
+      "elevation_m": 3.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469114",
@@ -793,7 +1859,18 @@
       "latitude": 35.7447917,
       "population_2025": 1549.793701171875,
       "population_2045": 1522.0692138671875,
-      "retention_2045": 98.21
+      "retention_2045": 98.21,
+      "elevation_m": 3.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469121",
@@ -801,7 +1878,18 @@
       "latitude": 35.7427083,
       "population_2025": 1635.830078125,
       "population_2045": 1732.373046875,
-      "retention_2045": 105.9
+      "retention_2045": 105.9,
+      "elevation_m": 3.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469122",
@@ -809,7 +1897,18 @@
       "latitude": 35.7427083,
       "population_2025": 1216.716064453125,
       "population_2045": 1168.1595458984375,
-      "retention_2045": 96.01
+      "retention_2045": 96.01,
+      "elevation_m": 1.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469123",
@@ -817,7 +1916,18 @@
       "latitude": 35.7447917,
       "population_2025": 2343.892822265625,
       "population_2045": 2655.87451171875,
-      "retention_2045": 113.31
+      "retention_2045": 113.31,
+      "elevation_m": 2.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469124",
@@ -825,7 +1935,18 @@
       "latitude": 35.7447917,
       "population_2025": 1339.82666015625,
       "population_2045": 1345.9493408203125,
-      "retention_2045": 100.46
+      "retention_2045": 100.46,
+      "elevation_m": 1.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469131",
@@ -833,7 +1954,18 @@
       "latitude": 35.746875,
       "population_2025": 1420.68359375,
       "population_2045": 1502.6312255859375,
-      "retention_2045": 105.77
+      "retention_2045": 105.77,
+      "elevation_m": 2.4,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469132",
@@ -841,7 +1973,18 @@
       "latitude": 35.746875,
       "population_2025": 881.8107299804688,
       "population_2045": 908.6411743164062,
-      "retention_2045": 103.04
+      "retention_2045": 103.04,
+      "elevation_m": 2.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469133",
@@ -849,7 +1992,18 @@
       "latitude": 35.7489583,
       "population_2025": 1389.9407958984375,
       "population_2045": 1361.6898193359375,
-      "retention_2045": 97.97
+      "retention_2045": 97.97,
+      "elevation_m": 1.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469134",
@@ -857,7 +2011,18 @@
       "latitude": 35.7489583,
       "population_2025": 1081.87744140625,
       "population_2045": 1134.3492431640625,
-      "retention_2045": 104.85
+      "retention_2045": 104.85,
+      "elevation_m": 1.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469141",
@@ -865,7 +2030,18 @@
       "latitude": 35.746875,
       "population_2025": 1956.733642578125,
       "population_2045": 2245.0361328125,
-      "retention_2045": 114.73
+      "retention_2045": 114.73,
+      "elevation_m": 2.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469142",
@@ -873,7 +2049,18 @@
       "latitude": 35.746875,
       "population_2025": 1516.34130859375,
       "population_2045": 1532.373291015625,
-      "retention_2045": 101.06
+      "retention_2045": 101.06,
+      "elevation_m": 1.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469143",
@@ -881,7 +2068,18 @@
       "latitude": 35.7489583,
       "population_2025": 1161.1546630859375,
       "population_2045": 1331.797607421875,
-      "retention_2045": 114.7
+      "retention_2045": 114.7,
+      "elevation_m": 2.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469144",
@@ -889,7 +2087,18 @@
       "latitude": 35.7489583,
       "population_2025": 1345.0709228515625,
       "population_2045": 1414.71240234375,
-      "retention_2045": 105.18
+      "retention_2045": 105.18,
+      "elevation_m": 1.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469211",
@@ -897,7 +2106,18 @@
       "latitude": 35.7427083,
       "population_2025": 1717.483642578125,
       "population_2045": 1559.40625,
-      "retention_2045": 90.8
+      "retention_2045": 90.8,
+      "elevation_m": 2.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469212",
@@ -905,7 +2125,18 @@
       "latitude": 35.7427083,
       "population_2025": 2103.369873046875,
       "population_2045": 2159.1591796875,
-      "retention_2045": 102.65
+      "retention_2045": 102.65,
+      "elevation_m": 2.4,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469213",
@@ -913,7 +2144,18 @@
       "latitude": 35.7447917,
       "population_2025": 1445.53271484375,
       "population_2045": 1433.0179443359375,
-      "retention_2045": 99.13
+      "retention_2045": 99.13,
+      "elevation_m": 2.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469214",
@@ -921,7 +2163,18 @@
       "latitude": 35.7447917,
       "population_2025": 1341.0511474609375,
       "population_2045": 1306.26171875,
-      "retention_2045": 97.41
+      "retention_2045": 97.41,
+      "elevation_m": 1.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469221",
@@ -929,7 +2182,18 @@
       "latitude": 35.7427083,
       "population_2025": 1745.1490478515625,
       "population_2045": 1600.5540771484375,
-      "retention_2045": 91.71
+      "retention_2045": 91.71,
+      "elevation_m": 1.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469222",
@@ -937,7 +2201,18 @@
       "latitude": 35.7427083,
       "population_2025": 184.70030212402344,
       "population_2045": 239.70700073242188,
-      "retention_2045": 129.78
+      "retention_2045": 129.78,
+      "elevation_m": 2.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469223",
@@ -945,7 +2220,18 @@
       "latitude": 35.7447917,
       "population_2025": 1745.9166259765625,
       "population_2045": 1810.5078125,
-      "retention_2045": 103.7
+      "retention_2045": 103.7,
+      "elevation_m": 1.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469224",
@@ -953,7 +2239,18 @@
       "latitude": 35.7447917,
       "population_2025": 1086.4737548828125,
       "population_2045": 1169.01904296875,
-      "retention_2045": 107.6
+      "retention_2045": 107.6,
+      "elevation_m": 1.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469231",
@@ -961,7 +2258,18 @@
       "latitude": 35.746875,
       "population_2025": 1442.8212890625,
       "population_2045": 1294.559814453125,
-      "retention_2045": 89.72
+      "retention_2045": 89.72,
+      "elevation_m": 1.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469232",
@@ -969,7 +2277,18 @@
       "latitude": 35.746875,
       "population_2025": 1842.2113037109375,
       "population_2045": 1880.2197265625,
-      "retention_2045": 102.06
+      "retention_2045": 102.06,
+      "elevation_m": 1.4,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469233",
@@ -977,7 +2296,18 @@
       "latitude": 35.7489583,
       "population_2025": 1597.2762451171875,
       "population_2045": 1432.16015625,
-      "retention_2045": 89.66
+      "retention_2045": 89.66,
+      "elevation_m": 1.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469234",
@@ -985,7 +2315,18 @@
       "latitude": 35.7489583,
       "population_2025": 1803.7674560546875,
       "population_2045": 1839.82666015625,
-      "retention_2045": 102.0
+      "retention_2045": 102.0,
+      "elevation_m": 1.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469241",
@@ -993,7 +2334,18 @@
       "latitude": 35.746875,
       "population_2025": 2228.406494140625,
       "population_2045": 2376.397216796875,
-      "retention_2045": 106.64
+      "retention_2045": 106.64,
+      "elevation_m": 1.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469242",
@@ -1001,7 +2353,18 @@
       "latitude": 35.746875,
       "population_2025": 1474.1988525390625,
       "population_2045": 1396.1671142578125,
-      "retention_2045": 94.71
+      "retention_2045": 94.71,
+      "elevation_m": 1.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469243",
@@ -1009,7 +2372,18 @@
       "latitude": 35.7489583,
       "population_2025": 1515.458251953125,
       "population_2045": 1548.32666015625,
-      "retention_2045": 102.17
+      "retention_2045": 102.17,
+      "elevation_m": 1.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469244",
@@ -1017,7 +2391,18 @@
       "latitude": 35.7489583,
       "population_2025": 1987.4398193359375,
       "population_2045": 2049.8125,
-      "retention_2045": 103.14
+      "retention_2045": 103.14,
+      "elevation_m": 1.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469311",
@@ -1025,7 +2410,18 @@
       "latitude": 35.7427083,
       "population_2025": 14.56470012664795,
       "population_2045": 15.691499710083008,
-      "retention_2045": 107.74
+      "retention_2045": 107.74,
+      "elevation_m": 2.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339469333",
@@ -1033,7 +2429,18 @@
       "latitude": 35.7489583,
       "population_2025": 1396.7010498046875,
       "population_2045": 1446.0279541015625,
-      "retention_2045": 103.53
+      "retention_2045": 103.53,
+      "elevation_m": 1.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339560011",
@@ -1041,7 +2448,18 @@
       "latitude": 35.7510417,
       "population_2025": 1016.4296875,
       "population_2045": 1164.4049072265625,
-      "retention_2045": 114.56
+      "retention_2045": 114.56,
+      "elevation_m": 2.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339560012",
@@ -1049,7 +2467,18 @@
       "latitude": 35.7510417,
       "population_2025": 960.1627807617188,
       "population_2045": 901.3745727539062,
-      "retention_2045": 93.88
+      "retention_2045": 93.88,
+      "elevation_m": 2.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339560013",
@@ -1057,7 +2486,18 @@
       "latitude": 35.753125,
       "population_2025": 2220.197021484375,
       "population_2045": 2511.50048828125,
-      "retention_2045": 113.12
+      "retention_2045": 113.12,
+      "elevation_m": 2.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339560014",
@@ -1065,7 +2505,18 @@
       "latitude": 35.753125,
       "population_2025": 1974.1854248046875,
       "population_2045": 2008.9534912109375,
-      "retention_2045": 101.76
+      "retention_2045": 101.76,
+      "elevation_m": 2.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339560021",
@@ -1073,7 +2524,18 @@
       "latitude": 35.7510417,
       "population_2025": 1240.990234375,
       "population_2045": 1163.419677734375,
-      "retention_2045": 93.75
+      "retention_2045": 93.75,
+      "elevation_m": 1.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339560022",
@@ -1081,7 +2543,18 @@
       "latitude": 35.7510417,
       "population_2025": 1844.22509765625,
       "population_2045": 1914.316162109375,
-      "retention_2045": 103.8
+      "retention_2045": 103.8,
+      "elevation_m": 2.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339560023",
@@ -1089,7 +2562,18 @@
       "latitude": 35.753125,
       "population_2025": 897.3609008789062,
       "population_2045": 839.8873901367188,
-      "retention_2045": 93.6
+      "retention_2045": 93.6,
+      "elevation_m": 1.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339560024",
@@ -1097,7 +2581,18 @@
       "latitude": 35.753125,
       "population_2025": 990.3455810546875,
       "population_2045": 1034.5091552734375,
-      "retention_2045": 104.46
+      "retention_2045": 104.46,
+      "elevation_m": 1.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339560111",
@@ -1105,7 +2600,18 @@
       "latitude": 35.7510417,
       "population_2025": 881.5484008789062,
       "population_2045": 964.8079833984375,
-      "retention_2045": 109.44
+      "retention_2045": 109.44,
+      "elevation_m": 2.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339560112",
@@ -1113,7 +2619,18 @@
       "latitude": 35.7510417,
       "population_2025": 1196.2880859375,
       "population_2045": 1299.9088134765625,
-      "retention_2045": 108.66
+      "retention_2045": 108.66,
+      "elevation_m": 1.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339560113",
@@ -1121,7 +2638,18 @@
       "latitude": 35.753125,
       "population_2025": 305.87200927734375,
       "population_2045": 272.81549072265625,
-      "retention_2045": 89.19
+      "retention_2045": 89.19,
+      "elevation_m": 2.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339560114",
@@ -1129,7 +2657,18 @@
       "latitude": 35.753125,
       "population_2025": 515.083984375,
       "population_2045": 528.8671875,
-      "retention_2045": 102.68
+      "retention_2045": 102.68,
+      "elevation_m": 5.0,
+      "elevation_source": "10m",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339560121",
@@ -1137,7 +2676,18 @@
       "latitude": 35.7510417,
       "population_2025": 1362.270751953125,
       "population_2045": 1581.350341796875,
-      "retention_2045": 116.08
+      "retention_2045": 116.08,
+      "elevation_m": 1.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339560123",
@@ -1145,7 +2695,18 @@
       "latitude": 35.753125,
       "population_2025": 130.90890502929688,
       "population_2045": 127.24089813232422,
-      "retention_2045": 97.2
+      "retention_2045": 97.2,
+      "elevation_m": 5.0,
+      "elevation_source": "10m",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339560211",
@@ -1153,7 +2714,18 @@
       "latitude": 35.7510417,
       "population_2025": 646.8947143554688,
       "population_2045": 691.3322143554688,
-      "retention_2045": 106.87
+      "retention_2045": 106.87,
+      "elevation_m": 1.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339560212",
@@ -1161,7 +2733,18 @@
       "latitude": 35.7510417,
       "population_2025": 1342.7847900390625,
       "population_2045": 1303.2603759765625,
-      "retention_2045": 97.06
+      "retention_2045": 97.06,
+      "elevation_m": 1.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339560213",
@@ -1169,7 +2752,18 @@
       "latitude": 35.753125,
       "population_2025": 156.02130126953125,
       "population_2045": 189.3997039794922,
-      "retention_2045": 121.39
+      "retention_2045": 121.39,
+      "elevation_m": 2.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339560214",
@@ -1177,7 +2771,18 @@
       "latitude": 35.753125,
       "population_2025": 1197.09765625,
       "population_2045": 1431.208984375,
-      "retention_2045": 119.56
+      "retention_2045": 119.56,
+      "elevation_m": 1.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339560221",
@@ -1185,7 +2790,18 @@
       "latitude": 35.7510417,
       "population_2025": 1889.5516357421875,
       "population_2045": 1825.2855224609375,
-      "retention_2045": 96.6
+      "retention_2045": 96.6,
+      "elevation_m": 0.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339560222",
@@ -1193,7 +2809,18 @@
       "latitude": 35.7510417,
       "population_2025": 1750.2845458984375,
       "population_2045": 1831.829345703125,
-      "retention_2045": 104.66
+      "retention_2045": 104.66,
+      "elevation_m": 0.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339560223",
@@ -1201,7 +2828,18 @@
       "latitude": 35.753125,
       "population_2025": 912.9456176757812,
       "population_2045": 954.7022094726562,
-      "retention_2045": 104.57
+      "retention_2045": 104.57,
+      "elevation_m": 3.4,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339560224",
@@ -1209,7 +2847,18 @@
       "latitude": 35.753125,
       "population_2025": 623.893798828125,
       "population_2045": 729.3223266601562,
-      "retention_2045": 116.9
+      "retention_2045": 116.9,
+      "elevation_m": 5.0,
+      "elevation_source": "10m",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     },
     {
       "mesh_id": "5339560311",
@@ -1217,7 +2866,18 @@
       "latitude": 35.7510417,
       "population_2025": 1184.0439453125,
       "population_2045": 1258.743408203125,
-      "retention_2045": 106.31
+      "retention_2045": 106.31,
+      "elevation_m": 1.4,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": null,
+      "avs30": null,
+      "amplification_arv": null,
+      "earthquake_probability_30y_5lower": null,
+      "earthquake_probability_30y_5upper": null,
+      "earthquake_probability_30y_6lower": null,
+      "earthquake_probability_30y_6upper": null,
+      "earthquake_intensity_30y_p03": null,
+      "earthquake_intensity_30y_p06": null
     }
   ],
   "stations": [

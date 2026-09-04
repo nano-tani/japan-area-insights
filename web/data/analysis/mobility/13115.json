@@ -1,0 +1,9 @@
+{
+  "area_id": "13115",
+  "municipality_name": "杉並区",
+  "year": 2020,
+  "flow_type": "work_school",
+  "note": "2020年国勢調査の市区町村間通勤・通学OD。区外セルのみを表示します。",
+  "outbound": [],
+  "inbound": []
+}

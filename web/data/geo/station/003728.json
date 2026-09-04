@@ -7,7 +7,7 @@
   "latitude": 35.68527701467175,
   "longitude": 139.73007798194885,
   "radius_m": 1000,
-  "calculation_date": "2026-09-03",
+  "calculation_date": "2026-09-04",
   "price_score": 17.0,
   "population_score": 13.0,
   "future_population_score": 17.0,
@@ -54,7 +54,7 @@
       "sample_size": null,
       "source_id": null,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     },
     "facility_childcare_count": {
       "metric_key": "facility_childcare_count",
@@ -63,7 +63,7 @@
       "sample_size": 20,
       "source_id": 148,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     },
     "facility_childcare_per_10k": {
       "metric_key": "facility_childcare_per_10k",
@@ -72,7 +72,7 @@
       "sample_size": null,
       "source_id": 148,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     },
     "facility_library_count": {
       "metric_key": "facility_library_count",
@@ -81,7 +81,7 @@
       "sample_size": 3,
       "source_id": 150,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     },
     "facility_library_per_10k": {
       "metric_key": "facility_library_per_10k",
@@ -90,7 +90,7 @@
       "sample_size": null,
       "source_id": 150,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     },
     "facility_medical_count": {
       "metric_key": "facility_medical_count",
@@ -99,7 +99,7 @@
       "sample_size": 238,
       "source_id": 149,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     },
     "facility_medical_per_10k": {
       "metric_key": "facility_medical_per_10k",
@@ -108,7 +108,7 @@
       "sample_size": null,
       "source_id": 149,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     },
     "facility_public_facility_count": {
       "metric_key": "facility_public_facility_count",
@@ -117,7 +117,7 @@
       "sample_size": 9,
       "source_id": 151,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     },
     "facility_public_facility_per_10k": {
       "metric_key": "facility_public_facility_per_10k",
@@ -126,7 +126,7 @@
       "sample_size": null,
       "source_id": 151,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     },
     "facility_school_count": {
       "metric_key": "facility_school_count",
@@ -135,7 +135,7 @@
       "sample_size": 31,
       "source_id": 147,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     },
     "facility_school_per_10k": {
       "metric_key": "facility_school_per_10k",
@@ -144,7 +144,7 @@
       "sample_size": null,
       "source_id": 147,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     },
     "future_population_2045": {
       "metric_key": "future_population_2045",
@@ -153,7 +153,7 @@
       "sample_size": null,
       "source_id": 146,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     },
     "future_population_retention_2045": {
       "metric_key": "future_population_retention_2045",
@@ -162,7 +162,7 @@
       "sample_size": null,
       "source_id": 146,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     },
     "mesh_count": {
       "metric_key": "mesh_count",
@@ -171,7 +171,7 @@
       "sample_size": 43,
       "source_id": null,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     },
     "nearby_line_count": {
       "metric_key": "nearby_line_count",
@@ -180,7 +180,7 @@
       "sample_size": 5,
       "source_id": 152,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     },
     "nearby_station_count": {
       "metric_key": "nearby_station_count",
@@ -189,7 +189,7 @@
       "sample_size": 4,
       "source_id": 152,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     },
     "population_2020": {
       "metric_key": "population_2020",
@@ -198,7 +198,7 @@
       "sample_size": null,
       "source_id": 146,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     },
     "population_2025_projection": {
       "metric_key": "population_2025_projection",
@@ -207,7 +207,7 @@
       "sample_size": null,
       "source_id": 146,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     },
     "population_change_2020_2025_projection": {
       "metric_key": "population_change_2020_2025_projection",
@@ -216,7 +216,7 @@
       "sample_size": null,
       "source_id": 146,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     },
     "price_year_count": {
       "metric_key": "price_year_count",
@@ -225,7 +225,7 @@
       "sample_size": 5,
       "source_id": 153,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     },
     "ridership_daily": {
       "metric_key": "ridership_daily",
@@ -234,7 +234,7 @@
       "sample_size": null,
       "source_id": 152,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     },
     "ridership_per_capita": {
       "metric_key": "ridership_per_capita",
@@ -243,7 +243,7 @@
       "sample_size": null,
       "source_id": 152,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     },
     "transaction_count_5y": {
       "metric_key": "transaction_count_5y",
@@ -252,7 +252,7 @@
       "sample_size": 94,
       "source_id": 153,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     },
     "transaction_unit_price_change": {
       "metric_key": "transaction_unit_price_change",
@@ -261,7 +261,7 @@
       "sample_size": null,
       "source_id": 153,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     },
     "transaction_unit_price_median_latest": {
       "metric_key": "transaction_unit_price_median_latest",
@@ -270,7 +270,7 @@
       "sample_size": null,
       "source_id": 153,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     },
     "transport_index": {
       "metric_key": "transport_index",
@@ -279,7 +279,7 @@
       "sample_size": null,
       "source_id": null,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-03T20:47:53.060919+00:00"
+      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
     }
   },
   "future_population": [
@@ -380,7 +380,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT006",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T19:56:50.797520+00:00"
+      "fetched_at": "2026-09-04T06:49:21.666985+00:00"
     },
     {
       "source_id": 148,
@@ -389,7 +389,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT007",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T19:58:13.394679+00:00"
+      "fetched_at": "2026-09-04T06:50:44.090558+00:00"
     },
     {
       "source_id": 149,
@@ -398,7 +398,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT010",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T20:00:06.189913+00:00"
+      "fetched_at": "2026-09-04T06:52:36.917709+00:00"
     },
     {
       "source_id": 150,
@@ -407,7 +407,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT017",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T20:01:27.816340+00:00"
+      "fetched_at": "2026-09-04T06:54:00.701562+00:00"
     },
     {
       "source_id": 151,
@@ -416,7 +416,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT018",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T20:02:52.229251+00:00"
+      "fetched_at": "2026-09-04T06:55:23.373340+00:00"
     },
     {
       "source_id": 146,
@@ -425,7 +425,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT013",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T19:55:21.116072+00:00"
+      "fetched_at": "2026-09-04T06:47:54.337949+00:00"
     },
     {
       "source_id": 152,
@@ -434,7 +434,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT015",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T20:03:27.812659+00:00"
+      "fetched_at": "2026-09-04T06:55:52.523242+00:00"
     },
     {
       "source_id": 153,
@@ -443,7 +443,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XIT001",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-03T20:33:45.213746+00:00"
+      "fetched_at": "2026-09-04T07:26:00.530069+00:00"
     }
   ]
 }

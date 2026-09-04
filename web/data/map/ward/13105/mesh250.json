@@ -18,6 +18,16 @@
     "retention_2045_area": 108.19,
     "retention_2045_mesh_median": 107.9
   },
+  "terrain": {
+    "provider": "国土地理院",
+    "note": "250mメッシュ中心点の標高。メッシュ内の最低・最高標高を示すものではありません。"
+  },
+  "seismic": {
+    "provider": "防災科学技術研究所 J-SHIS（地震ハザードステーション）",
+    "ground_version": "V4",
+    "hazard_version": "Y2024",
+    "note": "250m代表値・確率論モデル。個別地点の安全性や将来の発生を保証しません。"
+  },
   "meshes": [
     {
       "mesh_id": "5339454941",
@@ -25,7 +35,18 @@
       "latitude": 35.7052083,
       "population_2025": 645.0880126953125,
       "population_2045": 665.2666015625,
-      "retention_2045": 103.13
+      "retention_2045": 103.13,
+      "elevation_m": 4.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 223.1,
+      "amplification_arv": 1.64,
+      "earthquake_probability_30y_5lower": 99.983,
+      "earthquake_probability_30y_5upper": 96.174,
+      "earthquake_probability_30y_6lower": 58.058,
+      "earthquake_probability_30y_6upper": 13.003,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339454942",
@@ -33,7 +54,18 @@
       "latitude": 35.7052083,
       "population_2025": 176.53640747070312,
       "population_2045": 225.73219299316406,
-      "retention_2045": 127.87
+      "retention_2045": 127.87,
+      "elevation_m": 6.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 220.8,
+      "amplification_arv": 1.66,
+      "earthquake_probability_30y_5lower": 99.984,
+      "earthquake_probability_30y_5upper": 96.353,
+      "earthquake_probability_30y_6lower": 58.837,
+      "earthquake_probability_30y_6upper": 13.374,
+      "earthquake_intensity_30y_p03": 6.3,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339454943",
@@ -41,7 +73,18 @@
       "latitude": 35.7072917,
       "population_2025": 1468.8653564453125,
       "population_2045": 1336.02294921875,
-      "retention_2045": 90.96
+      "retention_2045": 90.96,
+      "elevation_m": 5.4,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 225.9,
+      "amplification_arv": 1.63,
+      "earthquake_probability_30y_5lower": 99.981,
+      "earthquake_probability_30y_5upper": 95.965,
+      "earthquake_probability_30y_6lower": 57.174,
+      "earthquake_probability_30y_6upper": 12.591,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339454944",
@@ -49,7 +92,18 @@
       "latitude": 35.7072917,
       "population_2025": 586.282470703125,
       "population_2045": 610.643798828125,
-      "retention_2045": 104.16
+      "retention_2045": 104.16,
+      "elevation_m": 22.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 209.8,
+      "amplification_arv": 1.73,
+      "earthquake_probability_30y_5lower": 99.99,
+      "earthquake_probability_30y_5upper": 97.149,
+      "earthquake_probability_30y_6lower": 62.408,
+      "earthquake_probability_30y_6upper": 15.22,
+      "earthquake_intensity_30y_p03": 6.3,
+      "earthquake_intensity_30y_p06": 6.2
     },
     {
       "mesh_id": "5339455724",
@@ -57,7 +111,18 @@
       "latitude": 35.7114583,
       "population_2025": 1486.879638671875,
       "population_2045": 1678.075927734375,
-      "retention_2045": 112.86
+      "retention_2045": 112.86,
+      "elevation_m": 8.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 305.2,
+      "amplification_arv": 1.26,
+      "earthquake_probability_30y_5lower": 99.746,
+      "earthquake_probability_30y_5upper": 86.134,
+      "earthquake_probability_30y_6lower": 35.775,
+      "earthquake_probability_30y_6upper": 5.021,
+      "earthquake_intensity_30y_p03": 6.0,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339455742",
@@ -65,7 +130,18 @@
       "latitude": 35.7135417,
       "population_2025": 458.3517150878906,
       "population_2045": 430.5021057128906,
-      "retention_2045": 93.92
+      "retention_2045": 93.92,
+      "elevation_m": 26.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 261.8,
+      "amplification_arv": 1.44,
+      "earthquake_probability_30y_5lower": 99.95,
+      "earthquake_probability_30y_5upper": 91.965,
+      "earthquake_probability_30y_6lower": 46.088,
+      "earthquake_probability_30y_6upper": 8.134,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339455743",
@@ -73,7 +149,18 @@
       "latitude": 35.715625,
       "population_2025": 743.5540161132812,
       "population_2045": 783.7609252929688,
-      "retention_2045": 105.41
+      "retention_2045": 105.41,
+      "elevation_m": 28.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 269.9,
+      "amplification_arv": 1.4,
+      "earthquake_probability_30y_5lower": 99.921,
+      "earthquake_probability_30y_5upper": 91.033,
+      "earthquake_probability_30y_6lower": 43.973,
+      "earthquake_probability_30y_6upper": 7.423,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339455744",
@@ -81,7 +168,18 @@
       "latitude": 35.715625,
       "population_2025": 1136.591552734375,
       "population_2045": 1190.5283203125,
-      "retention_2045": 104.75
+      "retention_2045": 104.75,
+      "elevation_m": 28.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 267.0,
+      "amplification_arv": 1.41,
+      "earthquake_probability_30y_5lower": 99.933,
+      "earthquake_probability_30y_5upper": 91.37,
+      "earthquake_probability_30y_6lower": 44.723,
+      "earthquake_probability_30y_6upper": 7.67,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339455813",
@@ -89,7 +187,18 @@
       "latitude": 35.7114583,
       "population_2025": 805.082275390625,
       "population_2045": 929.7523193359375,
-      "retention_2045": 115.49
+      "retention_2045": 115.49,
+      "elevation_m": 30.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 264.2,
+      "amplification_arv": 1.42,
+      "earthquake_probability_30y_5lower": 99.948,
+      "earthquake_probability_30y_5upper": 91.821,
+      "earthquake_probability_30y_6lower": 45.632,
+      "earthquake_probability_30y_6upper": 7.974,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339455814",
@@ -97,7 +206,18 @@
       "latitude": 35.7114583,
       "population_2025": 1022.197998046875,
       "population_2045": 1119.682373046875,
-      "retention_2045": 109.54
+      "retention_2045": 109.54,
+      "elevation_m": 12.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 305.1,
+      "amplification_arv": 1.26,
+      "earthquake_probability_30y_5lower": 99.757,
+      "earthquake_probability_30y_5upper": 86.327,
+      "earthquake_probability_30y_6lower": 35.965,
+      "earthquake_probability_30y_6upper": 5.074,
+      "earthquake_intensity_30y_p03": 6.0,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339455821",
@@ -105,7 +225,18 @@
       "latitude": 35.709375,
       "population_2025": 2263.910888671875,
       "population_2045": 2359.558837890625,
-      "retention_2045": 104.22
+      "retention_2045": 104.22,
+      "elevation_m": 4.4,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 289.0,
+      "amplification_arv": 1.32,
+      "earthquake_probability_30y_5lower": 99.838,
+      "earthquake_probability_30y_5upper": 88.562,
+      "earthquake_probability_30y_6lower": 39.498,
+      "earthquake_probability_30y_6upper": 6.047,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339455822",
@@ -113,7 +244,18 @@
       "latitude": 35.709375,
       "population_2025": 2073.705078125,
       "population_2045": 2270.205322265625,
-      "retention_2045": 109.48
+      "retention_2045": 109.48,
+      "elevation_m": 4.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 267.0,
+      "amplification_arv": 1.41,
+      "earthquake_probability_30y_5lower": 99.936,
+      "earthquake_probability_30y_5upper": 91.504,
+      "earthquake_probability_30y_6lower": 44.9,
+      "earthquake_probability_30y_6upper": 7.728,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339455823",
@@ -121,7 +263,18 @@
       "latitude": 35.7114583,
       "population_2025": 1269.5384521484375,
       "population_2045": 1430.006591796875,
-      "retention_2045": 112.64
+      "retention_2045": 112.64,
+      "elevation_m": 10.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 288.1,
+      "amplification_arv": 1.32,
+      "earthquake_probability_30y_5lower": 99.843,
+      "earthquake_probability_30y_5upper": 88.68,
+      "earthquake_probability_30y_6lower": 39.693,
+      "earthquake_probability_30y_6upper": 6.104,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339455824",
@@ -129,7 +282,18 @@
       "latitude": 35.7114583,
       "population_2025": 931.8927001953125,
       "population_2045": 1012.6348876953125,
-      "retention_2045": 108.66
+      "retention_2045": 108.66,
+      "elevation_m": 16.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 270.5,
+      "amplification_arv": 1.4,
+      "earthquake_probability_30y_5lower": 99.922,
+      "earthquake_probability_30y_5upper": 91.098,
+      "earthquake_probability_30y_6lower": 43.986,
+      "earthquake_probability_30y_6upper": 7.426,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339455831",
@@ -137,7 +301,18 @@
       "latitude": 35.7135417,
       "population_2025": 374.17559814453125,
       "population_2045": 430.5932922363281,
-      "retention_2045": 115.08
+      "retention_2045": 115.08,
+      "elevation_m": 29.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 239.5,
+      "amplification_arv": 1.55,
+      "earthquake_probability_30y_5lower": 99.97,
+      "earthquake_probability_30y_5upper": 94.549,
+      "earthquake_probability_30y_6lower": 52.585,
+      "earthquake_probability_30y_6upper": 10.576,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339455832",
@@ -145,7 +320,18 @@
       "latitude": 35.7135417,
       "population_2025": 2007.125244140625,
       "population_2045": 2051.840087890625,
-      "retention_2045": 102.23
+      "retention_2045": 102.23,
+      "elevation_m": 7.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 309.8,
+      "amplification_arv": 1.24,
+      "earthquake_probability_30y_5lower": 99.731,
+      "earthquake_probability_30y_5upper": 85.665,
+      "earthquake_probability_30y_6lower": 34.986,
+      "earthquake_probability_30y_6upper": 4.821,
+      "earthquake_intensity_30y_p03": 6.0,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339455833",
@@ -153,7 +339,18 @@
       "latitude": 35.715625,
       "population_2025": 1411.05126953125,
       "population_2045": 1679.7967529296875,
-      "retention_2045": 119.05
+      "retention_2045": 119.05,
+      "elevation_m": 29.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 233.2,
+      "amplification_arv": 1.58,
+      "earthquake_probability_30y_5lower": 99.975,
+      "earthquake_probability_30y_5upper": 95.214,
+      "earthquake_probability_30y_6lower": 54.486,
+      "earthquake_probability_30y_6upper": 11.382,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339455834",
@@ -161,7 +358,18 @@
       "latitude": 35.715625,
       "population_2025": 1820.22509765625,
       "population_2045": 1876.741943359375,
-      "retention_2045": 103.1
+      "retention_2045": 103.1,
+      "elevation_m": 8.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 256.4,
+      "amplification_arv": 1.46,
+      "earthquake_probability_30y_5lower": 99.957,
+      "earthquake_probability_30y_5upper": 92.701,
+      "earthquake_probability_30y_6lower": 47.741,
+      "earthquake_probability_30y_6upper": 8.715,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339455841",
@@ -169,7 +377,18 @@
       "latitude": 35.7135417,
       "population_2025": 1308.6099853515625,
       "population_2045": 1403.0950927734375,
-      "retention_2045": 107.22
+      "retention_2045": 107.22,
+      "elevation_m": 27.4,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 244.4,
+      "amplification_arv": 1.52,
+      "earthquake_probability_30y_5lower": 99.967,
+      "earthquake_probability_30y_5upper": 94.012,
+      "earthquake_probability_30y_6lower": 51.118,
+      "earthquake_probability_30y_6upper": 9.986,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339455842",
@@ -177,7 +396,18 @@
       "latitude": 35.7135417,
       "population_2025": 1279.940673828125,
       "population_2045": 1369.1783447265625,
-      "retention_2045": 106.97
+      "retention_2045": 106.97,
+      "elevation_m": 25.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 261.8,
+      "amplification_arv": 1.43,
+      "earthquake_probability_30y_5lower": 99.953,
+      "earthquake_probability_30y_5upper": 92.088,
+      "earthquake_probability_30y_6lower": 46.258,
+      "earthquake_probability_30y_6upper": 8.19,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339455843",
@@ -185,7 +415,18 @@
       "latitude": 35.715625,
       "population_2025": 977.840576171875,
       "population_2045": 1069.389404296875,
-      "retention_2045": 109.36
+      "retention_2045": 109.36,
+      "elevation_m": 25.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 239.0,
+      "amplification_arv": 1.55,
+      "earthquake_probability_30y_5lower": 99.971,
+      "earthquake_probability_30y_5upper": 94.594,
+      "earthquake_probability_30y_6lower": 52.709,
+      "earthquake_probability_30y_6upper": 10.627,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339455844",
@@ -193,7 +434,18 @@
       "latitude": 35.715625,
       "population_2025": 1063.3883056640625,
       "population_2045": 1235.9168701171875,
-      "retention_2045": 116.22
+      "retention_2045": 116.22,
+      "elevation_m": 26.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 253.1,
+      "amplification_arv": 1.48,
+      "earthquake_probability_30y_5lower": 99.96,
+      "earthquake_probability_30y_5upper": 93.066,
+      "earthquake_probability_30y_6lower": 48.652,
+      "earthquake_probability_30y_6upper": 9.047,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339455911",
@@ -201,7 +453,18 @@
       "latitude": 35.709375,
       "population_2025": 2532.526611328125,
       "population_2045": 2835.668212890625,
-      "retention_2045": 111.97
+      "retention_2045": 111.97,
+      "elevation_m": 4.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 244.9,
+      "amplification_arv": 1.52,
+      "earthquake_probability_30y_5lower": 99.968,
+      "earthquake_probability_30y_5upper": 94.07,
+      "earthquake_probability_30y_6lower": 51.185,
+      "earthquake_probability_30y_6upper": 10.008,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339455912",
@@ -209,7 +472,18 @@
       "latitude": 35.709375,
       "population_2025": 2272.752685546875,
       "population_2045": 2494.077880859375,
-      "retention_2045": 109.74
+      "retention_2045": 109.74,
+      "elevation_m": 4.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 243.6,
+      "amplification_arv": 1.53,
+      "earthquake_probability_30y_5lower": 99.969,
+      "earthquake_probability_30y_5upper": 94.215,
+      "earthquake_probability_30y_6lower": 51.579,
+      "earthquake_probability_30y_6upper": 10.165,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339455913",
@@ -217,7 +491,18 @@
       "latitude": 35.7114583,
       "population_2025": 1092.6474609375,
       "population_2045": 1125.4771728515625,
-      "retention_2045": 103.0
+      "retention_2045": 103.0,
+      "elevation_m": 18.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 280.9,
+      "amplification_arv": 1.35,
+      "earthquake_probability_30y_5lower": 99.882,
+      "earthquake_probability_30y_5upper": 89.822,
+      "earthquake_probability_30y_6lower": 41.581,
+      "earthquake_probability_30y_6upper": 6.67,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339455914",
@@ -225,7 +510,18 @@
       "latitude": 35.7114583,
       "population_2025": 1435.52734375,
       "population_2045": 1642.103515625,
-      "retention_2045": 114.39
+      "retention_2045": 114.39,
+      "elevation_m": 13.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 294.4,
+      "amplification_arv": 1.3,
+      "earthquake_probability_30y_5lower": 99.82,
+      "earthquake_probability_30y_5upper": 87.974,
+      "earthquake_probability_30y_6lower": 38.444,
+      "earthquake_probability_30y_6upper": 5.752,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339455921",
@@ -233,7 +529,18 @@
       "latitude": 35.709375,
       "population_2025": 1987.7447509765625,
       "population_2045": 2172.93505859375,
-      "retention_2045": 109.32
+      "retention_2045": 109.32,
+      "elevation_m": 23.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 277.8,
+      "amplification_arv": 1.36,
+      "earthquake_probability_30y_5lower": 99.895,
+      "earthquake_probability_30y_5upper": 90.259,
+      "earthquake_probability_30y_6lower": 42.366,
+      "earthquake_probability_30y_6upper": 6.912,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339455922",
@@ -241,7 +548,18 @@
       "latitude": 35.709375,
       "population_2025": 1271.8743896484375,
       "population_2045": 1329.9058837890625,
-      "retention_2045": 104.56
+      "retention_2045": 104.56,
+      "elevation_m": 22.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 287.9,
+      "amplification_arv": 1.32,
+      "earthquake_probability_30y_5lower": 99.85,
+      "earthquake_probability_30y_5upper": 88.864,
+      "earthquake_probability_30y_6lower": 39.919,
+      "earthquake_probability_30y_6upper": 6.174,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339455923",
@@ -249,7 +567,18 @@
       "latitude": 35.7114583,
       "population_2025": 2040.164794921875,
       "population_2045": 2254.058837890625,
-      "retention_2045": 110.48
+      "retention_2045": 110.48,
+      "elevation_m": 25.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 304.6,
+      "amplification_arv": 1.26,
+      "earthquake_probability_30y_5lower": 99.769,
+      "earthquake_probability_30y_5upper": 86.559,
+      "earthquake_probability_30y_6lower": 36.223,
+      "earthquake_probability_30y_6upper": 5.148,
+      "earthquake_intensity_30y_p03": 6.0,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339455924",
@@ -257,7 +586,18 @@
       "latitude": 35.7114583,
       "population_2025": 1090.9835205078125,
       "population_2045": 1111.336669921875,
-      "retention_2045": 101.87
+      "retention_2045": 101.87,
+      "elevation_m": 19.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 286.2,
+      "amplification_arv": 1.33,
+      "earthquake_probability_30y_5lower": 99.858,
+      "earthquake_probability_30y_5upper": 89.112,
+      "earthquake_probability_30y_6lower": 40.341,
+      "earthquake_probability_30y_6upper": 6.298,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339455931",
@@ -265,7 +605,18 @@
       "latitude": 35.7135417,
       "population_2025": 1422.879150390625,
       "population_2045": 1789.8359375,
-      "retention_2045": 125.79
+      "retention_2045": 125.79,
+      "elevation_m": 18.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 267.9,
+      "amplification_arv": 1.41,
+      "earthquake_probability_30y_5lower": 99.936,
+      "earthquake_probability_30y_5upper": 91.531,
+      "earthquake_probability_30y_6lower": 44.843,
+      "earthquake_probability_30y_6upper": 7.71,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339455932",
@@ -273,7 +624,18 @@
       "latitude": 35.7135417,
       "population_2025": 1675.185546875,
       "population_2045": 2002.3453369140625,
-      "retention_2045": 119.53
+      "retention_2045": 119.53,
+      "elevation_m": 26.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 283.7,
+      "amplification_arv": 1.34,
+      "earthquake_probability_30y_5lower": 99.869,
+      "earthquake_probability_30y_5upper": 89.441,
+      "earthquake_probability_30y_6lower": 40.911,
+      "earthquake_probability_30y_6upper": 6.467,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339455933",
@@ -281,7 +643,18 @@
       "latitude": 35.715625,
       "population_2025": 2169.093505859375,
       "population_2045": 2433.93408203125,
-      "retention_2045": 112.21
+      "retention_2045": 112.21,
+      "elevation_m": 26.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 257.2,
+      "amplification_arv": 1.46,
+      "earthquake_probability_30y_5lower": 99.959,
+      "earthquake_probability_30y_5upper": 92.735,
+      "earthquake_probability_30y_6lower": 47.716,
+      "earthquake_probability_30y_6upper": 8.705,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339455934",
@@ -289,7 +662,18 @@
       "latitude": 35.715625,
       "population_2025": 2072.553955078125,
       "population_2045": 2317.716796875,
-      "retention_2045": 111.83
+      "retention_2045": 111.83,
+      "elevation_m": 17.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 272.7,
+      "amplification_arv": 1.39,
+      "earthquake_probability_30y_5lower": 99.917,
+      "earthquake_probability_30y_5upper": 90.947,
+      "earthquake_probability_30y_6lower": 43.628,
+      "earthquake_probability_30y_6upper": 7.313,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339455941",
@@ -297,7 +681,18 @@
       "latitude": 35.7135417,
       "population_2025": 1748.0281982421875,
       "population_2045": 1911.381103515625,
-      "retention_2045": 109.34
+      "retention_2045": 109.34,
+      "elevation_m": 18.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 302.1,
+      "amplification_arv": 1.27,
+      "earthquake_probability_30y_5lower": 99.782,
+      "earthquake_probability_30y_5upper": 86.906,
+      "earthquake_probability_30y_6lower": 36.755,
+      "earthquake_probability_30y_6upper": 5.289,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339455942",
@@ -305,7 +700,18 @@
       "latitude": 35.7135417,
       "population_2025": 2358.832763671875,
       "population_2045": 2714.366455078125,
-      "retention_2045": 115.07
+      "retention_2045": 115.07,
+      "elevation_m": 7.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 288.0,
+      "amplification_arv": 1.32,
+      "earthquake_probability_30y_5lower": 99.85,
+      "earthquake_probability_30y_5upper": 88.85,
+      "earthquake_probability_30y_6lower": 39.895,
+      "earthquake_probability_30y_6upper": 6.167,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339455943",
@@ -313,7 +719,18 @@
       "latitude": 35.715625,
       "population_2025": 1344.987548828125,
       "population_2045": 1495.7156982421875,
-      "retention_2045": 111.21
+      "retention_2045": 111.21,
+      "elevation_m": 12.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 267.1,
+      "amplification_arv": 1.41,
+      "earthquake_probability_30y_5lower": 99.939,
+      "earthquake_probability_30y_5upper": 91.627,
+      "earthquake_probability_30y_6lower": 45.062,
+      "earthquake_probability_30y_6upper": 7.783,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339455944",
@@ -321,7 +738,18 @@
       "latitude": 35.715625,
       "population_2025": 2047.89013671875,
       "population_2045": 2210.583984375,
-      "retention_2045": 107.94
+      "retention_2045": 107.94,
+      "elevation_m": 7.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 216.4,
+      "amplification_arv": 1.69,
+      "earthquake_probability_30y_5lower": 99.986,
+      "earthquake_probability_30y_5upper": 96.638,
+      "earthquake_probability_30y_6lower": 60.058,
+      "earthquake_probability_30y_6upper": 13.959,
+      "earthquake_intensity_30y_p03": 6.3,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339456721",
@@ -329,7 +757,18 @@
       "latitude": 35.7177083,
       "population_2025": 1041.4644775390625,
       "population_2045": 1122.190185546875,
-      "retention_2045": 107.75
+      "retention_2045": 107.75,
+      "elevation_m": 22.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 263.8,
+      "amplification_arv": 1.43,
+      "earthquake_probability_30y_5lower": 99.945,
+      "earthquake_probability_30y_5upper": 91.646,
+      "earthquake_probability_30y_6lower": 45.318,
+      "earthquake_probability_30y_6upper": 7.861,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456722",
@@ -337,7 +776,18 @@
       "latitude": 35.7177083,
       "population_2025": 1756.21875,
       "population_2045": 1967.4056396484375,
-      "retention_2045": 112.03
+      "retention_2045": 112.03,
+      "elevation_m": 29.4,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 265.8,
+      "amplification_arv": 1.42,
+      "earthquake_probability_30y_5lower": 99.936,
+      "earthquake_probability_30y_5upper": 91.413,
+      "earthquake_probability_30y_6lower": 44.79,
+      "earthquake_probability_30y_6upper": 7.683,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456744",
@@ -345,7 +795,18 @@
       "latitude": 35.7239583,
       "population_2025": 1926.3343505859375,
       "population_2045": 1922.843017578125,
-      "retention_2045": 99.82
+      "retention_2045": 99.82,
+      "elevation_m": 30.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 298.7,
+      "amplification_arv": 1.28,
+      "earthquake_probability_30y_5lower": 99.778,
+      "earthquake_probability_30y_5upper": 86.929,
+      "earthquake_probability_30y_6lower": 36.942,
+      "earthquake_probability_30y_6upper": 5.326,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339456811",
@@ -353,7 +814,18 @@
       "latitude": 35.7177083,
       "population_2025": 539.1738891601562,
       "population_2045": 653.0861206054688,
-      "retention_2045": 121.13
+      "retention_2045": 121.13,
+      "elevation_m": 22.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 261.5,
+      "amplification_arv": 1.44,
+      "earthquake_probability_30y_5lower": 99.952,
+      "earthquake_probability_30y_5upper": 92.046,
+      "earthquake_probability_30y_6lower": 46.128,
+      "earthquake_probability_30y_6upper": 8.136,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456812",
@@ -361,7 +833,18 @@
       "latitude": 35.7177083,
       "population_2025": 1603.8741455078125,
       "population_2045": 1738.41845703125,
-      "retention_2045": 108.39
+      "retention_2045": 108.39,
+      "elevation_m": 23.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 257.2,
+      "amplification_arv": 1.46,
+      "earthquake_probability_30y_5lower": 99.956,
+      "earthquake_probability_30y_5upper": 92.53,
+      "earthquake_probability_30y_6lower": 47.286,
+      "earthquake_probability_30y_6upper": 8.542,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456813",
@@ -369,7 +852,18 @@
       "latitude": 35.7197917,
       "population_2025": 1769.067626953125,
       "population_2045": 2096.105712890625,
-      "retention_2045": 118.49
+      "retention_2045": 118.49,
+      "elevation_m": 16.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 273.6,
+      "amplification_arv": 1.38,
+      "earthquake_probability_30y_5lower": 99.907,
+      "earthquake_probability_30y_5upper": 90.59,
+      "earthquake_probability_30y_6lower": 42.993,
+      "earthquake_probability_30y_6upper": 7.1,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456814",
@@ -377,7 +871,18 @@
       "latitude": 35.7197917,
       "population_2025": 1195.0526123046875,
       "population_2045": 1377.2010498046875,
-      "retention_2045": 115.24
+      "retention_2045": 115.24,
+      "elevation_m": 20.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 258.4,
+      "amplification_arv": 1.45,
+      "earthquake_probability_30y_5lower": 99.955,
+      "earthquake_probability_30y_5upper": 92.401,
+      "earthquake_probability_30y_6lower": 46.973,
+      "earthquake_probability_30y_6upper": 8.431,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456821",
@@ -385,7 +890,18 @@
       "latitude": 35.7177083,
       "population_2025": 272.56829833984375,
       "population_2045": 356.85479736328125,
-      "retention_2045": 130.92
+      "retention_2045": 130.92,
+      "elevation_m": 26.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 253.2,
+      "amplification_arv": 1.48,
+      "earthquake_probability_30y_5lower": 99.959,
+      "earthquake_probability_30y_5upper": 92.986,
+      "earthquake_probability_30y_6lower": 48.413,
+      "earthquake_probability_30y_6upper": 8.949,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456822",
@@ -393,7 +909,18 @@
       "latitude": 35.7177083,
       "population_2025": 1350.934326171875,
       "population_2045": 1631.5946044921875,
-      "retention_2045": 120.78
+      "retention_2045": 120.78,
+      "elevation_m": 26.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 249.6,
+      "amplification_arv": 1.49,
+      "earthquake_probability_30y_5lower": 99.962,
+      "earthquake_probability_30y_5upper": 93.386,
+      "earthquake_probability_30y_6lower": 49.431,
+      "earthquake_probability_30y_6upper": 9.325,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456823",
@@ -401,7 +928,18 @@
       "latitude": 35.7197917,
       "population_2025": 1371.74169921875,
       "population_2045": 1575.3558349609375,
-      "retention_2045": 114.84
+      "retention_2045": 114.84,
+      "elevation_m": 23.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 254.1,
+      "amplification_arv": 1.47,
+      "earthquake_probability_30y_5lower": 99.959,
+      "earthquake_probability_30y_5upper": 92.877,
+      "earthquake_probability_30y_6lower": 48.142,
+      "earthquake_probability_30y_6upper": 8.85,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456824",
@@ -409,7 +947,18 @@
       "latitude": 35.7197917,
       "population_2025": 534.2171020507812,
       "population_2045": 618.5244750976562,
-      "retention_2045": 115.78
+      "retention_2045": 115.78,
+      "elevation_m": 27.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 249.4,
+      "amplification_arv": 1.5,
+      "earthquake_probability_30y_5lower": 99.962,
+      "earthquake_probability_30y_5upper": 93.403,
+      "earthquake_probability_30y_6lower": 49.476,
+      "earthquake_probability_30y_6upper": 9.342,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456831",
@@ -417,7 +966,18 @@
       "latitude": 35.721875,
       "population_2025": 17.326099395751953,
       "population_2045": 16.885400772094727,
-      "retention_2045": 97.46
+      "retention_2045": 97.46,
+      "elevation_m": 25.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 266.0,
+      "amplification_arv": 1.42,
+      "earthquake_probability_30y_5lower": 99.939,
+      "earthquake_probability_30y_5upper": 91.528,
+      "earthquake_probability_30y_6lower": 44.927,
+      "earthquake_probability_30y_6upper": 7.728,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456832",
@@ -425,7 +985,18 @@
       "latitude": 35.721875,
       "population_2025": 1316.9676513671875,
       "population_2045": 1497.6104736328125,
-      "retention_2045": 113.72
+      "retention_2045": 113.72,
+      "elevation_m": 15.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 242.4,
+      "amplification_arv": 1.53,
+      "earthquake_probability_30y_5lower": 99.968,
+      "earthquake_probability_30y_5upper": 94.167,
+      "earthquake_probability_30y_6lower": 51.486,
+      "earthquake_probability_30y_6upper": 10.119,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339456833",
@@ -433,7 +1004,18 @@
       "latitude": 35.7239583,
       "population_2025": 1236.8408203125,
       "population_2045": 1319.534423828125,
-      "retention_2045": 106.69
+      "retention_2045": 106.69,
+      "elevation_m": 31.2,
+      "elevation_source": "5m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 302.4,
+      "amplification_arv": 1.27,
+      "earthquake_probability_30y_5lower": 99.767,
+      "earthquake_probability_30y_5upper": 86.579,
+      "earthquake_probability_30y_6lower": 36.313,
+      "earthquake_probability_30y_6upper": 5.162,
+      "earthquake_intensity_30y_p03": 6.0,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339456834",
@@ -441,7 +1023,18 @@
       "latitude": 35.7239583,
       "population_2025": 2514.447998046875,
       "population_2045": 2618.396240234375,
-      "retention_2045": 104.13
+      "retention_2045": 104.13,
+      "elevation_m": 18.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 263.6,
+      "amplification_arv": 1.43,
+      "earthquake_probability_30y_5lower": 99.949,
+      "earthquake_probability_30y_5upper": 91.808,
+      "earthquake_probability_30y_6lower": 45.572,
+      "earthquake_probability_30y_6upper": 7.945,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456841",
@@ -449,7 +1042,18 @@
       "latitude": 35.721875,
       "population_2025": 2034.99951171875,
       "population_2045": 2427.259765625,
-      "retention_2045": 119.28
+      "retention_2045": 119.28,
+      "elevation_m": 27.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 255.0,
+      "amplification_arv": 1.47,
+      "earthquake_probability_30y_5lower": 99.958,
+      "earthquake_probability_30y_5upper": 92.777,
+      "earthquake_probability_30y_6lower": 47.893,
+      "earthquake_probability_30y_6upper": 8.76,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456842",
@@ -457,7 +1061,18 @@
       "latitude": 35.721875,
       "population_2025": 1215.0826416015625,
       "population_2045": 1347.65234375,
-      "retention_2045": 110.91
+      "retention_2045": 110.91,
+      "elevation_m": 16.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 250.9,
+      "amplification_arv": 1.49,
+      "earthquake_probability_30y_5lower": 99.961,
+      "earthquake_probability_30y_5upper": 93.237,
+      "earthquake_probability_30y_6lower": 49.05,
+      "earthquake_probability_30y_6upper": 9.183,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456843",
@@ -465,7 +1080,18 @@
       "latitude": 35.7239583,
       "population_2025": 1114.8514404296875,
       "population_2045": 1135.5821533203125,
-      "retention_2045": 101.86
+      "retention_2045": 101.86,
+      "elevation_m": 19.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 255.3,
+      "amplification_arv": 1.47,
+      "earthquake_probability_30y_5lower": 99.957,
+      "earthquake_probability_30y_5upper": 92.743,
+      "earthquake_probability_30y_6lower": 47.808,
+      "earthquake_probability_30y_6upper": 8.729,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456844",
@@ -473,7 +1099,18 @@
       "latitude": 35.7239583,
       "population_2025": 1536.17822265625,
       "population_2045": 1573.183349609375,
-      "retention_2045": 102.41
+      "retention_2045": 102.41,
+      "elevation_m": 13.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 262.2,
+      "amplification_arv": 1.43,
+      "earthquake_probability_30y_5lower": 99.952,
+      "earthquake_probability_30y_5upper": 91.966,
+      "earthquake_probability_30y_6lower": 45.939,
+      "earthquake_probability_30y_6upper": 8.071,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456911",
@@ -481,7 +1118,18 @@
       "latitude": 35.7177083,
       "population_2025": 1446.8714599609375,
       "population_2045": 1568.3946533203125,
-      "retention_2045": 108.4
+      "retention_2045": 108.4,
+      "elevation_m": 26.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 248.1,
+      "amplification_arv": 1.5,
+      "earthquake_probability_30y_5lower": 99.965,
+      "earthquake_probability_30y_5upper": 93.665,
+      "earthquake_probability_30y_6lower": 50.065,
+      "earthquake_probability_30y_6upper": 9.561,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456912",
@@ -489,7 +1137,18 @@
       "latitude": 35.7177083,
       "population_2025": 1980.2149658203125,
       "population_2045": 2170.35986328125,
-      "retention_2045": 109.6
+      "retention_2045": 109.6,
+      "elevation_m": 16.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 268.5,
+      "amplification_arv": 1.4,
+      "earthquake_probability_30y_5lower": 99.933,
+      "earthquake_probability_30y_5upper": 91.384,
+      "earthquake_probability_30y_6lower": 44.481,
+      "earthquake_probability_30y_6upper": 7.582,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456913",
@@ -497,7 +1156,18 @@
       "latitude": 35.7197917,
       "population_2025": 1844.3128662109375,
       "population_2045": 2283.278564453125,
-      "retention_2045": 123.8
+      "retention_2045": 123.8,
+      "elevation_m": 10.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 250.9,
+      "amplification_arv": 1.49,
+      "earthquake_probability_30y_5lower": 99.963,
+      "earthquake_probability_30y_5upper": 93.356,
+      "earthquake_probability_30y_6lower": 49.255,
+      "earthquake_probability_30y_6upper": 9.258,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456914",
@@ -505,7 +1175,18 @@
       "latitude": 35.7197917,
       "population_2025": 1492.5693359375,
       "population_2045": 1663.877197265625,
-      "retention_2045": 111.48
+      "retention_2045": 111.48,
+      "elevation_m": 9.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 241.2,
+      "amplification_arv": 1.54,
+      "earthquake_probability_30y_5lower": 99.97,
+      "earthquake_probability_30y_5upper": 94.412,
+      "earthquake_probability_30y_6lower": 52.07,
+      "earthquake_probability_30y_6upper": 10.349,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339456921",
@@ -513,7 +1194,18 @@
       "latitude": 35.7177083,
       "population_2025": 496.33740234375,
       "population_2045": 497.918212890625,
-      "retention_2045": 100.32
+      "retention_2045": 100.32,
+      "elevation_m": 8.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 228.6,
+      "amplification_arv": 1.61,
+      "earthquake_probability_30y_5lower": 99.979,
+      "earthquake_probability_30y_5upper": 95.666,
+      "earthquake_probability_30y_6lower": 55.91,
+      "earthquake_probability_30y_6upper": 11.987,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339456922",
@@ -521,7 +1213,18 @@
       "latitude": 35.7177083,
       "population_2025": 1279.8968505859375,
       "population_2045": 1436.546630859375,
-      "retention_2045": 112.24
+      "retention_2045": 112.24,
+      "elevation_m": 23.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 286.0,
+      "amplification_arv": 1.33,
+      "earthquake_probability_30y_5lower": 99.857,
+      "earthquake_probability_30y_5upper": 89.029,
+      "earthquake_probability_30y_6lower": 40.158,
+      "earthquake_probability_30y_6upper": 6.238,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456923",
@@ -529,7 +1232,18 @@
       "latitude": 35.7197917,
       "population_2025": 315.724609375,
       "population_2045": 253.5402069091797,
-      "retention_2045": 80.3
+      "retention_2045": 80.3,
+      "elevation_m": 24.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 297.0,
+      "amplification_arv": 1.29,
+      "earthquake_probability_30y_5lower": 99.804,
+      "earthquake_probability_30y_5upper": 87.504,
+      "earthquake_probability_30y_6lower": 37.657,
+      "earthquake_probability_30y_6upper": 5.529,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339456924",
@@ -537,7 +1251,18 @@
       "latitude": 35.7197917,
       "population_2025": 1581.343017578125,
       "population_2045": 1690.1925048828125,
-      "retention_2045": 106.88
+      "retention_2045": 106.88,
+      "elevation_m": 23.4,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 311.4,
+      "amplification_arv": 1.24,
+      "earthquake_probability_30y_5lower": 99.73,
+      "earthquake_probability_30y_5upper": 85.492,
+      "earthquake_probability_30y_6lower": 34.631,
+      "earthquake_probability_30y_6upper": 4.733,
+      "earthquake_intensity_30y_p03": 6.0,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339456931",
@@ -545,7 +1270,18 @@
       "latitude": 35.721875,
       "population_2025": 1954.5489501953125,
       "population_2045": 2217.921875,
-      "retention_2045": 113.47
+      "retention_2045": 113.47,
+      "elevation_m": 9.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 251.8,
+      "amplification_arv": 1.48,
+      "earthquake_probability_30y_5lower": 99.963,
+      "earthquake_probability_30y_5upper": 93.253,
+      "earthquake_probability_30y_6lower": 48.99,
+      "earthquake_probability_30y_6upper": 9.16,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456932",
@@ -553,7 +1289,18 @@
       "latitude": 35.721875,
       "population_2025": 709.6320190429688,
       "population_2045": 903.3934936523438,
-      "retention_2045": 127.3
+      "retention_2045": 127.3,
+      "elevation_m": 24.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 264.2,
+      "amplification_arv": 1.42,
+      "earthquake_probability_30y_5lower": 99.949,
+      "earthquake_probability_30y_5upper": 91.866,
+      "earthquake_probability_30y_6lower": 45.591,
+      "earthquake_probability_30y_6upper": 7.952,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456933",
@@ -561,7 +1308,18 @@
       "latitude": 35.7239583,
       "population_2025": 2461.222412109375,
       "population_2045": 2809.767822265625,
-      "retention_2045": 114.16
+      "retention_2045": 114.16,
+      "elevation_m": 25.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 251.9,
+      "amplification_arv": 1.48,
+      "earthquake_probability_30y_5lower": 99.963,
+      "earthquake_probability_30y_5upper": 93.244,
+      "earthquake_probability_30y_6lower": 48.968,
+      "earthquake_probability_30y_6upper": 9.151,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456934",
@@ -569,7 +1327,18 @@
       "latitude": 35.7239583,
       "population_2025": 1247.6884765625,
       "population_2045": 1352.749755859375,
-      "retention_2045": 108.42
+      "retention_2045": 108.42,
+      "elevation_m": 24.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 258.0,
+      "amplification_arv": 1.45,
+      "earthquake_probability_30y_5lower": 99.958,
+      "earthquake_probability_30y_5upper": 92.563,
+      "earthquake_probability_30y_6lower": 47.259,
+      "earthquake_probability_30y_6upper": 8.533,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456941",
@@ -577,7 +1346,18 @@
       "latitude": 35.721875,
       "population_2025": 1251.1634521484375,
       "population_2045": 1401.773193359375,
-      "retention_2045": 112.04
+      "retention_2045": 112.04,
+      "elevation_m": 24.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 284.5,
+      "amplification_arv": 1.34,
+      "earthquake_probability_30y_5lower": 99.864,
+      "earthquake_probability_30y_5upper": 89.24,
+      "earthquake_probability_30y_6lower": 40.52,
+      "earthquake_probability_30y_6upper": 6.345,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456942",
@@ -585,7 +1365,18 @@
       "latitude": 35.721875,
       "population_2025": 1272.2562255859375,
       "population_2045": 1316.3101806640625,
-      "retention_2045": 103.46
+      "retention_2045": 103.46,
+      "elevation_m": 15.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 299.3,
+      "amplification_arv": 1.28,
+      "earthquake_probability_30y_5lower": 99.793,
+      "earthquake_probability_30y_5upper": 87.185,
+      "earthquake_probability_30y_6lower": 37.156,
+      "earthquake_probability_30y_6upper": 5.393,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339456943",
@@ -593,7 +1384,18 @@
       "latitude": 35.7239583,
       "population_2025": 1352.427490234375,
       "population_2045": 1435.5234375,
-      "retention_2045": 106.14
+      "retention_2045": 106.14,
+      "elevation_m": 22.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 277.3,
+      "amplification_arv": 1.37,
+      "earthquake_probability_30y_5lower": 99.896,
+      "earthquake_probability_30y_5upper": 90.235,
+      "earthquake_probability_30y_6lower": 42.274,
+      "earthquake_probability_30y_6upper": 6.876,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339456944",
@@ -601,7 +1403,18 @@
       "latitude": 35.7239583,
       "population_2025": 1513.1861572265625,
       "population_2045": 1604.974853515625,
-      "retention_2045": 106.07
+      "retention_2045": 106.07,
+      "elevation_m": 18.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 291.4,
+      "amplification_arv": 1.31,
+      "earthquake_probability_30y_5lower": 99.832,
+      "earthquake_probability_30y_5upper": 88.287,
+      "earthquake_probability_30y_6lower": 38.918,
+      "earthquake_probability_30y_6upper": 5.879,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339457811",
@@ -609,7 +1422,18 @@
       "latitude": 35.7260417,
       "population_2025": 2294.88671875,
       "population_2045": 2332.555908203125,
-      "retention_2045": 101.64
+      "retention_2045": 101.64,
+      "elevation_m": 22.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 320.9,
+      "amplification_arv": 1.21,
+      "earthquake_probability_30y_5lower": 99.658,
+      "earthquake_probability_30y_5upper": 83.677,
+      "earthquake_probability_30y_6lower": 32.392,
+      "earthquake_probability_30y_6upper": 4.177,
+      "earthquake_intensity_30y_p03": 6.0,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339457812",
@@ -617,7 +1441,18 @@
       "latitude": 35.7260417,
       "population_2025": 2259.531494140625,
       "population_2045": 2306.10498046875,
-      "retention_2045": 102.06
+      "retention_2045": 102.06,
+      "elevation_m": 26.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 264.3,
+      "amplification_arv": 1.42,
+      "earthquake_probability_30y_5lower": 99.945,
+      "earthquake_probability_30y_5upper": 91.641,
+      "earthquake_probability_30y_6lower": 45.157,
+      "earthquake_probability_30y_6upper": 7.797,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339457822",
@@ -625,7 +1460,18 @@
       "latitude": 35.7260417,
       "population_2025": 1586.6556396484375,
       "population_2045": 1639.1551513671875,
-      "retention_2045": 103.31
+      "retention_2045": 103.31,
+      "elevation_m": 13.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 241.3,
+      "amplification_arv": 1.54,
+      "earthquake_probability_30y_5lower": 99.968,
+      "earthquake_probability_30y_5upper": 94.234,
+      "earthquake_probability_30y_6lower": 51.613,
+      "earthquake_probability_30y_6upper": 10.159,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339457911",
@@ -633,7 +1479,18 @@
       "latitude": 35.7260417,
       "population_2025": 1887.4014892578125,
       "population_2045": 2085.50341796875,
-      "retention_2045": 110.5
+      "retention_2045": 110.5,
+      "elevation_m": 25.4,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 246.1,
+      "amplification_arv": 1.51,
+      "earthquake_probability_30y_5lower": 99.966,
+      "earthquake_probability_30y_5upper": 93.816,
+      "earthquake_probability_30y_6lower": 50.418,
+      "earthquake_probability_30y_6upper": 9.687,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339457912",
@@ -641,7 +1498,18 @@
       "latitude": 35.7260417,
       "population_2025": 2401.670166015625,
       "population_2045": 2917.57861328125,
-      "retention_2045": 121.48
+      "retention_2045": 121.48,
+      "elevation_m": 24.4,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 251.6,
+      "amplification_arv": 1.48,
+      "earthquake_probability_30y_5lower": 99.962,
+      "earthquake_probability_30y_5upper": 93.206,
+      "earthquake_probability_30y_6lower": 48.831,
+      "earthquake_probability_30y_6upper": 9.091,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339457913",
@@ -649,7 +1517,18 @@
       "latitude": 35.728125,
       "population_2025": 1965.8453369140625,
       "population_2045": 2127.959716796875,
-      "retention_2045": 108.25
+      "retention_2045": 108.25,
+      "elevation_m": 26.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 236.1,
+      "amplification_arv": 1.57,
+      "earthquake_probability_30y_5lower": 99.973,
+      "earthquake_probability_30y_5upper": 94.901,
+      "earthquake_probability_30y_6lower": 53.389,
+      "earthquake_probability_30y_6upper": 10.881,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339457914",
@@ -657,7 +1536,18 @@
       "latitude": 35.728125,
       "population_2025": 2475.40966796875,
       "population_2045": 2720.740234375,
-      "retention_2045": 109.91
+      "retention_2045": 109.91,
+      "elevation_m": 22.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 242.2,
+      "amplification_arv": 1.53,
+      "earthquake_probability_30y_5lower": 99.969,
+      "earthquake_probability_30y_5upper": 94.245,
+      "earthquake_probability_30y_6lower": 51.561,
+      "earthquake_probability_30y_6upper": 10.134,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339457921",
@@ -665,7 +1555,18 @@
       "latitude": 35.7260417,
       "population_2025": 1947.3609619140625,
       "population_2045": 2258.7119140625,
-      "retention_2045": 115.99
+      "retention_2045": 115.99,
+      "elevation_m": 20.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 260.8,
+      "amplification_arv": 1.44,
+      "earthquake_probability_30y_5lower": 99.955,
+      "earthquake_probability_30y_5upper": 92.182,
+      "earthquake_probability_30y_6lower": 46.306,
+      "earthquake_probability_30y_6upper": 8.19,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339457922",
@@ -673,7 +1574,18 @@
       "latitude": 35.7260417,
       "population_2025": 1785.632568359375,
       "population_2045": 1898.9490966796875,
-      "retention_2045": 106.35
+      "retention_2045": 106.35,
+      "elevation_m": 23.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 275.2,
+      "amplification_arv": 1.38,
+      "earthquake_probability_30y_5lower": 99.903,
+      "earthquake_probability_30y_5upper": 90.42,
+      "earthquake_probability_30y_6lower": 42.558,
+      "earthquake_probability_30y_6upper": 6.959,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339457923",
@@ -681,7 +1593,18 @@
       "latitude": 35.728125,
       "population_2025": 1351.2169189453125,
       "population_2045": 1472.360595703125,
-      "retention_2045": 108.97
+      "retention_2045": 108.97,
+      "elevation_m": 23.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 252.0,
+      "amplification_arv": 1.48,
+      "earthquake_probability_30y_5lower": 99.962,
+      "earthquake_probability_30y_5upper": 93.162,
+      "earthquake_probability_30y_6lower": 48.718,
+      "earthquake_probability_30y_6upper": 9.049,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339457924",
@@ -689,7 +1612,18 @@
       "latitude": 35.728125,
       "population_2025": 1558.251953125,
       "population_2045": 1762.637939453125,
-      "retention_2045": 113.12
+      "retention_2045": 113.12,
+      "elevation_m": 23.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 260.7,
+      "amplification_arv": 1.44,
+      "earthquake_probability_30y_5lower": 99.955,
+      "earthquake_probability_30y_5upper": 92.196,
+      "earthquake_probability_30y_6lower": 46.341,
+      "earthquake_probability_30y_6upper": 8.202,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339457931",
@@ -697,7 +1631,18 @@
       "latitude": 35.7302083,
       "population_2025": 1810.76123046875,
       "population_2045": 1912.0606689453125,
-      "retention_2045": 105.59
+      "retention_2045": 105.59,
+      "elevation_m": 25.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 227.1,
+      "amplification_arv": 1.62,
+      "earthquake_probability_30y_5lower": 99.979,
+      "earthquake_probability_30y_5upper": 95.734,
+      "earthquake_probability_30y_6lower": 56.169,
+      "earthquake_probability_30y_6upper": 12.088,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339457932",
@@ -705,7 +1650,18 @@
       "latitude": 35.7302083,
       "population_2025": 2152.678466796875,
       "population_2045": 2356.392578125,
-      "retention_2045": 109.46
+      "retention_2045": 109.46,
+      "elevation_m": 24.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 234.3,
+      "amplification_arv": 1.58,
+      "earthquake_probability_30y_5lower": 99.975,
+      "earthquake_probability_30y_5upper": 95.084,
+      "earthquake_probability_30y_6lower": 53.913,
+      "earthquake_probability_30y_6upper": 11.103,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339457941",
@@ -713,7 +1669,18 @@
       "latitude": 35.7302083,
       "population_2025": 1354.66845703125,
       "population_2045": 1590.3681640625,
-      "retention_2045": 117.4
+      "retention_2045": 117.4,
+      "elevation_m": 24.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 246.5,
+      "amplification_arv": 1.51,
+      "earthquake_probability_30y_5lower": 99.966,
+      "earthquake_probability_30y_5upper": 93.768,
+      "earthquake_probability_30y_6lower": 50.291,
+      "earthquake_probability_30y_6upper": 9.638,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339457942",
@@ -721,7 +1688,18 @@
       "latitude": 35.7302083,
       "population_2025": 1106.3973388671875,
       "population_2045": 1301.5091552734375,
-      "retention_2045": 117.63
+      "retention_2045": 117.63,
+      "elevation_m": 24.4,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 247.7,
+      "amplification_arv": 1.5,
+      "earthquake_probability_30y_5lower": 99.965,
+      "earthquake_probability_30y_5upper": 93.644,
+      "earthquake_probability_30y_6lower": 49.966,
+      "earthquake_probability_30y_6upper": 9.513,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339457943",
@@ -729,7 +1707,18 @@
       "latitude": 35.7322917,
       "population_2025": 149.44619750976562,
       "population_2045": 148.64930725097656,
-      "retention_2045": 99.47
+      "retention_2045": 99.47,
+      "elevation_m": 23.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 235.5,
+      "amplification_arv": 1.57,
+      "earthquake_probability_30y_5lower": 99.974,
+      "earthquake_probability_30y_5upper": 94.963,
+      "earthquake_probability_30y_6lower": 53.565,
+      "earthquake_probability_30y_6upper": 10.956,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339457944",
@@ -737,7 +1726,18 @@
       "latitude": 35.7322917,
       "population_2025": 1620.6031494140625,
       "population_2045": 1758.6063232421875,
-      "retention_2045": 108.52
+      "retention_2045": 108.52,
+      "elevation_m": 24.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 239.3,
+      "amplification_arv": 1.55,
+      "earthquake_probability_30y_5lower": 99.971,
+      "earthquake_probability_30y_5upper": 94.549,
+      "earthquake_probability_30y_6lower": 52.397,
+      "earthquake_probability_30y_6upper": 10.47,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339458921",
@@ -745,7 +1745,18 @@
       "latitude": 35.734375,
       "population_2025": 299.3096923828125,
       "population_2045": 337.185791015625,
-      "retention_2045": 112.65
+      "retention_2045": 112.65,
+      "elevation_m": 24.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 231.8,
+      "amplification_arv": 1.59,
+      "earthquake_probability_30y_5lower": 99.976,
+      "earthquake_probability_30y_5upper": 95.293,
+      "earthquake_probability_30y_6lower": 54.461,
+      "earthquake_probability_30y_6upper": 11.325,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339464013",
@@ -753,7 +1764,18 @@
       "latitude": 35.703125,
       "population_2025": 262.4198913574219,
       "population_2045": 274.9975891113281,
-      "retention_2045": 104.79
+      "retention_2045": 104.79,
+      "elevation_m": 3.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 224.5,
+      "amplification_arv": 1.64,
+      "earthquake_probability_30y_5lower": 99.983,
+      "earthquake_probability_30y_5upper": 96.155,
+      "earthquake_probability_30y_6lower": 57.839,
+      "earthquake_probability_30y_6upper": 12.895,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339464014",
@@ -761,7 +1783,18 @@
       "latitude": 35.703125,
       "population_2025": 240.06959533691406,
       "population_2045": 236.1627960205078,
-      "retention_2045": 98.37
+      "retention_2045": 98.37,
+      "elevation_m": 6.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 218.1,
+      "amplification_arv": 1.68,
+      "earthquake_probability_30y_5lower": 99.986,
+      "earthquake_probability_30y_5upper": 96.627,
+      "earthquake_probability_30y_6lower": 59.936,
+      "earthquake_probability_30y_6upper": 13.9,
+      "earthquake_intensity_30y_p03": 6.3,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339464023",
@@ -769,7 +1802,18 @@
       "latitude": 35.703125,
       "population_2025": 980.3165893554688,
       "population_2045": 1036.5489501953125,
-      "retention_2045": 105.74
+      "retention_2045": 105.74,
+      "elevation_m": 22.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 309.3,
+      "amplification_arv": 1.25,
+      "earthquake_probability_30y_5lower": 99.759,
+      "earthquake_probability_30y_5upper": 86.203,
+      "earthquake_probability_30y_6lower": 35.627,
+      "earthquake_probability_30y_6upper": 5.003,
+      "earthquake_intensity_30y_p03": 6.0,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339464024",
@@ -777,7 +1821,18 @@
       "latitude": 35.703125,
       "population_2025": 292.4150085449219,
       "population_2045": 300.4587097167969,
-      "retention_2045": 102.75
+      "retention_2045": 102.75,
+      "elevation_m": 22.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 295.3,
+      "amplification_arv": 1.3,
+      "earthquake_probability_30y_5lower": 99.826,
+      "earthquake_probability_30y_5upper": 88.115,
+      "earthquake_probability_30y_6lower": 38.627,
+      "earthquake_probability_30y_6upper": 5.815,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339464032",
@@ -785,7 +1840,18 @@
       "latitude": 35.7052083,
       "population_2025": 822.1655883789062,
       "population_2045": 931.3309936523438,
-      "retention_2045": 113.28
+      "retention_2045": 113.28,
+      "elevation_m": 7.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 263.8,
+      "amplification_arv": 1.43,
+      "earthquake_probability_30y_5lower": 99.955,
+      "earthquake_probability_30y_5upper": 92.197,
+      "earthquake_probability_30y_6lower": 46.32,
+      "earthquake_probability_30y_6upper": 8.224,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339464033",
@@ -793,7 +1859,18 @@
       "latitude": 35.7072917,
       "population_2025": 25.097999572753906,
       "population_2045": 4.249199867248535,
-      "retention_2045": 16.93
+      "retention_2045": 16.93,
+      "elevation_m": 7.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 203.8,
+      "amplification_arv": 1.78,
+      "earthquake_probability_30y_5lower": 99.993,
+      "earthquake_probability_30y_5upper": 97.629,
+      "earthquake_probability_30y_6lower": 64.658,
+      "earthquake_probability_30y_6upper": 16.469,
+      "earthquake_intensity_30y_p03": 6.3,
+      "earthquake_intensity_30y_p06": 6.2
     },
     {
       "mesh_id": "5339464034",
@@ -801,7 +1878,18 @@
       "latitude": 35.7072917,
       "population_2025": 2253.0419921875,
       "population_2045": 2544.8486328125,
-      "retention_2045": 112.95
+      "retention_2045": 112.95,
+      "elevation_m": 10.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 248.1,
+      "amplification_arv": 1.5,
+      "earthquake_probability_30y_5lower": 99.968,
+      "earthquake_probability_30y_5upper": 93.904,
+      "earthquake_probability_30y_6lower": 50.695,
+      "earthquake_probability_30y_6upper": 9.827,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339464041",
@@ -809,7 +1897,18 @@
       "latitude": 35.7052083,
       "population_2025": 2559.94677734375,
       "population_2045": 2873.426025390625,
-      "retention_2045": 112.25
+      "retention_2045": 112.25,
+      "elevation_m": 21.4,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 296.0,
+      "amplification_arv": 1.29,
+      "earthquake_probability_30y_5lower": 99.823,
+      "earthquake_probability_30y_5upper": 88.02,
+      "earthquake_probability_30y_6lower": 38.471,
+      "earthquake_probability_30y_6upper": 5.772,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339464042",
@@ -817,7 +1916,18 @@
       "latitude": 35.7052083,
       "population_2025": 1726.62744140625,
       "population_2045": 1894.8817138671875,
-      "retention_2045": 109.74
+      "retention_2045": 109.74,
+      "elevation_m": 23.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 259.8,
+      "amplification_arv": 1.44,
+      "earthquake_probability_30y_5lower": 99.96,
+      "earthquake_probability_30y_5upper": 92.636,
+      "earthquake_probability_30y_6lower": 47.397,
+      "earthquake_probability_30y_6upper": 8.603,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339464043",
@@ -825,7 +1935,18 @@
       "latitude": 35.7072917,
       "population_2025": 1686.9976806640625,
       "population_2045": 1833.5345458984375,
-      "retention_2045": 108.69
+      "retention_2045": 108.69,
+      "elevation_m": 22.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 256.5,
+      "amplification_arv": 1.46,
+      "earthquake_probability_30y_5lower": 99.963,
+      "earthquake_probability_30y_5upper": 92.995,
+      "earthquake_probability_30y_6lower": 48.301,
+      "earthquake_probability_30y_6upper": 8.93,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339464044",
@@ -833,7 +1954,18 @@
       "latitude": 35.7072917,
       "population_2025": 666.9127807617188,
       "population_2045": 655.8637084960938,
-      "retention_2045": 98.34
+      "retention_2045": 98.34,
+      "elevation_m": 21.4,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 263.0,
+      "amplification_arv": 1.43,
+      "earthquake_probability_30y_5lower": 99.958,
+      "earthquake_probability_30y_5upper": 92.287,
+      "earthquake_probability_30y_6lower": 46.54,
+      "earthquake_probability_30y_6upper": 8.3,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339464111",
@@ -841,7 +1973,18 @@
       "latitude": 35.7010417,
       "population_2025": 13.406900405883789,
       "population_2045": 16.51140022277832,
-      "retention_2045": 123.16
+      "retention_2045": 123.16,
+      "elevation_m": 15.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 283.7,
+      "amplification_arv": 1.34,
+      "earthquake_probability_30y_5lower": 99.883,
+      "earthquake_probability_30y_5upper": 89.842,
+      "earthquake_probability_30y_6lower": 41.513,
+      "earthquake_probability_30y_6upper": 6.67,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339464112",
@@ -849,7 +1992,18 @@
       "latitude": 35.7010417,
       "population_2025": 1072.689453125,
       "population_2045": 1175.32177734375,
-      "retention_2045": 109.57
+      "retention_2045": 109.57,
+      "elevation_m": 16.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 278.5,
+      "amplification_arv": 1.36,
+      "earthquake_probability_30y_5lower": 99.903,
+      "earthquake_probability_30y_5upper": 90.537,
+      "earthquake_probability_30y_6lower": 42.781,
+      "earthquake_probability_30y_6upper": 7.061,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339464113",
@@ -857,7 +2011,18 @@
       "latitude": 35.703125,
       "population_2025": 1282.8623046875,
       "population_2045": 1358.44873046875,
-      "retention_2045": 105.89
+      "retention_2045": 105.89,
+      "elevation_m": 19.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 289.3,
+      "amplification_arv": 1.32,
+      "earthquake_probability_30y_5lower": 99.859,
+      "earthquake_probability_30y_5upper": 89.084,
+      "earthquake_probability_30y_6lower": 40.18,
+      "earthquake_probability_30y_6upper": 6.27,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339464114",
@@ -865,7 +2030,18 @@
       "latitude": 35.703125,
       "population_2025": 1961.89599609375,
       "population_2045": 2035.7464599609375,
-      "retention_2045": 103.76
+      "retention_2045": 103.76,
+      "elevation_m": 16.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 285.3,
+      "amplification_arv": 1.33,
+      "earthquake_probability_30y_5lower": 99.876,
+      "earthquake_probability_30y_5upper": 89.621,
+      "earthquake_probability_30y_6lower": 41.119,
+      "earthquake_probability_30y_6upper": 6.55,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339464131",
@@ -873,7 +2049,18 @@
       "latitude": 35.7052083,
       "population_2025": 1762.712646484375,
       "population_2045": 1824.51953125,
-      "retention_2045": 103.51
+      "retention_2045": 103.51,
+      "elevation_m": 18.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 294.1,
+      "amplification_arv": 1.3,
+      "earthquake_probability_30y_5lower": 99.838,
+      "earthquake_probability_30y_5upper": 88.43,
+      "earthquake_probability_30y_6lower": 39.073,
+      "earthquake_probability_30y_6upper": 5.95,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339464132",
@@ -881,7 +2068,18 @@
       "latitude": 35.7052083,
       "population_2025": 2018.326904296875,
       "population_2045": 2201.315673828125,
-      "retention_2045": 109.07
+      "retention_2045": 109.07,
+      "elevation_m": 21.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 288.7,
+      "amplification_arv": 1.32,
+      "earthquake_probability_30y_5lower": 99.862,
+      "earthquake_probability_30y_5upper": 89.17,
+      "earthquake_probability_30y_6lower": 40.33,
+      "earthquake_probability_30y_6upper": 6.315,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339464133",
@@ -889,7 +2087,18 @@
       "latitude": 35.7072917,
       "population_2025": 1480.4041748046875,
       "population_2045": 1605.03759765625,
-      "retention_2045": 108.42
+      "retention_2045": 108.42,
+      "elevation_m": 22.4,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 297.7,
+      "amplification_arv": 1.29,
+      "earthquake_probability_30y_5lower": 99.822,
+      "earthquake_probability_30y_5upper": 87.946,
+      "earthquake_probability_30y_6lower": 38.275,
+      "earthquake_probability_30y_6upper": 5.726,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339464134",
@@ -897,7 +2106,18 @@
       "latitude": 35.7072917,
       "population_2025": 1351.3743896484375,
       "population_2045": 1328.5478515625,
-      "retention_2045": 98.31
+      "retention_2045": 98.31,
+      "elevation_m": 18.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 255.7,
+      "amplification_arv": 1.46,
+      "earthquake_probability_30y_5lower": 99.965,
+      "earthquake_probability_30y_5upper": 93.207,
+      "earthquake_probability_30y_6lower": 48.749,
+      "earthquake_probability_30y_6upper": 9.098,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339465011",
@@ -905,7 +2125,18 @@
       "latitude": 35.709375,
       "population_2025": 1418.2977294921875,
       "population_2045": 1650.1319580078125,
-      "retention_2045": 116.35
+      "retention_2045": 116.35,
+      "elevation_m": 5.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 203.1,
+      "amplification_arv": 1.78,
+      "earthquake_probability_30y_5lower": 99.993,
+      "earthquake_probability_30y_5upper": 97.643,
+      "earthquake_probability_30y_6lower": 64.68,
+      "earthquake_probability_30y_6upper": 16.462,
+      "earthquake_intensity_30y_p03": 6.3,
+      "earthquake_intensity_30y_p06": 6.2
     },
     {
       "mesh_id": "5339465012",
@@ -913,7 +2144,18 @@
       "latitude": 35.709375,
       "population_2025": 1605.6639404296875,
       "population_2045": 1635.468017578125,
-      "retention_2045": 101.86
+      "retention_2045": 101.86,
+      "elevation_m": 10.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 247.8,
+      "amplification_arv": 1.5,
+      "earthquake_probability_30y_5lower": 99.968,
+      "earthquake_probability_30y_5upper": 93.874,
+      "earthquake_probability_30y_6lower": 50.576,
+      "earthquake_probability_30y_6upper": 9.769,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339465013",
@@ -921,7 +2163,18 @@
       "latitude": 35.7114583,
       "population_2025": 3019.486083984375,
       "population_2045": 3139.855712890625,
-      "retention_2045": 103.99
+      "retention_2045": 103.99,
+      "elevation_m": 5.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 184.8,
+      "amplification_arv": 1.93,
+      "earthquake_probability_30y_5lower": 99.999,
+      "earthquake_probability_30y_5upper": 98.627,
+      "earthquake_probability_30y_6lower": 71.105,
+      "earthquake_probability_30y_6upper": 20.566,
+      "earthquake_intensity_30y_p03": 6.4,
+      "earthquake_intensity_30y_p06": 6.2
     },
     {
       "mesh_id": "5339465014",
@@ -929,7 +2182,18 @@
       "latitude": 35.7114583,
       "population_2025": 2242.04345703125,
       "population_2045": 2472.68994140625,
-      "retention_2045": 110.29
+      "retention_2045": 110.29,
+      "elevation_m": 7.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 262.1,
+      "amplification_arv": 1.43,
+      "earthquake_probability_30y_5lower": 99.958,
+      "earthquake_probability_30y_5upper": 92.315,
+      "earthquake_probability_30y_6lower": 46.579,
+      "earthquake_probability_30y_6upper": 8.305,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339465021",
@@ -937,7 +2201,18 @@
       "latitude": 35.709375,
       "population_2025": 2398.774169921875,
       "population_2045": 2567.455078125,
-      "retention_2045": 107.03
+      "retention_2045": 107.03,
+      "elevation_m": 16.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 270.0,
+      "amplification_arv": 1.4,
+      "earthquake_probability_30y_5lower": 99.931,
+      "earthquake_probability_30y_5upper": 91.431,
+      "earthquake_probability_30y_6lower": 44.495,
+      "earthquake_probability_30y_6upper": 7.6,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339465022",
@@ -945,7 +2220,18 @@
       "latitude": 35.709375,
       "population_2025": 659.9392700195312,
       "population_2045": 706.7166137695312,
-      "retention_2045": 107.09
+      "retention_2045": 107.09,
+      "elevation_m": 23.4,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 301.8,
+      "amplification_arv": 1.27,
+      "earthquake_probability_30y_5lower": 99.792,
+      "earthquake_probability_30y_5upper": 87.114,
+      "earthquake_probability_30y_6lower": 36.995,
+      "earthquake_probability_30y_6upper": 5.361,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339465023",
@@ -953,7 +2239,18 @@
       "latitude": 35.7114583,
       "population_2025": 1787.6717529296875,
       "population_2045": 1966.647216796875,
-      "retention_2045": 110.01
+      "retention_2045": 110.01,
+      "elevation_m": 22.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 257.8,
+      "amplification_arv": 1.45,
+      "earthquake_probability_30y_5lower": 99.961,
+      "earthquake_probability_30y_5upper": 92.785,
+      "earthquake_probability_30y_6lower": 47.738,
+      "earthquake_probability_30y_6upper": 8.716,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339465024",
@@ -961,7 +2258,18 @@
       "latitude": 35.7114583,
       "population_2025": 301.6487121582031,
       "population_2045": 296.3658142089844,
-      "retention_2045": 98.25
+      "retention_2045": 98.25,
+      "elevation_m": 22.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 298.7,
+      "amplification_arv": 1.28,
+      "earthquake_probability_30y_5lower": 99.807,
+      "earthquake_probability_30y_5upper": 87.544,
+      "earthquake_probability_30y_6lower": 37.671,
+      "earthquake_probability_30y_6upper": 5.545,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339465031",
@@ -969,7 +2277,18 @@
       "latitude": 35.7135417,
       "population_2025": 3481.318115234375,
       "population_2045": 3930.06494140625,
-      "retention_2045": 112.89
+      "retention_2045": 112.89,
+      "elevation_m": 5.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 192.1,
+      "amplification_arv": 1.87,
+      "earthquake_probability_30y_5lower": 99.998,
+      "earthquake_probability_30y_5upper": 98.346,
+      "earthquake_probability_30y_6lower": 68.554,
+      "earthquake_probability_30y_6upper": 18.817,
+      "earthquake_intensity_30y_p03": 6.3,
+      "earthquake_intensity_30y_p06": 6.2
     },
     {
       "mesh_id": "5339465032",
@@ -977,7 +2296,18 @@
       "latitude": 35.7135417,
       "population_2025": 1160.283935546875,
       "population_2045": 1216.3837890625,
-      "retention_2045": 104.84
+      "retention_2045": 104.84,
+      "elevation_m": 21.4,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 265.1,
+      "amplification_arv": 1.42,
+      "earthquake_probability_30y_5lower": 99.95,
+      "earthquake_probability_30y_5upper": 91.988,
+      "earthquake_probability_30y_6lower": 45.794,
+      "earthquake_probability_30y_6upper": 8.034,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339465033",
@@ -985,7 +2315,18 @@
       "latitude": 35.715625,
       "population_2025": 2062.085693359375,
       "population_2045": 2110.845947265625,
-      "retention_2045": 102.36
+      "retention_2045": 102.36,
+      "elevation_m": 7.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 213.7,
+      "amplification_arv": 1.71,
+      "earthquake_probability_30y_5lower": 99.988,
+      "earthquake_probability_30y_5upper": 96.909,
+      "earthquake_probability_30y_6lower": 61.161,
+      "earthquake_probability_30y_6upper": 14.519,
+      "earthquake_intensity_30y_p03": 6.3,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339465034",
@@ -993,7 +2334,18 @@
       "latitude": 35.715625,
       "population_2025": 1351.508544921875,
       "population_2045": 1493.953857421875,
-      "retention_2045": 110.54
+      "retention_2045": 110.54,
+      "elevation_m": 21.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 264.9,
+      "amplification_arv": 1.42,
+      "earthquake_probability_30y_5lower": 99.95,
+      "earthquake_probability_30y_5upper": 92.003,
+      "earthquake_probability_30y_6lower": 45.829,
+      "earthquake_probability_30y_6upper": 8.046,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339465041",
@@ -1001,7 +2353,18 @@
       "latitude": 35.7135417,
       "population_2025": 1843.012451171875,
       "population_2045": 2008.6981201171875,
-      "retention_2045": 108.99
+      "retention_2045": 108.99,
+      "elevation_m": 21.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 258.8,
+      "amplification_arv": 1.45,
+      "earthquake_probability_30y_5lower": 99.96,
+      "earthquake_probability_30y_5upper": 92.675,
+      "earthquake_probability_30y_6lower": 47.463,
+      "earthquake_probability_30y_6upper": 8.618,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339465043",
@@ -1009,7 +2372,18 @@
       "latitude": 35.715625,
       "population_2025": 1493.9666748046875,
       "population_2045": 1605.16552734375,
-      "retention_2045": 107.44
+      "retention_2045": 107.44,
+      "elevation_m": 19.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 291.0,
+      "amplification_arv": 1.31,
+      "earthquake_probability_30y_5lower": 99.843,
+      "earthquake_probability_30y_5upper": 88.598,
+      "earthquake_probability_30y_6lower": 39.392,
+      "earthquake_probability_30y_6upper": 6.027,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339465044",
@@ -1017,7 +2391,18 @@
       "latitude": 35.715625,
       "population_2025": 124.48249816894531,
       "population_2045": 120.71759796142578,
-      "retention_2045": 96.98
+      "retention_2045": 96.98,
+      "elevation_m": 19.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 287.8,
+      "amplification_arv": 1.32,
+      "earthquake_probability_30y_5lower": 99.857,
+      "earthquake_probability_30y_5upper": 89.045,
+      "earthquake_probability_30y_6lower": 40.148,
+      "earthquake_probability_30y_6upper": 6.247,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339465111",
@@ -1025,7 +2410,18 @@
       "latitude": 35.709375,
       "population_2025": 791.3184814453125,
       "population_2045": 814.2141723632812,
-      "retention_2045": 102.89
+      "retention_2045": 102.89,
+      "elevation_m": 21.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 272.8,
+      "amplification_arv": 1.39,
+      "earthquake_probability_30y_5lower": 99.924,
+      "earthquake_probability_30y_5upper": 91.21,
+      "earthquake_probability_30y_6lower": 43.994,
+      "earthquake_probability_30y_6upper": 7.443,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339465114",
@@ -1033,7 +2429,18 @@
       "latitude": 35.7114583,
       "population_2025": 1969.7860107421875,
       "population_2045": 2300.150146484375,
-      "retention_2045": 116.77
+      "retention_2045": 116.77,
+      "elevation_m": 11.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 274.4,
+      "amplification_arv": 1.38,
+      "earthquake_probability_30y_5lower": 99.918,
+      "earthquake_probability_30y_5upper": 90.993,
+      "earthquake_probability_30y_6lower": 43.584,
+      "earthquake_probability_30y_6upper": 7.31,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339465131",
@@ -1041,7 +2448,18 @@
       "latitude": 35.7135417,
       "population_2025": 181.01919555664062,
       "population_2045": 182.8813018798828,
-      "retention_2045": 101.03
+      "retention_2045": 101.03,
+      "elevation_m": 16.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 268.3,
+      "amplification_arv": 1.41,
+      "earthquake_probability_30y_5lower": 99.941,
+      "earthquake_probability_30y_5upper": 91.761,
+      "earthquake_probability_30y_6lower": 45.149,
+      "earthquake_probability_30y_6upper": 7.823,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339465133",
@@ -1049,7 +2467,18 @@
       "latitude": 35.715625,
       "population_2025": 684.6129150390625,
       "population_2045": 716.9412231445312,
-      "retention_2045": 104.72
+      "retention_2045": 104.72,
+      "elevation_m": 12.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 255.7,
+      "amplification_arv": 1.46,
+      "earthquake_probability_30y_5lower": 99.965,
+      "earthquake_probability_30y_5upper": 93.142,
+      "earthquake_probability_30y_6lower": 48.55,
+      "earthquake_probability_30y_6upper": 9.015,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339466011",
@@ -1057,7 +2486,18 @@
       "latitude": 35.7177083,
       "population_2025": 1985.218505859375,
       "population_2045": 2058.293212890625,
-      "retention_2045": 103.68
+      "retention_2045": 103.68,
+      "elevation_m": 9.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 302.6,
+      "amplification_arv": 1.27,
+      "earthquake_probability_30y_5lower": 99.785,
+      "earthquake_probability_30y_5upper": 86.899,
+      "earthquake_probability_30y_6lower": 36.63,
+      "earthquake_probability_30y_6upper": 5.259,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339466012",
@@ -1065,7 +2505,18 @@
       "latitude": 35.7177083,
       "population_2025": 1497.6099853515625,
       "population_2045": 1595.1085205078125,
-      "retention_2045": 106.51
+      "retention_2045": 106.51,
+      "elevation_m": 21.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 259.2,
+      "amplification_arv": 1.45,
+      "earthquake_probability_30y_5lower": 99.959,
+      "earthquake_probability_30y_5upper": 92.557,
+      "earthquake_probability_30y_6lower": 47.142,
+      "earthquake_probability_30y_6upper": 8.494,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339466013",
@@ -1073,7 +2524,18 @@
       "latitude": 35.7197917,
       "population_2025": 2302.76171875,
       "population_2045": 2350.10302734375,
-      "retention_2045": 102.06
+      "retention_2045": 102.06,
+      "elevation_m": 10.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 199.0,
+      "amplification_arv": 1.81,
+      "earthquake_probability_30y_5lower": 99.995,
+      "earthquake_probability_30y_5upper": 97.893,
+      "earthquake_probability_30y_6lower": 65.913,
+      "earthquake_probability_30y_6upper": 17.162,
+      "earthquake_intensity_30y_p03": 6.3,
+      "earthquake_intensity_30y_p06": 6.2
     },
     {
       "mesh_id": "5339466014",
@@ -1081,7 +2543,18 @@
       "latitude": 35.7197917,
       "population_2025": 2293.559326171875,
       "population_2045": 2653.027587890625,
-      "retention_2045": 115.67
+      "retention_2045": 115.67,
+      "elevation_m": 21.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 274.0,
+      "amplification_arv": 1.38,
+      "earthquake_probability_30y_5lower": 99.914,
+      "earthquake_probability_30y_5upper": 90.823,
+      "earthquake_probability_30y_6lower": 43.28,
+      "earthquake_probability_30y_6upper": 7.199,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339466021",
@@ -1089,7 +2562,18 @@
       "latitude": 35.7177083,
       "population_2025": 1261.5321044921875,
       "population_2045": 1373.924560546875,
-      "retention_2045": 108.91
+      "retention_2045": 108.91,
+      "elevation_m": 21.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 287.3,
+      "amplification_arv": 1.33,
+      "earthquake_probability_30y_5lower": 99.857,
+      "earthquake_probability_30y_5upper": 89.005,
+      "earthquake_probability_30y_6lower": 40.042,
+      "earthquake_probability_30y_6upper": 6.21,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339466022",
@@ -1097,7 +2581,18 @@
       "latitude": 35.7177083,
       "population_2025": 116.73490142822266,
       "population_2045": 106.0470962524414,
-      "retention_2045": 90.84
+      "retention_2045": 90.84,
+      "elevation_m": 22.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 281.8,
+      "amplification_arv": 1.35,
+      "earthquake_probability_30y_5lower": 99.882,
+      "earthquake_probability_30y_5upper": 89.764,
+      "earthquake_probability_30y_6lower": 41.361,
+      "earthquake_probability_30y_6upper": 6.603,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339466023",
@@ -1105,7 +2600,18 @@
       "latitude": 35.7197917,
       "population_2025": 1769.4444580078125,
       "population_2045": 2009.9609375,
-      "retention_2045": 113.59
+      "retention_2045": 113.59,
+      "elevation_m": 20.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 252.5,
+      "amplification_arv": 1.48,
+      "earthquake_probability_30y_5lower": 99.964,
+      "earthquake_probability_30y_5upper": 93.295,
+      "earthquake_probability_30y_6lower": 49.004,
+      "earthquake_probability_30y_6upper": 9.167,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339466024",
@@ -1113,7 +2619,18 @@
       "latitude": 35.7197917,
       "population_2025": 829.2432861328125,
       "population_2045": 833.2702026367188,
-      "retention_2045": 100.49
+      "retention_2045": 100.49,
+      "elevation_m": 8.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 276.8,
+      "amplification_arv": 1.37,
+      "earthquake_probability_30y_5lower": 99.903,
+      "earthquake_probability_30y_5upper": 90.444,
+      "earthquake_probability_30y_6lower": 42.584,
+      "earthquake_probability_30y_6upper": 6.979,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339466031",
@@ -1121,7 +2638,18 @@
       "latitude": 35.721875,
       "population_2025": 1680.9757080078125,
       "population_2045": 1773.3934326171875,
-      "retention_2045": 105.5
+      "retention_2045": 105.5,
+      "elevation_m": 14.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 277.6,
+      "amplification_arv": 1.37,
+      "earthquake_probability_30y_5lower": 99.899,
+      "earthquake_probability_30y_5upper": 90.334,
+      "earthquake_probability_30y_6lower": 42.385,
+      "earthquake_probability_30y_6upper": 6.916,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339466032",
@@ -1129,7 +2657,18 @@
       "latitude": 35.721875,
       "population_2025": 1260.2445068359375,
       "population_2045": 1359.748046875,
-      "retention_2045": 107.9
+      "retention_2045": 107.9,
+      "elevation_m": 22.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 268.1,
+      "amplification_arv": 1.41,
+      "earthquake_probability_30y_5lower": 99.938,
+      "earthquake_probability_30y_5upper": 91.574,
+      "earthquake_probability_30y_6lower": 44.8,
+      "earthquake_probability_30y_6upper": 7.692,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339466033",
@@ -1137,7 +2676,18 @@
       "latitude": 35.7239583,
       "population_2025": 1101.2860107421875,
       "population_2045": 1178.7591552734375,
-      "retention_2045": 107.03
+      "retention_2045": 107.03,
+      "elevation_m": 17.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 300.1,
+      "amplification_arv": 1.28,
+      "earthquake_probability_30y_5lower": 99.798,
+      "earthquake_probability_30y_5upper": 87.253,
+      "earthquake_probability_30y_6lower": 37.18,
+      "earthquake_probability_30y_6upper": 5.407,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339466034",
@@ -1145,7 +2695,18 @@
       "latitude": 35.7239583,
       "population_2025": 1698.2327880859375,
       "population_2045": 1807.38232421875,
-      "retention_2045": 106.43
+      "retention_2045": 106.43,
+      "elevation_m": 22.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 298.2,
+      "amplification_arv": 1.28,
+      "earthquake_probability_30y_5lower": 99.807,
+      "earthquake_probability_30y_5upper": 87.511,
+      "earthquake_probability_30y_6lower": 37.586,
+      "earthquake_probability_30y_6upper": 5.517,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339466041",
@@ -1153,7 +2714,18 @@
       "latitude": 35.721875,
       "population_2025": 807.3845825195312,
       "population_2045": 769.3300170898438,
-      "retention_2045": 95.29
+      "retention_2045": 95.29,
+      "elevation_m": 19.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 256.7,
+      "amplification_arv": 1.46,
+      "earthquake_probability_30y_5lower": 99.961,
+      "earthquake_probability_30y_5upper": 92.834,
+      "earthquake_probability_30y_6lower": 47.828,
+      "earthquake_probability_30y_6upper": 8.738,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339466042",
@@ -1161,7 +2733,18 @@
       "latitude": 35.721875,
       "population_2025": 2381.4931640625,
       "population_2045": 2534.0888671875,
-      "retention_2045": 106.41
+      "retention_2045": 106.41,
+      "elevation_m": 6.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 273.0,
+      "amplification_arv": 1.38,
+      "earthquake_probability_30y_5lower": 99.918,
+      "earthquake_probability_30y_5upper": 90.959,
+      "earthquake_probability_30y_6lower": 43.532,
+      "earthquake_probability_30y_6upper": 7.279,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339466043",
@@ -1169,7 +2752,18 @@
       "latitude": 35.7239583,
       "population_2025": 1405.847900390625,
       "population_2045": 1475.1248779296875,
-      "retention_2045": 104.93
+      "retention_2045": 104.93,
+      "elevation_m": 21.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 301.4,
+      "amplification_arv": 1.27,
+      "earthquake_probability_30y_5lower": 99.791,
+      "earthquake_probability_30y_5upper": 87.069,
+      "earthquake_probability_30y_6lower": 36.893,
+      "earthquake_probability_30y_6upper": 5.33,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339466044",
@@ -1177,7 +2771,18 @@
       "latitude": 35.7239583,
       "population_2025": 1653.7730712890625,
       "population_2045": 1780.09814453125,
-      "retention_2045": 107.64
+      "retention_2045": 107.64,
+      "elevation_m": 10.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 299.1,
+      "amplification_arv": 1.28,
+      "earthquake_probability_30y_5lower": 99.803,
+      "earthquake_probability_30y_5upper": 87.394,
+      "earthquake_probability_30y_6lower": 37.401,
+      "earthquake_probability_30y_6upper": 5.467,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339466111",
@@ -1185,7 +2790,18 @@
       "latitude": 35.7177083,
       "population_2025": 1967.8017578125,
       "population_2045": 2096.8046875,
-      "retention_2045": 106.56
+      "retention_2045": 106.56,
+      "elevation_m": 7.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 269.6,
+      "amplification_arv": 1.4,
+      "earthquake_probability_30y_5lower": 99.935,
+      "earthquake_probability_30y_5upper": 91.541,
+      "earthquake_probability_30y_6lower": 44.616,
+      "earthquake_probability_30y_6upper": 7.637,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339466112",
@@ -1193,7 +2809,18 @@
       "latitude": 35.7177083,
       "population_2025": 2167.4755859375,
       "population_2045": 2115.599365234375,
-      "retention_2045": 97.61
+      "retention_2045": 97.61,
+      "elevation_m": 5.7,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 224.1,
+      "amplification_arv": 1.64,
+      "earthquake_probability_30y_5lower": 99.984,
+      "earthquake_probability_30y_5upper": 96.184,
+      "earthquake_probability_30y_6lower": 57.795,
+      "earthquake_probability_30y_6upper": 12.84,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339466113",
@@ -1201,7 +2828,18 @@
       "latitude": 35.7197917,
       "population_2025": 2593.578125,
       "population_2045": 2554.197509765625,
-      "retention_2045": 98.48
+      "retention_2045": 98.48,
+      "elevation_m": 5.5,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 201.6,
+      "amplification_arv": 1.79,
+      "earthquake_probability_30y_5lower": 99.994,
+      "earthquake_probability_30y_5upper": 97.776,
+      "earthquake_probability_30y_6lower": 65.243,
+      "earthquake_probability_30y_6upper": 16.757,
+      "earthquake_intensity_30y_p03": 6.3,
+      "earthquake_intensity_30y_p06": 6.2
     },
     {
       "mesh_id": "5339466133",
@@ -1209,7 +2847,18 @@
       "latitude": 35.7239583,
       "population_2025": 1829.49365234375,
       "population_2045": 1672.6689453125,
-      "retention_2045": 91.43
+      "retention_2045": 91.43,
+      "elevation_m": 6.4,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 300.1,
+      "amplification_arv": 1.28,
+      "earthquake_probability_30y_5lower": 99.806,
+      "earthquake_probability_30y_5upper": 87.416,
+      "earthquake_probability_30y_6lower": 37.361,
+      "earthquake_probability_30y_6upper": 5.464,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339467011",
@@ -1217,7 +2866,18 @@
       "latitude": 35.7260417,
       "population_2025": 1829.5283203125,
       "population_2045": 2037.3031005859375,
-      "retention_2045": 111.36
+      "retention_2045": 111.36,
+      "elevation_m": 23.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 288.2,
+      "amplification_arv": 1.32,
+      "earthquake_probability_30y_5lower": 99.851,
+      "earthquake_probability_30y_5upper": 88.795,
+      "earthquake_probability_30y_6lower": 39.646,
+      "earthquake_probability_30y_6upper": 6.09,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339467012",
@@ -1225,7 +2885,18 @@
       "latitude": 35.7260417,
       "population_2025": 1373.04150390625,
       "population_2045": 1458.3123779296875,
-      "retention_2045": 106.21
+      "retention_2045": 106.21,
+      "elevation_m": 23.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 290.8,
+      "amplification_arv": 1.31,
+      "earthquake_probability_30y_5lower": 99.839,
+      "earthquake_probability_30y_5upper": 88.431,
+      "earthquake_probability_30y_6lower": 39.04,
+      "earthquake_probability_30y_6upper": 5.916,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 5.9
     },
     {
       "mesh_id": "5339467013",
@@ -1233,7 +2904,18 @@
       "latitude": 35.728125,
       "population_2025": 2179.801025390625,
       "population_2045": 2390.774169921875,
-      "retention_2045": 109.68
+      "retention_2045": 109.68,
+      "elevation_m": 20.4,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 272.0,
+      "amplification_arv": 1.39,
+      "earthquake_probability_30y_5lower": 99.921,
+      "earthquake_probability_30y_5upper": 91.006,
+      "earthquake_probability_30y_6lower": 43.567,
+      "earthquake_probability_30y_6upper": 7.284,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339467014",
@@ -1241,7 +2923,18 @@
       "latitude": 35.728125,
       "population_2025": 758.7396240234375,
       "population_2045": 738.5698852539062,
-      "retention_2045": 97.34
+      "retention_2045": 97.34,
+      "elevation_m": 23.1,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 273.5,
+      "amplification_arv": 1.38,
+      "earthquake_probability_30y_5lower": 99.915,
+      "earthquake_probability_30y_5upper": 90.807,
+      "earthquake_probability_30y_6lower": 43.2,
+      "earthquake_probability_30y_6upper": 7.167,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339467021",
@@ -1249,7 +2942,18 @@
       "latitude": 35.7260417,
       "population_2025": 1567.7698974609375,
       "population_2045": 1605.4873046875,
-      "retention_2045": 102.41
+      "retention_2045": 102.41,
+      "elevation_m": 20.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 286.5,
+      "amplification_arv": 1.33,
+      "earthquake_probability_30y_5lower": 99.859,
+      "earthquake_probability_30y_5upper": 89.03,
+      "earthquake_probability_30y_6lower": 40.044,
+      "earthquake_probability_30y_6upper": 6.206,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339467022",
@@ -1257,7 +2961,18 @@
       "latitude": 35.7260417,
       "population_2025": 1604.06591796875,
       "population_2045": 1784.44384765625,
-      "retention_2045": 111.25
+      "retention_2045": 111.25,
+      "elevation_m": 20.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 282.8,
+      "amplification_arv": 1.34,
+      "earthquake_probability_30y_5lower": 99.875,
+      "earthquake_probability_30y_5upper": 89.536,
+      "earthquake_probability_30y_6lower": 40.917,
+      "earthquake_probability_30y_6upper": 6.464,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339467023",
@@ -1265,7 +2980,18 @@
       "latitude": 35.728125,
       "population_2025": 1666.2874755859375,
       "population_2045": 1780.409423828125,
-      "retention_2045": 106.85
+      "retention_2045": 106.85,
+      "elevation_m": 23.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 277.0,
+      "amplification_arv": 1.37,
+      "earthquake_probability_30y_5lower": 99.9,
+      "earthquake_probability_30y_5upper": 90.333,
+      "earthquake_probability_30y_6lower": 42.335,
+      "earthquake_probability_30y_6upper": 6.895,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339467024",
@@ -1273,7 +2999,18 @@
       "latitude": 35.728125,
       "population_2025": 1664.7919921875,
       "population_2045": 1862.1810302734375,
-      "retention_2045": 111.86
+      "retention_2045": 111.86,
+      "elevation_m": 20.3,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 268.3,
+      "amplification_arv": 1.41,
+      "earthquake_probability_30y_5lower": 99.936,
+      "earthquake_probability_30y_5upper": 91.463,
+      "earthquake_probability_30y_6lower": 44.521,
+      "earthquake_probability_30y_6upper": 7.592,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339467031",
@@ -1281,7 +3018,18 @@
       "latitude": 35.7302083,
       "population_2025": 1727.6549072265625,
       "population_2045": 1853.000244140625,
-      "retention_2045": 107.26
+      "retention_2045": 107.26,
+      "elevation_m": 23.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 250.0,
+      "amplification_arv": 1.49,
+      "earthquake_probability_30y_5lower": 99.965,
+      "earthquake_probability_30y_5upper": 93.502,
+      "earthquake_probability_30y_6lower": 49.505,
+      "earthquake_probability_30y_6upper": 9.342,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339467032",
@@ -1289,7 +3037,18 @@
       "latitude": 35.7302083,
       "population_2025": 900.9285278320312,
       "population_2045": 865.8037109375,
-      "retention_2045": 96.1
+      "retention_2045": 96.1,
+      "elevation_m": 22.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 259.8,
+      "amplification_arv": 1.44,
+      "earthquake_probability_30y_5lower": 99.958,
+      "earthquake_probability_30y_5upper": 92.42,
+      "earthquake_probability_30y_6lower": 46.776,
+      "earthquake_probability_30y_6upper": 8.357,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339467033",
@@ -1297,7 +3056,18 @@
       "latitude": 35.7322917,
       "population_2025": 2219.159912109375,
       "population_2045": 2397.61669921875,
-      "retention_2045": 108.04
+      "retention_2045": 108.04,
+      "elevation_m": 22.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 239.8,
+      "amplification_arv": 1.55,
+      "earthquake_probability_30y_5lower": 99.972,
+      "earthquake_probability_30y_5upper": 94.607,
+      "earthquake_probability_30y_6lower": 52.484,
+      "earthquake_probability_30y_6upper": 10.504,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339467034",
@@ -1305,7 +3075,18 @@
       "latitude": 35.7322917,
       "population_2025": 2255.46044921875,
       "population_2045": 2281.960693359375,
-      "retention_2045": 101.17
+      "retention_2045": 101.17,
+      "elevation_m": 14.6,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 251.8,
+      "amplification_arv": 1.48,
+      "earthquake_probability_30y_5lower": 99.964,
+      "earthquake_probability_30y_5upper": 93.307,
+      "earthquake_probability_30y_6lower": 48.997,
+      "earthquake_probability_30y_6upper": 9.154,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339467041",
@@ -1313,7 +3094,18 @@
       "latitude": 35.7302083,
       "population_2025": 1355.125732421875,
       "population_2045": 1385.17578125,
-      "retention_2045": 102.22
+      "retention_2045": 102.22,
+      "elevation_m": 21.4,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 262.3,
+      "amplification_arv": 1.43,
+      "earthquake_probability_30y_5lower": 99.956,
+      "earthquake_probability_30y_5upper": 92.144,
+      "earthquake_probability_30y_6lower": 46.11,
+      "earthquake_probability_30y_6upper": 8.126,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339467042",
@@ -1321,7 +3113,18 @@
       "latitude": 35.7302083,
       "population_2025": 2135.4345703125,
       "population_2045": 2205.335205078125,
-      "retention_2045": 103.27
+      "retention_2045": 103.27,
+      "elevation_m": 12.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 259.0,
+      "amplification_arv": 1.45,
+      "earthquake_probability_30y_5lower": 99.959,
+      "earthquake_probability_30y_5upper": 92.512,
+      "earthquake_probability_30y_6lower": 46.999,
+      "earthquake_probability_30y_6upper": 8.435,
+      "earthquake_intensity_30y_p03": 6.1,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339467043",
@@ -1329,7 +3132,18 @@
       "latitude": 35.7322917,
       "population_2025": 3453.078369140625,
       "population_2045": 3885.028076171875,
-      "retention_2045": 112.51
+      "retention_2045": 112.51,
+      "elevation_m": 10.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 256.5,
+      "amplification_arv": 1.46,
+      "earthquake_probability_30y_5lower": 99.961,
+      "earthquake_probability_30y_5upper": 92.794,
+      "earthquake_probability_30y_6lower": 47.696,
+      "earthquake_probability_30y_6upper": 8.682,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.0
     },
     {
       "mesh_id": "5339467111",
@@ -1337,7 +3151,18 @@
       "latitude": 35.7260417,
       "population_2025": 2272.277099609375,
       "population_2045": 2216.594970703125,
-      "retention_2045": 97.55
+      "retention_2045": 97.55,
+      "elevation_m": 6.8,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 188.0,
+      "amplification_arv": 1.9,
+      "earthquake_probability_30y_5lower": 99.999,
+      "earthquake_probability_30y_5upper": 98.509,
+      "earthquake_probability_30y_6lower": 69.869,
+      "earthquake_probability_30y_6upper": 19.617,
+      "earthquake_intensity_30y_p03": 6.4,
+      "earthquake_intensity_30y_p06": 6.2
     },
     {
       "mesh_id": "5339467113",
@@ -1345,7 +3170,18 @@
       "latitude": 35.728125,
       "population_2025": 2457.654541015625,
       "population_2045": 2456.56591796875,
-      "retention_2045": 99.96
+      "retention_2045": 99.96,
+      "elevation_m": 6.9,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 195.6,
+      "amplification_arv": 1.84,
+      "earthquake_probability_30y_5lower": 99.996,
+      "earthquake_probability_30y_5upper": 98.15,
+      "earthquake_probability_30y_6lower": 67.172,
+      "earthquake_probability_30y_6upper": 17.89,
+      "earthquake_intensity_30y_p03": 6.3,
+      "earthquake_intensity_30y_p06": 6.2
     },
     {
       "mesh_id": "5339468011",
@@ -1353,7 +3189,18 @@
       "latitude": 35.734375,
       "population_2025": 2468.825927734375,
       "population_2045": 2500.543212890625,
-      "retention_2045": 101.28
+      "retention_2045": 101.28,
+      "elevation_m": 12.2,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "火山灰台地",
+      "avs30": 233.4,
+      "amplification_arv": 1.58,
+      "earthquake_probability_30y_5lower": 99.976,
+      "earthquake_probability_30y_5upper": 95.231,
+      "earthquake_probability_30y_6lower": 54.216,
+      "earthquake_probability_30y_6upper": 11.217,
+      "earthquake_intensity_30y_p03": 6.2,
+      "earthquake_intensity_30y_p06": 6.1
     },
     {
       "mesh_id": "5339468012",
@@ -1361,7 +3208,18 @@
       "latitude": 35.734375,
       "population_2025": 2797.109130859375,
       "population_2045": 2903.26171875,
-      "retention_2045": 103.8
+      "retention_2045": 103.8,
+      "elevation_m": 10.0,
+      "elevation_source": "1m（レーザ）",
+      "microtopography": "谷底低地",
+      "avs30": 203.4,
+      "amplification_arv": 1.78,
+      "earthquake_probability_30y_5lower": 99.993,
+      "earthquake_probability_30y_5upper": 97.535,
+      "earthquake_probability_30y_6lower": 63.992,
+      "earthquake_probability_30y_6upper": 16.012,
+      "earthquake_intensity_30y_p03": 6.3,
+      "earthquake_intensity_30y_p06": 6.2
     }
   ],
   "stations": [

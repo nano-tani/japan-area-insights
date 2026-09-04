@@ -48,11 +48,12 @@
     </section>
 
     <section class="ward-section" aria-labelledby="ward-analysis-title">
-      <div class="section-heading"><div><p class="section-kicker">DEEP ANALYSIS</p><h2 id="ward-analysis-title">街を多角的に分析する</h2></div><p class="section-note">総合100点とは別に、不動産市場・人口移動・経済/財政・都市/防災を原数値で確認します。防災情報は総合点に含めません。</p></div>
+      <div class="section-heading"><div><p class="section-kicker">DEEP ANALYSIS</p><h2 id="ward-analysis-title">街を多角的に分析する</h2></div><p class="section-note">総合100点とは別に、不動産市場・人口移動・人口構成・経済/財政・都市/防災を原数値で確認します。防災情報は総合点に含めません。</p></div>
       <div class="analysis-grid">
         <article class="analysis-card"><div class="analysis-card-head"><span>MARKET</span><h3>不動産市場の中身</h3></div><div id="analysis-market"></div></article>
         <article class="analysis-card"><div class="analysis-card-head"><span>MIGRATION</span><h3>誰が入って、出ているか</h3></div><div id="analysis-migration"></div></article>
         <article class="analysis-card"><div class="analysis-card-head"><span>ECONOMY</span><h3>所得・自治体財政</h3></div><div id="analysis-economy"></div></article>
+        <article class="analysis-card"><div class="analysis-card-head"><span>DEMOGRAPHICS</span><h3>人口・世帯構成</h3></div><div id="analysis-demographics"><div class="data-missing">人口・世帯構成を読み込み中です。</div></div></article>
         <article class="analysis-card analysis-card-wide"><div class="analysis-card-head"><span>URBAN & RISK</span><h3>都市計画・災害曝露</h3></div><div id="analysis-exposures"></div></article>
         <article class="analysis-card analysis-card-wide stat-catalog-card"><div class="analysis-card-head"><span>PUBLIC STATS A–J</span><h3>公的統計カタログ</h3></div><div id="analysis-stat-catalog"><div class="data-missing">公的統計を読み込み中です。</div></div></article>
       </div>
@@ -73,6 +74,7 @@
 
   <script src="./ward.js" defer></script>
   <script src="./ward-analysis.js" defer></script>
+  <script src="./ward-demographics.js" defer></script>
   <script src="./ward-stat-catalog.js" defer></script>
 </body>
 </html>

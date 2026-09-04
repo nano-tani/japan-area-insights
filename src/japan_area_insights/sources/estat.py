@@ -22,6 +22,10 @@ class EStatClient:
         with urllib.request.urlopen(request, timeout=90) as response:
             return json.loads(response.read().decode("utf-8"))
 
+    def get_stats_list(self, params: Mapping[str, Any] | None = None) -> Any:
+        """Search e-Stat table metadata, including annual statsDataId discovery."""
+        return self._get("getStatsList", dict(params or {}))
+
     def get_stats_data(self, stats_data_id: str, params: Mapping[str, Any] | None = None) -> Any:
         return self._get("getStatsData", {"statsDataId": stats_data_id, **(params or {})})
 

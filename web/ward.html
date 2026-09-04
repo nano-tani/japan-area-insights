@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./polish.css">
   <link rel="stylesheet" href="./ward.css">
+  <link rel="stylesheet" href="./explore.css">
 </head>
 <body>
   <header class="site-header">
@@ -23,31 +24,41 @@
     <div class="ward-breadcrumb"><a href="./">東京23区</a><span>/</span><span id="ward-breadcrumb-name">区詳細</span></div>
 
     <section id="ward-hero" class="ward-hero" aria-live="polite"><div class="data-missing">区データを読み込み中です。</div></section>
+    <div id="ward-feature-strip" class="ward-feature-strip" aria-label="この区の特徴"></div>
 
-    <section class="ward-section" aria-labelledby="ward-overview-title">
+    <nav class="ward-local-nav" aria-label="区詳細の目次">
+      <a href="#ward-overview">概要</a>
+      <a href="#ward-map">250m地図</a>
+      <a href="#ward-trends">価格・人口</a>
+      <a href="#ward-life">生活・交通</a>
+      <a href="#ward-analysis">詳細分析</a>
+      <a href="#ward-sources">出典</a>
+    </nav>
+
+    <section id="ward-overview" class="ward-section" aria-labelledby="ward-overview-title">
       <div class="section-heading"><div><p class="section-kicker">OVERVIEW</p><h2 id="ward-overview-title">この区を数字で見る</h2></div><p class="section-note">総合点だけでなく、元データの規模と変化も確認できます。</p></div>
       <div id="ward-key-stats" class="key-stat-grid"></div><div id="ward-score-panel" class="ward-score-panel"></div>
     </section>
 
-    <section class="ward-section" aria-labelledby="mesh-map-title">
+    <section id="ward-map" class="ward-section" aria-labelledby="mesh-map-title">
       <div class="section-heading map-heading"><div><p class="section-kicker">250M MESH</p><h2 id="mesh-map-title">区の中の将来人口を見る</h2></div><p class="section-note">区平均では見えない差を、約250mメッシュで確認します。メッシュ自体には総合点を付けません。</p></div>
       <div class="mesh-toolbar"><label><span>表示レイヤー</span><select id="mesh-layer" class="metric-select"><option value="population_2025">2025年 推計人口</option><option value="population_2045">2045年 推計人口</option><option value="retention_2045">2045年 / 2025年 人口維持率</option></select></label><div class="mesh-legend" aria-label="凡例"><span>低</span><i></i><i></i><i></i><i></i><i></i><span>高</span></div></div>
       <div class="mesh-layout"><div id="mesh-map" class="mesh-map"><div class="data-missing">メッシュデータを読み込み中です。</div></div><aside id="mesh-detail" class="mesh-detail"><p class="section-kicker">MESH DETAIL</p><h3>メッシュを選択</h3><p>地図上のセルを選ぶと、その場所の2025年・2045年推計人口を表示します。</p></aside></div>
       <p class="map-note">この図は250mメッシュの相対配置を表示するデータマップです。道路・建物などの一般地図を重ねず、公的データそのものの分布を優先しています。白い点は区内の駅です。</p>
     </section>
 
-    <section class="ward-section" aria-labelledby="ward-trends-title">
+    <section id="ward-trends" class="ward-section" aria-labelledby="ward-trends-title">
       <div class="section-heading"><div><p class="section-kicker">TRENDS</p><h2 id="ward-trends-title">価格・人口の推移</h2></div></div>
       <div class="trend-grid"><article class="trend-card"><h3>地価</h3><div id="ward-price-trend"></div></article><article class="trend-card"><h3>人口</h3><div id="ward-population-trend"></div></article><article class="trend-card"><h3>将来人口</h3><div id="ward-future-trend"></div></article></div>
     </section>
 
-    <section class="ward-section" aria-labelledby="ward-life-title">
+    <section id="ward-life" class="ward-section" aria-labelledby="ward-life-title">
       <div class="section-heading"><div><p class="section-kicker">LIFE & ACCESS</p><h2 id="ward-life-title">生活・交通</h2></div></div>
       <div class="compare-grid"><article class="compare-card"><h3>生活利便施設</h3><div id="ward-facilities"></div></article><article class="compare-card"><h3>交通</h3><div id="ward-transport"></div></article></div>
       <div class="nearby-stations-block"><div class="section-heading compact-heading"><div><h3>区内の主な駅</h3></div><a class="text-link" href="./stations.html">駅エリア比較を見る →</a></div><div id="ward-stations" class="station-chip-list"></div></div>
     </section>
 
-    <section class="ward-section" aria-labelledby="ward-analysis-title">
+    <section id="ward-analysis" class="ward-section" aria-labelledby="ward-analysis-title">
       <div class="section-heading"><div><p class="section-kicker">DEEP ANALYSIS</p><h2 id="ward-analysis-title">街を多角的に分析する</h2></div><p class="section-note">総合100点とは別に、不動産市場・人口移動・人口構成・経済/財政・都市/防災を原数値で確認します。防災情報は総合点に含めません。</p></div>
       <div class="analysis-grid">
         <article class="analysis-card"><div class="analysis-card-head"><span>MARKET</span><h3>不動産市場の中身</h3></div><div id="analysis-market"></div></article>
@@ -60,8 +71,8 @@
       <p id="analysis-note" class="map-note">詳細分析データはコアデータと別周期で更新されます。指標ごとに原典年度・サンプル数・信頼度を表示します。</p>
     </section>
 
-    <section class="ward-section" aria-labelledby="ward-sources-title">
-      <div class="section-heading"><div><p class="section-kicker">SOURCES</p><h2 id="ward-sources-title">データ出典</h2></div></div><div id="ward-sources" class="source-list"></div>
+    <section id="ward-sources" class="ward-section" aria-labelledby="ward-sources-title">
+      <div class="section-heading"><div><p class="section-kicker">SOURCES</p><h2 id="ward-sources-title">データ出典</h2></div></div><div id="ward-sources-list" class="source-list"></div>
     </section>
   </main>
 
@@ -76,5 +87,6 @@
   <script src="./ward-analysis.js" defer></script>
   <script src="./ward-demographics.js" defer></script>
   <script src="./ward-stat-catalog.js" defer></script>
+  <script src="./ward-explore.js" defer></script>
 </body>
 </html>

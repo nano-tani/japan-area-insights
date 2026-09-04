@@ -45,4 +45,4 @@ def test_mobile_accessibility_fallbacks_are_documented_and_enabled():
     assert '@media (prefers-reduced-motion: reduce)' in STYLES
     assert 'iPhone Safari' in AUDIT
     assert 'Android Chrome' in AUDIT
-    assert 'スマホ改善は表示・操作性だけに限定' in AUDIT
+    assert 'スマホ改善は表示・操作性・同一ページ内の転送効率だけに限定' in AUDIT

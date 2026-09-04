@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="./explore.css">
   <link rel="stylesheet" href="./recommend.css">
   <link rel="stylesheet" href="./home-choice.css">
+  <link rel="stylesheet" href="./navigation.css?v=20260905-1">
 </head>
 <body>
   <header class="site-header">
@@ -169,6 +170,38 @@
     <p><a href="https://github.com/nano-tani/japan-area-insights" target="_blank" rel="noreferrer">計算方法・出典 →</a></p>
   </footer>
 
+  <script>
+    (() => {
+      const nav = document.querySelector(".site-nav");
+      if (!nav) return;
+
+      const links = [...nav.querySelectorAll('a[href^="#"]')];
+      const knownHashes = new Set(links.map((link) => link.getAttribute("href")));
+
+      const setActive = (hash) => {
+        const activeHash = knownHashes.has(hash) ? hash : "#recommend";
+        links.forEach((link) => {
+          if (link.getAttribute("href") === activeHash) {
+            link.setAttribute("aria-current", "page");
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
+      };
+
+      const syncFromLocation = () => setActive(window.location.hash);
+
+      nav.addEventListener("click", (event) => {
+        const link = event.target.closest('a[href^="#"]');
+        if (!link || !nav.contains(link)) return;
+        setActive(link.getAttribute("href"));
+      });
+
+      window.addEventListener("hashchange", syncFromLocation);
+      window.addEventListener("pageshow", syncFromLocation);
+      syncFromLocation();
+    })();
+  </script>
   <script src="./app.js" defer></script>
   <script src="./ward-links.js" defer></script>
   <script src="./explore.js" defer></script>

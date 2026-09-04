@@ -4,6 +4,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 STYLES = (ROOT / "web" / "styles.css").read_text(encoding="utf-8")
 AUDIT = (ROOT / "docs" / "MOBILE_UX_AUDIT.md").read_text(encoding="utf-8")
+WARD_LINKS = (ROOT / "web" / "ward-links.js").read_text(encoding="utf-8")
+STATION_QUERY = (ROOT / "web" / "station-query.js").read_text(encoding="utf-8")
 
 
 def test_mobile_controls_avoid_ios_focus_zoom_and_small_touch_targets():
@@ -29,6 +31,13 @@ def test_mobile_dense_tables_keep_context_without_forcing_full_width():
     assert 'table:has(#station-ranking-body)' in STYLES
     assert '.discover-table th:first-child' in STYLES
     assert 'position: sticky;' in STYLES
+
+
+def test_repeated_static_json_requests_are_coalesced_per_page():
+    for script in (WARD_LINKS, STATION_QUERY):
+        assert '__townScoreStaticJsonCacheInstalled' in script
+        assert 'response.clone()' in script
+        assert '/\\/data\\/.+\\.json$/' in script
 
 
 def test_mobile_accessibility_fallbacks_are_documented_and_enabled():

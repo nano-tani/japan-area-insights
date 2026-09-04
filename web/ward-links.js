@@ -19,3 +19,11 @@ document.addEventListener("keydown", (event) => {
   event.stopImmediatePropagation();
   openWardPage(target.dataset.areaId);
 }, true);
+
+if (!document.querySelector('script[data-shortlist-loader]')) {
+  const script = document.createElement("script");
+  script.src = "./shortlist.js";
+  script.async = false;
+  script.dataset.shortlistLoader = "true";
+  document.head.appendChild(script);
+}

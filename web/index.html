@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="公的データを中心に東京23区を比較する街データサイト">
-  <title>街スコア | 東京23区をデータで比較</title>
+  <meta name="description" content="公的データを中心に東京23区と駅エリアを検索・比較できる街データサイト">
+  <title>街スコア | 東京23区をデータで探す・比較する</title>
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./polish.css">
+  <link rel="stylesheet" href="./explore.css">
 </head>
 <body>
   <header class="site-header">
@@ -14,24 +15,76 @@
     <nav class="site-nav" aria-label="主要ナビゲーション">
       <a href="./" aria-current="page">区で比較</a>
       <a href="./stations.html">駅で比較</a>
+      <a href="#discover">条件から探す</a>
       <a class="nav-source" href="https://github.com/nano-tani/japan-area-insights" target="_blank" rel="noreferrer">計算方法・出典</a>
     </nav>
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero discovery-hero">
       <p class="eyebrow">TOKYO 23 WARDS / PUBLIC DATA</p>
-      <h1>日本の街を、<br>データで比べる。</h1>
-      <p class="lead">価格だけでも、人口だけでも判断しない。複数の公的データを同じ画面で比較します。</p>
-      <label class="search-box">
-        <span>エリア検索</span>
-        <input id="search" type="search" placeholder="例：港区、世田谷区" autocomplete="off">
-      </label>
+      <h1>知りたい街を、<br>すぐ見つける。</h1>
+      <p class="lead">区名・駅名だけでなく「洪水」「空き家」「所得」「将来人口」など、知りたいデータから街を探せます。</p>
+      <div class="global-search-wrap">
+        <label class="search-box global-search-box">
+          <span>街・駅・指標を検索</span>
+          <input id="global-search" type="search" placeholder="例：世田谷区、中野駅、洪水、所得、住宅" autocomplete="off" aria-controls="global-search-results" aria-expanded="false">
+        </label>
+        <div id="global-search-results" class="global-search-results" hidden></div>
+      </div>
+      <div class="search-examples" aria-label="検索例">
+        <button type="button" data-search-example="将来人口">将来人口</button>
+        <button type="button" data-search-example="洪水">洪水</button>
+        <button type="button" data-search-example="住宅">住宅</button>
+        <button type="button" data-search-example="所得">所得</button>
+        <button type="button" data-search-example="病院">医療</button>
+      </div>
       <div class="meta-row">
         <span id="area-count">対象 23区</span>
         <span id="generated-at">更新状況を確認中</span>
         <span>災害リスクは総合点に含めません</span>
       </div>
+    </section>
+
+    <section class="section theme-section" aria-labelledby="theme-title">
+      <div class="section-heading">
+        <div><p class="section-kicker">FIND BY PURPOSE</p><h2 id="theme-title">何を知りたいですか？</h2></div>
+        <p class="section-note">テーマを選ぶと、比較する指標と一覧を自動で切り替えます。</p>
+      </div>
+      <div id="theme-grid" class="theme-grid" aria-live="polite"></div>
+    </section>
+
+    <section id="discover" class="section discover-section" aria-labelledby="discover-title">
+      <div class="section-heading">
+        <div><p class="section-kicker">DISCOVER</p><h2 id="discover-title">条件から街を探す</h2></div>
+        <p class="section-note">テーマ内の指標を同じ表で比較し、必要なら複数条件で絞り込めます。</p>
+      </div>
+
+      <div class="discover-toolbar">
+        <label><span>テーマ</span><select id="explore-theme" class="metric-select"></select></label>
+        <label><span>並び順</span><select id="explore-sort" class="metric-select"></select></label>
+        <label><span>方向</span><select id="explore-order" class="metric-select"><option value="desc">高い順</option><option value="asc">低い順</option></select></label>
+      </div>
+
+      <div class="filter-builder" aria-label="条件フィルター">
+        <div class="filter-builder-head"><strong>条件を追加</strong><span>複数条件はANDで絞り込みます</span></div>
+        <div class="filter-controls">
+          <select id="filter-metric" aria-label="条件に使う指標"></select>
+          <select id="filter-operator" aria-label="比較条件"><option value="gte">以上</option><option value="lte">以下</option></select>
+          <input id="filter-value" type="number" step="any" inputmode="decimal" placeholder="値" aria-label="条件の値">
+          <button id="filter-add" class="filter-add" type="button">条件を追加</button>
+        </div>
+        <div id="active-filters" class="active-filters"></div>
+      </div>
+
+      <div class="discover-summary"><strong id="explore-result-count">23区</strong><span id="explore-note">公的データの利用可能な地域を比較</span></div>
+      <div class="table-wrap discover-table-wrap">
+        <table class="discover-table">
+          <thead id="explore-head"></thead>
+          <tbody id="explore-body"></tbody>
+        </table>
+      </div>
+      <p id="explore-empty" class="empty-state" hidden>条件に合う区がありません。条件を緩めてください。</p>
     </section>
 
     <section class="insight-strip" aria-labelledby="area-insights-title">
@@ -44,11 +97,8 @@
 
     <section class="section" aria-labelledby="ranking-title">
       <div class="section-heading">
-        <div>
-          <p class="section-kicker">RANKING</p>
-          <h2 id="ranking-title">東京23区 ランキング</h2>
-        </div>
-        <p class="section-note">対象地域内での相対評価。欠損項目を0点扱いせず、必要データが揃った場合のみ総合点を算出します。</p>
+        <div><p class="section-kicker">CORE RANKING</p><h2 id="ranking-title">総合・基本指標ランキング</h2></div>
+        <p class="section-note">従来の6項目スコアを比較します。詳細統計は上の「条件から探す」で比較できます。</p>
       </div>
       <div class="ranking-toolbar">
         <select id="ranking-metric" class="metric-select" aria-label="ランキング指標">
@@ -63,50 +113,37 @@
         <span class="ranking-caption">行を選ぶと区の詳細ページへ</span>
       </div>
       <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>順位</th><th>エリア</th><th id="ranking-score-label">評価</th><th>価格</th><th>人口</th><th>将来人口</th><th>生活</th><th>交通</th><th>信頼度</th>
-            </tr>
-          </thead>
-          <tbody id="ranking-body"></tbody>
-        </table>
+        <table><thead><tr><th>順位</th><th>エリア</th><th id="ranking-score-label">評価</th><th>価格</th><th>人口</th><th>将来人口</th><th>生活</th><th>交通</th><th>信頼度</th></tr></thead><tbody id="ranking-body"></tbody></table>
       </div>
       <p id="empty-ranking" class="empty-state" hidden>この指標のスコア用データはまだ生成されていません。</p>
     </section>
 
     <section class="section compare-section" aria-labelledby="compare-title">
       <div class="section-heading">
-        <div>
-          <p class="section-kicker">COMPARE</p>
-          <h2 id="compare-title">2地域を比較</h2>
-        </div>
-        <p class="section-note">点数だけでなく、6項目の強弱を同じ尺度で見比べます。</p>
+        <div><p class="section-kicker">COMPARE</p><h2 id="compare-title">2地域を比較</h2></div>
+        <p class="section-note">概要は6項目スコア、下のタブでは人口・住宅・経済・防災などの原数値を横並びで比較します。</p>
       </div>
       <div class="compare-controls">
-        <select id="compare-a" aria-label="比較する1つ目の地域"></select>
-        <span>VS</span>
-        <select id="compare-b" aria-label="比較する2つ目の地域"></select>
+        <select id="compare-a" aria-label="比較する1つ目の地域"></select><span>VS</span><select id="compare-b" aria-label="比較する2つ目の地域"></select>
       </div>
       <div id="compare-grid" class="compare-grid"></div>
+      <div class="compare-theme-panel">
+        <div id="compare-tabs" class="compare-tabs" role="tablist" aria-label="詳細比較テーマ"></div>
+        <div id="compare-detail-grid" class="compare-detail-grid"></div>
+      </div>
     </section>
 
     <section class="section" aria-labelledby="areas-title">
       <div class="section-heading">
-        <div>
-          <p class="section-kicker">ALL AREAS</p>
-          <h2 id="areas-title">東京23区から探す</h2>
-        </div>
-        <p class="section-note">カードでは総合点と主要3項目を先に確認できます。選択すると詳しい区ページへ移動します。</p>
+        <div><p class="section-kicker">ALL AREAS</p><h2 id="areas-title">区名から探す</h2></div>
+        <p class="section-note">区名が決まっている場合はこちら。カードから詳細ページへ移動します。</p>
       </div>
+      <label class="compact-area-search"><span>区名検索</span><input id="search" type="search" placeholder="例：港区、世田谷区" autocomplete="off"></label>
       <div id="area-grid" class="area-grid"></div>
     </section>
   </main>
 
-  <dialog id="detail-dialog" class="detail-dialog">
-    <button id="dialog-close" class="dialog-close" type="button" aria-label="閉じる">×</button>
-    <div id="detail-content"></div>
-  </dialog>
+  <dialog id="detail-dialog" class="detail-dialog"><button id="dialog-close" class="dialog-close" type="button" aria-label="閉じる">×</button><div id="detail-content"></div></dialog>
 
   <footer>
     <p>本サイトは投資助言ではありません。表示値は公的データ等を加工した相対評価であり、将来の価格・収益を保証しません。</p>
@@ -117,5 +154,6 @@
 
   <script src="./app.js" defer></script>
   <script src="./ward-links.js" defer></script>
+  <script src="./explore.js" defer></script>
 </body>
 </html>

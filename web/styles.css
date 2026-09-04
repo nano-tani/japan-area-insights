@@ -110,3 +110,178 @@ footer p { margin: 5px 0; }
   .compare-controls span { text-align: center; }
   .detail-body { padding: 28px 20px; }
 }
+
+/* Mobile UX hardening: touch, iOS form behavior, sticky navigation and dense data views. */
+@media (max-width: 700px) {
+  html { scroll-padding-top: 88px; }
+  body { -webkit-text-size-adjust: 100%; }
+
+  .site-header {
+    padding-left: max(16px, env(safe-area-inset-left)) !important;
+    padding-right: max(16px, env(safe-area-inset-right)) !important;
+  }
+
+  .site-nav {
+    width: 100%;
+    max-width: none !important;
+    justify-content: flex-start !important;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .site-nav::-webkit-scrollbar { display: none; }
+  .site-nav a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+  }
+
+  #recommend,
+  #name-search,
+  #discover,
+  .compare-section,
+  .ward-section { scroll-margin-top: 88px !important; }
+
+  /* A second sticky bar under a two-row phone header otherwise overlaps content. */
+  .ward-local-nav {
+    position: static !important;
+    top: auto !important;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .ward-local-nav::-webkit-scrollbar { display: none; }
+
+  /* Prevent iOS Safari from zooming the page when a compact control receives focus. */
+  input[type="search"],
+  input[type="number"],
+  select { font-size: 16px !important; }
+
+  .compare-controls select,
+  .discover-toolbar select,
+  .filter-controls select,
+  .filter-controls input,
+  .compact-area-search input,
+  .metric-select { min-height: 48px !important; }
+
+  .recommend-presets button,
+  .recommend-clear,
+  .shortlist-save,
+  .shortlist-compare,
+  .shortlist-clear,
+  .filter-add,
+  .station-recommend-presets button,
+  .station-recommend-card > button,
+  .dialog-close { min-height: 44px !important; }
+
+  .search-examples button,
+  .compare-tabs button,
+  .filter-chip,
+  .shortlist-chip { min-height: 40px !important; }
+
+  .recommend-slider input[type="range"],
+  .station-recommend-slider input[type="range"] {
+    min-height: 44px !important;
+    margin: 0 !important;
+  }
+
+  .recommend-slider p,
+  .recommend-unavailable,
+  .recommend-method-note,
+  .recommend-card-foot,
+  .recommend-weak,
+  .shortlist-panel-head small,
+  .shortlist-actions span,
+  .shortlist-empty,
+  .station-recommend-slider p,
+  .station-recommend-note,
+  .station-recommend-foot,
+  .station-recommend-card small { font-size: 11px !important; }
+
+  .global-search-results { max-height: min(420px, 50dvh) !important; }
+
+  .table-wrap {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+  }
+
+  /* On phones, rankings keep the selected metric plus confidence instead of requiring a wide swipe. */
+  table:has(#ranking-body),
+  table:has(#station-ranking-body) { min-width: 0 !important; }
+
+  table:has(#ranking-body) th:nth-child(n+4):not(:last-child),
+  table:has(#ranking-body) td:nth-child(n+4):not(:last-child),
+  table:has(#station-ranking-body) th:nth-child(n+4):not(:last-child),
+  table:has(#station-ranking-body) td:nth-child(n+4):not(:last-child) { display: none; }
+
+  table:has(#ranking-body) th,
+  table:has(#ranking-body) td,
+  table:has(#station-ranking-body) th,
+  table:has(#station-ranking-body) td { padding-left: 10px; padding-right: 10px; }
+
+  /* Detailed explore tables stay scrollable, but the ward name remains visible as context. */
+  .discover-table th:first-child,
+  .discover-table td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    background: var(--panel);
+    box-shadow: 1px 0 0 var(--line);
+  }
+  .discover-table th:first-child { z-index: 3; background: #fafbf9; }
+
+  .detail-dialog {
+    max-height: calc(100dvh - 16px) !important;
+    overflow: auto !important;
+    overscroll-behavior: contain;
+  }
+  .dialog-close {
+    width: 44px !important;
+    height: 44px !important;
+    touch-action: manipulation;
+  }
+
+  .mesh-map { touch-action: pan-y pinch-zoom; }
+}
+
+@media (max-width: 520px) {
+  html { scroll-padding-top: 126px; }
+  .site-header { align-items: stretch !important; gap: 6px !important; }
+  .brand { align-self: flex-start; }
+  #recommend,
+  #name-search,
+  #discover,
+  .compare-section,
+  .ward-section { scroll-margin-top: 126px !important; }
+
+  .choice-steps { margin-top: 24px !important; }
+  .choice-steps > div { padding-top: 10px !important; }
+  .choice-steps small { display: none; }
+  .meta-row { gap: 6px 14px; }
+
+  .shortlist-actions button { flex: 1 1 140px; }
+  .station-recommend-card-top,
+  .recommend-card-top { gap: 10px !important; }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .area-card:hover,
+  .insight-card:hover,
+  .recommend-card:hover,
+  .theme-card:hover,
+  .source-card:hover,
+  .hero-choice-primary:hover,
+  .hero-choice-secondary:hover { transform: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

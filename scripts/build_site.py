@@ -2,6 +2,7 @@ from pathlib import Path
 
 from japan_area_insights.analysis_export import export_analysis_data
 from japan_area_insights.db import initialize
+from japan_area_insights.explore_export import export_explore_data
 from japan_area_insights.export import export_site_data
 from japan_area_insights.mobility_export import export_commuting_flows
 from japan_area_insights.station_export import export_station_site_data
@@ -18,4 +19,5 @@ if __name__ == "__main__":
     export_ward_mesh_maps(DB_PATH, OUTPUT_DIR)
     export_analysis_data(DB_PATH, OUTPUT_DIR)
     export_commuting_flows(DB_PATH, OUTPUT_DIR)
+    export_explore_data(DB_PATH, OUTPUT_DIR)
     print(f"site data built: {OUTPUT_DIR}")

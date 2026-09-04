@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="公的データを中心に東京23区と駅エリアを検索・比較できる街データサイト">
-  <title>街スコア | 東京23区をデータで探す・比較する</title>
+  <meta name="description" content="通勤・価格・生活・将来人口・防災など、重視したい条件から東京23区で自分に合う街を探せる公的データベースの街選びサイト">
+  <title>街スコア | あなたに合う街を、公的データから探す</title>
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./polish.css">
   <link rel="stylesheet" href="./explore.css">
@@ -14,18 +14,60 @@
   <header class="site-header">
     <a class="brand" href="./">街スコア <span>BETA</span></a>
     <nav class="site-nav" aria-label="主要ナビゲーション">
-      <a href="./" aria-current="page">区で比較</a>
-      <a href="./stations.html">駅で比較</a>
-      <a href="#discover">条件から探す</a>
+      <a href="#recommend" aria-current="page">おすすめから探す</a>
+      <a href="#name-search">街・駅名から探す</a>
+      <a href="#discover">条件で比較</a>
       <a class="nav-source" href="https://github.com/nano-tani/japan-area-insights" target="_blank" rel="noreferrer">計算方法・出典</a>
     </nav>
   </header>
 
   <main>
-    <section class="hero discovery-hero">
-      <p class="eyebrow">TOKYO 23 WARDS / PUBLIC DATA</p>
-      <h1>知りたい街を、<br>すぐ見つける。</h1>
-      <p class="lead">区名・駅名だけでなく「洪水」「空き家」「所得」「将来人口」など、知りたいデータから街を探せます。</p>
+    <section class="hero discovery-hero home-choice-hero">
+      <p class="eyebrow">FIND A PLACE TO LIVE / PUBLIC DATA</p>
+      <h1>あなたに合う街を、<br>公的データから探す。</h1>
+      <p class="lead">通勤、生活、防災、価格、将来性。大切にしたいことは人それぞれです。重視する条件を選ぶと、東京23区から自分に合う候補を探せます。</p>
+      <div class="hero-choice-actions">
+        <a class="hero-choice-primary" href="#recommend">おすすめ検索をはじめる</a>
+        <a class="hero-choice-secondary" href="#name-search">候補の街・駅名から探す</a>
+      </div>
+      <div class="choice-steps" aria-label="街選びの流れ">
+        <div><span>1</span><strong>重視することを選ぶ</strong><small>価格・交通・防災などを0〜5で設定</small></div>
+        <div><span>2</span><strong>候補を見る</strong><small>あなたとの一致度が高い地域を表示</small></div>
+        <div><span>3</span><strong>弱点まで確認する</strong><small>価格・人口・住宅・災害を詳細データで確認</small></div>
+      </div>
+      <div class="meta-row">
+        <span id="area-count">対象 23区</span>
+        <span id="generated-at">更新状況を確認中</span>
+        <span>公的データ中心 / AIはスコア計算に不使用</span>
+      </div>
+    </section>
+
+    <section id="recommend" class="section recommend-section recommend-primary" aria-labelledby="recommend-title">
+      <div class="section-heading">
+        <div><p class="section-kicker">START HERE</p><h2 id="recommend-title">何を重視する？</h2></div>
+        <p class="section-note">0は「重視しない」、5は「最重要」。動かすたびに、あなた向けの候補を再計算します。</p>
+      </div>
+      <div class="recommend-shell">
+        <div class="recommend-intro"><strong>迷ったらプリセットから</strong><span>あとから自由に調整できます</span></div>
+        <div id="recommend-presets" class="recommend-presets" aria-label="おすすめ設定プリセット"></div>
+        <div id="recommend-sliders" class="recommend-sliders" aria-live="polite"><div class="recommend-empty">おすすめ検索を準備中です。</div></div>
+        <div class="recommend-control-foot">
+          <button id="recommend-clear" class="recommend-clear" type="button">すべて重視しない</button>
+          <p id="recommend-data-note">データがない条件は推測せず、利用できる公的データだけで計算します。</p>
+        </div>
+        <div class="recommend-result-block">
+          <div class="recommend-result-heading"><div><span class="recommend-result-kicker">YOUR MATCHES</span><h3>あなた向けの候補</h3></div><p id="recommend-status">好みを計算中</p></div>
+          <div id="recommend-results" class="recommend-results" aria-live="polite"></div>
+          <p class="recommend-method-note">「一致度」はCore Scoreとは別です。選択した各条件について東京23区内の相対位置を0〜100に換算し、指定した重要度で加重します。価格の手頃さは価格が低いほど、防災は人口曝露率が低いほど一致度が高くなります。欠測値は推定しません。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="name-search" class="section name-search-section" aria-labelledby="name-search-title">
+      <div class="section-heading">
+        <div><p class="section-kicker">ALREADY HAVE A PLACE IN MIND?</p><h2 id="name-search-title">候補が決まっているなら</h2></div>
+        <p class="section-note">区名・駅名のほか、「洪水」「所得」「住宅」など知りたい指標からも探せます。</p>
+      </div>
       <div class="global-search-wrap">
         <label class="search-box global-search-box">
           <span>街・駅・指標を検索</span>
@@ -40,59 +82,27 @@
         <button type="button" data-search-example="所得">所得</button>
         <button type="button" data-search-example="病院">医療</button>
       </div>
-      <a class="recommend-shortcut" href="#recommend">自分の好みからおすすめを探す →</a>
-      <div class="meta-row">
-        <span id="area-count">対象 23区</span>
-        <span id="generated-at">更新状況を確認中</span>
-        <span>災害リスクは総合点に含めません</span>
-      </div>
+      <div class="name-search-links"><a href="./stations.html">駅から探す →</a><a href="#areas-title">23区一覧から探す →</a></div>
     </section>
 
     <section class="section theme-section" aria-labelledby="theme-title">
       <div class="section-heading">
-        <div><p class="section-kicker">FIND BY PURPOSE</p><h2 id="theme-title">何を知りたいですか？</h2></div>
-        <p class="section-note">テーマを選ぶと、比較する指標と一覧を自動で切り替えます。</p>
+        <div><p class="section-kicker">FIND BY PURPOSE</p><h2 id="theme-title">気になるテーマから見る</h2></div>
+        <p class="section-note">価格・人口・住宅・経済・生活・交通・都市・防災。同じテーマで23区を比較できます。</p>
       </div>
       <div id="theme-grid" class="theme-grid" aria-live="polite"></div>
     </section>
 
-    <section id="recommend" class="section recommend-section" aria-labelledby="recommend-title">
-      <div class="section-heading">
-        <div><p class="section-kicker">RECOMMEND</p><h2 id="recommend-title">おすすめ検索</h2></div>
-        <p class="section-note">「何を重視するか」を0〜5で動かすと、あなたの好みに近い地域を東京23区から探します。</p>
-      </div>
-      <div class="recommend-shell">
-        <div id="recommend-presets" class="recommend-presets" aria-label="おすすめ設定プリセット"></div>
-        <div id="recommend-sliders" class="recommend-sliders" aria-live="polite">
-          <div class="recommend-empty">おすすめ検索を準備中です。</div>
-        </div>
-        <div class="recommend-control-foot">
-          <button id="recommend-clear" class="recommend-clear" type="button">すべて重視しない</button>
-          <p id="recommend-data-note">0は「重視しない」、5は「最重要」です。スライダーを動かすたびに結果を再計算します。</p>
-        </div>
-        <div class="recommend-result-block">
-          <div class="recommend-result-heading">
-            <h3>あなた向けの地域</h3>
-            <p id="recommend-status">好みを計算中</p>
-          </div>
-          <div id="recommend-results" class="recommend-results" aria-live="polite"></div>
-          <p class="recommend-method-note">「一致度」はCore Scoreではありません。選択した各項目について東京23区内の相対位置を0〜100に換算し、あなたが指定した重要度で加重して計算します。価格の手頃さは価格が低いほど、防災は人口曝露率が低いほど一致度が高くなります。データが欠ける項目は推定せず、その地域の一致度を減点します。</p>
-        </div>
-      </div>
-    </section>
-
     <section id="discover" class="section discover-section" aria-labelledby="discover-title">
       <div class="section-heading">
-        <div><p class="section-kicker">DISCOVER</p><h2 id="discover-title">条件から街を探す</h2></div>
-        <p class="section-note">テーマ内の指標を同じ表で比較し、必要なら複数条件で絞り込めます。</p>
+        <div><p class="section-kicker">NARROW DOWN</p><h2 id="discover-title">条件を決めて絞り込む</h2></div>
+        <p class="section-note">「将来人口100%以上」「洪水曝露20%以下」のように、具体的な条件を重ねて候補を絞れます。</p>
       </div>
-
       <div class="discover-toolbar">
         <label><span>テーマ</span><select id="explore-theme" class="metric-select"></select></label>
         <label><span>並び順</span><select id="explore-sort" class="metric-select"></select></label>
         <label><span>方向</span><select id="explore-order" class="metric-select"><option value="desc">高い順</option><option value="asc">低い順</option></select></label>
       </div>
-
       <div class="filter-builder" aria-label="条件フィルター">
         <div class="filter-builder-head"><strong>条件を追加</strong><span>複数条件はANDで絞り込みます</span></div>
         <div class="filter-controls">
@@ -103,67 +113,45 @@
         </div>
         <div id="active-filters" class="active-filters"></div>
       </div>
-
       <div class="discover-summary"><strong id="explore-result-count">23区</strong><span id="explore-note">公的データの利用可能な地域を比較</span></div>
-      <div class="table-wrap discover-table-wrap">
-        <table class="discover-table">
-          <thead id="explore-head"></thead>
-          <tbody id="explore-body"></tbody>
-        </table>
-      </div>
+      <div class="table-wrap discover-table-wrap"><table class="discover-table"><thead id="explore-head"></thead><tbody id="explore-body"></tbody></table></div>
       <p id="explore-empty" class="empty-state" hidden>条件に合う区がありません。条件を緩めてください。</p>
     </section>
 
-    <section class="insight-strip" aria-labelledby="area-insights-title">
-      <div class="insight-heading">
-        <h2 id="area-insights-title">まず見るなら</h2>
-        <p>現在の公開データから、特徴の異なる上位エリアを3つ表示します。</p>
+    <section class="section compare-section" aria-labelledby="compare-title">
+      <div class="section-heading">
+        <div><p class="section-kicker">COMPARE SHORTLIST</p><h2 id="compare-title">候補を2地域まで絞ったら</h2></div>
+        <p class="section-note">人口・住宅・経済・生活・都市・防災を横並びで比較し、違いを確認できます。</p>
       </div>
+      <div class="compare-controls"><select id="compare-a" aria-label="比較する1つ目の地域"></select><span>VS</span><select id="compare-b" aria-label="比較する2つ目の地域"></select></div>
+      <div id="compare-grid" class="compare-grid"></div>
+      <div class="compare-theme-panel"><div id="compare-tabs" class="compare-tabs" role="tablist" aria-label="詳細比較テーマ"></div><div id="compare-detail-grid" class="compare-detail-grid"></div></div>
+    </section>
+
+    <section class="insight-strip" aria-labelledby="area-insights-title">
+      <div class="insight-heading"><h2 id="area-insights-title">候補を広げたいなら</h2><p>現在の公開データから、特徴の異なる地域を3つ表示します。</p></div>
       <div id="area-insights" class="insight-grid" aria-live="polite"></div>
     </section>
 
     <section class="section" aria-labelledby="ranking-title">
       <div class="section-heading">
-        <div><p class="section-kicker">CORE RANKING</p><h2 id="ranking-title">総合・基本指標ランキング</h2></div>
-        <p class="section-note">従来の6項目スコアを比較します。詳細統計は上の「条件から探す」で比較できます。</p>
+        <div><p class="section-kicker">REFERENCE RANKING</p><h2 id="ranking-title">基本指標ランキング</h2></div>
+        <p class="section-note">ランキングは参考情報です。街選びでは「おすすめ検索」と詳細データを合わせて確認してください。</p>
       </div>
       <div class="ranking-toolbar">
         <select id="ranking-metric" class="metric-select" aria-label="ランキング指標">
-          <option value="total_score">総合評価</option>
-          <option value="price_score">価格動向</option>
-          <option value="population_score">人口動向</option>
-          <option value="future_population_score">将来人口</option>
-          <option value="convenience_score">生活利便性</option>
-          <option value="transport_score">交通利便性</option>
-          <option value="transaction_score">取引活性度</option>
+          <option value="total_score">総合評価</option><option value="price_score">価格動向</option><option value="population_score">人口動向</option><option value="future_population_score">将来人口</option><option value="convenience_score">生活利便性</option><option value="transport_score">交通利便性</option><option value="transaction_score">取引活性度</option>
         </select>
         <span class="ranking-caption">行を選ぶと区の詳細ページへ</span>
       </div>
-      <div class="table-wrap">
-        <table><thead><tr><th>順位</th><th>エリア</th><th id="ranking-score-label">評価</th><th>価格</th><th>人口</th><th>将来人口</th><th>生活</th><th>交通</th><th>信頼度</th></tr></thead><tbody id="ranking-body"></tbody></table>
-      </div>
+      <div class="table-wrap"><table><thead><tr><th>順位</th><th>エリア</th><th id="ranking-score-label">評価</th><th>価格</th><th>人口</th><th>将来人口</th><th>生活</th><th>交通</th><th>信頼度</th></tr></thead><tbody id="ranking-body"></tbody></table></div>
       <p id="empty-ranking" class="empty-state" hidden>この指標のスコア用データはまだ生成されていません。</p>
-    </section>
-
-    <section class="section compare-section" aria-labelledby="compare-title">
-      <div class="section-heading">
-        <div><p class="section-kicker">COMPARE</p><h2 id="compare-title">2地域を比較</h2></div>
-        <p class="section-note">概要は6項目スコア、下のタブでは人口・住宅・経済・防災などの原数値を横並びで比較します。</p>
-      </div>
-      <div class="compare-controls">
-        <select id="compare-a" aria-label="比較する1つ目の地域"></select><span>VS</span><select id="compare-b" aria-label="比較する2つ目の地域"></select>
-      </div>
-      <div id="compare-grid" class="compare-grid"></div>
-      <div class="compare-theme-panel">
-        <div id="compare-tabs" class="compare-tabs" role="tablist" aria-label="詳細比較テーマ"></div>
-        <div id="compare-detail-grid" class="compare-detail-grid"></div>
-      </div>
     </section>
 
     <section class="section" aria-labelledby="areas-title">
       <div class="section-heading">
-        <div><p class="section-kicker">ALL AREAS</p><h2 id="areas-title">区名から探す</h2></div>
-        <p class="section-note">区名が決まっている場合はこちら。カードから詳細ページへ移動します。</p>
+        <div><p class="section-kicker">ALL AREAS</p><h2 id="areas-title">23区一覧から探す</h2></div>
+        <p class="section-note">候補の区が決まっている場合は、ここから詳細ページへ進めます。</p>
       </div>
       <label class="compact-area-search"><span>区名検索</span><input id="search" type="search" placeholder="例：港区、世田谷区" autocomplete="off"></label>
       <div id="area-grid" class="area-grid"></div>
@@ -173,8 +161,8 @@
   <dialog id="detail-dialog" class="detail-dialog"><button id="dialog-close" class="dialog-close" type="button" aria-label="閉じる">×</button><div id="detail-content"></div></dialog>
 
   <footer>
-    <p>本サイトは投資助言ではありません。表示値は公的データ等を加工した相対評価であり、将来の価格・収益を保証しません。</p>
-    <p>AIは説明文の生成にのみ使用し、スコア計算には使用しません。</p>
+    <p>本サイトは、住む場所を比較・検討するための参考情報を提供するもので、特定地域への居住・購入・投資を推奨するものではありません。</p>
+    <p>表示値は公的データ等を加工した相対評価です。AIは説明文の生成にのみ使用し、スコア計算には使用しません。</p>
     <p>このサービスは、国土交通省の不動産情報ライブラリのAPI機能を使用していますが、提供情報の最新性、正確性、完全性等が保証されたものではありません</p>
     <p>このサービスは、政府統計総合窓口(e-Stat)のAPI機能を使用していますが、サービスの内容は国によって保証されたものではありません。</p>
   </footer>

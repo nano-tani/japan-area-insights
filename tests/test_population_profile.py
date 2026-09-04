@@ -28,6 +28,14 @@ def test_population_profile_uses_same_period_ssds_a_values(tmp_path: Path):
         conn.execute("INSERT INTO areas VALUES ('13101','13','13101','東京都','千代田区',NULL,NULL)")
         conn.execute("INSERT INTO geo_units(geo_id,geo_type,canonical_code,name,primary_area_id,prefecture_code,definition_version,is_active) VALUES ('ward:13101','ward','13101','千代田区','13101','13','ward-v1',1)")
         ensure_analysis_schema(conn)
+        conn.execute(
+            """
+            INSERT OR IGNORE INTO dataset_catalog(
+                dataset_key,provider,api_id,category,title,source_vintage,
+                granularity,refresh_mode,enabled,notes
+            ) VALUES ('estat_ssds_full_a','政府統計の総合窓口 e-Stat','0000020101','population','社会・人口統計体系 A','2025年度','municipality','extended',1,'test fixture')
+            """
+        )
         source_id = conn.execute("INSERT INTO data_sources(source_name,dataset_id,source_url,fetched_at) VALUES ('e-Stat','A','https://example.test','2026-09-01')").lastrowid
         for key, label, value in (
             ('ssds.a.a1','総人口',1000),

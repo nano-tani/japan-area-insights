@@ -98,6 +98,33 @@
     target.innerHTML = `${latest.map(metricRow).join("")}${sourceRows ? `<div class="context-box"><strong>標高データソース構成</strong>${sourceRows}</div>` : ""}<div class="context-box"><strong>出典：国土地理院</strong><span>${note?.note || "250mメッシュ中心点の標高です。"}</span></div>`;
   }
 
+  function clampPercent(value) {
+    const number = Number(value);
+    if (!Number.isFinite(number)) return null;
+    return Math.max(0, Math.min(100, number));
+  }
+
+  function exposureGauge(value, isHazard) {
+    const percent = clampPercent(value);
+    const text = percent === null ? "—" : `${formatNumber(value, 1)}%`;
+    const dash = percent === null ? 0 : percent;
+    return `<div class="exposure-gauge${isHazard ? " is-hazard" : ""}" aria-label="${text}">
+      <svg viewBox="0 0 120 66" role="img" aria-hidden="true">
+        <path class="exposure-gauge-track" pathLength="100" d="M12 56 A48 48 0 0 1 108 56"></path>
+        <path class="exposure-gauge-value" pathLength="100" stroke-dasharray="${dash} 100" d="M12 56 A48 48 0 0 1 108 56"></path>
+      </svg>
+      <strong>${text}</strong>
+    </div>`;
+  }
+
+  function renderExposureBandDetails(detailRows) {
+    if (!detailRows.length) return "";
+    return `<details class="exposure-details">
+      <summary>内訳を見る <span>${detailRows.length}項目</span></summary>
+      <div class="exposure-detail-list">${detailRows.join("")}</div>
+    </details>`;
+  }
+
   function renderExposures(rows, bands) {
     const target = $("#analysis-exposures");
     if (!target) return;
@@ -112,13 +139,24 @@
       if (!severityByLayer.has(band.layer_key)) severityByLayer.set(band.layer_key, []);
       severityByLayer.get(band.layer_key).push(band);
     }
-    target.innerHTML = latest.map((row) => {
+
+    const tiles = latest.map((row) => {
       const isHazard = row.category === "hazard";
       const primary = isHazard ? row.population_share : row.mesh_share;
-      const primaryLabel = isHazard ? "2025人口曝露" : "250mメッシュ対象率";
-      const detailRows = (severityByLayer.get(row.layer_key) || []).map((band) => `<div class="analysis-metric-row exposure-band-row"><div><span>${band.band_label}</span><small>${formatNumber(band.exposed_population, 0)}人 / ${band.exposed_mesh_count}メッシュ</small></div><div class="analysis-value"><strong>${band.population_share === null ? "—" : `${formatNumber(band.population_share, 1)}%`}</strong></div></div>`).join("");
-      return `<div class="exposure-row"><div class="exposure-title"><span>${categoryLabels[row.category] || "空間情報"}</span><strong>${row.title || row.layer_key}</strong><small>${row.source_vintage || ""}</small></div><div class="exposure-value"><strong>${primary === null || primary === undefined ? "—" : `${formatNumber(primary, 1)}%`}</strong><span>${primaryLabel}</span></div></div>${detailRows}`;
+      const detailRows = (severityByLayer.get(row.layer_key) || []).map((band) => `<div class="exposure-detail-row"><div><span>${band.band_label}</span><small>${formatNumber(band.exposed_population, 0)}人 / ${band.exposed_mesh_count}メッシュ</small></div><strong>${band.population_share === null ? "—" : `${formatNumber(band.population_share, 1)}%`}</strong></div>`);
+      return `<article class="exposure-tile${isHazard ? " is-hazard" : ""}">
+        <div class="exposure-tile-head"><span>${categoryLabels[row.category] || "空間情報"}</span><small>${row.source_vintage || ""}</small></div>
+        <h4>${row.title || row.layer_key}</h4>
+        ${exposureGauge(primary, isHazard)}
+        <div class="exposure-tile-foot"><span>${isHazard ? "人口曝露率" : "対象率"}</span>${isHazard ? "<small>低いほど曝露人口が少ない</small>" : ""}</div>
+        ${renderExposureBandDetails(detailRows)}
+      </article>`;
     }).join("");
+
+    target.innerHTML = `<div class="exposure-guide">
+      <span><strong>都市計画・生活圏</strong> 250mメッシュ対象率</span>
+      <span><strong>防災</strong> 2025人口曝露率（低いほど曝露人口が少ない）</span>
+    </div><div class="exposure-grid">${tiles}</div>`;
   }
 
   function renderAll(payload) {

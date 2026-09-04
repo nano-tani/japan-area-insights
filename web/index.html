@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./polish.css">
   <link rel="stylesheet" href="./explore.css">
+  <link rel="stylesheet" href="./recommend.css">
 </head>
 <body>
   <header class="site-header">
@@ -39,6 +40,7 @@
         <button type="button" data-search-example="所得">所得</button>
         <button type="button" data-search-example="病院">医療</button>
       </div>
+      <a class="recommend-shortcut" href="#recommend">自分の好みからおすすめを探す →</a>
       <div class="meta-row">
         <span id="area-count">対象 23区</span>
         <span id="generated-at">更新状況を確認中</span>
@@ -52,6 +54,31 @@
         <p class="section-note">テーマを選ぶと、比較する指標と一覧を自動で切り替えます。</p>
       </div>
       <div id="theme-grid" class="theme-grid" aria-live="polite"></div>
+    </section>
+
+    <section id="recommend" class="section recommend-section" aria-labelledby="recommend-title">
+      <div class="section-heading">
+        <div><p class="section-kicker">RECOMMEND</p><h2 id="recommend-title">おすすめ検索</h2></div>
+        <p class="section-note">「何を重視するか」を0〜5で動かすと、あなたの好みに近い地域を東京23区から探します。</p>
+      </div>
+      <div class="recommend-shell">
+        <div id="recommend-presets" class="recommend-presets" aria-label="おすすめ設定プリセット"></div>
+        <div id="recommend-sliders" class="recommend-sliders" aria-live="polite">
+          <div class="recommend-empty">おすすめ検索を準備中です。</div>
+        </div>
+        <div class="recommend-control-foot">
+          <button id="recommend-clear" class="recommend-clear" type="button">すべて重視しない</button>
+          <p id="recommend-data-note">0は「重視しない」、5は「最重要」です。スライダーを動かすたびに結果を再計算します。</p>
+        </div>
+        <div class="recommend-result-block">
+          <div class="recommend-result-heading">
+            <h3>あなた向けの地域</h3>
+            <p id="recommend-status">好みを計算中</p>
+          </div>
+          <div id="recommend-results" class="recommend-results" aria-live="polite"></div>
+          <p class="recommend-method-note">「一致度」はCore Scoreではありません。選択した各項目について東京23区内の相対位置を0〜100に換算し、あなたが指定した重要度で加重して計算します。価格の手頃さは価格が低いほど、防災は人口曝露率が低いほど一致度が高くなります。データが欠ける項目は推定せず、その地域の一致度を減点します。</p>
+        </div>
+      </div>
     </section>
 
     <section id="discover" class="section discover-section" aria-labelledby="discover-title">
@@ -155,5 +182,6 @@
   <script src="./app.js" defer></script>
   <script src="./ward-links.js" defer></script>
   <script src="./explore.js" defer></script>
+  <script src="./recommend.js" defer></script>
 </body>
 </html>

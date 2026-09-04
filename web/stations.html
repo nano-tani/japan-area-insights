@@ -7,6 +7,7 @@
   <title>駅エリア比較 | 街スコア</title>
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./polish.css">
+  <link rel="stylesheet" href="./station-search.css">
 </head>
 <body>
   <header class="site-header">
@@ -27,6 +28,7 @@
         <span>駅検索</span>
         <input id="station-search" type="search" placeholder="例：中野、赤羽、二子玉川" autocomplete="off">
       </label>
+      <div id="station-search-results" class="station-search-results" hidden aria-live="polite"></div>
       <div class="meta-row">
         <span id="station-count">対象駅を確認中</span>
         <span id="station-generated-at">更新状況を確認中</span>
@@ -132,6 +134,7 @@
   </footer>
 
   <script src="./stations.js" defer></script>
+  <script src="./station-search-results.js" defer></script>
   <script src="./station-query.js" defer></script>
 </body>
 </html>

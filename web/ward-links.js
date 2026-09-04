@@ -37,6 +37,27 @@ function installStaticJsonRequestCache() {
 
 installStaticJsonRequestCache();
 
+function syncPrimaryNavCurrent() {
+  const links = [...document.querySelectorAll('.site-nav a[href^="#"]')];
+  if (!links.length) return;
+
+  const currentHash = window.location.hash;
+  const activeHash = links.some((link) => link.getAttribute("href") === currentHash)
+    ? currentHash
+    : "#recommend";
+
+  links.forEach((link) => {
+    if (link.getAttribute("href") === activeHash) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+}
+
+syncPrimaryNavCurrent();
+window.addEventListener("hashchange", syncPrimaryNavCurrent);
+
 function openWardPage(areaId) {
   if (!areaId) return;
   window.location.href = `./ward.html?id=${encodeURIComponent(areaId)}`;

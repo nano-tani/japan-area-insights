@@ -39,4 +39,6 @@ def test_shared_navigation_source_is_centralized():
     assert '"index.html"' in script
     assert '"stations.html"' in script
     assert '"ward.html"' in script
-    assert "計算方法・出典 →" in script
+    assert '"station-compare.html"' in script
+    assert "trust_links_html" in script
+    assert "JAI_SITE_NAME" in (ROOT / "src" / "japan_area_insights" / "site_config.py").read_text(encoding="utf-8")

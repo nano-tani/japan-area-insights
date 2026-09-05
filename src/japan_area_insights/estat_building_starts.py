@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Callable, Mapping
+from typing import Any, Callable, Mapping, Sequence
 
 from .analysis_schema import ensure_analysis_schema, upsert_metric
 from .estat_analysis import (
@@ -27,17 +27,20 @@ STRUCTURE_LABELS = {
     "steel": "鉄骨造",
 }
 
-USE_LABELS = {
-    "residential": "居住専用",
-    "semi_residential": "居住専用準住宅",
-    "mixed_residential": "居住産業併用",
-    "office": "情報通信業用建築物",
-    "wholesale_retail": "卸売業，小売業用建築物",
-    "finance": "金融業，保険業用建築物",
-    "real_estate": "不動産業用建築物",
-    "accommodation_food": "宿泊業，飲食サービス業用建築物",
-    "education": "教育，学習支援業用建築物",
-    "medical_welfare": "医療，福祉用建築物",
+# e-Stat's 7-2 usage dimension currently prefixes categories with A-R and uses
+# full labels such as "Ａ居住専用住宅". Keep aliases for older/simplified
+# metadata so the importer survives harmless label-format changes.
+USE_LABELS: dict[str, tuple[str, ...]] = {
+    "residential": ("居住専用住宅", "居住専用"),
+    "semi_residential": ("居住専用準住宅",),
+    "mixed_residential": ("居住産業併用建築物", "居住産業併用"),
+    "office": ("情報通信業用建築物",),
+    "wholesale_retail": ("卸売業，小売業用建築物",),
+    "finance": ("金融業，保険業用建築物",),
+    "real_estate": ("不動産業用建築物",),
+    "accommodation_food": ("宿泊業，飲食サービス業用建築物",),
+    "education": ("教育，学習支援業用建築物",),
+    "medical_welfare": ("医療，福祉用建築物",),
 }
 
 
@@ -45,9 +48,28 @@ def _norm(value: Any) -> str:
     return str(value or "").replace(" ", "").replace("　", "").replace(",", "，").strip()
 
 
+def _category_label(value: Any) -> str:
+    """Normalize e-Stat category labels while preserving their semantic text."""
+    label = _norm(value)
+    if not label:
+        return label
+    first = label[0]
+    if ("A" <= first <= "Z") or ("Ａ" <= first <= "Ｚ"):
+        return label[1:]
+    return label
+
+
 def _code(mapping: Mapping[str, str], predicate: Callable[[str], bool]) -> str | None:
     for code, label in mapping.items():
         if predicate(_norm(label)):
+            return str(code)
+    return None
+
+
+def _category_code(mapping: Mapping[str, str], aliases: Sequence[str]) -> str | None:
+    wanted = {_norm(alias) for alias in aliases}
+    for code, label in mapping.items():
+        if _category_label(label) in wanted:
             return str(code)
     return None
 
@@ -65,6 +87,27 @@ def _dimension(classes: Mapping[str, Mapping[str, str]], required: tuple[str, ..
             best = (score, dim_id)
     if not best:
         raise ValueError(f"building-start dimension not found: {required}")
+    return best[1]
+
+
+def _category_dimension(
+    classes: Mapping[str, Mapping[str, str]],
+    required_alias_groups: Sequence[Sequence[str]],
+    excluded: set[str] | None = None,
+) -> str:
+    excluded = excluded or set()
+    groups = [{_norm(alias) for alias in aliases} for aliases in required_alias_groups]
+    best: tuple[int, str] | None = None
+    for dim_id, mapping in classes.items():
+        if dim_id in excluded:
+            continue
+        labels = {_category_label(value) for value in mapping.values()}
+        score = sum(bool(labels & group) for group in groups)
+        if score and (best is None or score > best[0]):
+            best = (score, dim_id)
+    if not best:
+        required = tuple(alias for group in required_alias_groups for alias in group)
+        raise ValueError(f"building-start category dimension not found: {required}")
     return best[1]
 
 
@@ -240,10 +283,14 @@ def _fetch_use(client: EStatClient, conn, area_ids: list[str], totals: dict[str,
     classes = _class_map(_meta_class_objects(meta))
     area_dim = _dimension_containing_codes(classes, area_ids)
     item_dim = _dimension(classes, ("床面積の合計",), {area_dim})
-    use_dim = _dimension(classes, ("居住専用", "居住産業併用"), {area_dim, item_dim})
+    use_dim = _category_dimension(
+        classes,
+        (USE_LABELS["residential"], USE_LABELS["mixed_residential"]),
+        {area_dim, item_dim},
+    )
     floor_item = _code(classes[item_dim], lambda label: label == "床面積の合計")
     total_use = _total_code(classes[use_dim])
-    use_codes = {slug: _code(classes[use_dim], lambda label, wanted=_norm(name): label == wanted) for slug, name in USE_LABELS.items()}
+    use_codes = {slug: _category_code(classes[use_dim], aliases) for slug, aliases in USE_LABELS.items()}
     params: dict[str, Any] = {
         _filter_name(area_dim): ",".join(area_ids),
         _filter_name(item_dim): floor_item,
@@ -278,9 +325,11 @@ def _fetch_use(client: EStatClient, conn, area_ids: list[str], totals: dict[str,
         total_row = latest.get((area_id, "total"))
         denominator = total_row[2] if total_row else (totals.get(area_id, ("", 0, 0))[2] or None)
         period = total_row[1] if total_row else totals.get(area_id, ("latest", 0, 0))[0]
+
         def amount(slug: str) -> float | None:
             row = latest.get((area_id, slug))
             return row[2] if row else None
+
         residential_parts = [amount("residential"), amount("semi_residential"), amount("mixed_residential")]
         residential = sum(value for value in residential_parts if value is not None) if any(value is not None for value in residential_parts) else None
         values = {

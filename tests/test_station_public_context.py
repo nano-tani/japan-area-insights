@@ -78,3 +78,5 @@ def test_station_page_enhancer_is_idempotent(tmp_path):
     html = page.read_text(encoding="utf-8")
     assert html.count("station-context.css") == 1
     assert html.count("station-context.js") == 1
+    assert html.count("station-decision.css") == 1
+    assert html.count("station-decision.js") == 1

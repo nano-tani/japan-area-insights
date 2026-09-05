@@ -13,6 +13,9 @@ ROOT = Path(__file__).resolve().parents[1]
     [
         ROOT / "web" / "recommend.js",
         ROOT / "web" / "station-search-results.js",
+        ROOT / "web" / "station-recommend.js",
+        ROOT / "web" / "station-shortlist.js",
+        ROOT / "web" / "station-shortlist-ui.js",
         ROOT / "web" / "station-decision.js",
         ROOT / "web" / "station-compare.js",
     ],

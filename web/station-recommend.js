@@ -114,13 +114,8 @@
     });
   }
 
-  function openStation(code) {
-    if (typeof window.openStationDetail === "function") {
-      window.openStationDetail(code);
-      return;
-    }
-    const row = document.querySelector(`#station-ranking-body [data-station-code="${CSS.escape(code)}"]`);
-    row?.click();
+  function notifyCardsRendered() {
+    document.dispatchEvent(new CustomEvent("townscore:station-cards-rendered"));
   }
 
   function renderResults() {
@@ -130,6 +125,7 @@
     if (!selectedWeightTotal()) {
       target.innerHTML = `<div class="station-recommend-empty">少なくとも1項目を「少し」以上にしてください。</div>`;
       if (status) status.textContent = "重視する項目を選んでください";
+      notifyCardsRendered();
       return;
     }
 
@@ -153,14 +149,18 @@
         <div class="station-recommend-reasons">${reasons.map((reason) => `<span>${escapeHtml(reason.label)} ${Math.round(reason.score)}</span>`).join("")}</div>
         ${weak && weak.score < 45 ? `<div class="station-recommend-caution"><strong>確認しておきたい点</strong><span>${escapeHtml(weak.label)}は相対的に弱め（${Math.round(weak.score)}）</span></div>` : ""}
         <div class="station-recommend-foot"><span>データ反映 ${Math.round(result.coverage)}%</span><span>信頼度 ${escapeHtml(station.confidence || "—")}</span></div>
-        <button type="button" data-open-station="${escapeHtml(station.station_code)}">この駅周辺を詳しく見る</button>
+        <div class="station-recommend-actions">
+          <a href="./station/${escapeHtml(station.station_code)}/">この駅周辺を詳しく見る</a>
+          <button type="button" class="station-save-inline"
+            data-station-save="${escapeHtml(station.station_code)}"
+            data-station-name="${escapeHtml(station.name)}"
+            data-station-ward="${escapeHtml(station.primary_ward_name || "")}">候補に保存</button>
+        </div>
       </article>`;
     }).join("") : `<div class="station-recommend-empty">条件に合う評価対象駅がありません。</div>`;
 
-    target.querySelectorAll("[data-open-station]").forEach((button) => {
-      button.addEventListener("click", () => openStation(button.dataset.openStation));
-    });
     if (status) status.textContent = `${results.length}駅を表示 / 総合点算出対象駅から検索`;
+    notifyCardsRendered();
   }
 
   function applyPreset(key) {
@@ -198,7 +198,7 @@
     if (document.querySelector('link[data-station-recommend-css]')) return;
     const link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = "./station-recommend.css";
+    link.href = "./station-recommend.css?v=20260905-2";
     link.dataset.stationRecommendCss = "true";
     document.head.appendChild(link);
   }

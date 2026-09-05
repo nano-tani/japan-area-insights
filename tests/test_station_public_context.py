@@ -79,4 +79,6 @@ def test_station_page_enhancer_is_idempotent(tmp_path):
     assert html.count("station-context.css") == 1
     assert html.count("station-context.js") == 1
     assert html.count("station-decision.css") == 1
+    assert html.count("station-shortlist.js") == 1
     assert html.count("station-decision.js") == 1
+    assert html.index("station-shortlist.js") < html.index("station-decision.js")

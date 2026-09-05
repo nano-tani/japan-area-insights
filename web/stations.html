@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="./polish.css">
   <link rel="stylesheet" href="./station-search.css?v=20260905-2">
   <link rel="stylesheet" href="./station-shortlist.css?v=20260905-1">
+  <link rel="stylesheet" href="./station-theme-ranking.css?v=20260905-1">
   <link rel="stylesheet" href="./navigation.css?v=20260905-4">
 </head>
 <body>
@@ -45,6 +46,18 @@
         <p>総合・将来人口・交通から、特徴の異なる駅を表示します。</p>
       </div>
       <div id="station-insights" class="insight-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="section" aria-labelledby="station-theme-title">
+      <div class="section-heading">
+        <div><p class="section-kicker">DECISION THEMES</p><h2 id="station-theme-title">総合点ではなく目的から探す</h2></div>
+        <p class="section-note">将来人口、価格、防災を分けて見てから候補を絞ります。各ページは駅1km圏の公開データだけで同じ条件を比較します。</p>
+      </div>
+      <div class="theme-index-grid">
+        <a class="theme-index-card" href="./ranking/future-population/"><span>FUTURE POPULATION</span><strong>2045年まで人口を維持しやすい駅</strong><p>駅1km圏の2045年までの将来人口を先に確認します。</p></a>
+        <a class="theme-index-card" href="./ranking/price-and-future/"><span>PRICE × FUTURE</span><strong>価格動向と将来人口を両方見る駅</strong><p>価格の動きと2045年までの人口維持を50%ずつで比較します。</p></a>
+        <a class="theme-index-card" href="./ranking/future-and-safety/"><span>FUTURE × HAZARD</span><strong>将来人口と水害・地震を一緒に見る駅</strong><p>人口維持だけでなく、取得済みの水害曝露・地震確率も確認します。</p></a>
+      </div>
     </section>
 
     <section class="section" aria-labelledby="station-ranking-title">

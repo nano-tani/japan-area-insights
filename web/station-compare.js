@@ -1,6 +1,5 @@
 (() => {
-  const STORAGE_KEY = "town-score-station-shortlist-v1";
-  const MAX_ITEMS = 3;
+  const shortlist = () => window.StationShortlist;
   const root = () => document.querySelector("#station-compare-root");
 
   const escapeHtml = (value) => String(value ?? "").replace(/[&<>'\"]/g, (char) => ({
@@ -13,28 +12,12 @@
     return response.json();
   }
 
-  function readShortlist() {
-    try {
-      const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-      return Array.isArray(parsed) ? parsed.slice(0, MAX_ITEMS) : [];
-    } catch (_) {
-      return [];
-    }
-  }
-
-  function writeShortlist(items) {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(items.slice(0, MAX_ITEMS)));
-    } catch (_) {
-      return;
-    }
-  }
-
   function selectedCodes() {
+    const maxItems = shortlist()?.MAX_ITEMS || 3;
     const query = new URLSearchParams(location.search).get("codes") || "";
     const fromQuery = query.split(",").map((value) => value.trim()).filter((value) => /^\d+$/.test(value));
-    const fallback = readShortlist().map((item) => String(item.code || "")).filter((value) => /^\d+$/.test(value));
-    return [...new Set((fromQuery.length ? fromQuery : fallback))].slice(0, MAX_ITEMS);
+    const fallback = (shortlist()?.read() || []).map((item) => String(item.code || "")).filter((value) => /^\d+$/.test(value));
+    return [...new Set(fromQuery.length ? fromQuery : fallback)].slice(0, maxItems);
   }
 
   function metric(detail, key) {
@@ -88,8 +71,7 @@
   }
 
   function removeStation(code) {
-    const shortlist = readShortlist().filter((item) => String(item.code) !== String(code));
-    writeShortlist(shortlist);
+    shortlist()?.remove(code);
     const codes = selectedCodes().filter((item) => String(item) !== String(code));
     updateUrl(codes);
     render().catch(console.error);
@@ -110,7 +92,8 @@
   }
 
   function metricCell(metricDef, detail) {
-    return `<div class="station-compare-cell station-compare-value"><strong>${escapeHtml(metricDef.value(detail))}${metricDef.value(detail) === "—" ? "" : escapeHtml(metricDef.unit || "")}</strong><small>${escapeHtml(metricDef.note || "")}</small></div>`;
+    const value = metricDef.value(detail);
+    return `<div class="station-compare-cell station-compare-value"><strong>${escapeHtml(value)}${value === "—" ? "" : escapeHtml(metricDef.unit || "")}</strong><small>${escapeHtml(metricDef.note || "")}</small></div>`;
   }
 
   function renderGrid(details) {
@@ -128,7 +111,7 @@
   }
 
   function emptyState(count) {
-    return `<div class="station-compare-empty"><h2>${count ? "比較には2駅必要です" : "比較する駅がまだありません"}</h2><p>駅詳細ページで「候補に保存」を押すと、最大3駅を横並びにできます。</p><a href="./stations.html">駅を探す</a></div>`;
+    return `<div class="station-compare-empty"><h2>${count ? "比較には2駅必要です" : "比較する駅がまだありません"}</h2><p>駅検索やおすすめ結果から「候補に保存」を押すと、最大3駅を横並びにできます。</p><a href="./stations.html">駅を探す</a></div>`;
   }
 
   async function render() {
@@ -152,9 +135,12 @@
     });
   }
 
-  document.addEventListener("DOMContentLoaded", () => render().catch((error) => {
-    console.warn("station compare unavailable", error);
-    const target = root();
-    if (target) target.innerHTML = '<div class="station-compare-empty"><h2>比較データを読み込めませんでした</h2><p>時間をおいて再読み込みしてください。</p></div>';
-  }));
+  document.addEventListener("DOMContentLoaded", () => {
+    if (!shortlist()) return;
+    render().catch((error) => {
+      console.warn("station compare unavailable", error);
+      const target = root();
+      if (target) target.innerHTML = '<div class="station-compare-empty"><h2>比較データを読み込めませんでした</h2><p>時間をおいて再読み込みしてください。</p></div>';
+    });
+  });
 })();

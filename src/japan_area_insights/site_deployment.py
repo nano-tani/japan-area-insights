@@ -5,7 +5,7 @@ from html import escape
 from pathlib import Path
 from urllib.parse import urlparse
 
-from .site_config import CUSTOM_DOMAIN, GOOGLE_SITE_VERIFICATION, SITE_URL, absolute_url
+from .site_config import CUSTOM_DOMAIN, GOOGLE_SITE_VERIFICATION, SITE_URL
 
 GOOGLE_META_RE = re.compile(
     r'\s*<meta\s+name=["\']google-site-verification["\'][^>]*>',
@@ -15,6 +15,13 @@ GOOGLE_META_RE = re.compile(
 
 def _site_parts(site_url: str):
     return urlparse(site_url.strip())
+
+
+def _absolute(site_url: str, path: str = "") -> str:
+    base = site_url.strip().rstrip("/")
+    if not path:
+        return f"{base}/"
+    return f"{base}/{path.lstrip('/')}"
 
 
 def deployment_errors(
@@ -44,11 +51,11 @@ def deployment_errors(
     sitemap = root / "sitemap.xml"
     if not sitemap.exists():
         errors.append("sitemap.xml is missing")
-    elif f"<loc>{absolute_url()}</loc>" not in sitemap.read_text(encoding="utf-8"):
+    elif f"<loc>{_absolute(site_url)}</loc>" not in sitemap.read_text(encoding="utf-8"):
         errors.append("sitemap.xml does not contain the configured site root URL")
 
     robots = root / "robots.txt"
-    expected_sitemap = f"Sitemap: {absolute_url('sitemap.xml')}"
+    expected_sitemap = f"Sitemap: {_absolute(site_url, 'sitemap.xml')}"
     if not robots.exists():
         errors.append("robots.txt is missing")
     elif expected_sitemap not in robots.read_text(encoding="utf-8"):

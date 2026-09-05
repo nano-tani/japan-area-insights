@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>保存した駅を比較 | 街スコア</title>
+  <meta name="description" content="保存した東京23区の駅候補を、将来人口・暮らし・交通・不動産・防災データで横並び比較します。">
+  <meta name="robots" content="noindex,follow">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./polish.css">
+  <link rel="stylesheet" href="./navigation.css?v=20260905-5">
+  <link rel="stylesheet" href="./station-page.css?v=20260905-1">
+  <link rel="stylesheet" href="./station-decision.css?v=20260905-1">
+  <script src="./station-compare.js?v=20260905-1" defer></script>
+</head>
+<body class="station-page station-compare-page">
+  <header class="site-header">
+    <a class="brand" href="./">街スコア <span>BETA</span></a>
+    <nav class="site-nav" aria-label="主要ナビゲーション">
+      <a href="./#recommend">おすすめから探す</a>
+      <a href="./stations.html" aria-current="page">街・駅名から探す</a>
+      <a href="./#discover">条件で探す</a>
+    </nav>
+  </header>
+  <main>
+    <nav class="station-breadcrumb" aria-label="パンくず"><a href="./">街スコア</a><span>›</span><a href="./stations.html">駅から探す</a><span>›</span><strong>保存した駅を比較</strong></nav>
+    <section class="station-compare-hero">
+      <div>
+        <p class="eyebrow">COMPARE SAVED STATIONS</p>
+        <h1>保存した駅を比較</h1>
+        <p>2〜3駅を、同じ公的データ項目で横並びにします。数値の高低だけで優劣を決めず、自分に必要な条件を確認するための比較です。</p>
+      </div>
+      <a href="./stations.html">候補を選び直す →</a>
+    </section>
+    <section id="station-compare-root" class="station-compare-shell" aria-live="polite">
+      <div class="station-compare-empty"><p>比較データを読み込んでいます。</p></div>
+    </section>
+  </main>
+  <footer>
+    <p><strong>広告について：</strong>本サイトではアフィリエイト広告を利用する場合があります。評価や比較結果は広告報酬の有無にかかわらず、公的データ等に基づきます。</p>
+    <p>本サイトは住む場所を比較・検討するための参考情報で、特定地域への居住・購入・投資を推奨するものではありません。</p>
+    <p><a href="https://github.com/nano-tani/japan-area-insights" target="_blank" rel="noreferrer">計算方法・出典 →</a></p>
+  </footer>
+</body>
+</html>

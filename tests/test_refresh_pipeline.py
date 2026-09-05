@@ -29,6 +29,20 @@ def test_refresh_workflow_is_split_into_resumable_phases():
     assert "refresh-db-spatial-${{ github.run_id }}" in WORKFLOW
 
 
+def test_refresh_workflow_can_resume_from_a_previous_run_artifact_on_main():
+    assert "resume_from_run_id" in WORKFLOW
+    assert "resume_from_phase" in WORKFLOW
+    assert "actions/github-script@v7" in WORKFLOW
+    assert "listWorkflowRunArtifacts" in WORKFLOW
+    assert "listJobsForWorkflowRun" in WORKFLOW
+    assert "actions: read" in WORKFLOW
+    assert "run-id: ${{ steps.resolve_resume.outputs.source_run_id }}" in WORKFLOW
+    assert "resume requires scope=all" in WORKFLOW
+    assert "source code ${run.head_sha || \"unknown\"} will not be checked out" in WORKFLOW
+    assert "resume_phase == 'station'" in WORKFLOW
+    assert "ref: ${{ github.sha }}" in WORKFLOW
+
+
 def test_refresh_workflow_reuses_validated_db_and_defaults_to_incremental_automation():
     assert "actions/cache/restore@v4" in WORKFLOW
     assert "actions/cache/save@v4" in WORKFLOW

@@ -3,11 +3,13 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
+from japan_area_insights.site_config import DEFAULT_SITE_NAME, SITE_NAME
+from japan_area_insights.site_trust_links import trust_links_html
+
 ROOT = Path(__file__).resolve().parents[1]
 WEB = ROOT / "web"
 
 NAV_CSS = '<link rel="stylesheet" href="./navigation.css?v=20260905-5">'
-SOURCE_LINK = '<p><a href="https://github.com/nano-tani/japan-area-insights" target="_blank" rel="noreferrer">計算方法・出典 →</a></p>'
 
 NAV_ITEMS = (
     ("recommend", "おすすめから探す"),
@@ -40,11 +42,24 @@ PAGES = {
             "discover": "./#discover",
         },
     },
+    "station-compare.html": {
+        "active": "search",
+        "hrefs": {
+            "recommend": "./#recommend",
+            "search": "./stations.html",
+            "discover": "./#discover",
+        },
+    },
 }
 
 NAV_RE = re.compile(r'<nav class="site-nav"[^>]*>.*?</nav>', re.DOTALL)
 NAV_CSS_RE = re.compile(r'\s*<link rel="stylesheet" href="\./navigation\.css[^>]*>')
 FOOTER_RE = re.compile(r'(<footer>)(.*?)(</footer>)', re.DOTALL)
+OLD_SOURCE_RE = re.compile(
+    r'\s*<p><a href="https://github\.com/nano-tani/japan-area-insights".*?</a></p>',
+    re.DOTALL,
+)
+TRUST_RE = re.compile(r'\s*<p class="site-trust-links" data-site-trust-links>.*?</p>', re.DOTALL)
 
 
 def render_nav(page: str) -> str:
@@ -57,36 +72,39 @@ def render_nav(page: str) -> str:
     return "\n".join(lines)
 
 
-def ensure_source_link(html: str) -> str:
+def ensure_trust_links(html: str) -> str:
     match = FOOTER_RE.search(html)
     if not match:
         return html
-    body = match.group(2)
-    body = re.sub(
-        r'\s*<p><a href="https://github\.com/nano-tani/japan-area-insights".*?</a></p>',
-        "",
-        body,
-        flags=re.DOTALL,
-    )
-    body = body.rstrip() + "\n    " + SOURCE_LINK + "\n  "
+    body = TRUST_RE.sub("", match.group(2))
+    body = OLD_SOURCE_RE.sub("", body)
+    body = body.rstrip() + "\n    " + trust_links_html("./") + "\n  "
     return html[: match.start()] + match.group(1) + body + match.group(3) + html[match.end() :]
 
 
 def normalize_page(path: Path) -> None:
     html = path.read_text(encoding="utf-8")
+    # A future brand switch can be performed through JAI_SITE_NAME without
+    # manually editing each static top-level page.
+    if SITE_NAME != DEFAULT_SITE_NAME:
+        html = html.replace(DEFAULT_SITE_NAME, SITE_NAME)
+
     html, replaced = NAV_RE.subn(render_nav(path.name), html, count=1)
     if replaced != 1:
         raise RuntimeError(f"primary navigation not found: {path}")
 
     html = NAV_CSS_RE.sub("", html)
     html = html.replace("</head>", f"  {NAV_CSS}\n</head>", 1)
-    html = ensure_source_link(html)
+    html = ensure_trust_links(html)
     path.write_text(html, encoding="utf-8")
 
 
 def main() -> None:
     for page in PAGES:
-        normalize_page(WEB / page)
+        path = WEB / page
+        if not path.exists():
+            continue
+        normalize_page(path)
         print(f"shared chrome applied: {page}")
 
 

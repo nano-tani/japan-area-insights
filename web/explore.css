@@ -118,7 +118,6 @@
 }
 
 @media (max-width: 680px) {
-  .site-nav a[href="#discover"] { display: none; }
   .discover-toolbar { grid-template-columns: 1fr; }
   .filter-controls { grid-template-columns: 1fr 1fr; }
   .filter-add { min-height: 44px; }

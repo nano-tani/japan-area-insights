@@ -22,6 +22,7 @@ jobs:
           node --check web/station-recommend.js
           node --check web/station-query.js
           node --check web/explore-quality.js
+          node --check web/station-context.js
       - run: python scripts/init_db.py
       - run: python scripts/seed_areas.py
       - run: python scripts/sync_geo_units.py

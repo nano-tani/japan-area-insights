@@ -21,8 +21,11 @@ def _prefix_for(path: Path, web_root: Path) -> str:
 def trust_links_html(prefix: str) -> str:
     return (
         '<p class="site-trust-links" data-site-trust-links>'
+        f'<a href="{prefix}about/">運営について</a><span> / </span>'
         f'<a href="{prefix}methodology/">計算方法</a><span> / </span>'
         f'<a href="{prefix}sources/">データ出典</a><span> / </span>'
+        f'<a href="{prefix}advertising/">広告について</a><span> / </span>'
+        f'<a href="{prefix}privacy/">プライバシー</a><span> / </span>'
         f'<a href="{GITHUB_URL}" target="_blank" rel="noreferrer">コード</a>'
         '</p>'
     )

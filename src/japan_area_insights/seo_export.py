@@ -13,8 +13,11 @@ STATIC_PATHS = (
     "ranking/future-population/",
     "ranking/price-and-future/",
     "ranking/future-and-safety/",
+    "about/",
     "methodology/",
     "sources/",
+    "advertising/",
+    "privacy/",
 )
 
 

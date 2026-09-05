@@ -1,6 +1,5 @@
 (() => {
-  const STORAGE_KEY = "town-score-station-shortlist-v1";
-  const MAX_ITEMS = 3;
+  const shortlist = () => window.StationShortlist;
 
   const escapeHtml = (value) => String(value ?? "").replace(/[&<>'\"]/g, (char) => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;",
@@ -23,57 +22,19 @@
   }
 
   function readShortlist() {
-    try {
-      const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-      if (!Array.isArray(parsed)) return [];
-      return parsed
-        .filter((item) => item && item.code && item.name)
-        .slice(0, MAX_ITEMS)
-        .map((item) => ({
-          code: String(item.code),
-          name: String(item.name),
-          ward: String(item.ward || ""),
-        }));
-    } catch (_) {
-      return [];
-    }
-  }
-
-  function writeShortlist(items) {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(items.slice(0, MAX_ITEMS)));
-    } catch (_) {
-      return;
-    }
-    document.dispatchEvent(new CustomEvent("townscore:station-shortlist", { detail: readShortlist() }));
+    return shortlist()?.read() || [];
   }
 
   function isSaved(code) {
-    return readShortlist().some((item) => item.code === String(code));
+    return shortlist()?.has(code) || false;
   }
 
   function toggleStation(station) {
-    const code = String(station.station_code || station.code || "");
-    if (!code) return;
-    const items = readShortlist();
-    const index = items.findIndex((item) => item.code === code);
-    if (index >= 0) {
-      items.splice(index, 1);
-      writeShortlist(items);
-      return;
-    }
-    if (items.length >= MAX_ITEMS) return;
-    items.push({
-      code,
-      name: String(station.name || code),
-      ward: String(station.primary_ward_name || station.ward || ""),
-    });
-    writeShortlist(items);
+    shortlist()?.toggle(station);
   }
 
   function compareUrl(items = readShortlist()) {
-    const codes = items.map((item) => item.code).filter(Boolean).slice(0, MAX_ITEMS);
-    return `../../station-compare.html?codes=${encodeURIComponent(codes.join(","))}`;
+    return shortlist()?.compareUrl("../../station-compare.html", items) || "../../station-compare.html";
   }
 
   function propertySearchUrl(name) {
@@ -96,8 +57,9 @@
   }
 
   function savedButton(station, extraClass = "") {
+    const store = shortlist();
     const saved = isSaved(station.station_code);
-    const full = readShortlist().length >= MAX_ITEMS;
+    const full = readShortlist().length >= (store?.MAX_ITEMS || 3);
     const disabled = !saved && full;
     return `<button type="button" class="station-save-button ${extraClass}${saved ? " is-saved" : ""}" data-save-station="${escapeHtml(station.station_code)}" ${disabled ? "disabled" : ""} aria-pressed="${saved ? "true" : "false"}">${saved ? "候補に保存済み" : disabled ? "候補は3駅まで" : "候補に保存"}</button>`;
   }
@@ -155,9 +117,11 @@
   function renderSavedSummary() {
     const target = document.querySelector("#station-saved-summary");
     if (!target) return;
+    const store = shortlist();
     const items = readShortlist();
+    const maxItems = store?.MAX_ITEMS || 3;
     target.innerHTML = `
-      <div class="station-saved-head"><strong>保存した候補 ${items.length} / ${MAX_ITEMS}</strong><span>この端末に保存</span></div>
+      <div class="station-saved-head"><strong>保存した候補 ${items.length} / ${maxItems}</strong><span>この端末に保存</span></div>
       <div class="station-saved-chips">
         ${items.length ? items.map((item) => `<button type="button" data-remove-station="${escapeHtml(item.code)}" aria-label="${escapeHtml(item.name)}駅を候補から外す">${escapeHtml(item.name)}駅 <span>×</span></button>`).join("") : "<span>気になる駅を保存すると、ここで比較へ進めます。</span>"}
       </div>
@@ -167,11 +131,9 @@
       </div>`;
 
     target.querySelectorAll("[data-remove-station]").forEach((button) => {
-      button.addEventListener("click", () => {
-        writeShortlist(readShortlist().filter((item) => item.code !== button.dataset.removeStation));
-      });
+      button.addEventListener("click", () => store?.remove(button.dataset.removeStation));
     });
-    target.querySelector("[data-clear-stations]")?.addEventListener("click", () => writeShortlist([]));
+    target.querySelector("[data-clear-stations]")?.addEventListener("click", () => store?.clear());
   }
 
   function renderDecisionSection(detail, indexPayload) {
@@ -204,8 +166,7 @@
         const station = String(detail.station_code) === String(code)
           ? detail
           : (indexPayload?.station_areas || []).find((row) => String(row.station_code) === String(code));
-        if (!station) return;
-        toggleStation(station);
+        if (station) toggleStation(station);
       });
     });
   }
@@ -225,7 +186,7 @@
 
   document.addEventListener("DOMContentLoaded", async () => {
     const code = stationCode();
-    if (!code) return;
+    if (!code || !shortlist()) return;
     try {
       const [detail, indexPayload] = await Promise.all([
         loadJson(`../../data/geo/station/${code}.json`),

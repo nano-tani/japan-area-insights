@@ -24,4 +24,12 @@
     line-height: 1.25;
     white-space: nowrap;
   }
+
+  /* styles.css already reserves space for the sticky header with scroll-padding-top.
+     Do not add the same offset again on the target sections. */
+  #recommend,
+  #name-search,
+  #discover {
+    scroll-margin-top: 0 !important;
+  }
 }

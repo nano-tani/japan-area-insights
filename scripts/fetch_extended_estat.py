@@ -21,19 +21,21 @@ DB_PATH = ROOT / "database" / "area_insights.db"
 
 
 def _run_source(conn, name: str, fetcher: Callable[[], int]) -> tuple[int, str | None]:
-    """Commit each independent source separately and roll back only its own failure."""
-    savepoint = "estat_" + "".join(char if char.isalnum() else "_" for char in name)
-    conn.execute(f"SAVEPOINT {savepoint}")
+    """Commit one source at a time and roll back its uncommitted writes on failure.
+
+    Several importers call ``ensure_analysis_schema()``, which uses SQLite
+    ``executescript()``. ``executescript()`` implicitly commits any active
+    transaction, so a SAVEPOINT created outside the importer can disappear
+    before the importer returns. Keep the source boundary at the connection
+    commit/rollback level instead of wrapping it in a SAVEPOINT.
+    """
     try:
         count = int(fetcher())
-        conn.execute(f"RELEASE SAVEPOINT {savepoint}")
         conn.commit()
         print(f"e-Stat source ok: {name} stored={count}")
         return count, None
     except Exception as exc:  # keep checking the remaining independent datasets
-        conn.execute(f"ROLLBACK TO SAVEPOINT {savepoint}")
-        conn.execute(f"RELEASE SAVEPOINT {savepoint}")
-        conn.commit()
+        conn.rollback()
         message = f"{type(exc).__name__}: {exc}"
         print(f"::error title=e-Stat source failed::{name}: {message}")
         return 0, message

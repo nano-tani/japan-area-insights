@@ -2,6 +2,7 @@ from pathlib import Path
 
 from japan_area_insights.legal_page_export import export_legal_pages
 from japan_area_insights.seo_export import export_seo_files
+from japan_area_insights.site_deployment import prepare_deployment_support
 from japan_area_insights.site_trust_links import apply_site_trust_links
 from japan_area_insights.station_mesh_export import export_station_mesh_maps_from_public_data
 from japan_area_insights.station_page_enhancer import enhance_station_pages
@@ -20,6 +21,7 @@ if __name__ == "__main__":
     trust_pages = export_trust_pages(OUTPUT_DIR)
     legal_pages = export_legal_pages(OUTPUT_DIR)
     trust_linked = apply_site_trust_links(ROOT / "web")
+    cname_written, google_verified = prepare_deployment_support(ROOT / "web")
     sitemap_count = export_seo_files(OUTPUT_DIR)
     print(
         "public pages built: "
@@ -33,5 +35,7 @@ if __name__ == "__main__":
         f"trust_pages={trust_pages} "
         f"legal_pages={legal_pages} "
         f"trust_linked={trust_linked} "
+        f"custom_domain={int(cname_written)} "
+        f"google_verification={int(google_verified)} "
         f"sitemap_urls={sitemap_count}"
     )

@@ -6,7 +6,8 @@ ASSETS = (
     ("station-context.css", '<link rel="stylesheet" href="../../station-context.css?v=20260905-1">', "head"),
     ("station-decision.css", '<link rel="stylesheet" href="../../station-decision.css?v=20260905-1">', "head"),
     ("station-context.js", '<script src="../../station-context.js?v=20260905-1" defer></script>', "body"),
-    ("station-decision.js", '<script src="../../station-decision.js?v=20260905-1" defer></script>', "body"),
+    ("station-shortlist.js", '<script src="../../station-shortlist.js?v=20260905-1" defer></script>', "body"),
+    ("station-decision.js", '<script src="../../station-decision.js?v=20260905-2" defer></script>', "body"),
 )
 
 

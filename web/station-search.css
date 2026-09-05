@@ -1,3 +1,11 @@
+.station-hero h1 span {
+  display: block;
+}
+
+.station-hero .lead {
+  max-width: 760px;
+}
+
 .station-search-results {
   margin-top: 16px;
   max-width: 820px;
@@ -102,6 +110,22 @@
 }
 
 @media (max-width: 520px) {
+  .station-hero {
+    padding-top: 54px;
+  }
+
+  .station-hero h1 {
+    max-width: 100%;
+    font-size: clamp(38px, 10.5vw, 46px);
+    line-height: 1.08;
+    letter-spacing: -.05em;
+  }
+
+  .station-hero .lead {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
   .station-search-results { margin-top: 14px; }
   .station-search-results-head { align-items: center; }
   .station-search-result { padding: 14px; gap: 10px; }

@@ -13,6 +13,8 @@ ROOT = Path(__file__).resolve().parents[1]
     [
         ROOT / "web" / "recommend.js",
         ROOT / "web" / "station-search-results.js",
+        ROOT / "web" / "station-decision.js",
+        ROOT / "web" / "station-compare.js",
     ],
 )
 def test_interactive_search_javascript_has_valid_syntax(path: Path):

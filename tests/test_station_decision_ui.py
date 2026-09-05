@@ -19,6 +19,18 @@ def test_station_decision_assets_cover_shortlist_nearby_and_compare():
     assert "window.StationShortlist" in compare
     assert "hazard_flood_population_share" in compare
     assert "seismic_30y_6lower_probability" in compare
+    assert "DECISION SUMMARY" in compare
+    assert "長く住みたい" in compare
+    assert "価格と将来性" in compare
     assert 'meta name="robots" content="noindex,follow"' in page
     assert page.index("station-shortlist.js") < page.index("station-compare.js")
     assert "station-decision.css" in page
+    assert "station-compare-summary.css" in page
+
+
+def test_station_search_links_to_indexable_theme_rankings():
+    page = (ROOT / "web" / "stations.html").read_text(encoding="utf-8")
+    assert "総合点ではなく目的から探す" in page
+    assert "./ranking/future-population/" in page
+    assert "./ranking/price-and-future/" in page
+    assert "./ranking/future-and-safety/" in page

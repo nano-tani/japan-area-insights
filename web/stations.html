@@ -4,26 +4,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="東京23区の駅1km圏を人口・生活・交通・価格・将来性から比較し、住む街の候補を探せる街選びページ">
-  <title>駅から住む街を探す | 街スコア</title>
+  <title>街・駅名から探す | 街スコア</title>
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./polish.css">
-  <link rel="stylesheet" href="./station-search.css">
+  <link rel="stylesheet" href="./station-search.css?v=20260905-2">
+  <link rel="stylesheet" href="./navigation.css?v=20260905-4">
 </head>
 <body>
   <header class="site-header">
     <a class="brand" href="./">街スコア <span>BETA</span></a>
     <nav class="site-nav" aria-label="主要ナビゲーション">
       <a href="./#recommend">おすすめから探す</a>
-      <a href="./stations.html" aria-current="page">駅から探す</a>
-      <a href="./#discover">条件で比較</a>
-      <a class="nav-source" href="https://github.com/nano-tani/japan-area-insights" target="_blank" rel="noreferrer">計算方法・出典</a>
+      <a href="./stations.html" aria-current="page">街・駅名から探す</a>
+      <a href="./#discover">条件で探す</a>
     </nav>
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero station-hero">
       <p class="eyebrow">FIND A PLACE BY STATION / 1KM AREA</p>
-      <h1>駅から、<br>住む街を探す。</h1>
+      <h1><span>駅から</span><span>住む街を探す</span></h1>
       <p class="lead">通勤で使いたい駅や気になる駅があるなら、その周辺1kmの人口・生活施設・交通・将来人口を比較できます。価格・取引は駅コード指定の取引データを使い、物件位置は推測しません。</p>
       <label class="search-box">
         <span>気になる駅を検索</span>
@@ -114,6 +114,7 @@
     <p>駅エリア総合点は東京23区内の駅1km圏だけを母集団とする相対評価です。区スコアと直接比較できる点数ではありません。</p>
     <p>このサービスは、国土交通省の不動産情報ライブラリのAPI機能を使用していますが、提供情報の最新性、正確性、完全性等が保証されたものではありません</p>
     <p>このサービスは、政府統計総合窓口(e-Stat)のAPI機能を使用していますが、サービスの内容は国によって保証されたものではありません。</p>
+    <p><a href="https://github.com/nano-tani/japan-area-insights" target="_blank" rel="noreferrer">計算方法・出典 →</a></p>
   </footer>
 
   <script src="./stations.js" defer></script>

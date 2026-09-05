@@ -36,6 +36,14 @@
     window.__townScoreStaticJsonCacheInstalled = true;
   }
 
+  function installStaticStationNavigation() {
+    window.openStationDetail = (stationCode) => {
+      const code = String(stationCode || "").trim();
+      if (!/^\d+$/.test(code)) return;
+      window.location.href = `./station/${encodeURIComponent(code)}/`;
+    };
+  }
+
   function applyQuery() {
     const query = new URLSearchParams(location.search).get("q") || "";
     const input = document.querySelector("#station-search");
@@ -55,6 +63,7 @@
   }
 
   installStaticJsonRequestCache();
+  installStaticStationNavigation();
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", applyQuery, { once: true });
   } else {

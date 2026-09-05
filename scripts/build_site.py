@@ -5,7 +5,9 @@ from japan_area_insights.db import initialize
 from japan_area_insights.explore_export import export_explore_data
 from japan_area_insights.export import export_site_data
 from japan_area_insights.mobility_export import export_commuting_flows
+from japan_area_insights.seo_export import export_seo_files
 from japan_area_insights.station_export import export_station_site_data
+from japan_area_insights.station_page_export import export_station_pages
 from japan_area_insights.ward_maps import export_ward_mesh_maps
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -20,4 +22,10 @@ if __name__ == "__main__":
     export_analysis_data(DB_PATH, OUTPUT_DIR)
     export_commuting_flows(DB_PATH, OUTPUT_DIR)
     export_explore_data(DB_PATH, OUTPUT_DIR)
-    print(f"site data built: {OUTPUT_DIR}")
+    station_stats = export_station_pages(OUTPUT_DIR)
+    sitemap_count = export_seo_files(OUTPUT_DIR)
+    print(
+        f"site data built: {OUTPUT_DIR}; "
+        f"station_pages={station_stats.generated_count}; "
+        f"sitemap_urls={sitemap_count}"
+    )

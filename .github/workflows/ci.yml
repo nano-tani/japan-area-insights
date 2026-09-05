@@ -20,6 +20,7 @@ jobs:
           node --check web/recommend.js
           node --check web/shortlist.js
           node --check web/station-recommend.js
+          node --check web/station-query.js
           node --check web/explore-quality.js
       - run: python scripts/init_db.py
       - run: python scripts/seed_areas.py
@@ -31,3 +32,6 @@ jobs:
           test -f web/data/areas.json
           test -f web/data/area/13101.json
           test -f web/data/area/13123.json
+          test -f web/station/index.html
+          test -f web/sitemap.xml
+          test -f web/robots.txt

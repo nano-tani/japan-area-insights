@@ -8,4 +8,7 @@ database/*.db
 database/*.sqlite
 data/raw/
 data/cache/
+web/station/
+web/sitemap.xml
+web/robots.txt
 .DS_Store

@@ -8,11 +8,13 @@ from .page_quality import station_page_quality
 from .site_config import absolute_url, station_url
 
 
-RANKING_PATHS = (
+STATIC_PATHS = (
     "ranking/",
     "ranking/future-population/",
     "ranking/price-and-future/",
     "ranking/future-and-safety/",
+    "methodology/",
+    "sources/",
 )
 
 
@@ -27,7 +29,7 @@ def export_seo_files(output_dir: str | Path) -> int:
     station_dir = data_dir / "geo" / "station"
 
     urls = [absolute_url(), absolute_url("stations.html"), absolute_url("station/")]
-    for relative in RANKING_PATHS:
+    for relative in STATIC_PATHS:
         index_file = web_root / relative / "index.html"
         if index_file.exists():
             urls.append(absolute_url(relative))

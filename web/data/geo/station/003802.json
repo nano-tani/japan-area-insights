@@ -7,7 +7,7 @@
   "latitude": 35.674275887248534,
   "longitude": 139.76059913635254,
   "radius_m": 1000,
-  "calculation_date": "2026-09-04",
+  "calculation_date": "2026-09-06",
   "price_score": 20.0,
   "population_score": 17.0,
   "future_population_score": 3.0,
@@ -38,7 +38,7 @@
       "sample_size": null,
       "source_id": null,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
     },
     "facility_childcare_count": {
       "metric_key": "facility_childcare_count",
@@ -47,7 +47,7 @@
       "sample_size": 4,
       "source_id": 148,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
     },
     "facility_childcare_per_10k": {
       "metric_key": "facility_childcare_per_10k",
@@ -56,7 +56,7 @@
       "sample_size": null,
       "source_id": 148,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
     },
     "facility_library_count": {
       "metric_key": "facility_library_count",
@@ -65,7 +65,7 @@
       "sample_size": 1,
       "source_id": 150,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
     },
     "facility_library_per_10k": {
       "metric_key": "facility_library_per_10k",
@@ -74,7 +74,7 @@
       "sample_size": null,
       "source_id": 150,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
     },
     "facility_medical_count": {
       "metric_key": "facility_medical_count",
@@ -83,7 +83,7 @@
       "sample_size": 627,
       "source_id": 149,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
     },
     "facility_medical_per_10k": {
       "metric_key": "facility_medical_per_10k",
@@ -92,7 +92,7 @@
       "sample_size": null,
       "source_id": 149,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
     },
     "facility_public_facility_count": {
       "metric_key": "facility_public_facility_count",
@@ -101,7 +101,7 @@
       "sample_size": 7,
       "source_id": 151,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
     },
     "facility_public_facility_per_10k": {
       "metric_key": "facility_public_facility_per_10k",
@@ -110,7 +110,7 @@
       "sample_size": null,
       "source_id": 151,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
     },
     "facility_school_count": {
       "metric_key": "facility_school_count",
@@ -119,7 +119,7 @@
       "sample_size": 2,
       "source_id": 147,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
     },
     "facility_school_per_10k": {
       "metric_key": "facility_school_per_10k",
@@ -128,7 +128,7 @@
       "sample_size": null,
       "source_id": 147,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
     },
     "future_population_2045": {
       "metric_key": "future_population_2045",
@@ -137,7 +137,7 @@
       "sample_size": null,
       "source_id": 146,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
     },
     "future_population_retention_2045": {
       "metric_key": "future_population_retention_2045",
@@ -146,7 +146,70 @@
       "sample_size": null,
       "source_id": 146,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+    },
+    "hazard_flood_3m_plus_population_share": {
+      "metric_key": "hazard_flood_3m_plus_population_share",
+      "period": "2025",
+      "value": 0.0,
+      "sample_size": 0,
+      "source_id": 239,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+    },
+    "hazard_flood_population_share": {
+      "metric_key": "hazard_flood_population_share",
+      "period": "2025",
+      "value": 86.408,
+      "sample_size": 13,
+      "source_id": 239,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+    },
+    "hazard_large_fill_population_share": {
+      "metric_key": "hazard_large_fill_population_share",
+      "period": "2025",
+      "value": 0.0,
+      "sample_size": 0,
+      "source_id": 233,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+    },
+    "hazard_liquefaction_population_share": {
+      "metric_key": "hazard_liquefaction_population_share",
+      "period": "2025",
+      "value": 100.0,
+      "sample_size": 27,
+      "source_id": 238,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+    },
+    "hazard_sediment_disaster_population_share": {
+      "metric_key": "hazard_sediment_disaster_population_share",
+      "period": "2025",
+      "value": 0.0,
+      "sample_size": 0,
+      "source_id": 242,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+    },
+    "hazard_storm_surge_population_share": {
+      "metric_key": "hazard_storm_surge_population_share",
+      "period": "2025",
+      "value": 84.834,
+      "sample_size": 12,
+      "source_id": 240,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+    },
+    "hazard_tsunami_population_share": {
+      "metric_key": "hazard_tsunami_population_share",
+      "period": "2025",
+      "value": 0.0,
+      "sample_size": 0,
+      "source_id": 241,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
     },
     "mesh_count": {
       "metric_key": "mesh_count",
@@ -155,7 +218,7 @@
       "sample_size": 27,
       "source_id": null,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
     },
     "nearby_line_count": {
       "metric_key": "nearby_line_count",
@@ -164,7 +227,7 @@
       "sample_size": 8,
       "source_id": 152,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
     },
     "nearby_station_count": {
       "metric_key": "nearby_station_count",
@@ -173,7 +236,7 @@
       "sample_size": 10,
       "source_id": 152,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
     },
     "population_2020": {
       "metric_key": "population_2020",
@@ -182,7 +245,7 @@
       "sample_size": null,
       "source_id": 146,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
     },
     "population_2025_projection": {
       "metric_key": "population_2025_projection",
@@ -191,7 +254,7 @@
       "sample_size": null,
       "source_id": 146,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
     },
     "population_change_2020_2025_projection": {
       "metric_key": "population_change_2020_2025_projection",
@@ -200,7 +263,7 @@
       "sample_size": null,
       "source_id": 146,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
     },
     "price_year_count": {
       "metric_key": "price_year_count",
@@ -209,7 +272,7 @@
       "sample_size": 3,
       "source_id": 153,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
     },
     "ridership_daily": {
       "metric_key": "ridership_daily",
@@ -218,7 +281,7 @@
       "sample_size": null,
       "source_id": 152,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
     },
     "ridership_per_capita": {
       "metric_key": "ridership_per_capita",
@@ -227,7 +290,124 @@
       "sample_size": null,
       "source_id": 152,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+    },
+    "seismic_30y_5lower_probability": {
+      "metric_key": "seismic_30y_5lower_probability",
+      "period": "Y2024",
+      "value": 99.916,
+      "sample_size": 27,
+      "source_id": 248,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+    },
+    "seismic_30y_5upper_probability": {
+      "metric_key": "seismic_30y_5upper_probability",
+      "period": "Y2024",
+      "value": 91.504,
+      "sample_size": 27,
+      "source_id": 248,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+    },
+    "seismic_30y_6lower_probability": {
+      "metric_key": "seismic_30y_6lower_probability",
+      "period": "Y2024",
+      "value": 45.875,
+      "sample_size": 27,
+      "source_id": 248,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+    },
+    "seismic_30y_6upper_probability": {
+      "metric_key": "seismic_30y_6upper_probability",
+      "period": "Y2024",
+      "value": 8.429,
+      "sample_size": 27,
+      "source_id": 248,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+    },
+    "seismic_arv_median": {
+      "metric_key": "seismic_arv_median",
+      "period": "Y2024",
+      "value": 1.4,
+      "sample_size": 27,
+      "source_id": 247,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+    },
+    "seismic_ground_coverage": {
+      "metric_key": "seismic_ground_coverage",
+      "period": "Y2024",
+      "value": 100.0,
+      "sample_size": 27,
+      "source_id": 247,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+    },
+    "seismic_hazard_coverage": {
+      "metric_key": "seismic_hazard_coverage",
+      "period": "Y2024",
+      "value": 100.0,
+      "sample_size": 27,
+      "source_id": 248,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+    },
+    "terrain_elevation_coverage": {
+      "metric_key": "terrain_elevation_coverage",
+      "period": "current",
+      "value": 100.0,
+      "sample_size": 27,
+      "source_id": 249,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+    },
+    "terrain_elevation_median": {
+      "metric_key": "terrain_elevation_median",
+      "period": "current",
+      "value": 3.4,
+      "sample_size": 27,
+      "source_id": 249,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+    },
+    "terrain_elevation_p10": {
+      "metric_key": "terrain_elevation_p10",
+      "period": "current",
+      "value": 2.62,
+      "sample_size": 27,
+      "source_id": 249,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+    },
+    "terrain_elevation_p90": {
+      "metric_key": "terrain_elevation_p90",
+      "period": "current",
+      "value": 4.58,
+      "sample_size": 27,
+      "source_id": 249,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+    },
+    "terrain_elevation_population_weighted_mean": {
+      "metric_key": "terrain_elevation_population_weighted_mean",
+      "period": "current",
+      "value": 3.054,
+      "sample_size": 27,
+      "source_id": 249,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+    },
+    "terrain_population_below_5m_share": {
+      "metric_key": "terrain_population_below_5m_share",
+      "period": "current",
+      "value": 95.94,
+      "sample_size": 27,
+      "source_id": 249,
+      "metric_version": "station-metrics-v0.1",
+      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
     },
     "transaction_count_5y": {
       "metric_key": "transaction_count_5y",
@@ -236,7 +416,7 @@
       "sample_size": 4,
       "source_id": 153,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
     },
     "transaction_unit_price_change": {
       "metric_key": "transaction_unit_price_change",
@@ -245,7 +425,7 @@
       "sample_size": null,
       "source_id": 153,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
     },
     "transaction_unit_price_median_latest": {
       "metric_key": "transaction_unit_price_median_latest",
@@ -254,7 +434,7 @@
       "sample_size": null,
       "source_id": 153,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
     },
     "transport_index": {
       "metric_key": "transport_index",
@@ -263,7 +443,7 @@
       "sample_size": null,
       "source_id": null,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-04T10:41:07.030181+00:00"
+      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
     }
   },
   "future_population": [
@@ -346,13 +526,67 @@
   "mesh_count": 27,
   "sources": [
     {
+      "source_id": 233,
+      "source_name": "国土交通省 不動産情報ライブラリ",
+      "dataset_id": "XKT020:令和5年",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT020",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-06T08:07:26.269374+00:00"
+    },
+    {
+      "source_id": 238,
+      "source_name": "国土交通省 不動産情報ライブラリ",
+      "dataset_id": "XKT025:国土交通省都市局",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT025",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-06T08:10:32.467337+00:00"
+    },
+    {
+      "source_id": 239,
+      "source_name": "国土交通省 不動産情報ライブラリ",
+      "dataset_id": "XKT026:令和6年度",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT026",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-06T08:33:59.155711+00:00"
+    },
+    {
+      "source_id": 240,
+      "source_name": "国土交通省 不動産情報ライブラリ",
+      "dataset_id": "XKT027:令和6年度",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT027",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-06T08:39:12.353587+00:00"
+    },
+    {
+      "source_id": 241,
+      "source_name": "国土交通省 不動産情報ライブラリ",
+      "dataset_id": "XKT028:令和6年度",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT028",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-06T08:44:20.966492+00:00"
+    },
+    {
+      "source_id": 242,
+      "source_name": "国土交通省 不動産情報ライブラリ",
+      "dataset_id": "XKT029:令和6年度",
+      "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT029",
+      "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
+      "published_at": null,
+      "fetched_at": "2026-09-06T08:45:25.486453+00:00"
+    },
+    {
       "source_id": 147,
       "source_name": "国土交通省 不動産情報ライブラリ / 国土数値情報",
       "dataset_id": "XKT006:学校（令和5年度）",
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT006",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-04T06:49:21.666985+00:00"
+      "fetched_at": "2026-09-05T10:14:00.613069+00:00"
     },
     {
       "source_id": 148,
@@ -361,7 +595,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT007",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-04T06:50:44.090558+00:00"
+      "fetched_at": "2026-09-05T10:15:39.638569+00:00"
     },
     {
       "source_id": 149,
@@ -370,7 +604,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT010",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-04T06:52:36.917709+00:00"
+      "fetched_at": "2026-09-05T10:17:48.002742+00:00"
     },
     {
       "source_id": 150,
@@ -379,7 +613,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT017",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-04T06:54:00.701562+00:00"
+      "fetched_at": "2026-09-05T10:19:13.350669+00:00"
     },
     {
       "source_id": 151,
@@ -388,7 +622,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT018",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-04T06:55:23.373340+00:00"
+      "fetched_at": "2026-09-05T10:20:46.935527+00:00"
     },
     {
       "source_id": 146,
@@ -397,7 +631,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT013",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-04T06:47:54.337949+00:00"
+      "fetched_at": "2026-09-05T10:12:24.306909+00:00"
     },
     {
       "source_id": 152,
@@ -406,7 +640,7 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XKT015",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-04T06:55:52.523242+00:00"
+      "fetched_at": "2026-09-05T10:21:23.499867+00:00"
     },
     {
       "source_id": 153,
@@ -415,7 +649,34 @@
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XIT001",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-04T07:26:00.530069+00:00"
+      "fetched_at": "2026-09-05T10:48:16.064444+00:00"
+    },
+    {
+      "source_id": 249,
+      "source_name": "国土地理院 / 地理院地図 標高値",
+      "dataset_id": "GSI:elevation",
+      "source_url": "https://maps.gsi.go.jp/development/elevation_s.html",
+      "terms_url": "https://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html",
+      "published_at": null,
+      "fetched_at": "2026-09-06T13:16:58.721225+00:00"
+    },
+    {
+      "source_id": 248,
+      "source_name": "防災科学技術研究所 J-SHIS（地震ハザードステーション） / 確率論的地震動予測地図 Y2024",
+      "dataset_id": "J-SHIS:pshm:Y2024:AVR:TTL_MTTL",
+      "source_url": "https://www.j-shis.bosai.go.jp/api-pshm-meshinfo",
+      "terms_url": "https://www.j-shis.bosai.go.jp/agreement",
+      "published_at": "Y2024",
+      "fetched_at": "2026-09-06T11:02:13.117358+00:00"
+    },
+    {
+      "source_id": 247,
+      "source_name": "防災科学技術研究所 J-SHIS（地震ハザードステーション） / 表層地盤250mメッシュ V4",
+      "dataset_id": "J-SHIS:sstrct:V4",
+      "source_url": "https://www.j-shis.bosai.go.jp/api-sstruct-meshinfo",
+      "terms_url": "https://www.j-shis.bosai.go.jp/agreement",
+      "published_at": "V4",
+      "fetched_at": "2026-09-06T08:53:35.624313+00:00"
     }
   ]
 }

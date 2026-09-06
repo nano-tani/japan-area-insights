@@ -49,6 +49,30 @@
       "notes": "250mメッシュ中心との重なりで区域曝露を集計"
     },
     {
+      "dataset_key": "estat_building_starts_structure",
+      "provider": "政府統計の総合窓口 e-Stat",
+      "api_id": "0004019380",
+      "category": "construction",
+      "title": "建築物着工統計 6-2 市区町村別・構造別",
+      "source_vintage": "2020年度以降",
+      "granularity": "municipality",
+      "refresh_mode": "extended",
+      "enabled": 1,
+      "notes": "API DBで利用可能な最新完了年度を採用。建築物の数・床面積。"
+    },
+    {
+      "dataset_key": "estat_building_starts_use",
+      "provider": "政府統計の総合窓口 e-Stat",
+      "api_id": "0004019381",
+      "category": "construction",
+      "title": "建築物着工統計 7-2 市区町村別・用途別",
+      "source_vintage": "2020年度以降",
+      "granularity": "municipality",
+      "refresh_mode": "extended",
+      "enabled": 1,
+      "notes": "API DBで利用可能な最新完了年度を採用。用途別床面積。"
+    },
+    {
       "dataset_key": "estat_ssds_culture",
       "provider": "政府統計の総合窓口 e-Stat",
       "api_id": "0000020207",
@@ -95,6 +119,30 @@
       "refresh_mode": "extended",
       "enabled": 1,
       "notes": "人口等基本集計 表44-1。男女計・市区町村粒度。"
+    },
+    {
+      "dataset_key": "estat_vital_birth_2024",
+      "provider": "政府統計の総合窓口 e-Stat",
+      "api_id": "0003412057",
+      "category": "demographics",
+      "title": "2024人口動態統計 出生",
+      "source_vintage": "2024",
+      "granularity": "municipality",
+      "refresh_mode": "extended",
+      "enabled": 1,
+      "notes": "確定数・市区町村総数"
+    },
+    {
+      "dataset_key": "estat_vital_death_2024",
+      "provider": "政府統計の総合窓口 e-Stat",
+      "api_id": "0003412064",
+      "category": "demographics",
+      "title": "2024人口動態統計 死亡",
+      "source_vintage": "2024",
+      "granularity": "municipality",
+      "refresh_mode": "extended",
+      "enabled": 1,
+      "notes": "確定数・市区町村・性年齢総数"
     },
     {
       "dataset_key": "estat_census_daynight_2020",
@@ -1614,6 +1662,171 @@
       "description": "社会・人口統計体系 Ｄ 行政基盤 / D430203"
     },
     {
+      "metric_key": "construction.accommodation_food_floor_area_share",
+      "category": "construction",
+      "label": "宿泊・飲食用着工床面積比率",
+      "unit": "%",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_building_starts_use",
+      "min_sample_size": 1,
+      "description": "全用途に占める宿泊・飲食サービス業用建築物床面積"
+    },
+    {
+      "metric_key": "construction.building_count",
+      "category": "construction",
+      "label": "着工建築物数",
+      "unit": "棟",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_building_starts_structure",
+      "min_sample_size": 1,
+      "description": "最新API完了年度の着工建築物数"
+    },
+    {
+      "metric_key": "construction.buildings_per_10k_population",
+      "category": "construction",
+      "label": "人口1万人当たり着工建築物",
+      "unit": "棟/万人",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_building_starts_structure",
+      "min_sample_size": 1,
+      "description": "着工建築物数÷最新人口×1万人"
+    },
+    {
+      "metric_key": "construction.floor_area",
+      "category": "construction",
+      "label": "着工床面積",
+      "unit": "㎡",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_building_starts_structure",
+      "min_sample_size": 1,
+      "description": "最新API完了年度の着工床面積合計"
+    },
+    {
+      "metric_key": "construction.floor_area_per_100_homes",
+      "category": "construction",
+      "label": "住宅100戸当たり着工床面積",
+      "unit": "㎡/100戸",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_building_starts_structure",
+      "min_sample_size": 1,
+      "description": "着工床面積÷2023住宅数×100。住宅以外の建築を含むため開発量の参考値。"
+    },
+    {
+      "metric_key": "construction.floor_area_per_building",
+      "category": "construction",
+      "label": "1棟当たり着工床面積",
+      "unit": "㎡/棟",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_building_starts_structure",
+      "min_sample_size": 1,
+      "description": "着工床面積÷着工建築物数"
+    },
+    {
+      "metric_key": "construction.floor_area_per_capita",
+      "category": "construction",
+      "label": "人口1人当たり着工床面積",
+      "unit": "㎡/人",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_building_starts_structure",
+      "min_sample_size": 1,
+      "description": "着工床面積÷最新人口"
+    },
+    {
+      "metric_key": "construction.medical_welfare_floor_area_share",
+      "category": "construction",
+      "label": "医療・福祉用着工床面積比率",
+      "unit": "%",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_building_starts_use",
+      "min_sample_size": 1,
+      "description": "全用途に占める医療・福祉用建築物床面積"
+    },
+    {
+      "metric_key": "construction.office_floor_area_share",
+      "category": "construction",
+      "label": "情報通信業用着工床面積比率",
+      "unit": "%",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_building_starts_use",
+      "min_sample_size": 1,
+      "description": "全用途に占める情報通信業用建築物床面積"
+    },
+    {
+      "metric_key": "construction.rc_floor_area_share",
+      "category": "construction",
+      "label": "RC着工床面積比率",
+      "unit": "%",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_building_starts_structure",
+      "min_sample_size": 1,
+      "description": "全着工床面積に占める鉄筋コンクリート造"
+    },
+    {
+      "metric_key": "construction.residential_floor_area_share",
+      "category": "construction",
+      "label": "居住系着工床面積比率",
+      "unit": "%",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_building_starts_use",
+      "min_sample_size": 1,
+      "description": "居住専用・準住宅・居住産業併用の床面積合計÷全用途"
+    },
+    {
+      "metric_key": "construction.src_floor_area_share",
+      "category": "construction",
+      "label": "SRC着工床面積比率",
+      "unit": "%",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_building_starts_structure",
+      "min_sample_size": 1,
+      "description": "全着工床面積に占める鉄骨鉄筋コンクリート造"
+    },
+    {
+      "metric_key": "construction.steel_floor_area_share",
+      "category": "construction",
+      "label": "鉄骨造着工床面積比率",
+      "unit": "%",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_building_starts_structure",
+      "min_sample_size": 1,
+      "description": "全着工床面積に占める鉄骨造"
+    },
+    {
+      "metric_key": "construction.wholesale_retail_floor_area_share",
+      "category": "construction",
+      "label": "卸売・小売用着工床面積比率",
+      "unit": "%",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_building_starts_use",
+      "min_sample_size": 1,
+      "description": "全用途に占める卸売・小売業用建築物床面積"
+    },
+    {
+      "metric_key": "construction.wood_floor_area_share",
+      "category": "construction",
+      "label": "木造着工床面積比率",
+      "unit": "%",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_building_starts_structure",
+      "min_sample_size": 1,
+      "description": "全着工床面積に占める木造"
+    },
+    {
       "metric_key": "culture.community_centers",
       "category": "culture",
       "label": "公民館数",
@@ -1656,6 +1869,72 @@
       "source_dataset_key": "estat_ssds_full_g",
       "min_sample_size": 1,
       "description": "社会・人口統計体系 Ｇ 文化・スポーツ / G1401"
+    },
+    {
+      "metric_key": "demographics.births_per_1000_reference",
+      "category": "demographics",
+      "label": "出生数（人口千人あたり参考）",
+      "unit": "人/千人",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_vital_birth_2024",
+      "min_sample_size": 1,
+      "description": "最も近い利用可能人口年を分母にした参考値"
+    },
+    {
+      "metric_key": "demographics.deaths_per_1000_reference",
+      "category": "demographics",
+      "label": "死亡数（人口千人あたり参考）",
+      "unit": "人/千人",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_vital_death_2024",
+      "min_sample_size": 1,
+      "description": "最も近い利用可能人口年を分母にした参考値"
+    },
+    {
+      "metric_key": "demographics.natural_change",
+      "category": "demographics",
+      "label": "出生死亡差",
+      "unit": "人",
+      "direction": "higher",
+      "granularity": "ward",
+      "source_dataset_key": "estat_vital_birth_2024",
+      "min_sample_size": 1,
+      "description": "出生数－死亡数"
+    },
+    {
+      "metric_key": "demographics.natural_change_per_1000_reference",
+      "category": "demographics",
+      "label": "出生死亡差（人口千人あたり参考）",
+      "unit": "人/千人",
+      "direction": "higher",
+      "granularity": "ward",
+      "source_dataset_key": "estat_vital_birth_2024",
+      "min_sample_size": 1,
+      "description": "最も近い利用可能人口年を分母にした参考値"
+    },
+    {
+      "metric_key": "demographics.vital_births",
+      "category": "demographics",
+      "label": "出生数",
+      "unit": "人",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_vital_birth_2024",
+      "min_sample_size": 1,
+      "description": "人口動態統計確定数の出生数"
+    },
+    {
+      "metric_key": "demographics.vital_deaths",
+      "category": "demographics",
+      "label": "死亡数",
+      "unit": "人",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_vital_death_2024",
+      "min_sample_size": 1,
+      "description": "人口動態統計確定数の死亡数"
     },
     {
       "metric_key": "demographics2020.china_share_of_foreign",

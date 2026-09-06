@@ -1,0 +1,397 @@
+{
+  "schema_version": 1,
+  "run": {
+    "run_id": "34020550148",
+    "run_url": "https://github.com/nano-tani/japan-area-insights/actions/runs/34020550148",
+    "scope": "all",
+    "mode": "full",
+    "from_year": 2021,
+    "to_year": 2026,
+    "cache_restored": true,
+    "started_at": "2026-09-06T07:58:26.695676+00:00",
+    "finished_at": "2026-09-06T14:23:26.513472+00:00",
+    "status": "success"
+  },
+  "phases": {
+    "prepare": {
+      "status": "success",
+      "updated_at": "2026-09-06T07:58:26.750252+00:00",
+      "message": "database artifact refresh-db-stats-33975565155 restored from run 33975565155; workflow code is a2bb77c97834522fcfe664d148b84597226ab698"
+    },
+    "core": {
+      "status": "skipped",
+      "updated_at": "2026-09-06T07:58:47.706154+00:00",
+      "message": "scope/resume checkpoint reused"
+    },
+    "station": {
+      "status": "skipped",
+      "updated_at": "2026-09-06T07:59:07.734284+00:00",
+      "message": "scope/resume checkpoint reused"
+    },
+    "stats": {
+      "status": "skipped",
+      "updated_at": "2026-09-06T07:59:23.833946+00:00",
+      "message": "scope/resume checkpoint reused"
+    },
+    "spatial": {
+      "status": "success",
+      "updated_at": "2026-09-06T08:48:28.457411+00:00",
+      "message": null
+    },
+    "resilience": {
+      "status": "success",
+      "updated_at": "2026-09-06T08:52:41.341994+00:00",
+      "message": null
+    },
+    "jshis_ground": {
+      "status": "success",
+      "updated_at": "2026-09-06T11:01:20.356329+00:00",
+      "message": null
+    },
+    "jshis_hazard": {
+      "status": "success",
+      "updated_at": "2026-09-06T13:15:58.544194+00:00",
+      "message": null
+    },
+    "elevation": {
+      "status": "success",
+      "updated_at": "2026-09-06T14:19:00.546554+00:00",
+      "message": null
+    },
+    "build": {
+      "status": "success",
+      "updated_at": "2026-09-06T14:23:26.473235+00:00",
+      "message": null
+    }
+  },
+  "database": {
+    "available": true,
+    "table_counts": {
+      "areas": 23,
+      "area_prices": 138,
+      "transactions": 125143,
+      "population": 46,
+      "future_population": 93423,
+      "facilities": 28325,
+      "stations": 648,
+      "station_transactions": 124131,
+      "area_scores": 23,
+      "geo_scores": 462,
+      "data_sources": 249
+    },
+    "latest_fetch_at": "2026-09-06T13:16:58.721225+00:00",
+    "source_families": [
+      {
+        "family": "0000020101",
+        "records": 4,
+        "latest_fetched_at": "2026-09-05T15:44:36.989510+00:00"
+      },
+      {
+        "family": "0000020102",
+        "records": 1,
+        "latest_fetched_at": "2026-09-05T15:44:42.885867+00:00"
+      },
+      {
+        "family": "0000020103",
+        "records": 6,
+        "latest_fetched_at": "2026-09-05T15:45:08.064063+00:00"
+      },
+      {
+        "family": "0000020104",
+        "records": 4,
+        "latest_fetched_at": "2026-09-05T15:45:32.109767+00:00"
+      },
+      {
+        "family": "0000020205",
+        "records": 2,
+        "latest_fetched_at": "2026-09-05T15:45:39.828440+00:00"
+      },
+      {
+        "family": "0000020206",
+        "records": 3,
+        "latest_fetched_at": "2026-09-05T15:45:50.315211+00:00"
+      },
+      {
+        "family": "0000020207",
+        "records": 2,
+        "latest_fetched_at": "2026-09-05T15:45:55.007938+00:00"
+      },
+      {
+        "family": "0000020208",
+        "records": 7,
+        "latest_fetched_at": "2026-09-05T15:46:31.647669+00:00"
+      },
+      {
+        "family": "0000020209",
+        "records": 2,
+        "latest_fetched_at": "2026-09-05T15:46:38.680281+00:00"
+      },
+      {
+        "family": "0000020210",
+        "records": 3,
+        "latest_fetched_at": "2026-09-05T15:46:51.021552+00:00"
+      },
+      {
+        "family": "0003412057",
+        "records": 1,
+        "latest_fetched_at": "2026-09-05T15:47:39.811166+00:00"
+      },
+      {
+        "family": "0003412064",
+        "records": 1,
+        "latest_fetched_at": "2026-09-05T15:47:43.206369+00:00"
+      },
+      {
+        "family": "0003445244",
+        "records": 1,
+        "latest_fetched_at": "2026-09-05T15:47:18.383882+00:00"
+      },
+      {
+        "family": "0003445278",
+        "records": 1,
+        "latest_fetched_at": "2026-09-05T15:47:22.535894+00:00"
+      },
+      {
+        "family": "0003454499",
+        "records": 1,
+        "latest_fetched_at": "2026-09-05T15:44:03.481238+00:00"
+      },
+      {
+        "family": "0004005689",
+        "records": 1,
+        "latest_fetched_at": "2026-09-05T15:44:08.485060+00:00"
+      },
+      {
+        "family": "0004019380",
+        "records": 1,
+        "latest_fetched_at": "2026-09-05T15:47:26.611749+00:00"
+      },
+      {
+        "family": "0004019381",
+        "records": 1,
+        "latest_fetched_at": "2026-09-05T15:47:31.082374+00:00"
+      },
+      {
+        "family": "0004021676",
+        "records": 1,
+        "latest_fetched_at": "2026-09-05T15:47:10.240683+00:00"
+      },
+      {
+        "family": "0004021696",
+        "records": 1,
+        "latest_fetched_at": "2026-09-05T15:47:14.187620+00:00"
+      },
+      {
+        "family": "0004040080",
+        "records": 1,
+        "latest_fetched_at": "2026-09-05T15:46:56.490646+00:00"
+      },
+      {
+        "family": "0004040081",
+        "records": 1,
+        "latest_fetched_at": "2026-09-05T15:47:01.200644+00:00"
+      },
+      {
+        "family": "0004040087",
+        "records": 1,
+        "latest_fetched_at": "2026-09-05T15:47:05.790475+00:00"
+      },
+      {
+        "family": "0004044293",
+        "records": 1,
+        "latest_fetched_at": "2026-09-05T15:43:20.318233+00:00"
+      },
+      {
+        "family": "0004044294",
+        "records": 1,
+        "latest_fetched_at": "2026-09-05T15:43:25.698380+00:00"
+      },
+      {
+        "family": "0004050397,0004050417",
+        "records": 1,
+        "latest_fetched_at": "2026-09-05T10:09:26.604122+00:00"
+      },
+      {
+        "family": "GSI",
+        "records": 1,
+        "latest_fetched_at": "2026-09-06T13:16:58.721225+00:00"
+      },
+      {
+        "family": "J-SHIS",
+        "records": 2,
+        "latest_fetched_at": "2026-09-06T11:02:13.117358+00:00"
+      },
+      {
+        "family": "vital",
+        "records": 1,
+        "latest_fetched_at": "2026-09-05T15:47:43.206910+00:00"
+      },
+      {
+        "family": "XCT001",
+        "records": 20,
+        "latest_fetched_at": "2026-09-05T15:48:37.542513+00:00"
+      },
+      {
+        "family": "XGT001",
+        "records": 1,
+        "latest_fetched_at": "2026-09-06T08:50:03.718177+00:00"
+      },
+      {
+        "family": "XIT001",
+        "records": 139,
+        "latest_fetched_at": "2026-09-05T10:48:16.064444+00:00"
+      },
+      {
+        "family": "XKT001",
+        "records": 1,
+        "latest_fetched_at": "2026-09-06T08:00:43.012706+00:00"
+      },
+      {
+        "family": "XKT002",
+        "records": 1,
+        "latest_fetched_at": "2026-09-06T08:01:54.367040+00:00"
+      },
+      {
+        "family": "XKT003",
+        "records": 1,
+        "latest_fetched_at": "2026-09-06T08:02:38.174637+00:00"
+      },
+      {
+        "family": "XKT004",
+        "records": 1,
+        "latest_fetched_at": "2026-09-06T08:03:33.332449+00:00"
+      },
+      {
+        "family": "XKT005",
+        "records": 1,
+        "latest_fetched_at": "2026-09-06T08:04:20.336328+00:00"
+      },
+      {
+        "family": "XKT006",
+        "records": 1,
+        "latest_fetched_at": "2026-09-05T10:14:00.613069+00:00"
+      },
+      {
+        "family": "XKT007",
+        "records": 1,
+        "latest_fetched_at": "2026-09-05T10:15:39.638569+00:00"
+      },
+      {
+        "family": "XKT010",
+        "records": 1,
+        "latest_fetched_at": "2026-09-05T10:17:48.002742+00:00"
+      },
+      {
+        "family": "XKT011",
+        "records": 1,
+        "latest_fetched_at": "2026-09-06T08:04:47.328193+00:00"
+      },
+      {
+        "family": "XKT013",
+        "records": 1,
+        "latest_fetched_at": "2026-09-05T10:12:24.306909+00:00"
+      },
+      {
+        "family": "XKT014",
+        "records": 1,
+        "latest_fetched_at": "2026-09-06T08:05:34.268771+00:00"
+      },
+      {
+        "family": "XKT015",
+        "records": 1,
+        "latest_fetched_at": "2026-09-05T10:21:23.499867+00:00"
+      },
+      {
+        "family": "XKT016",
+        "records": 1,
+        "latest_fetched_at": "2026-09-06T08:06:06.614589+00:00"
+      },
+      {
+        "family": "XKT017",
+        "records": 1,
+        "latest_fetched_at": "2026-09-05T10:19:13.350669+00:00"
+      },
+      {
+        "family": "XKT018",
+        "records": 1,
+        "latest_fetched_at": "2026-09-05T10:20:46.935527+00:00"
+      },
+      {
+        "family": "XKT019",
+        "records": 1,
+        "latest_fetched_at": "2026-09-06T08:06:37.646512+00:00"
+      },
+      {
+        "family": "XKT020",
+        "records": 1,
+        "latest_fetched_at": "2026-09-06T08:07:26.269374+00:00"
+      },
+      {
+        "family": "XKT021",
+        "records": 1,
+        "latest_fetched_at": "2026-09-06T08:07:54.757340+00:00"
+      },
+      {
+        "family": "XKT022",
+        "records": 1,
+        "latest_fetched_at": "2026-09-06T08:08:23.485099+00:00"
+      },
+      {
+        "family": "XKT023",
+        "records": 1,
+        "latest_fetched_at": "2026-09-06T08:08:59.523179+00:00"
+      },
+      {
+        "family": "XKT024",
+        "records": 1,
+        "latest_fetched_at": "2026-09-06T08:09:30.469478+00:00"
+      },
+      {
+        "family": "XKT025",
+        "records": 1,
+        "latest_fetched_at": "2026-09-06T08:10:32.467337+00:00"
+      },
+      {
+        "family": "XKT026",
+        "records": 1,
+        "latest_fetched_at": "2026-09-06T08:33:59.155711+00:00"
+      },
+      {
+        "family": "XKT027",
+        "records": 1,
+        "latest_fetched_at": "2026-09-06T08:39:12.353587+00:00"
+      },
+      {
+        "family": "XKT028",
+        "records": 1,
+        "latest_fetched_at": "2026-09-06T08:44:20.966492+00:00"
+      },
+      {
+        "family": "XKT029",
+        "records": 1,
+        "latest_fetched_at": "2026-09-06T08:45:25.486453+00:00"
+      },
+      {
+        "family": "XKT030",
+        "records": 1,
+        "latest_fetched_at": "2026-09-06T08:46:15.502907+00:00"
+      },
+      {
+        "family": "XKT031",
+        "records": 1,
+        "latest_fetched_at": "2026-09-06T08:47:00.214953+00:00"
+      },
+      {
+        "family": "XPT002",
+        "records": 6,
+        "latest_fetched_at": "2026-09-05T10:09:19.306495+00:00"
+      },
+      {
+        "family": "XST001",
+        "records": 1,
+        "latest_fetched_at": "2026-09-06T08:50:36.614316+00:00"
+      }
+    ]
+  },
+  "generated_at": "2026-09-06T14:23:26.521752+00:00"
+}

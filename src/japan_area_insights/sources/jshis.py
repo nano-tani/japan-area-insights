@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import http.client
 import json
 import time
 import urllib.error
@@ -15,7 +16,7 @@ class JShisRateLimit(RuntimeError):
 
 
 class JShisClient:
-    def __init__(self, *, min_interval_seconds: float = 0.2, retries: int = 2) -> None:
+    def __init__(self, *, min_interval_seconds: float = 0.2, retries: int = 3) -> None:
         self.min_interval_seconds = max(0.0, float(min_interval_seconds))
         self.retries = max(0, int(retries))
         self._last_request_at = 0.0
@@ -49,7 +50,12 @@ class JShisClient:
                     raise JShisRateLimit("J-SHIS returned HTTP 429; stopping this partial refresh") from exc
                 if exc.code not in {429, 500, 502, 503, 504} or attempt >= self.retries:
                     raise
-            except (urllib.error.URLError, TimeoutError) as exc:
+            except (
+                urllib.error.URLError,
+                TimeoutError,
+                ConnectionError,
+                http.client.RemoteDisconnected,
+            ) as exc:
                 last_error = exc
                 if attempt >= self.retries:
                     raise

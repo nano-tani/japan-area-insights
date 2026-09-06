@@ -553,6 +553,18 @@
       "notes": "移動者（外国人含む）"
     },
     {
+      "dataset_key": "estat_census_2020_commuting",
+      "provider": "政府統計の総合窓口 e-Stat",
+      "api_id": "0003454527",
+      "category": "mobility",
+      "title": "2020年国勢調査 通勤・通学の市区町村間流動",
+      "source_vintage": "2020",
+      "granularity": "municipality_od",
+      "refresh_mode": "extended",
+      "enabled": 1,
+      "notes": "ODセルを区の流入・流出として保存。特殊地域・不詳は相手先コードとして残し、23区内比率からは除外。"
+    },
+    {
       "dataset_key": "reinfolib_xkt013",
       "provider": "国土交通省 不動産情報ライブラリ",
       "api_id": "XKT013",
@@ -9294,6 +9306,83 @@
       "source_dataset_key": "estat_migration_out_2025",
       "min_sample_size": 1,
       "description": "市区町村からの年間転出者数"
+    },
+    {
+      "metric_key": "mobility.inbound_count",
+      "category": "mobility",
+      "label": "区外からの通勤・通学流入",
+      "unit": "人",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_census_2020_commuting",
+      "min_sample_size": 1,
+      "description": "他市区町村から当該区へ通勤・通学する人数。取得できたODセルの合計。"
+    },
+    {
+      "metric_key": "mobility.net_inflow",
+      "category": "mobility",
+      "label": "通勤・通学純流入",
+      "unit": "人",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_census_2020_commuting",
+      "min_sample_size": 1,
+      "description": "流入人数−流出人数。"
+    },
+    {
+      "metric_key": "mobility.outbound_count",
+      "category": "mobility",
+      "label": "区外への通勤・通学流出",
+      "unit": "人",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_census_2020_commuting",
+      "min_sample_size": 1,
+      "description": "常住地から他市区町村へ通勤・通学する人数。取得できたODセルの合計。"
+    },
+    {
+      "metric_key": "mobility.tokyo23_inbound_share",
+      "category": "mobility",
+      "label": "流入元の東京23区内比率",
+      "unit": "%",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_census_2020_commuting",
+      "min_sample_size": 1,
+      "description": "区外からの通勤・通学流入のうち相手元が東京23区の比率。"
+    },
+    {
+      "metric_key": "mobility.tokyo23_outbound_share",
+      "category": "mobility",
+      "label": "流出先の東京23区内比率",
+      "unit": "%",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_census_2020_commuting",
+      "min_sample_size": 1,
+      "description": "区外への通勤・通学流出のうち相手先が東京23区の比率。"
+    },
+    {
+      "metric_key": "mobility.top_inbound_origin_share",
+      "category": "mobility",
+      "label": "最大流入元シェア",
+      "unit": "%",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_census_2020_commuting",
+      "min_sample_size": 1,
+      "description": "区外流入のうち最大の常住地が占める比率。"
+    },
+    {
+      "metric_key": "mobility.top_outbound_destination_share",
+      "category": "mobility",
+      "label": "最大流出先シェア",
+      "unit": "%",
+      "direction": "neutral",
+      "granularity": "ward",
+      "source_dataset_key": "estat_census_2020_commuting",
+      "min_sample_size": 1,
+      "description": "区外流出のうち最大の通勤・通学先が占める比率。"
     },
     {
       "metric_key": "ssds.a.a1101",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T14:23:22.939167+00:00",
+  "generated_at": "2026-09-06T22:30:27.598756+00:00",
   "peer_group": "tokyo23:ward",
   "themes": [
     {
@@ -443,24 +443,6 @@
           "percentile_high": 100.0,
           "relative_percentile": 100.0
         },
-        "demographics2020.four_plus_household_share": {
-          "value": 10.494,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 47.8,
-          "percentile_high": 56.5,
-          "relative_percentile": 56.5
-        },
-        "housing2023.rental_share": {
-          "value": 62.059,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 100.0,
-          "percentile_high": 4.3,
-          "relative_percentile": 4.3
-        },
         "housing2023.owner_occupied_share": {
           "value": 32.779,
           "period": "2023",
@@ -469,42 +451,6 @@
           "percentile_low": 13.0,
           "percentile_high": 91.3,
           "relative_percentile": 91.3
-        },
-        "economy.establishments": {
-          "value": 36346.0,
-          "period": "2021",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 95.7,
-          "percentile_high": 8.7,
-          "relative_percentile": 8.7
-        },
-        "housing2023.post2011_share": {
-          "value": 32.925,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 91.3,
-          "percentile_high": 13.0,
-          "relative_percentile": 13.0
-        },
-        "demographics2020.single_household_share": {
-          "value": 57.019,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 65.2,
-          "percentile_high": 39.1,
-          "relative_percentile": 39.1
-        },
-        "economy.day_night_population_ratio": {
-          "value": 1355.39892,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 100.0,
-          "percentile_high": 4.3,
-          "relative_percentile": 4.3
         },
         "economy.employees": {
           "value": 1199113.0,
@@ -515,14 +461,23 @@
           "percentile_high": 4.3,
           "relative_percentile": 4.3
         },
-        "economy.taxable_income_per_taxpayer": {
-          "value": 4655.371,
-          "period": "C120120_納税義務者数（所得割）",
+        "housing2023.post2011_share": {
+          "value": 32.925,
+          "period": "2023",
           "quality": "A",
           "is_estimate": false,
-          "percentile_low": 100.0,
-          "percentile_high": 4.3,
-          "relative_percentile": 4.3
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
+        "economy.establishments": {
+          "value": 36346.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
         },
         "housing2023.pre1980_share": {
           "value": 9.157,
@@ -532,15 +487,6 @@
           "percentile_low": 8.7,
           "percentile_high": 95.7,
           "relative_percentile": 8.7
-        },
-        "demographics.natural_change": {
-          "value": 40.0,
-          "period": "2024",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 91.3,
-          "percentile_high": 13.0,
-          "relative_percentile": 13.0
         },
         "market.transaction_far_median": {
           "value": 600.0,
@@ -560,6 +506,24 @@
           "percentile_high": 8.7,
           "relative_percentile": 8.7
         },
+        "demographics.natural_change": {
+          "value": 40.0,
+          "period": "2024",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
+        "economy.day_night_population_ratio": {
+          "value": 1355.39892,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        },
         "market.transaction_count": {
           "value": 1568.0,
           "period": "2021-2025",
@@ -569,6 +533,15 @@
           "percentile_high": 100.0,
           "relative_percentile": 100.0
         },
+        "housing2023.rental_share": {
+          "value": 62.059,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        },
         "market.land_price_median": {
           "value": 4330000.0,
           "period": "2026",
@@ -577,6 +550,33 @@
           "percentile_low": 100.0,
           "percentile_high": 4.3,
           "relative_percentile": 4.3
+        },
+        "demographics2020.single_household_share": {
+          "value": 57.019,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 4655.371,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        },
+        "demographics2020.four_plus_household_share": {
+          "value": 10.494,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
         },
         "people.retention_2045": {
           "value": 113.528,
@@ -698,24 +698,6 @@
           "percentile_high": 95.7,
           "relative_percentile": 95.7
         },
-        "demographics2020.four_plus_household_share": {
-          "value": 9.772,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 30.4,
-          "percentile_high": 73.9,
-          "relative_percentile": 73.9
-        },
-        "housing2023.rental_share": {
-          "value": 53.486,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 47.8,
-          "percentile_high": 56.5,
-          "relative_percentile": 56.5
-        },
         "housing2023.owner_occupied_share": {
           "value": 43.313,
           "period": "2023",
@@ -725,8 +707,8 @@
           "percentile_high": 39.1,
           "relative_percentile": 39.1
         },
-        "economy.establishments": {
-          "value": 34239.0,
+        "economy.employees": {
+          "value": 782742.0,
           "period": "2021",
           "quality": "A",
           "is_estimate": false,
@@ -743,41 +725,14 @@
           "percentile_high": 4.3,
           "relative_percentile": 4.3
         },
-        "demographics2020.single_household_share": {
-          "value": 52.598,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 43.5,
-          "percentile_high": 60.9,
-          "relative_percentile": 60.9
-        },
-        "economy.day_night_population_ratio": {
-          "value": 374.39044,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 95.7,
-          "percentile_high": 8.7,
-          "relative_percentile": 8.7
-        },
-        "economy.employees": {
-          "value": 782742.0,
+        "economy.establishments": {
+          "value": 34239.0,
           "period": "2021",
           "quality": "A",
           "is_estimate": false,
           "percentile_low": 91.3,
           "percentile_high": 13.0,
           "relative_percentile": 13.0
-        },
-        "economy.taxable_income_per_taxpayer": {
-          "value": 3399.682,
-          "period": "C120120_納税義務者数（所得割）",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 69.6,
-          "percentile_high": 34.8,
-          "relative_percentile": 34.8
         },
         "housing2023.pre1980_share": {
           "value": 8.701,
@@ -786,15 +741,6 @@
           "is_estimate": false,
           "percentile_low": 4.3,
           "percentile_high": 100.0,
-          "relative_percentile": 4.3
-        },
-        "demographics.natural_change": {
-          "value": 799.0,
-          "period": "2024",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 100.0,
-          "percentile_high": 4.3,
           "relative_percentile": 4.3
         },
         "market.transaction_far_median": {
@@ -815,6 +761,24 @@
           "percentile_high": 17.4,
           "relative_percentile": 17.4
         },
+        "demographics.natural_change": {
+          "value": 799.0,
+          "period": "2024",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        },
+        "economy.day_night_population_ratio": {
+          "value": 374.39044,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
         "market.transaction_count": {
           "value": 3883.0,
           "period": "2021-2025",
@@ -824,6 +788,15 @@
           "percentile_high": 73.9,
           "relative_percentile": 73.9
         },
+        "housing2023.rental_share": {
+          "value": 53.486,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
         "market.land_price_median": {
           "value": 3710000.0,
           "period": "2026",
@@ -832,6 +805,33 @@
           "percentile_low": 91.3,
           "percentile_high": 13.0,
           "relative_percentile": 13.0
+        },
+        "demographics2020.single_household_share": {
+          "value": 52.598,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 3399.682,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
+        "demographics2020.four_plus_household_share": {
+          "value": 9.772,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
         },
         "people.retention_2045": {
           "value": 115.366,
@@ -953,24 +953,6 @@
           "percentile_high": 73.9,
           "relative_percentile": 73.9
         },
-        "demographics2020.four_plus_household_share": {
-          "value": 9.792,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 34.8,
-          "percentile_high": 69.6,
-          "relative_percentile": 69.6
-        },
-        "housing2023.rental_share": {
-          "value": 54.213,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 69.6,
-          "percentile_high": 34.8,
-          "relative_percentile": 34.8
-        },
         "housing2023.owner_occupied_share": {
           "value": 39.581,
           "period": "2023",
@@ -979,42 +961,6 @@
           "percentile_low": 43.5,
           "percentile_high": 60.9,
           "relative_percentile": 60.9
-        },
-        "economy.establishments": {
-          "value": 41220.0,
-          "period": "2021",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 100.0,
-          "percentile_high": 4.3,
-          "relative_percentile": 4.3
-        },
-        "housing2023.post2011_share": {
-          "value": 27.106,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 73.9,
-          "percentile_high": 30.4,
-          "relative_percentile": 30.4
-        },
-        "demographics2020.single_household_share": {
-          "value": 56.884,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 60.9,
-          "percentile_high": 43.5,
-          "relative_percentile": 43.5
-        },
-        "economy.day_night_population_ratio": {
-          "value": 373.40702,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 91.3,
-          "percentile_high": 13.0,
-          "relative_percentile": 13.0
         },
         "economy.employees": {
           "value": 1134499.0,
@@ -1025,14 +971,23 @@
           "percentile_high": 8.7,
           "relative_percentile": 8.7
         },
-        "economy.taxable_income_per_taxpayer": {
-          "value": 4520.071,
-          "period": "C120120_納税義務者数（所得割）",
+        "housing2023.post2011_share": {
+          "value": 27.106,
+          "period": "2023",
           "quality": "A",
           "is_estimate": false,
-          "percentile_low": 95.7,
-          "percentile_high": 8.7,
-          "relative_percentile": 8.7
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
+        "economy.establishments": {
+          "value": 41220.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
         },
         "housing2023.pre1980_share": {
           "value": 16.265,
@@ -1042,15 +997,6 @@
           "percentile_low": 78.3,
           "percentile_high": 26.1,
           "relative_percentile": 78.3
-        },
-        "demographics.natural_change": {
-          "value": 483.0,
-          "period": "2024",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 95.7,
-          "percentile_high": 8.7,
-          "relative_percentile": 8.7
         },
         "market.transaction_far_median": {
           "value": 400.0,
@@ -1070,6 +1016,24 @@
           "percentile_high": 4.3,
           "relative_percentile": 4.3
         },
+        "demographics.natural_change": {
+          "value": 483.0,
+          "period": "2024",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
+        "economy.day_night_population_ratio": {
+          "value": 373.40702,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
         "market.transaction_count": {
           "value": 4649.0,
           "period": "2021-2025",
@@ -1079,6 +1043,15 @@
           "percentile_high": 56.5,
           "relative_percentile": 56.5
         },
+        "housing2023.rental_share": {
+          "value": 54.213,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
         "market.land_price_median": {
           "value": 4270000.0,
           "period": "2026",
@@ -1087,6 +1060,33 @@
           "percentile_low": 95.7,
           "percentile_high": 8.7,
           "relative_percentile": 8.7
+        },
+        "demographics2020.single_household_share": {
+          "value": 56.884,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 4520.071,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
+        "demographics2020.four_plus_household_share": {
+          "value": 9.792,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
         },
         "people.retention_2045": {
           "value": 114.732,
@@ -1208,24 +1208,6 @@
           "percentile_high": 52.2,
           "relative_percentile": 52.2
         },
-        "demographics2020.four_plus_household_share": {
-          "value": 6.504,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 4.3,
-          "percentile_high": 100.0,
-          "relative_percentile": 100.0
-        },
-        "housing2023.rental_share": {
-          "value": 56.95,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 82.6,
-          "percentile_high": 21.7,
-          "relative_percentile": 21.7
-        },
         "housing2023.owner_occupied_share": {
           "value": 33.444,
           "period": "2023",
@@ -1234,42 +1216,6 @@
           "percentile_low": 17.4,
           "percentile_high": 87.0,
           "relative_percentile": 87.0
-        },
-        "economy.establishments": {
-          "value": 33313.0,
-          "period": "2021",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 82.6,
-          "percentile_high": 21.7,
-          "relative_percentile": 21.7
-        },
-        "housing2023.post2011_share": {
-          "value": 22.959,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 21.7,
-          "percentile_high": 82.6,
-          "relative_percentile": 82.6
-        },
-        "demographics2020.single_household_share": {
-          "value": 67.801,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 100.0,
-          "percentile_high": 4.3,
-          "relative_percentile": 4.3
-        },
-        "economy.day_night_population_ratio": {
-          "value": 227.12137,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 87.0,
-          "percentile_high": 17.4,
-          "relative_percentile": 17.4
         },
         "economy.employees": {
           "value": 718620.0,
@@ -1280,14 +1226,23 @@
           "percentile_high": 17.4,
           "relative_percentile": 17.4
         },
-        "economy.taxable_income_per_taxpayer": {
-          "value": 3390.15,
-          "period": "C120120_納税義務者数（所得割）",
+        "housing2023.post2011_share": {
+          "value": 22.959,
+          "period": "2023",
           "quality": "A",
           "is_estimate": false,
-          "percentile_low": 65.2,
-          "percentile_high": 39.1,
-          "relative_percentile": 39.1
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
+        "economy.establishments": {
+          "value": 33313.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
         },
         "housing2023.pre1980_share": {
           "value": 15.965,
@@ -1297,15 +1252,6 @@
           "percentile_low": 69.6,
           "percentile_high": 34.8,
           "relative_percentile": 69.6
-        },
-        "demographics.natural_change": {
-          "value": -1057.0,
-          "period": "2024",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 47.8,
-          "percentile_high": 56.5,
-          "relative_percentile": 56.5
         },
         "market.transaction_far_median": {
           "value": 400.0,
@@ -1325,6 +1271,24 @@
           "percentile_high": 30.4,
           "relative_percentile": 30.4
         },
+        "demographics.natural_change": {
+          "value": -1057.0,
+          "period": "2024",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
+        "economy.day_night_population_ratio": {
+          "value": 227.12137,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
         "market.transaction_count": {
           "value": 5729.0,
           "period": "2021-2025",
@@ -1334,6 +1298,15 @@
           "percentile_high": 39.1,
           "relative_percentile": 39.1
         },
+        "housing2023.rental_share": {
+          "value": 56.95,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
         "market.land_price_median": {
           "value": 1930000.0,
           "period": "2026",
@@ -1342,6 +1315,33 @@
           "percentile_low": 82.6,
           "percentile_high": 21.7,
           "relative_percentile": 21.7
+        },
+        "demographics2020.single_household_share": {
+          "value": 67.801,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 3390.15,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
+        "demographics2020.four_plus_household_share": {
+          "value": 6.504,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
         },
         "people.retention_2045": {
           "value": 102.58,
@@ -1463,24 +1463,6 @@
           "percentile_high": 91.3,
           "relative_percentile": 91.3
         },
-        "demographics2020.four_plus_household_share": {
-          "value": 10.308,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 43.5,
-          "percentile_high": 60.9,
-          "relative_percentile": 60.9
-        },
-        "housing2023.rental_share": {
-          "value": 48.947,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 30.4,
-          "percentile_high": 73.9,
-          "relative_percentile": 73.9
-        },
         "housing2023.owner_occupied_share": {
           "value": 43.432,
           "period": "2023",
@@ -1489,42 +1471,6 @@
           "percentile_low": 73.9,
           "percentile_high": 30.4,
           "relative_percentile": 30.4
-        },
-        "economy.establishments": {
-          "value": 13907.0,
-          "period": "2021",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 21.7,
-          "percentile_high": 82.6,
-          "relative_percentile": 82.6
-        },
-        "housing2023.post2011_share": {
-          "value": 24.496,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 52.2,
-          "percentile_high": 52.2,
-          "relative_percentile": 52.2
-        },
-        "demographics2020.single_household_share": {
-          "value": 57.887,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 73.9,
-          "percentile_high": 30.4,
-          "relative_percentile": 30.4
-        },
-        "economy.day_night_population_ratio": {
-          "value": 147.31098,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 78.3,
-          "percentile_high": 26.1,
-          "relative_percentile": 26.1
         },
         "economy.employees": {
           "value": 222078.0,
@@ -1535,14 +1481,23 @@
           "percentile_high": 56.5,
           "relative_percentile": 56.5
         },
-        "economy.taxable_income_per_taxpayer": {
-          "value": 3688.95,
-          "period": "C120120_納税義務者数（所得割）",
+        "housing2023.post2011_share": {
+          "value": 24.496,
+          "period": "2023",
           "quality": "A",
           "is_estimate": false,
-          "percentile_low": 82.6,
-          "percentile_high": 21.7,
-          "relative_percentile": 21.7
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "economy.establishments": {
+          "value": 13907.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
         },
         "housing2023.pre1980_share": {
           "value": 15.107,
@@ -1552,15 +1507,6 @@
           "percentile_low": 43.5,
           "percentile_high": 60.9,
           "relative_percentile": 43.5
-        },
-        "demographics.natural_change": {
-          "value": -106.0,
-          "period": "2024",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 87.0,
-          "percentile_high": 17.4,
-          "relative_percentile": 17.4
         },
         "market.transaction_far_median": {
           "value": 400.0,
@@ -1580,6 +1526,24 @@
           "percentile_high": 26.1,
           "relative_percentile": 26.1
         },
+        "demographics.natural_change": {
+          "value": -106.0,
+          "period": "2024",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
+        "economy.day_night_population_ratio": {
+          "value": 147.31098,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
         "market.transaction_count": {
           "value": 3718.0,
           "period": "2021-2025",
@@ -1589,6 +1553,15 @@
           "percentile_high": 82.6,
           "relative_percentile": 82.6
         },
+        "housing2023.rental_share": {
+          "value": 48.947,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        },
         "market.land_price_median": {
           "value": 1535000.0,
           "period": "2026",
@@ -1597,6 +1570,33 @@
           "percentile_low": 73.9,
           "percentile_high": 30.4,
           "relative_percentile": 30.4
+        },
+        "demographics2020.single_household_share": {
+          "value": 57.887,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 3688.95,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
+        "demographics2020.four_plus_household_share": {
+          "value": 10.308,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
         },
         "people.retention_2045": {
           "value": 108.194,
@@ -1718,24 +1718,6 @@
           "percentile_high": 69.6,
           "relative_percentile": 69.6
         },
-        "demographics2020.four_plus_household_share": {
-          "value": 8.158,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 21.7,
-          "percentile_high": 82.6,
-          "relative_percentile": 82.6
-        },
-        "housing2023.rental_share": {
-          "value": 56.429,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 73.9,
-          "percentile_high": 30.4,
-          "relative_percentile": 30.4
-        },
         "housing2023.owner_occupied_share": {
           "value": 39.238,
           "period": "2023",
@@ -1744,42 +1726,6 @@
           "percentile_low": 39.1,
           "percentile_high": 65.2,
           "relative_percentile": 65.2
-        },
-        "economy.establishments": {
-          "value": 23012.0,
-          "period": "2021",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 65.2,
-          "percentile_high": 39.1,
-          "relative_percentile": 39.1
-        },
-        "housing2023.post2011_share": {
-          "value": 35.757,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 95.7,
-          "percentile_high": 8.7,
-          "relative_percentile": 8.7
-        },
-        "demographics2020.single_household_share": {
-          "value": 59.049,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 82.6,
-          "percentile_high": 21.7,
-          "relative_percentile": 21.7
-        },
-        "economy.day_night_population_ratio": {
-          "value": 145.27534,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 73.9,
-          "percentile_high": 30.4,
-          "relative_percentile": 30.4
         },
         "economy.employees": {
           "value": 241112.0,
@@ -1790,14 +1736,23 @@
           "percentile_high": 47.8,
           "relative_percentile": 47.8
         },
-        "economy.taxable_income_per_taxpayer": {
-          "value": 3003.64,
-          "period": "C120120_納税義務者数（所得割）",
+        "housing2023.post2011_share": {
+          "value": 35.757,
+          "period": "2023",
           "quality": "A",
           "is_estimate": false,
-          "percentile_low": 47.8,
-          "percentile_high": 56.5,
-          "relative_percentile": 56.5
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
+        "economy.establishments": {
+          "value": 23012.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
         },
         "housing2023.pre1980_share": {
           "value": 14.342,
@@ -1807,15 +1762,6 @@
           "percentile_low": 30.4,
           "percentile_high": 73.9,
           "relative_percentile": 30.4
-        },
-        "demographics.natural_change": {
-          "value": -669.0,
-          "period": "2024",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 69.6,
-          "percentile_high": 34.8,
-          "relative_percentile": 34.8
         },
         "market.transaction_far_median": {
           "value": 500.0,
@@ -1835,6 +1781,24 @@
           "percentile_high": 39.1,
           "relative_percentile": 39.1
         },
+        "demographics.natural_change": {
+          "value": -669.0,
+          "period": "2024",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
+        "economy.day_night_population_ratio": {
+          "value": 145.27534,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
         "market.transaction_count": {
           "value": 3801.0,
           "period": "2021-2025",
@@ -1844,6 +1808,15 @@
           "percentile_high": 78.3,
           "relative_percentile": 78.3
         },
+        "housing2023.rental_share": {
+          "value": 56.429,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
         "market.land_price_median": {
           "value": 1600000.0,
           "period": "2026",
@@ -1852,6 +1825,33 @@
           "percentile_low": 78.3,
           "percentile_high": 26.1,
           "relative_percentile": 26.1
+        },
+        "demographics2020.single_household_share": {
+          "value": 59.049,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 3003.64,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
+        "demographics2020.four_plus_household_share": {
+          "value": 8.158,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
         },
         "people.retention_2045": {
           "value": 109.874,
@@ -1973,24 +1973,6 @@
           "percentile_high": 47.8,
           "relative_percentile": 47.8
         },
-        "demographics2020.four_plus_household_share": {
-          "value": 10.574,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 52.2,
-          "percentile_high": 52.2,
-          "relative_percentile": 52.2
-        },
-        "housing2023.rental_share": {
-          "value": 58.551,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 87.0,
-          "percentile_high": 17.4,
-          "relative_percentile": 17.4
-        },
         "housing2023.owner_occupied_share": {
           "value": 37.764,
           "period": "2023",
@@ -1999,42 +1981,6 @@
           "percentile_low": 26.1,
           "percentile_high": 78.3,
           "relative_percentile": 78.3
-        },
-        "economy.establishments": {
-          "value": 15022.0,
-          "period": "2021",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 26.1,
-          "percentile_high": 78.3,
-          "relative_percentile": 78.3
-        },
-        "housing2023.post2011_share": {
-          "value": 31.22,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 87.0,
-          "percentile_high": 17.4,
-          "relative_percentile": 17.4
-        },
-        "demographics2020.single_household_share": {
-          "value": 52.167,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 34.8,
-          "percentile_high": 69.6,
-          "relative_percentile": 69.6
-        },
-        "economy.day_night_population_ratio": {
-          "value": 103.63342,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 52.2,
-          "percentile_high": 52.2,
-          "relative_percentile": 52.2
         },
         "economy.employees": {
           "value": 168392.0,
@@ -2045,14 +1991,23 @@
           "percentile_high": 73.9,
           "relative_percentile": 73.9
         },
-        "economy.taxable_income_per_taxpayer": {
-          "value": 2572.697,
-          "period": "C120120_納税義務者数（所得割）",
+        "housing2023.post2011_share": {
+          "value": 31.22,
+          "period": "2023",
           "quality": "A",
           "is_estimate": false,
-          "percentile_low": 17.4,
-          "percentile_high": 87.0,
-          "relative_percentile": 87.0
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
+        "economy.establishments": {
+          "value": 15022.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
         },
         "housing2023.pre1980_share": {
           "value": 15.698,
@@ -2062,15 +2017,6 @@
           "percentile_low": 60.9,
           "percentile_high": 43.5,
           "relative_percentile": 60.9
-        },
-        "demographics.natural_change": {
-          "value": -719.0,
-          "period": "2024",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 65.2,
-          "percentile_high": 39.1,
-          "relative_percentile": 39.1
         },
         "market.transaction_far_median": {
           "value": 300.0,
@@ -2090,6 +2036,24 @@
           "percentile_high": 52.2,
           "relative_percentile": 52.2
         },
+        "demographics.natural_change": {
+          "value": -719.0,
+          "period": "2024",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
+        "economy.day_night_population_ratio": {
+          "value": 103.63342,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
         "market.transaction_count": {
           "value": 4830.0,
           "period": "2021-2025",
@@ -2099,6 +2063,15 @@
           "percentile_high": 52.2,
           "relative_percentile": 52.2
         },
+        "housing2023.rental_share": {
+          "value": 58.551,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
         "market.land_price_median": {
           "value": 753500.0,
           "period": "2026",
@@ -2107,6 +2080,33 @@
           "percentile_low": 39.1,
           "percentile_high": 65.2,
           "relative_percentile": 65.2
+        },
+        "demographics2020.single_household_share": {
+          "value": 52.167,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 2572.697,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
+        "demographics2020.four_plus_household_share": {
+          "value": 10.574,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
         },
         "people.retention_2045": {
           "value": 105.861,
@@ -2228,24 +2228,6 @@
           "percentile_high": 26.1,
           "relative_percentile": 26.1
         },
-        "demographics2020.four_plus_household_share": {
-          "value": 12.811,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 82.6,
-          "percentile_high": 21.7,
-          "relative_percentile": 21.7
-        },
-        "housing2023.rental_share": {
-          "value": 52.5,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 39.1,
-          "percentile_high": 65.2,
-          "relative_percentile": 65.2
-        },
         "housing2023.owner_occupied_share": {
           "value": 44.221,
           "period": "2023",
@@ -2254,42 +2236,6 @@
           "percentile_low": 82.6,
           "percentile_high": 21.7,
           "relative_percentile": 21.7
-        },
-        "economy.establishments": {
-          "value": 19718.0,
-          "period": "2021",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 47.8,
-          "percentile_high": 56.5,
-          "relative_percentile": 56.5
-        },
-        "housing2023.post2011_share": {
-          "value": 24.745,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 56.5,
-          "percentile_high": 47.8,
-          "relative_percentile": 47.8
-        },
-        "demographics2020.single_household_share": {
-          "value": 46.756,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 13.0,
-          "percentile_high": 91.3,
-          "relative_percentile": 91.3
-        },
-        "economy.day_night_population_ratio": {
-          "value": 120.88516,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 60.9,
-          "percentile_high": 43.5,
-          "relative_percentile": 43.5
         },
         "economy.employees": {
           "value": 412421.0,
@@ -2300,14 +2246,23 @@
           "percentile_high": 30.4,
           "relative_percentile": 30.4
         },
-        "economy.taxable_income_per_taxpayer": {
-          "value": 2622.561,
-          "period": "C120120_納税義務者数（所得割）",
+        "housing2023.post2011_share": {
+          "value": 24.745,
+          "period": "2023",
           "quality": "A",
           "is_estimate": false,
-          "percentile_low": 21.7,
-          "percentile_high": 82.6,
-          "relative_percentile": 82.6
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
+        "economy.establishments": {
+          "value": 19718.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
         },
         "housing2023.pre1980_share": {
           "value": 20.727,
@@ -2317,15 +2272,6 @@
           "percentile_low": 100.0,
           "percentile_high": 4.3,
           "relative_percentile": 100.0
-        },
-        "demographics.natural_change": {
-          "value": -1256.0,
-          "period": "2024",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 43.5,
-          "percentile_high": 60.9,
-          "relative_percentile": 60.9
         },
         "market.transaction_far_median": {
           "value": 300.0,
@@ -2345,6 +2291,24 @@
           "percentile_high": 47.8,
           "relative_percentile": 47.8
         },
+        "demographics.natural_change": {
+          "value": -1256.0,
+          "period": "2024",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        },
+        "economy.day_night_population_ratio": {
+          "value": 120.88516,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
         "market.transaction_count": {
           "value": 7129.0,
           "period": "2021-2025",
@@ -2354,6 +2318,15 @@
           "percentile_high": 26.1,
           "relative_percentile": 26.1
         },
+        "housing2023.rental_share": {
+          "value": 52.5,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
         "market.land_price_median": {
           "value": 763000.0,
           "period": "2026",
@@ -2362,6 +2335,33 @@
           "percentile_low": 43.5,
           "percentile_high": 60.9,
           "relative_percentile": 60.9
+        },
+        "demographics2020.single_household_share": {
+          "value": 46.756,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 2622.561,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
+        "demographics2020.four_plus_household_share": {
+          "value": 12.811,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
         },
         "people.retention_2045": {
           "value": 107.828,
@@ -2483,24 +2483,6 @@
           "percentile_high": 43.5,
           "relative_percentile": 43.5
         },
-        "demographics2020.four_plus_household_share": {
-          "value": 9.855,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 39.1,
-          "percentile_high": 65.2,
-          "relative_percentile": 65.2
-        },
-        "housing2023.rental_share": {
-          "value": 53.306,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 43.5,
-          "percentile_high": 60.9,
-          "relative_percentile": 60.9
-        },
         "housing2023.owner_occupied_share": {
           "value": 39.747,
           "period": "2023",
@@ -2509,42 +2491,6 @@
           "percentile_low": 47.8,
           "percentile_high": 56.5,
           "relative_percentile": 56.5
-        },
-        "economy.establishments": {
-          "value": 20127.0,
-          "period": "2021",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 56.5,
-          "percentile_high": 47.8,
-          "relative_percentile": 47.8
-        },
-        "housing2023.post2011_share": {
-          "value": 28.723,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 78.3,
-          "percentile_high": 26.1,
-          "relative_percentile": 26.1
-        },
-        "demographics2020.single_household_share": {
-          "value": 57.284,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 69.6,
-          "percentile_high": 34.8,
-          "relative_percentile": 34.8
-        },
-        "economy.day_night_population_ratio": {
-          "value": 137.79232,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 69.6,
-          "percentile_high": 34.8,
-          "relative_percentile": 34.8
         },
         "economy.employees": {
           "value": 433444.0,
@@ -2555,14 +2501,23 @@
           "percentile_high": 26.1,
           "relative_percentile": 26.1
         },
-        "economy.taxable_income_per_taxpayer": {
-          "value": 2951.803,
-          "period": "C120120_納税義務者数（所得割）",
+        "housing2023.post2011_share": {
+          "value": 28.723,
+          "period": "2023",
           "quality": "A",
           "is_estimate": false,
-          "percentile_low": 39.1,
-          "percentile_high": 65.2,
-          "relative_percentile": 65.2
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
+        "economy.establishments": {
+          "value": 20127.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
         },
         "housing2023.pre1980_share": {
           "value": 14.376,
@@ -2572,15 +2527,6 @@
           "percentile_low": 34.8,
           "percentile_high": 69.6,
           "relative_percentile": 34.8
-        },
-        "demographics.natural_change": {
-          "value": -480.0,
-          "period": "2024",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 73.9,
-          "percentile_high": 30.4,
-          "relative_percentile": 30.4
         },
         "market.transaction_far_median": {
           "value": 300.0,
@@ -2600,6 +2546,24 @@
           "percentile_high": 34.8,
           "relative_percentile": 34.8
         },
+        "demographics.natural_change": {
+          "value": -480.0,
+          "period": "2024",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
+        "economy.day_night_population_ratio": {
+          "value": 137.79232,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
         "market.transaction_count": {
           "value": 5895.0,
           "period": "2021-2025",
@@ -2609,6 +2573,15 @@
           "percentile_high": 34.8,
           "relative_percentile": 34.8
         },
+        "housing2023.rental_share": {
+          "value": 53.306,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        },
         "market.land_price_median": {
           "value": 1370000.0,
           "period": "2026",
@@ -2617,6 +2590,33 @@
           "percentile_low": 69.6,
           "percentile_high": 34.8,
           "relative_percentile": 34.8
+        },
+        "demographics2020.single_household_share": {
+          "value": 57.284,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 2951.803,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
+        "demographics2020.four_plus_household_share": {
+          "value": 9.855,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
         },
         "people.retention_2045": {
           "value": 108.594,
@@ -2738,24 +2738,6 @@
           "percentile_high": 87.0,
           "relative_percentile": 87.0
         },
-        "demographics2020.four_plus_household_share": {
-          "value": 10.639,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 56.5,
-          "percentile_high": 47.8,
-          "relative_percentile": 47.8
-        },
-        "housing2023.rental_share": {
-          "value": 49.492,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 34.8,
-          "percentile_high": 69.6,
-          "relative_percentile": 69.6
-        },
         "housing2023.owner_occupied_share": {
           "value": 43.348,
           "period": "2023",
@@ -2765,8 +2747,8 @@
           "percentile_high": 34.8,
           "relative_percentile": 34.8
         },
-        "economy.establishments": {
-          "value": 12419.0,
+        "economy.employees": {
+          "value": 140362.0,
           "period": "2021",
           "quality": "A",
           "is_estimate": false,
@@ -2783,41 +2765,14 @@
           "percentile_high": 73.9,
           "relative_percentile": 73.9
         },
-        "demographics2020.single_household_share": {
-          "value": 53.195,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 47.8,
-          "percentile_high": 56.5,
-          "relative_percentile": 56.5
-        },
-        "economy.day_night_population_ratio": {
-          "value": 104.76,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 56.5,
-          "percentile_high": 47.8,
-          "relative_percentile": 47.8
-        },
-        "economy.employees": {
-          "value": 140362.0,
+        "economy.establishments": {
+          "value": 12419.0,
           "period": "2021",
           "quality": "A",
           "is_estimate": false,
           "percentile_low": 17.4,
           "percentile_high": 87.0,
           "relative_percentile": 87.0
-        },
-        "economy.taxable_income_per_taxpayer": {
-          "value": 3643.867,
-          "period": "C120120_納税義務者数（所得割）",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 78.3,
-          "percentile_high": 26.1,
-          "relative_percentile": 26.1
         },
         "housing2023.pre1980_share": {
           "value": 16.024,
@@ -2827,15 +2782,6 @@
           "percentile_low": 73.9,
           "percentile_high": 30.4,
           "relative_percentile": 73.9
-        },
-        "demographics.natural_change": {
-          "value": -330.0,
-          "period": "2024",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 78.3,
-          "percentile_high": 26.1,
-          "relative_percentile": 26.1
         },
         "market.transaction_far_median": {
           "value": 200.0,
@@ -2855,6 +2801,24 @@
           "percentile_high": 21.7,
           "relative_percentile": 21.7
         },
+        "demographics.natural_change": {
+          "value": -330.0,
+          "period": "2024",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
+        "economy.day_night_population_ratio": {
+          "value": 104.76,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
         "market.transaction_count": {
           "value": 3209.0,
           "period": "2021-2025",
@@ -2864,6 +2828,15 @@
           "percentile_high": 91.3,
           "relative_percentile": 91.3
         },
+        "housing2023.rental_share": {
+          "value": 49.492,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
         "market.land_price_median": {
           "value": 1340000.0,
           "period": "2026",
@@ -2872,6 +2845,33 @@
           "percentile_low": 65.2,
           "percentile_high": 39.1,
           "relative_percentile": 39.1
+        },
+        "demographics2020.single_household_share": {
+          "value": 53.195,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 3643.867,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
+        "demographics2020.four_plus_household_share": {
+          "value": 10.639,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
         },
         "people.retention_2045": {
           "value": 104.515,
@@ -2993,24 +2993,6 @@
           "percentile_high": 8.7,
           "relative_percentile": 8.7
         },
-        "demographics2020.four_plus_household_share": {
-          "value": 11.4,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 69.6,
-          "percentile_high": 34.8,
-          "relative_percentile": 34.8
-        },
-        "housing2023.rental_share": {
-          "value": 53.734,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 56.5,
-          "percentile_high": 47.8,
-          "relative_percentile": 47.8
-        },
         "housing2023.owner_occupied_share": {
           "value": 40.289,
           "period": "2023",
@@ -3019,42 +3001,6 @@
           "percentile_low": 56.5,
           "percentile_high": 47.8,
           "relative_percentile": 47.8
-        },
-        "economy.establishments": {
-          "value": 28839.0,
-          "period": "2021",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 78.3,
-          "percentile_high": 26.1,
-          "relative_percentile": 26.1
-        },
-        "housing2023.post2011_share": {
-          "value": 26.115,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 65.2,
-          "percentile_high": 39.1,
-          "relative_percentile": 39.1
-        },
-        "demographics2020.single_household_share": {
-          "value": 53.609,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 52.2,
-          "percentile_high": 52.2,
-          "relative_percentile": 52.2
-        },
-        "economy.day_night_population_ratio": {
-          "value": 96.51722,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 47.8,
-          "percentile_high": 56.5,
-          "relative_percentile": 56.5
         },
         "economy.employees": {
           "value": 371441.0,
@@ -3065,14 +3011,23 @@
           "percentile_high": 34.8,
           "relative_percentile": 34.8
         },
-        "economy.taxable_income_per_taxpayer": {
-          "value": 3104.382,
-          "period": "C120120_納税義務者数（所得割）",
+        "housing2023.post2011_share": {
+          "value": 26.115,
+          "period": "2023",
           "quality": "A",
           "is_estimate": false,
-          "percentile_low": 52.2,
-          "percentile_high": 52.2,
-          "relative_percentile": 52.2
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
+        "economy.establishments": {
+          "value": 28839.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
         },
         "housing2023.pre1980_share": {
           "value": 14.966,
@@ -3082,15 +3037,6 @@
           "percentile_low": 39.1,
           "percentile_high": 65.2,
           "relative_percentile": 39.1
-        },
-        "demographics.natural_change": {
-          "value": -3054.0,
-          "period": "2024",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 8.7,
-          "percentile_high": 95.7,
-          "relative_percentile": 95.7
         },
         "market.transaction_far_median": {
           "value": 200.0,
@@ -3110,6 +3056,24 @@
           "percentile_high": 65.2,
           "relative_percentile": 65.2
         },
+        "demographics.natural_change": {
+          "value": -3054.0,
+          "period": "2024",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
+        "economy.day_night_population_ratio": {
+          "value": 96.51722,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
         "market.transaction_count": {
           "value": 10190.0,
           "period": "2021-2025",
@@ -3119,6 +3083,15 @@
           "percentile_high": 4.3,
           "relative_percentile": 4.3
         },
+        "housing2023.rental_share": {
+          "value": 53.734,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
         "market.land_price_median": {
           "value": 674500.0,
           "period": "2026",
@@ -3127,6 +3100,33 @@
           "percentile_low": 26.1,
           "percentile_high": 78.3,
           "relative_percentile": 78.3
+        },
+        "demographics2020.single_household_share": {
+          "value": 53.609,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 3104.382,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "demographics2020.four_plus_household_share": {
+          "value": 11.4,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
         },
         "people.retention_2045": {
           "value": 102.957,
@@ -3248,24 +3248,6 @@
           "percentile_high": 4.3,
           "relative_percentile": 4.3
         },
-        "demographics2020.four_plus_household_share": {
-          "value": 11.907,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 73.9,
-          "percentile_high": 30.4,
-          "relative_percentile": 30.4
-        },
-        "housing2023.rental_share": {
-          "value": 46.724,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 13.0,
-          "percentile_high": 91.3,
-          "relative_percentile": 91.3
-        },
         "housing2023.owner_occupied_share": {
           "value": 44.634,
           "period": "2023",
@@ -3274,42 +3256,6 @@
           "percentile_low": 91.3,
           "percentile_high": 13.0,
           "relative_percentile": 13.0
-        },
-        "economy.establishments": {
-          "value": 27909.0,
-          "period": "2021",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 73.9,
-          "percentile_high": 30.4,
-          "relative_percentile": 30.4
-        },
-        "housing2023.post2011_share": {
-          "value": 24.488,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 47.8,
-          "percentile_high": 56.5,
-          "relative_percentile": 56.5
-        },
-        "demographics2020.single_household_share": {
-          "value": 50.971,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 30.4,
-          "percentile_high": 73.9,
-          "relative_percentile": 73.9
-        },
-        "economy.day_night_population_ratio": {
-          "value": 90.58712,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 34.8,
-          "percentile_high": 69.6,
-          "relative_percentile": 69.6
         },
         "economy.employees": {
           "value": 292659.0,
@@ -3320,14 +3266,23 @@
           "percentile_high": 39.1,
           "relative_percentile": 39.1
         },
-        "economy.taxable_income_per_taxpayer": {
-          "value": 3741.707,
-          "period": "C120120_納税義務者数（所得割）",
+        "housing2023.post2011_share": {
+          "value": 24.488,
+          "period": "2023",
           "quality": "A",
           "is_estimate": false,
-          "percentile_low": 87.0,
-          "percentile_high": 17.4,
-          "relative_percentile": 17.4
+          "percentile_low": 47.8,
+          "percentile_high": 56.5,
+          "relative_percentile": 56.5
+        },
+        "economy.establishments": {
+          "value": 27909.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
         },
         "housing2023.pre1980_share": {
           "value": 13.698,
@@ -3337,15 +3292,6 @@
           "percentile_low": 21.7,
           "percentile_high": 82.6,
           "relative_percentile": 21.7
-        },
-        "demographics.natural_change": {
-          "value": -2001.0,
-          "period": "2024",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 30.4,
-          "percentile_high": 73.9,
-          "relative_percentile": 73.9
         },
         "market.transaction_far_median": {
           "value": 200.0,
@@ -3365,6 +3311,24 @@
           "percentile_high": 56.5,
           "relative_percentile": 56.5
         },
+        "demographics.natural_change": {
+          "value": -2001.0,
+          "period": "2024",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        },
+        "economy.day_night_population_ratio": {
+          "value": 90.58712,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
         "market.transaction_count": {
           "value": 9402.0,
           "period": "2021-2025",
@@ -3374,6 +3338,15 @@
           "percentile_high": 8.7,
           "relative_percentile": 8.7
         },
+        "housing2023.rental_share": {
+          "value": 46.724,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
         "market.land_price_median": {
           "value": 833000.0,
           "period": "2026",
@@ -3382,6 +3355,33 @@
           "percentile_low": 52.2,
           "percentile_high": 52.2,
           "relative_percentile": 52.2
+        },
+        "demographics2020.single_household_share": {
+          "value": 50.971,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 3741.707,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
+        "demographics2020.four_plus_household_share": {
+          "value": 11.907,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
         },
         "people.retention_2045": {
           "value": 104.596,
@@ -3503,24 +3503,6 @@
           "percentile_high": 82.6,
           "relative_percentile": 82.6
         },
-        "demographics2020.four_plus_household_share": {
-          "value": 7.183,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 8.7,
-          "percentile_high": 95.7,
-          "relative_percentile": 95.7
-        },
-        "housing2023.rental_share": {
-          "value": 53.592,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 52.2,
-          "percentile_high": 52.2,
-          "relative_percentile": 52.2
-        },
         "housing2023.owner_occupied_share": {
           "value": 36.547,
           "period": "2023",
@@ -3529,42 +3511,6 @@
           "percentile_low": 21.7,
           "percentile_high": 82.6,
           "relative_percentile": 82.6
-        },
-        "economy.establishments": {
-          "value": 33398.0,
-          "period": "2021",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 87.0,
-          "percentile_high": 17.4,
-          "relative_percentile": 17.4
-        },
-        "housing2023.post2011_share": {
-          "value": 24.806,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 60.9,
-          "percentile_high": 43.5,
-          "relative_percentile": 43.5
-        },
-        "demographics2020.single_household_share": {
-          "value": 64.533,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 95.7,
-          "percentile_high": 8.7,
-          "relative_percentile": 8.7
-        },
-        "economy.day_night_population_ratio": {
-          "value": 226.06906,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 82.6,
-          "percentile_high": 21.7,
-          "relative_percentile": 21.7
         },
         "economy.employees": {
           "value": 589482.0,
@@ -3575,14 +3521,23 @@
           "percentile_high": 21.7,
           "relative_percentile": 21.7
         },
-        "economy.taxable_income_per_taxpayer": {
-          "value": 3891.375,
-          "period": "C120120_納税義務者数（所得割）",
+        "housing2023.post2011_share": {
+          "value": 24.806,
+          "period": "2023",
           "quality": "A",
           "is_estimate": false,
-          "percentile_low": 91.3,
-          "percentile_high": 13.0,
-          "relative_percentile": 13.0
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
+        "economy.establishments": {
+          "value": 33398.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
         },
         "housing2023.pre1980_share": {
           "value": 18.243,
@@ -3592,15 +3547,6 @@
           "percentile_low": 87.0,
           "percentile_high": 17.4,
           "relative_percentile": 87.0
-        },
-        "demographics.natural_change": {
-          "value": -194.0,
-          "period": "2024",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 82.6,
-          "percentile_high": 21.7,
-          "relative_percentile": 21.7
         },
         "market.transaction_far_median": {
           "value": 300.0,
@@ -3620,6 +3566,24 @@
           "percentile_high": 13.0,
           "relative_percentile": 13.0
         },
+        "demographics.natural_change": {
+          "value": -194.0,
+          "period": "2024",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
+        "economy.day_night_population_ratio": {
+          "value": 226.06906,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
         "market.transaction_count": {
           "value": 3484.0,
           "period": "2021-2025",
@@ -3629,6 +3593,15 @@
           "percentile_high": 87.0,
           "relative_percentile": 87.0
         },
+        "housing2023.rental_share": {
+          "value": 53.592,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
         "market.land_price_median": {
           "value": 2485000.0,
           "period": "2026",
@@ -3637,6 +3610,33 @@
           "percentile_low": 87.0,
           "percentile_high": 17.4,
           "relative_percentile": 17.4
+        },
+        "demographics2020.single_household_share": {
+          "value": 64.533,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 3891.375,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
+        "demographics2020.four_plus_household_share": {
+          "value": 7.183,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
         },
         "people.retention_2045": {
           "value": 107.974,
@@ -3758,24 +3758,6 @@
           "percentile_high": 65.2,
           "relative_percentile": 65.2
         },
-        "demographics2020.four_plus_household_share": {
-          "value": 7.574,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 17.4,
-          "percentile_high": 87.0,
-          "relative_percentile": 87.0
-        },
-        "housing2023.rental_share": {
-          "value": 59.067,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 91.3,
-          "percentile_high": 13.0,
-          "relative_percentile": 13.0
-        },
         "housing2023.owner_occupied_share": {
           "value": 32.426,
           "period": "2023",
@@ -3784,42 +3766,6 @@
           "percentile_low": 4.3,
           "percentile_high": 100.0,
           "relative_percentile": 100.0
-        },
-        "economy.establishments": {
-          "value": 12088.0,
-          "period": "2021",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 13.0,
-          "percentile_high": 91.3,
-          "relative_percentile": 91.3
-        },
-        "housing2023.post2011_share": {
-          "value": 26.747,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 69.6,
-          "percentile_high": 34.8,
-          "relative_percentile": 34.8
-        },
-        "demographics2020.single_household_share": {
-          "value": 62.348,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 87.0,
-          "percentile_high": 17.4,
-          "relative_percentile": 17.4
-        },
-        "economy.day_night_population_ratio": {
-          "value": 94.45807,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 43.5,
-          "percentile_high": 60.9,
-          "relative_percentile": 60.9
         },
         "economy.employees": {
           "value": 129112.0,
@@ -3830,14 +3776,23 @@
           "percentile_high": 95.7,
           "relative_percentile": 95.7
         },
-        "economy.taxable_income_per_taxpayer": {
-          "value": 3193.454,
-          "period": "C120120_納税義務者数（所得割）",
+        "housing2023.post2011_share": {
+          "value": 26.747,
+          "period": "2023",
           "quality": "A",
           "is_estimate": false,
-          "percentile_low": 56.5,
-          "percentile_high": 47.8,
-          "relative_percentile": 47.8
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
+        },
+        "economy.establishments": {
+          "value": 12088.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
         },
         "housing2023.pre1980_share": {
           "value": 15.457,
@@ -3847,15 +3802,6 @@
           "percentile_low": 56.5,
           "percentile_high": 47.8,
           "relative_percentile": 56.5
-        },
-        "demographics.natural_change": {
-          "value": -1008.0,
-          "period": "2024",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 52.2,
-          "percentile_high": 52.2,
-          "relative_percentile": 52.2
         },
         "market.transaction_far_median": {
           "value": 200.0,
@@ -3875,6 +3821,24 @@
           "percentile_high": 60.9,
           "relative_percentile": 60.9
         },
+        "demographics.natural_change": {
+          "value": -1008.0,
+          "period": "2024",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
+        },
+        "economy.day_night_population_ratio": {
+          "value": 94.45807,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        },
         "market.transaction_count": {
           "value": 4177.0,
           "period": "2021-2025",
@@ -3884,6 +3848,15 @@
           "percentile_high": 69.6,
           "relative_percentile": 69.6
         },
+        "housing2023.rental_share": {
+          "value": 59.067,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
         "market.land_price_median": {
           "value": 951000.0,
           "period": "2026",
@@ -3892,6 +3865,33 @@
           "percentile_low": 56.5,
           "percentile_high": 47.8,
           "relative_percentile": 47.8
+        },
+        "demographics2020.single_household_share": {
+          "value": 62.348,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 3193.454,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
+        "demographics2020.four_plus_household_share": {
+          "value": 7.574,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
         },
         "people.retention_2045": {
           "value": 103.188,
@@ -4013,24 +4013,6 @@
           "percentile_high": 39.1,
           "relative_percentile": 39.1
         },
-        "demographics2020.four_plus_household_share": {
-          "value": 9.531,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 26.1,
-          "percentile_high": 78.3,
-          "relative_percentile": 78.3
-        },
-        "housing2023.rental_share": {
-          "value": 53.765,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 60.9,
-          "percentile_high": 43.5,
-          "relative_percentile": 43.5
-        },
         "housing2023.owner_occupied_share": {
           "value": 38.447,
           "period": "2023",
@@ -4039,42 +4021,6 @@
           "percentile_low": 30.4,
           "percentile_high": 73.9,
           "relative_percentile": 73.9
-        },
-        "economy.establishments": {
-          "value": 19533.0,
-          "period": "2021",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 43.5,
-          "percentile_high": 60.9,
-          "relative_percentile": 60.9
-        },
-        "housing2023.post2011_share": {
-          "value": 22.019,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 13.0,
-          "percentile_high": 91.3,
-          "relative_percentile": 91.3
-        },
-        "demographics2020.single_household_share": {
-          "value": 58.589,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 78.3,
-          "percentile_high": 26.1,
-          "relative_percentile": 26.1
-        },
-        "economy.day_night_population_ratio": {
-          "value": 84.2599,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 17.4,
-          "percentile_high": 87.0,
-          "relative_percentile": 87.0
         },
         "economy.employees": {
           "value": 166987.0,
@@ -4085,14 +4031,23 @@
           "percentile_high": 78.3,
           "relative_percentile": 78.3
         },
-        "economy.taxable_income_per_taxpayer": {
-          "value": 3584.279,
-          "period": "C120120_納税義務者数（所得割）",
+        "housing2023.post2011_share": {
+          "value": 22.019,
+          "period": "2023",
           "quality": "A",
           "is_estimate": false,
-          "percentile_low": 73.9,
-          "percentile_high": 30.4,
-          "relative_percentile": 30.4
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
+        "economy.establishments": {
+          "value": 19533.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
         },
         "housing2023.pre1980_share": {
           "value": 15.901,
@@ -4102,15 +4057,6 @@
           "percentile_low": 65.2,
           "percentile_high": 39.1,
           "relative_percentile": 65.2
-        },
-        "demographics.natural_change": {
-          "value": -1754.0,
-          "period": "2024",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 34.8,
-          "percentile_high": 69.6,
-          "relative_percentile": 69.6
         },
         "market.transaction_far_median": {
           "value": 200.0,
@@ -4130,6 +4076,24 @@
           "percentile_high": 73.9,
           "relative_percentile": 73.9
         },
+        "demographics.natural_change": {
+          "value": -1754.0,
+          "period": "2024",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
+        "economy.day_night_population_ratio": {
+          "value": 84.2599,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
         "market.transaction_count": {
           "value": 6987.0,
           "period": "2021-2025",
@@ -4139,6 +4103,15 @@
           "percentile_high": 30.4,
           "relative_percentile": 30.4
         },
+        "housing2023.rental_share": {
+          "value": 53.765,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
         "market.land_price_median": {
           "value": 748000.0,
           "period": "2026",
@@ -4147,6 +4120,33 @@
           "percentile_low": 30.4,
           "percentile_high": 73.9,
           "relative_percentile": 73.9
+        },
+        "demographics2020.single_household_share": {
+          "value": 58.589,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 3584.279,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 73.9,
+          "percentile_high": 30.4,
+          "relative_percentile": 30.4
+        },
+        "demographics2020.four_plus_household_share": {
+          "value": 9.531,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
         },
         "people.retention_2045": {
           "value": 105.283,
@@ -4268,24 +4268,6 @@
           "percentile_high": 60.9,
           "relative_percentile": 60.9
         },
-        "demographics2020.four_plus_household_share": {
-          "value": 7.495,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 13.0,
-          "percentile_high": 91.3,
-          "relative_percentile": 91.3
-        },
-        "housing2023.rental_share": {
-          "value": 59.906,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 95.7,
-          "percentile_high": 8.7,
-          "relative_percentile": 8.7
-        },
         "housing2023.owner_occupied_share": {
           "value": 32.731,
           "period": "2023",
@@ -4294,42 +4276,6 @@
           "percentile_low": 8.7,
           "percentile_high": 95.7,
           "relative_percentile": 95.7
-        },
-        "economy.establishments": {
-          "value": 19292.0,
-          "period": "2021",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 39.1,
-          "percentile_high": 65.2,
-          "relative_percentile": 65.2
-        },
-        "housing2023.post2011_share": {
-          "value": 23.477,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 34.8,
-          "percentile_high": 69.6,
-          "relative_percentile": 69.6
-        },
-        "demographics2020.single_household_share": {
-          "value": 64.026,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 91.3,
-          "percentile_high": 13.0,
-          "relative_percentile": 13.0
-        },
-        "economy.day_night_population_ratio": {
-          "value": 136.62844,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 65.2,
-          "percentile_high": 39.1,
-          "relative_percentile": 39.1
         },
         "economy.employees": {
           "value": 278087.0,
@@ -4340,14 +4286,23 @@
           "percentile_high": 43.5,
           "relative_percentile": 43.5
         },
-        "economy.taxable_income_per_taxpayer": {
-          "value": 2966.688,
-          "period": "C120120_納税義務者数（所得割）",
+        "housing2023.post2011_share": {
+          "value": 23.477,
+          "period": "2023",
           "quality": "A",
           "is_estimate": false,
-          "percentile_low": 43.5,
-          "percentile_high": 60.9,
-          "relative_percentile": 60.9
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
+        "economy.establishments": {
+          "value": 19292.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
         },
         "housing2023.pre1980_share": {
           "value": 15.3,
@@ -4357,15 +4312,6 @@
           "percentile_low": 52.2,
           "percentile_high": 52.2,
           "relative_percentile": 52.2
-        },
-        "demographics.natural_change": {
-          "value": -977.0,
-          "period": "2024",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 56.5,
-          "percentile_high": 47.8,
-          "relative_percentile": 47.8
         },
         "market.transaction_far_median": {
           "value": 400.0,
@@ -4385,6 +4331,24 @@
           "percentile_high": 43.5,
           "relative_percentile": 43.5
         },
+        "demographics.natural_change": {
+          "value": -977.0,
+          "period": "2024",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
+        "economy.day_night_population_ratio": {
+          "value": 136.62844,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
         "market.transaction_count": {
           "value": 4281.0,
           "period": "2021-2025",
@@ -4394,6 +4358,15 @@
           "percentile_high": 60.9,
           "relative_percentile": 60.9
         },
+        "housing2023.rental_share": {
+          "value": 59.906,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
+        },
         "market.land_price_median": {
           "value": 1230000.0,
           "period": "2026",
@@ -4402,6 +4375,33 @@
           "percentile_low": 60.9,
           "percentile_high": 43.5,
           "relative_percentile": 43.5
+        },
+        "demographics2020.single_household_share": {
+          "value": 64.026,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 2966.688,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 43.5,
+          "percentile_high": 60.9,
+          "relative_percentile": 60.9
+        },
+        "demographics2020.four_plus_household_share": {
+          "value": 7.495,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
         },
         "people.retention_2045": {
           "value": 106.98,
@@ -4523,24 +4523,6 @@
           "percentile_high": 56.5,
           "relative_percentile": 56.5
         },
-        "demographics2020.four_plus_household_share": {
-          "value": 10.723,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 60.9,
-          "percentile_high": 43.5,
-          "relative_percentile": 43.5
-        },
-        "housing2023.rental_share": {
-          "value": 56.944,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 78.3,
-          "percentile_high": 26.1,
-          "relative_percentile": 26.1
-        },
         "housing2023.owner_occupied_share": {
           "value": 38.942,
           "period": "2023",
@@ -4549,42 +4531,6 @@
           "percentile_low": 34.8,
           "percentile_high": 69.6,
           "relative_percentile": 69.6
-        },
-        "economy.establishments": {
-          "value": 11922.0,
-          "period": "2021",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 8.7,
-          "percentile_high": 95.7,
-          "relative_percentile": 95.7
-        },
-        "housing2023.post2011_share": {
-          "value": 30.008,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 82.6,
-          "percentile_high": 21.7,
-          "relative_percentile": 21.7
-        },
-        "demographics2020.single_household_share": {
-          "value": 52.229,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 39.1,
-          "percentile_high": 65.2,
-          "relative_percentile": 65.2
-        },
-        "economy.day_night_population_ratio": {
-          "value": 93.47012,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 39.1,
-          "percentile_high": 65.2,
-          "relative_percentile": 65.2
         },
         "economy.employees": {
           "value": 137271.0,
@@ -4595,14 +4541,23 @@
           "percentile_high": 91.3,
           "relative_percentile": 91.3
         },
-        "economy.taxable_income_per_taxpayer": {
-          "value": 2668.262,
-          "period": "C120120_納税義務者数（所得割）",
+        "housing2023.post2011_share": {
+          "value": 30.008,
+          "period": "2023",
           "quality": "A",
           "is_estimate": false,
-          "percentile_low": 30.4,
-          "percentile_high": 73.9,
-          "relative_percentile": 73.9
+          "percentile_low": 82.6,
+          "percentile_high": 21.7,
+          "relative_percentile": 21.7
+        },
+        "economy.establishments": {
+          "value": 11922.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
         },
         "housing2023.pre1980_share": {
           "value": 18.772,
@@ -4612,15 +4567,6 @@
           "percentile_low": 91.3,
           "percentile_high": 13.0,
           "relative_percentile": 91.3
-        },
-        "demographics.natural_change": {
-          "value": -1714.0,
-          "period": "2024",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 39.1,
-          "percentile_high": 65.2,
-          "relative_percentile": 65.2
         },
         "market.transaction_far_median": {
           "value": 300.0,
@@ -4640,6 +4586,24 @@
           "percentile_high": 69.6,
           "relative_percentile": 69.6
         },
+        "demographics.natural_change": {
+          "value": -1714.0,
+          "period": "2024",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
+        "economy.day_night_population_ratio": {
+          "value": 93.47012,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
         "market.transaction_count": {
           "value": 4202.0,
           "period": "2021-2025",
@@ -4649,6 +4613,15 @@
           "percentile_high": 65.2,
           "relative_percentile": 65.2
         },
+        "housing2023.rental_share": {
+          "value": 56.944,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
+        },
         "market.land_price_median": {
           "value": 766500.0,
           "period": "2026",
@@ -4657,6 +4630,33 @@
           "percentile_low": 47.8,
           "percentile_high": 56.5,
           "relative_percentile": 56.5
+        },
+        "demographics2020.single_household_share": {
+          "value": 52.229,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 2668.262,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        },
+        "demographics2020.four_plus_household_share": {
+          "value": 10.723,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
         },
         "people.retention_2045": {
           "value": 101.425,
@@ -4778,24 +4778,6 @@
           "percentile_high": 78.3,
           "relative_percentile": 78.3
         },
-        "demographics2020.four_plus_household_share": {
-          "value": 12.316,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 78.3,
-          "percentile_high": 26.1,
-          "relative_percentile": 26.1
-        },
-        "housing2023.rental_share": {
-          "value": 43.145,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 8.7,
-          "percentile_high": 95.7,
-          "relative_percentile": 95.7
-        },
         "housing2023.owner_occupied_share": {
           "value": 49.934,
           "period": "2023",
@@ -4805,8 +4787,8 @@
           "percentile_high": 8.7,
           "relative_percentile": 8.7
         },
-        "economy.establishments": {
-          "value": 8469.0,
+        "economy.employees": {
+          "value": 80996.0,
           "period": "2021",
           "quality": "A",
           "is_estimate": false,
@@ -4823,36 +4805,9 @@
           "percentile_high": 60.9,
           "relative_percentile": 60.9
         },
-        "demographics2020.single_household_share": {
-          "value": 49.525,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 26.1,
-          "percentile_high": 78.3,
-          "relative_percentile": 78.3
-        },
-        "economy.day_night_population_ratio": {
-          "value": 89.04012,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 21.7,
-          "percentile_high": 82.6,
-          "relative_percentile": 82.6
-        },
-        "economy.employees": {
-          "value": 80996.0,
+        "economy.establishments": {
+          "value": 8469.0,
           "period": "2021",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 4.3,
-          "percentile_high": 100.0,
-          "relative_percentile": 100.0
-        },
-        "economy.taxable_income_per_taxpayer": {
-          "value": 2511.992,
-          "period": "C120120_納税義務者数（所得割）",
           "quality": "A",
           "is_estimate": false,
           "percentile_low": 4.3,
@@ -4867,15 +4822,6 @@
           "percentile_low": 26.1,
           "percentile_high": 78.3,
           "relative_percentile": 26.1
-        },
-        "demographics.natural_change": {
-          "value": -905.0,
-          "period": "2024",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 60.9,
-          "percentile_high": 43.5,
-          "relative_percentile": 43.5
         },
         "market.transaction_far_median": {
           "value": 300.0,
@@ -4895,9 +4841,36 @@
           "percentile_high": 78.3,
           "relative_percentile": 78.3
         },
+        "demographics.natural_change": {
+          "value": -905.0,
+          "period": "2024",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
+        "economy.day_night_population_ratio": {
+          "value": 89.04012,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
         "market.transaction_count": {
           "value": 2661.0,
           "period": "2021-2025",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
+        "housing2023.rental_share": {
+          "value": 43.145,
+          "period": "2023",
           "quality": "A",
           "is_estimate": false,
           "percentile_low": 8.7,
@@ -4912,6 +4885,33 @@
           "percentile_low": 34.8,
           "percentile_high": 69.6,
           "relative_percentile": 69.6
+        },
+        "demographics2020.single_household_share": {
+          "value": 49.525,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 2511.992,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
+        "demographics2020.four_plus_household_share": {
+          "value": 12.316,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 78.3,
+          "percentile_high": 26.1,
+          "relative_percentile": 26.1
         },
         "people.retention_2045": {
           "value": 106.019,
@@ -5033,24 +5033,6 @@
           "percentile_high": 21.7,
           "relative_percentile": 21.7
         },
-        "demographics2020.four_plus_household_share": {
-          "value": 10.846,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 65.2,
-          "percentile_high": 39.1,
-          "relative_percentile": 39.1
-        },
-        "housing2023.rental_share": {
-          "value": 54.068,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 65.2,
-          "percentile_high": 39.1,
-          "relative_percentile": 39.1
-        },
         "housing2023.owner_occupied_share": {
           "value": 40.198,
           "period": "2023",
@@ -5059,42 +5041,6 @@
           "percentile_low": 52.2,
           "percentile_high": 52.2,
           "relative_percentile": 52.2
-        },
-        "economy.establishments": {
-          "value": 17472.0,
-          "period": "2021",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 34.8,
-          "percentile_high": 69.6,
-          "relative_percentile": 69.6
-        },
-        "housing2023.post2011_share": {
-          "value": 21.392,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 8.7,
-          "percentile_high": 95.7,
-          "relative_percentile": 95.7
-        },
-        "demographics2020.single_household_share": {
-          "value": 54.387,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 56.5,
-          "percentile_high": 47.8,
-          "relative_percentile": 47.8
-        },
-        "economy.day_night_population_ratio": {
-          "value": 89.54204,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 30.4,
-          "percentile_high": 73.9,
-          "relative_percentile": 73.9
         },
         "economy.employees": {
           "value": 207012.0,
@@ -5105,9 +5051,18 @@
           "percentile_high": 60.9,
           "relative_percentile": 60.9
         },
-        "economy.taxable_income_per_taxpayer": {
-          "value": 2818.48,
-          "period": "C120120_納税義務者数（所得割）",
+        "housing2023.post2011_share": {
+          "value": 21.392,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
+        "economy.establishments": {
+          "value": 17472.0,
+          "period": "2021",
           "quality": "A",
           "is_estimate": false,
           "percentile_low": 34.8,
@@ -5122,15 +5077,6 @@
           "percentile_low": 95.7,
           "percentile_high": 8.7,
           "relative_percentile": 95.7
-        },
-        "demographics.natural_change": {
-          "value": -2906.0,
-          "period": "2024",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 13.0,
-          "percentile_high": 91.3,
-          "relative_percentile": 91.3
         },
         "market.transaction_far_median": {
           "value": 200.0,
@@ -5150,6 +5096,24 @@
           "percentile_high": 82.6,
           "relative_percentile": 82.6
         },
+        "demographics.natural_change": {
+          "value": -2906.0,
+          "period": "2024",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
+        "economy.day_night_population_ratio": {
+          "value": 89.54204,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
+        },
         "market.transaction_count": {
           "value": 7374.0,
           "period": "2021-2025",
@@ -5159,6 +5123,15 @@
           "percentile_high": 17.4,
           "relative_percentile": 17.4
         },
+        "housing2023.rental_share": {
+          "value": 54.068,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
+        },
         "market.land_price_median": {
           "value": 578000.0,
           "period": "2026",
@@ -5167,6 +5140,33 @@
           "percentile_low": 21.7,
           "percentile_high": 82.6,
           "relative_percentile": 82.6
+        },
+        "demographics2020.single_household_share": {
+          "value": 54.387,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 56.5,
+          "percentile_high": 47.8,
+          "relative_percentile": 47.8
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 2818.48,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 34.8,
+          "percentile_high": 69.6,
+          "relative_percentile": 69.6
+        },
+        "demographics2020.four_plus_household_share": {
+          "value": 10.846,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 65.2,
+          "percentile_high": 39.1,
+          "relative_percentile": 39.1
         },
         "people.retention_2045": {
           "value": 102.608,
@@ -5288,24 +5288,6 @@
           "percentile_high": 17.4,
           "relative_percentile": 17.4
         },
-        "demographics2020.four_plus_household_share": {
-          "value": 13.734,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 91.3,
-          "percentile_high": 13.0,
-          "relative_percentile": 13.0
-        },
-        "housing2023.rental_share": {
-          "value": 48.615,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 21.7,
-          "percentile_high": 82.6,
-          "relative_percentile": 82.6
-        },
         "housing2023.owner_occupied_share": {
           "value": 41.692,
           "period": "2023",
@@ -5314,42 +5296,6 @@
           "percentile_low": 60.9,
           "percentile_high": 43.5,
           "relative_percentile": 43.5
-        },
-        "economy.establishments": {
-          "value": 20673.0,
-          "period": "2021",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 60.9,
-          "percentile_high": 43.5,
-          "relative_percentile": 43.5
-        },
-        "housing2023.post2011_share": {
-          "value": 23.024,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 26.1,
-          "percentile_high": 78.3,
-          "relative_percentile": 78.3
-        },
-        "demographics2020.single_household_share": {
-          "value": 47.658,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 21.7,
-          "percentile_high": 82.6,
-          "relative_percentile": 82.6
-        },
-        "economy.day_night_population_ratio": {
-          "value": 79.90335,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 4.3,
-          "percentile_high": 100.0,
-          "relative_percentile": 100.0
         },
         "economy.employees": {
           "value": 197530.0,
@@ -5360,9 +5306,18 @@
           "percentile_high": 69.6,
           "relative_percentile": 69.6
         },
-        "economy.taxable_income_per_taxpayer": {
-          "value": 3294.681,
-          "period": "C120120_納税義務者数（所得割）",
+        "housing2023.post2011_share": {
+          "value": 23.024,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
+        "economy.establishments": {
+          "value": 20673.0,
+          "period": "2021",
           "quality": "A",
           "is_estimate": false,
           "percentile_low": 60.9,
@@ -5377,15 +5332,6 @@
           "percentile_low": 13.0,
           "percentile_high": 91.3,
           "relative_percentile": 13.0
-        },
-        "demographics.natural_change": {
-          "value": -2699.0,
-          "period": "2024",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 26.1,
-          "percentile_high": 78.3,
-          "relative_percentile": 78.3
         },
         "market.transaction_far_median": {
           "value": 200.0,
@@ -5405,6 +5351,24 @@
           "percentile_high": 87.0,
           "relative_percentile": 87.0
         },
+        "demographics.natural_change": {
+          "value": -2699.0,
+          "period": "2024",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
+        "economy.day_night_population_ratio": {
+          "value": 79.90335,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
         "market.transaction_count": {
           "value": 8603.0,
           "period": "2021-2025",
@@ -5414,6 +5378,15 @@
           "percentile_high": 13.0,
           "relative_percentile": 13.0
         },
+        "housing2023.rental_share": {
+          "value": 48.615,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
         "market.land_price_median": {
           "value": 505500.0,
           "period": "2026",
@@ -5422,6 +5395,33 @@
           "percentile_low": 17.4,
           "percentile_high": 87.0,
           "relative_percentile": 87.0
+        },
+        "demographics2020.single_household_share": {
+          "value": 47.658,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 3294.681,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 60.9,
+          "percentile_high": 43.5,
+          "relative_percentile": 43.5
+        },
+        "demographics2020.four_plus_household_share": {
+          "value": 13.734,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 91.3,
+          "percentile_high": 13.0,
+          "relative_percentile": 13.0
         },
         "people.retention_2045": {
           "value": 99.559,
@@ -5543,24 +5543,6 @@
           "percentile_high": 13.0,
           "relative_percentile": 13.0
         },
-        "demographics2020.four_plus_household_share": {
-          "value": 13.53,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 87.0,
-          "percentile_high": 17.4,
-          "relative_percentile": 17.4
-        },
-        "housing2023.rental_share": {
-          "value": 48.363,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 17.4,
-          "percentile_high": 87.0,
-          "relative_percentile": 87.0
-        },
         "housing2023.owner_occupied_share": {
           "value": 44.242,
           "period": "2023",
@@ -5569,42 +5551,6 @@
           "percentile_low": 87.0,
           "percentile_high": 17.4,
           "relative_percentile": 17.4
-        },
-        "economy.establishments": {
-          "value": 23376.0,
-          "period": "2021",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 69.6,
-          "percentile_high": 34.8,
-          "relative_percentile": 34.8
-        },
-        "housing2023.post2011_share": {
-          "value": 24.17,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 39.1,
-          "percentile_high": 65.2,
-          "relative_percentile": 65.2
-        },
-        "demographics2020.single_household_share": {
-          "value": 47.347,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 17.4,
-          "percentile_high": 87.0,
-          "relative_percentile": 87.0
-        },
-        "economy.day_night_population_ratio": {
-          "value": 89.11319,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 26.1,
-          "percentile_high": 78.3,
-          "relative_percentile": 78.3
         },
         "economy.employees": {
           "value": 235458.0,
@@ -5615,14 +5561,23 @@
           "percentile_high": 52.2,
           "relative_percentile": 52.2
         },
-        "economy.taxable_income_per_taxpayer": {
-          "value": 2555.268,
-          "period": "C120120_納税義務者数（所得割）",
+        "housing2023.post2011_share": {
+          "value": 24.17,
+          "period": "2023",
           "quality": "A",
           "is_estimate": false,
-          "percentile_low": 13.0,
-          "percentile_high": 91.3,
-          "relative_percentile": 91.3
+          "percentile_low": 39.1,
+          "percentile_high": 65.2,
+          "relative_percentile": 65.2
+        },
+        "economy.establishments": {
+          "value": 23376.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 69.6,
+          "percentile_high": 34.8,
+          "relative_percentile": 34.8
         },
         "housing2023.pre1980_share": {
           "value": 17.03,
@@ -5632,15 +5587,6 @@
           "percentile_low": 82.6,
           "percentile_high": 21.7,
           "relative_percentile": 82.6
-        },
-        "demographics.natural_change": {
-          "value": -4854.0,
-          "period": "2024",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 4.3,
-          "percentile_high": 100.0,
-          "relative_percentile": 100.0
         },
         "market.transaction_far_median": {
           "value": 300.0,
@@ -5660,6 +5606,24 @@
           "percentile_high": 100.0,
           "relative_percentile": 100.0
         },
+        "demographics.natural_change": {
+          "value": -4854.0,
+          "period": "2024",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
+        "economy.day_night_population_ratio": {
+          "value": 89.11319,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
         "market.transaction_count": {
           "value": 7315.0,
           "period": "2021-2025",
@@ -5669,6 +5633,15 @@
           "percentile_high": 21.7,
           "relative_percentile": 21.7
         },
+        "housing2023.rental_share": {
+          "value": 48.363,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
         "market.land_price_median": {
           "value": 390500.0,
           "period": "2026",
@@ -5677,6 +5650,33 @@
           "percentile_low": 4.3,
           "percentile_high": 100.0,
           "relative_percentile": 100.0
+        },
+        "demographics2020.single_household_share": {
+          "value": 47.347,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 2555.268,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
+        "demographics2020.four_plus_household_share": {
+          "value": 13.53,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 87.0,
+          "percentile_high": 17.4,
+          "relative_percentile": 17.4
         },
         "people.retention_2045": {
           "value": 101.843,
@@ -5798,24 +5798,6 @@
           "percentile_high": 34.8,
           "relative_percentile": 34.8
         },
-        "demographics2020.four_plus_household_share": {
-          "value": 14.76,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 95.7,
-          "percentile_high": 8.7,
-          "relative_percentile": 8.7
-        },
-        "housing2023.rental_share": {
-          "value": 42.719,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 4.3,
-          "percentile_high": 100.0,
-          "relative_percentile": 100.0
-        },
         "housing2023.owner_occupied_share": {
           "value": 50.275,
           "period": "2023",
@@ -5824,42 +5806,6 @@
           "percentile_low": 100.0,
           "percentile_high": 4.3,
           "relative_percentile": 4.3
-        },
-        "economy.establishments": {
-          "value": 15883.0,
-          "period": "2021",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 30.4,
-          "percentile_high": 73.9,
-          "relative_percentile": 73.9
-        },
-        "housing2023.post2011_share": {
-          "value": 22.364,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 17.4,
-          "percentile_high": 87.0,
-          "relative_percentile": 87.0
-        },
-        "demographics2020.single_household_share": {
-          "value": 43.565,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 4.3,
-          "percentile_high": 100.0,
-          "relative_percentile": 100.0
-        },
-        "economy.day_night_population_ratio": {
-          "value": 83.1688,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 13.0,
-          "percentile_high": 91.3,
-          "relative_percentile": 91.3
         },
         "economy.employees": {
           "value": 141421.0,
@@ -5870,14 +5816,23 @@
           "percentile_high": 82.6,
           "relative_percentile": 82.6
         },
-        "economy.taxable_income_per_taxpayer": {
-          "value": 2554.943,
-          "period": "C120120_納税義務者数（所得割）",
+        "housing2023.post2011_share": {
+          "value": 22.364,
+          "period": "2023",
           "quality": "A",
           "is_estimate": false,
-          "percentile_low": 8.7,
-          "percentile_high": 95.7,
-          "relative_percentile": 95.7
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
+        "economy.establishments": {
+          "value": 15883.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 30.4,
+          "percentile_high": 73.9,
+          "relative_percentile": 73.9
         },
         "housing2023.pre1980_share": {
           "value": 15.158,
@@ -5887,15 +5842,6 @@
           "percentile_low": 47.8,
           "percentile_high": 56.5,
           "relative_percentile": 47.8
-        },
-        "demographics.natural_change": {
-          "value": -2759.0,
-          "period": "2024",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 21.7,
-          "percentile_high": 82.6,
-          "relative_percentile": 82.6
         },
         "market.transaction_far_median": {
           "value": 200.0,
@@ -5915,6 +5861,24 @@
           "percentile_high": 95.7,
           "relative_percentile": 95.7
         },
+        "demographics.natural_change": {
+          "value": -2759.0,
+          "period": "2024",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 21.7,
+          "percentile_high": 82.6,
+          "relative_percentile": 82.6
+        },
+        "economy.day_night_population_ratio": {
+          "value": 83.1688,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 13.0,
+          "percentile_high": 91.3,
+          "relative_percentile": 91.3
+        },
         "market.transaction_count": {
           "value": 4896.0,
           "period": "2021-2025",
@@ -5924,6 +5888,15 @@
           "percentile_high": 47.8,
           "relative_percentile": 47.8
         },
+        "housing2023.rental_share": {
+          "value": 42.719,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
         "market.land_price_median": {
           "value": 405000.0,
           "period": "2026",
@@ -5932,6 +5905,33 @@
           "percentile_low": 8.7,
           "percentile_high": 95.7,
           "relative_percentile": 95.7
+        },
+        "demographics2020.single_household_share": {
+          "value": 43.565,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 2554.943,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
+        "demographics2020.four_plus_household_share": {
+          "value": 14.76,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 95.7,
+          "percentile_high": 8.7,
+          "relative_percentile": 8.7
         },
         "people.retention_2045": {
           "value": 99.447,
@@ -6053,24 +6053,6 @@
           "percentile_high": 30.4,
           "relative_percentile": 30.4
         },
-        "demographics2020.four_plus_household_share": {
-          "value": 15.785,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 100.0,
-          "percentile_high": 4.3,
-          "relative_percentile": 4.3
-        },
-        "housing2023.rental_share": {
-          "value": 48.946,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 26.1,
-          "percentile_high": 78.3,
-          "relative_percentile": 78.3
-        },
         "housing2023.owner_occupied_share": {
           "value": 44.067,
           "period": "2023",
@@ -6079,42 +6061,6 @@
           "percentile_low": 78.3,
           "percentile_high": 26.1,
           "relative_percentile": 26.1
-        },
-        "economy.establishments": {
-          "value": 20087.0,
-          "period": "2021",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 52.2,
-          "percentile_high": 52.2,
-          "relative_percentile": 52.2
-        },
-        "housing2023.post2011_share": {
-          "value": 21.059,
-          "period": "2023",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 4.3,
-          "percentile_high": 100.0,
-          "relative_percentile": 100.0
-        },
-        "demographics2020.single_household_share": {
-          "value": 44.704,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 8.7,
-          "percentile_high": 95.7,
-          "relative_percentile": 95.7
-        },
-        "economy.day_night_population_ratio": {
-          "value": 81.91586,
-          "period": "2020",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 8.7,
-          "percentile_high": 95.7,
-          "relative_percentile": 95.7
         },
         "economy.employees": {
           "value": 200245.0,
@@ -6125,14 +6071,23 @@
           "percentile_high": 65.2,
           "relative_percentile": 65.2
         },
-        "economy.taxable_income_per_taxpayer": {
-          "value": 2667.828,
-          "period": "C120120_納税義務者数（所得割）",
+        "housing2023.post2011_share": {
+          "value": 21.059,
+          "period": "2023",
           "quality": "A",
           "is_estimate": false,
-          "percentile_low": 26.1,
-          "percentile_high": 78.3,
-          "relative_percentile": 78.3
+          "percentile_low": 4.3,
+          "percentile_high": 100.0,
+          "relative_percentile": 100.0
+        },
+        "economy.establishments": {
+          "value": 20087.0,
+          "period": "2021",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 52.2,
+          "percentile_high": 52.2,
+          "relative_percentile": 52.2
         },
         "housing2023.pre1980_share": {
           "value": 13.672,
@@ -6142,15 +6097,6 @@
           "percentile_low": 17.4,
           "percentile_high": 87.0,
           "relative_percentile": 17.4
-        },
-        "demographics.natural_change": {
-          "value": -2768.0,
-          "period": "2024",
-          "quality": "A",
-          "is_estimate": false,
-          "percentile_low": 17.4,
-          "percentile_high": 87.0,
-          "relative_percentile": 87.0
         },
         "market.transaction_far_median": {
           "value": 200.0,
@@ -6170,6 +6116,24 @@
           "percentile_high": 91.3,
           "relative_percentile": 91.3
         },
+        "demographics.natural_change": {
+          "value": -2768.0,
+          "period": "2024",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 17.4,
+          "percentile_high": 87.0,
+          "relative_percentile": 87.0
+        },
+        "economy.day_night_population_ratio": {
+          "value": 81.91586,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
         "market.transaction_count": {
           "value": 5177.0,
           "period": "2021-2025",
@@ -6179,6 +6143,15 @@
           "percentile_high": 43.5,
           "relative_percentile": 43.5
         },
+        "housing2023.rental_share": {
+          "value": 48.946,
+          "period": "2023",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
         "market.land_price_median": {
           "value": 457000.0,
           "period": "2026",
@@ -6187,6 +6160,33 @@
           "percentile_low": 13.0,
           "percentile_high": 91.3,
           "relative_percentile": 91.3
+        },
+        "demographics2020.single_household_share": {
+          "value": 44.704,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 8.7,
+          "percentile_high": 95.7,
+          "relative_percentile": 95.7
+        },
+        "economy.taxable_income_per_taxpayer": {
+          "value": 2667.828,
+          "period": "C120120_納税義務者数（所得割）",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 26.1,
+          "percentile_high": 78.3,
+          "relative_percentile": 78.3
+        },
+        "demographics2020.four_plus_household_share": {
+          "value": 15.785,
+          "period": "2020",
+          "quality": "A",
+          "is_estimate": false,
+          "percentile_low": 100.0,
+          "percentile_high": 4.3,
+          "relative_percentile": 4.3
         },
         "people.retention_2045": {
           "value": 99.02,

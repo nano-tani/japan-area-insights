@@ -46,7 +46,7 @@
       "sample_size": null,
       "source_id": null,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     },
     "facility_childcare_count": {
       "metric_key": "facility_childcare_count",
@@ -55,7 +55,7 @@
       "sample_size": 25,
       "source_id": 148,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     },
     "facility_childcare_per_10k": {
       "metric_key": "facility_childcare_per_10k",
@@ -64,7 +64,7 @@
       "sample_size": null,
       "source_id": 148,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     },
     "facility_library_count": {
       "metric_key": "facility_library_count",
@@ -73,7 +73,7 @@
       "sample_size": 1,
       "source_id": 150,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     },
     "facility_library_per_10k": {
       "metric_key": "facility_library_per_10k",
@@ -82,7 +82,7 @@
       "sample_size": null,
       "source_id": 150,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     },
     "facility_medical_count": {
       "metric_key": "facility_medical_count",
@@ -91,7 +91,7 @@
       "sample_size": 145,
       "source_id": 149,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     },
     "facility_medical_per_10k": {
       "metric_key": "facility_medical_per_10k",
@@ -100,7 +100,7 @@
       "sample_size": null,
       "source_id": 149,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     },
     "facility_public_facility_count": {
       "metric_key": "facility_public_facility_count",
@@ -109,7 +109,7 @@
       "sample_size": 7,
       "source_id": 151,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     },
     "facility_public_facility_per_10k": {
       "metric_key": "facility_public_facility_per_10k",
@@ -118,7 +118,7 @@
       "sample_size": null,
       "source_id": 151,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     },
     "facility_school_count": {
       "metric_key": "facility_school_count",
@@ -127,7 +127,7 @@
       "sample_size": 9,
       "source_id": 147,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     },
     "facility_school_per_10k": {
       "metric_key": "facility_school_per_10k",
@@ -136,7 +136,7 @@
       "sample_size": null,
       "source_id": 147,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     },
     "future_population_2045": {
       "metric_key": "future_population_2045",
@@ -145,7 +145,7 @@
       "sample_size": null,
       "source_id": 146,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     },
     "future_population_retention_2045": {
       "metric_key": "future_population_retention_2045",
@@ -154,7 +154,7 @@
       "sample_size": null,
       "source_id": 146,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     },
     "hazard_flood_3m_plus_population_share": {
       "metric_key": "hazard_flood_3m_plus_population_share",
@@ -163,7 +163,7 @@
       "sample_size": 0,
       "source_id": 239,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+      "calculated_at": "2026-09-06T22:27:14.804317+00:00"
     },
     "hazard_flood_population_share": {
       "metric_key": "hazard_flood_population_share",
@@ -172,7 +172,7 @@
       "sample_size": 12,
       "source_id": 239,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+      "calculated_at": "2026-09-06T22:27:14.804317+00:00"
     },
     "hazard_large_fill_population_share": {
       "metric_key": "hazard_large_fill_population_share",
@@ -181,7 +181,7 @@
       "sample_size": 0,
       "source_id": 233,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+      "calculated_at": "2026-09-06T22:27:14.804317+00:00"
     },
     "hazard_liquefaction_population_share": {
       "metric_key": "hazard_liquefaction_population_share",
@@ -190,7 +190,7 @@
       "sample_size": 48,
       "source_id": 238,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+      "calculated_at": "2026-09-06T22:27:14.804317+00:00"
     },
     "hazard_sediment_disaster_population_share": {
       "metric_key": "hazard_sediment_disaster_population_share",
@@ -199,7 +199,7 @@
       "sample_size": 0,
       "source_id": 242,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+      "calculated_at": "2026-09-06T22:27:14.804317+00:00"
     },
     "hazard_storm_surge_population_share": {
       "metric_key": "hazard_storm_surge_population_share",
@@ -208,7 +208,7 @@
       "sample_size": 0,
       "source_id": 240,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+      "calculated_at": "2026-09-06T22:27:14.804317+00:00"
     },
     "hazard_tsunami_population_share": {
       "metric_key": "hazard_tsunami_population_share",
@@ -217,7 +217,7 @@
       "sample_size": 0,
       "source_id": 241,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+      "calculated_at": "2026-09-06T22:27:14.804317+00:00"
     },
     "mesh_count": {
       "metric_key": "mesh_count",
@@ -226,7 +226,7 @@
       "sample_size": 48,
       "source_id": null,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     },
     "nearby_line_count": {
       "metric_key": "nearby_line_count",
@@ -235,7 +235,7 @@
       "sample_size": 2,
       "source_id": 152,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     },
     "nearby_station_count": {
       "metric_key": "nearby_station_count",
@@ -244,7 +244,7 @@
       "sample_size": 1,
       "source_id": 152,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     },
     "population_2020": {
       "metric_key": "population_2020",
@@ -253,7 +253,7 @@
       "sample_size": null,
       "source_id": 146,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     },
     "population_2025_projection": {
       "metric_key": "population_2025_projection",
@@ -262,7 +262,7 @@
       "sample_size": null,
       "source_id": 146,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     },
     "population_change_2020_2025_projection": {
       "metric_key": "population_change_2020_2025_projection",
@@ -271,7 +271,7 @@
       "sample_size": null,
       "source_id": 146,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     },
     "price_year_count": {
       "metric_key": "price_year_count",
@@ -280,7 +280,7 @@
       "sample_size": 5,
       "source_id": 153,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     },
     "ridership_daily": {
       "metric_key": "ridership_daily",
@@ -289,7 +289,7 @@
       "sample_size": null,
       "source_id": 152,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     },
     "ridership_per_capita": {
       "metric_key": "ridership_per_capita",
@@ -298,7 +298,7 @@
       "sample_size": null,
       "source_id": 152,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     },
     "seismic_30y_5lower_probability": {
       "metric_key": "seismic_30y_5lower_probability",
@@ -307,7 +307,7 @@
       "sample_size": 48,
       "source_id": 248,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+      "calculated_at": "2026-09-06T22:27:14.804317+00:00"
     },
     "seismic_30y_5upper_probability": {
       "metric_key": "seismic_30y_5upper_probability",
@@ -316,7 +316,7 @@
       "sample_size": 48,
       "source_id": 248,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+      "calculated_at": "2026-09-06T22:27:14.804317+00:00"
     },
     "seismic_30y_6lower_probability": {
       "metric_key": "seismic_30y_6lower_probability",
@@ -325,7 +325,7 @@
       "sample_size": 48,
       "source_id": 248,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+      "calculated_at": "2026-09-06T22:27:14.804317+00:00"
     },
     "seismic_30y_6upper_probability": {
       "metric_key": "seismic_30y_6upper_probability",
@@ -334,7 +334,7 @@
       "sample_size": 48,
       "source_id": 248,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+      "calculated_at": "2026-09-06T22:27:14.804317+00:00"
     },
     "seismic_arv_median": {
       "metric_key": "seismic_arv_median",
@@ -343,7 +343,7 @@
       "sample_size": 48,
       "source_id": 247,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+      "calculated_at": "2026-09-06T22:27:14.804317+00:00"
     },
     "seismic_ground_coverage": {
       "metric_key": "seismic_ground_coverage",
@@ -352,7 +352,7 @@
       "sample_size": 48,
       "source_id": 247,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+      "calculated_at": "2026-09-06T22:27:14.804317+00:00"
     },
     "seismic_hazard_coverage": {
       "metric_key": "seismic_hazard_coverage",
@@ -361,7 +361,7 @@
       "sample_size": 48,
       "source_id": 248,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+      "calculated_at": "2026-09-06T22:27:14.804317+00:00"
     },
     "terrain_elevation_coverage": {
       "metric_key": "terrain_elevation_coverage",
@@ -370,7 +370,7 @@
       "sample_size": 48,
       "source_id": 249,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+      "calculated_at": "2026-09-06T22:27:14.804317+00:00"
     },
     "terrain_elevation_median": {
       "metric_key": "terrain_elevation_median",
@@ -379,7 +379,7 @@
       "sample_size": 48,
       "source_id": 249,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+      "calculated_at": "2026-09-06T22:27:14.804317+00:00"
     },
     "terrain_elevation_p10": {
       "metric_key": "terrain_elevation_p10",
@@ -388,7 +388,7 @@
       "sample_size": 48,
       "source_id": 249,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+      "calculated_at": "2026-09-06T22:27:14.804317+00:00"
     },
     "terrain_elevation_p90": {
       "metric_key": "terrain_elevation_p90",
@@ -397,7 +397,7 @@
       "sample_size": 48,
       "source_id": 249,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+      "calculated_at": "2026-09-06T22:27:14.804317+00:00"
     },
     "terrain_elevation_population_weighted_mean": {
       "metric_key": "terrain_elevation_population_weighted_mean",
@@ -406,7 +406,7 @@
       "sample_size": 48,
       "source_id": 249,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+      "calculated_at": "2026-09-06T22:27:14.804317+00:00"
     },
     "terrain_population_below_5m_share": {
       "metric_key": "terrain_population_below_5m_share",
@@ -415,7 +415,7 @@
       "sample_size": 48,
       "source_id": 249,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:57.080438+00:00"
+      "calculated_at": "2026-09-06T22:27:14.804317+00:00"
     },
     "transaction_count_5y": {
       "metric_key": "transaction_count_5y",
@@ -424,7 +424,7 @@
       "sample_size": 951,
       "source_id": 153,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     },
     "transaction_unit_price_change": {
       "metric_key": "transaction_unit_price_change",
@@ -433,7 +433,7 @@
       "sample_size": null,
       "source_id": 153,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     },
     "transaction_unit_price_median_latest": {
       "metric_key": "transaction_unit_price_median_latest",
@@ -442,7 +442,7 @@
       "sample_size": null,
       "source_id": 153,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     },
     "transport_index": {
       "metric_key": "transport_index",
@@ -451,7 +451,7 @@
       "sample_size": null,
       "source_id": null,
       "metric_version": "station-metrics-v0.1",
-      "calculated_at": "2026-09-06T14:19:53.002591+00:00"
+      "calculated_at": "2026-09-06T22:27:08.548706+00:00"
     }
   },
   "future_population": [

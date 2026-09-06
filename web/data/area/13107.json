@@ -77,7 +77,7 @@
       "change_3y": 23.866,
       "change_5y": null,
       "transaction_count": 914,
-      "source_id": 143
+      "source_id": 296
     },
     {
       "area_id": "13107",
@@ -90,7 +90,7 @@
       "change_3y": 37.035,
       "change_5y": 44.8425,
       "transaction_count": 93,
-      "source_id": 144
+      "source_id": 297
     }
   ],
   "population": [
@@ -106,7 +106,7 @@
       "age_40_64": null,
       "age_65_plus": null,
       "single_households": null,
-      "source_id": 145
+      "source_id": 298
     },
     {
       "area_id": "13107",
@@ -120,7 +120,7 @@
       "age_40_64": null,
       "age_65_plus": null,
       "single_households": null,
-      "source_id": 145
+      "source_id": 298
     }
   ],
   "future_population": [
@@ -439,22 +439,22 @@
       "fetched_at": "2026-09-05T10:01:06.174540+00:00"
     },
     {
-      "source_id": 143,
+      "source_id": 296,
       "source_name": "国土交通省 不動産情報ライブラリ",
       "dataset_id": "XPT002:2025",
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-05T10:05:29.385360+00:00"
+      "fetched_at": "2026-09-06T22:16:27.516278+00:00"
     },
     {
-      "source_id": 144,
+      "source_id": 297,
       "source_name": "国土交通省 不動産情報ライブラリ",
       "dataset_id": "XPT002:2026",
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-05T10:09:19.306495+00:00"
+      "fetched_at": "2026-09-06T22:20:00.227415+00:00"
     },
     {
       "source_id": 147,
@@ -520,13 +520,13 @@
       "fetched_at": "2026-09-05T10:21:23.499867+00:00"
     },
     {
-      "source_id": 145,
+      "source_id": 298,
       "source_name": "政府統計の総合窓口 e-Stat / 令和7年国勢調査 速報集計",
       "dataset_id": "0004050397,0004050417",
       "source_url": "https://www.e-stat.go.jp/stat-search/database?statdisp_id=0004050417",
       "terms_url": "https://www.e-stat.go.jp/terms-of-use",
       "published_at": "2026-05-29",
-      "fetched_at": "2026-09-05T10:09:26.604122+00:00"
+      "fetched_at": "2026-09-06T22:20:08.789289+00:00"
     }
   ]
 }

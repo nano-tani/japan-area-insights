@@ -11,7 +11,18 @@ ROOT = Path(__file__).resolve().parents[1]
 STATE_PATH = ROOT / "data" / "cache" / "refresh-run.json"
 DB_PATH = ROOT / "database" / "area_insights.db"
 OUTPUT_PATH = ROOT / "web" / "data" / "refresh-status.json"
-PHASES = ("prepare", "core", "station", "stats", "spatial", "build")
+PHASES = (
+    "prepare",
+    "core",
+    "station",
+    "stats",
+    "spatial",
+    "resilience",
+    "jshis_ground",
+    "jshis_hazard",
+    "elevation",
+    "build",
+)
 COUNT_TABLES = (
     "areas",
     "area_prices",

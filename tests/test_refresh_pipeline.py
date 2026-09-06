@@ -53,7 +53,8 @@ def test_refresh_workflow_can_resume_from_a_previous_run_artifact_on_main():
     assert "actions/github-script@v7" in WORKFLOW
     assert "listWorkflowRunArtifacts" in WORKFLOW
     assert "listJobsForWorkflowRun" in WORKFLOW
-    assert "actions: read" in WORKFLOW
+    assert "actions: write" in WORKFLOW
+    assert "gh workflow run pages.yml --ref main" in WORKFLOW
     assert "run-id: ${{ steps.resolve_resume.outputs.source_run_id }}" in WORKFLOW
     assert "resume requires scope=all" in WORKFLOW
     assert "source code ${run.head_sha}" in WORKFLOW

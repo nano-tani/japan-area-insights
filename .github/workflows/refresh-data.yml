@@ -24,7 +24,7 @@ on:
           - full
         default: incremental
       from_year:
-        description: "Optional start year. Blank = automatic (previous year for incremental, 5 years back for full)"
+        description: "Optional start year. Blank = automatic"
         required: false
         default: ""
       to_year:
@@ -51,6 +51,10 @@ on:
           - station
           - stats
           - spatial
+          - resilience
+          - jshis_ground
+          - jshis_hazard
+          - elevation
         default: auto
   schedule:
     - cron: "20 20 * * 0"
@@ -69,6 +73,7 @@ env:
 
 jobs:
   prepare:
+    name: prepare
     runs-on: ubuntu-latest
     timeout-minutes: 20
     outputs:
@@ -81,6 +86,14 @@ jobs:
       resume_phase: ${{ steps.config.outputs.resume_phase }}
       resume_run_id: ${{ steps.config.outputs.resume_run_id }}
       resume_artifact: ${{ steps.config.outputs.resume_artifact }}
+      run_core: ${{ steps.config.outputs.run_core }}
+      run_station: ${{ steps.config.outputs.run_station }}
+      run_stats: ${{ steps.config.outputs.run_stats }}
+      run_spatial: ${{ steps.config.outputs.run_spatial }}
+      run_resilience: ${{ steps.config.outputs.run_resilience }}
+      run_jshis_ground: ${{ steps.config.outputs.run_jshis_ground }}
+      run_jshis_hazard: ${{ steps.config.outputs.run_jshis_hazard }}
+      run_elevation: ${{ steps.config.outputs.run_elevation }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -95,7 +108,7 @@ jobs:
           RESUME_SCOPE: ${{ inputs.scope }}
           RESUME_REBUILD: ${{ inputs.rebuild_database }}
         run: |
-          test "$RESUME_SCOPE" = "all" || (echo "resume requires scope=all so downstream phases can run" && exit 1)
+          test "$RESUME_SCOPE" = "all" || (echo "resume requires scope=all" && exit 1)
           test "$RESUME_REBUILD" != "true" || (echo "resume cannot be combined with rebuild_database=true" && exit 1)
       - id: resolve_resume
         name: Resolve resume database artifact
@@ -109,12 +122,21 @@ jobs:
           script: |
             const runIdText = process.env.RESUME_FROM_RUN_ID.trim();
             const requestedPhase = (process.env.RESUME_FROM_PHASE || "auto").trim();
-            const phases = ["spatial", "stats", "station", "core", "prepare"];
+            const phases = [
+              "elevation",
+              "jshis_hazard",
+              "jshis_ground",
+              "resilience",
+              "spatial",
+              "stats",
+              "station",
+              "core",
+              "prepare",
+            ];
             if (!/^\d+$/.test(runIdText)) {
-              core.setFailed("resume_from_run_id must be a numeric workflow run ID");
+              core.setFailed("resume_from_run_id must be numeric");
               return;
             }
-
             const runId = Number(runIdText);
             const { owner, repo } = context.repo;
             const { data: run } = await github.rest.actions.getWorkflowRun({ owner, repo, run_id: runId });
@@ -127,53 +149,43 @@ jobs:
               return;
             }
             if (run.head_branch !== "main") {
-              core.setFailed(`run ${runId} was not created from main (branch=${run.head_branch || "unknown"})`);
+              core.setFailed(`run ${runId} was not created from main`);
               return;
             }
             if (run.status !== "completed") {
-              core.setFailed(`run ${runId} is not completed (status=${run.status})`);
+              core.setFailed(`run ${runId} is not completed`);
               return;
             }
-
             const artifacts = await github.paginate(
               github.rest.actions.listWorkflowRunArtifacts,
               { owner, repo, run_id: runId, per_page: 100 },
             );
-            const artifactByName = new Map(
-              artifacts.filter((artifact) => !artifact.expired).map((artifact) => [artifact.name, artifact]),
+            const artifactNames = new Set(
+              artifacts.filter((artifact) => !artifact.expired).map((artifact) => artifact.name),
             );
             const jobs = await github.paginate(
               github.rest.actions.listJobsForWorkflowRun,
               { owner, repo, run_id: runId, per_page: 100 },
             );
             const successfulJobs = new Set(
-              jobs
-                .filter((job) => job.conclusion === "success")
-                .map((job) => String(job.name).split(" / ")[0]),
+              jobs.filter((job) => job.conclusion === "success").map((job) => String(job.name).split(" / ")[0]),
             );
             const candidates = requestedPhase === "auto" ? phases : [requestedPhase];
             if (!candidates.every((phase) => phases.includes(phase))) {
-              core.setFailed(`resume_from_phase must be one of auto, ${phases.slice().reverse().join(", ")}`);
+              core.setFailed(`invalid resume phase: ${requestedPhase}`);
               return;
             }
-            const selectedPhase = candidates.find((phase) =>
-              successfulJobs.has(phase) && artifactByName.has(`refresh-db-${phase}-${runId}`),
+            const selected = candidates.find((phase) =>
+              successfulJobs.has(phase) && artifactNames.has(`refresh-db-${phase}-${runId}`),
             );
-            if (!selectedPhase) {
-              core.setFailed(
-                `no successful, unexpired database artifact found in run ${runId} for phase ${requestedPhase}`,
-              );
+            if (!selected) {
+              core.setFailed(`no successful, unexpired database artifact found in run ${runId}`);
               return;
             }
-
-            const artifactName = `refresh-db-${selectedPhase}-${runId}`;
             core.setOutput("source_run_id", String(runId));
-            core.setOutput("source_phase", selectedPhase);
-            core.setOutput("artifact_name", artifactName);
-            core.setOutput("source_sha", run.head_sha || "");
-            core.info(
-              `Using ${artifactName} from ${run.html_url}; source code ${run.head_sha || "unknown"} will not be checked out`,
-            );
+            core.setOutput("source_phase", selected);
+            core.setOutput("artifact_name", `refresh-db-${selected}-${runId}`);
+            core.info(`Using refresh-db-${selected}-${runId}; source code ${run.head_sha} is not checked out`);
       - name: Restore database artifact from prior run
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.resume_from_run_id != '' }}
         uses: actions/download-artifact@v4
@@ -203,31 +215,24 @@ jobs:
           RESUME_SOURCE_PHASE: ${{ steps.resolve_resume.outputs.source_phase }}
         run: |
           test -s database/area_insights.db || (echo "Resumed database artifact is missing" && exit 1)
-          test -s data/cache/refresh-run.json || (echo "Resumed refresh metadata artifact is missing" && exit 1)
+          test -s data/cache/refresh-run.json || (echo "Resumed refresh metadata is missing" && exit 1)
           python - <<'PY'
           import json
           import os
           from pathlib import Path
-
           state = json.loads(Path("data/cache/refresh-run.json").read_text(encoding="utf-8"))
-          run = state.get("run", {})
           expected_run = os.environ["RESUME_SOURCE_RUN_ID"]
           expected_phase = os.environ["RESUME_SOURCE_PHASE"]
-          if str(run.get("run_id")) != expected_run:
-              raise SystemExit(
-                  f"resume metadata belongs to run {run.get('run_id')}, expected {expected_run}"
-              )
-          phase = state.get("phases", {}).get(expected_phase, {})
-          if phase.get("status") != "success":
-              raise SystemExit(
-                  f"resume artifact phase {expected_phase} is not marked successful: {phase.get('status')}"
-              )
-          print(f"Verified database artifact from run {expected_run}, phase {expected_phase}")
+          if str(state.get("run", {}).get("run_id")) != expected_run:
+              raise SystemExit("resume metadata run id mismatch")
+          if state.get("phases", {}).get(expected_phase, {}).get("status") != "success":
+              raise SystemExit(f"resume phase {expected_phase} is not marked successful")
+          print(f"Verified run {expected_run} phase {expected_phase}")
           PY
       - run: python scripts/init_db.py
       - run: python scripts/seed_areas.py
       - id: config
-        name: Resolve scope, mode and year range
+        name: Resolve scope, resume point and year range
         shell: bash
         env:
           INPUT_SCOPE: ${{ inputs.scope }}
@@ -235,9 +240,9 @@ jobs:
           INPUT_FROM_YEAR: ${{ inputs.from_year }}
           INPUT_TO_YEAR: ${{ inputs.to_year }}
           INPUT_REBUILD: ${{ inputs.rebuild_database }}
-          RESUME_SOURCE_RUN_ID: ${{ steps.resolve_resume.outputs.source_run_id }}
-          RESUME_SOURCE_PHASE: ${{ steps.resolve_resume.outputs.source_phase }}
-          RESUME_ARTIFACT_NAME: ${{ steps.resolve_resume.outputs.artifact_name }}
+          RESUME_RUN_ID: ${{ steps.resolve_resume.outputs.source_run_id }}
+          RESUME_PHASE: ${{ steps.resolve_resume.outputs.source_phase }}
+          RESUME_ARTIFACT: ${{ steps.resolve_resume.outputs.artifact_name }}
         run: |
           if [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
             scope="core"
@@ -254,29 +259,41 @@ jobs:
           fi
 
           resume_active="false"
-          resume_run_id=""
+          resume_rank="-1"
           resume_phase=""
+          resume_run_id=""
           resume_artifact=""
-          if [ -n "$RESUME_SOURCE_RUN_ID" ]; then
+          restored="false"
+
+          if [ -n "$RESUME_RUN_ID" ]; then
             resume_active="true"
-            resume_run_id="$RESUME_SOURCE_RUN_ID"
-            resume_phase="$RESUME_SOURCE_PHASE"
-            resume_artifact="$RESUME_ARTIFACT_NAME"
-            scope="all"
+            resume_phase="$RESUME_PHASE"
+            resume_run_id="$RESUME_RUN_ID"
+            resume_artifact="$RESUME_ARTIFACT"
             restored="true"
+            scope="all"
+            case "$resume_phase" in
+              prepare) resume_rank=0 ;;
+              core) resume_rank=10 ;;
+              station) resume_rank=20 ;;
+              stats) resume_rank=30 ;;
+              spatial) resume_rank=40 ;;
+              resilience) resume_rank=50 ;;
+              jshis_ground) resume_rank=60 ;;
+              jshis_hazard) resume_rank=70 ;;
+              elevation) resume_rank=80 ;;
+              *) echo "unknown resume phase: $resume_phase"; exit 1 ;;
+            esac
           else
-            restored="false"
             if [ -s database/area_insights.db ]; then
               restored="true"
             fi
-
             if [ "$rebuild" = "true" ]; then
               rm -f database/area_insights.db
               restored="false"
               scope="all"
               mode="full"
             fi
-
             if [ "$restored" != "true" ]; then
               if [ "$scope" = "build" ]; then
                 echo "No cached database is available for build-only."
@@ -294,49 +311,60 @@ jobs:
             source_from_year="$(jq -r '.run.from_year // empty' data/cache/refresh-run.json)"
             source_to_year="$(jq -r '.run.to_year // empty' data/cache/refresh-run.json)"
           fi
-
-          if [ -z "$to_year" ] && [ -n "$source_to_year" ]; then
-            to_year="$source_to_year"
-          fi
-          if [ -z "$from_year" ] && [ -n "$source_from_year" ]; then
-            from_year="$source_from_year"
-          fi
-
-          if [ -n "$from_year" ] && ! [[ "$from_year" =~ ^[0-9]{4}$ ]]; then
-            echo "from_year must be a four-digit year"
-            exit 1
-          fi
-          if [ -n "$to_year" ] && ! [[ "$to_year" =~ ^[0-9]{4}$ ]]; then
-            echo "to_year must be a four-digit year"
-            exit 1
-          fi
-
+          if [ -z "$from_year" ] && [ -n "$source_from_year" ]; then from_year="$source_from_year"; fi
+          if [ -z "$to_year" ] && [ -n "$source_to_year" ]; then to_year="$source_to_year"; fi
           current_year="$(date -u +%Y)"
-          if [ -z "$to_year" ]; then
-            to_year="$current_year"
-          fi
+          if [ -z "$to_year" ]; then to_year="$current_year"; fi
           if [ -z "$from_year" ]; then
-            if [ "$mode" = "incremental" ]; then
-              from_year="$((to_year - 1))"
-            else
-              from_year="$((to_year - 5))"
+            if [ "$mode" = "incremental" ]; then from_year="$((to_year - 1))"; else from_year="$((to_year - 5))"; fi
+          fi
+          [[ "$from_year" =~ ^[0-9]{4}$ ]] || (echo "from_year must be four digits" && exit 1)
+          [[ "$to_year" =~ ^[0-9]{4}$ ]] || (echo "to_year must be four digits" && exit 1)
+          [ "$from_year" -le "$to_year" ] || (echo "from_year must be <= to_year" && exit 1)
+
+          run_core="false"
+          run_station="false"
+          run_stats="false"
+          run_spatial="false"
+          run_resilience="false"
+          run_jshis_ground="false"
+          run_jshis_hazard="false"
+          run_elevation="false"
+
+          if [ "$resume_active" = "true" ]; then
+            [ "$resume_rank" -lt 10 ] && run_core="true"
+            [ "$resume_rank" -lt 20 ] && run_station="true"
+            [ "$resume_rank" -lt 30 ] && run_stats="true"
+            [ "$resume_rank" -lt 40 ] && run_spatial="true"
+            [ "$resume_rank" -lt 50 ] && run_resilience="true"
+            [ "$resume_rank" -lt 60 ] && run_jshis_ground="true"
+            [ "$resume_rank" -lt 70 ] && run_jshis_hazard="true"
+            [ "$resume_rank" -lt 80 ] && run_elevation="true"
+          else
+            if [ "$scope" = "all" ] || [ "$scope" = "core" ]; then run_core="true"; fi
+            if [ "$scope" = "all" ] || [ "$scope" = "station" ]; then run_station="true"; fi
+            if [ "$scope" = "all" ] || [ "$scope" = "stats" ]; then run_stats="true"; fi
+            if [ "$scope" = "all" ] || [ "$scope" = "spatial" ]; then
+              run_spatial="true"
+              run_resilience="true"
+              run_jshis_ground="true"
+              run_jshis_hazard="true"
+              run_elevation="true"
             fi
           fi
-          if [ "$from_year" -gt "$to_year" ]; then
-            echo "from_year must be <= to_year"
-            exit 1
-          fi
 
-          echo "scope=$scope" >> "$GITHUB_OUTPUT"
-          echo "mode=$mode" >> "$GITHUB_OUTPUT"
-          echo "from_year=$from_year" >> "$GITHUB_OUTPUT"
-          echo "to_year=$to_year" >> "$GITHUB_OUTPUT"
-          echo "cache_restored=$restored" >> "$GITHUB_OUTPUT"
-          echo "resume_active=$resume_active" >> "$GITHUB_OUTPUT"
-          echo "resume_run_id=$resume_run_id" >> "$GITHUB_OUTPUT"
-          echo "resume_phase=$resume_phase" >> "$GITHUB_OUTPUT"
-          echo "resume_artifact=$resume_artifact" >> "$GITHUB_OUTPUT"
-          echo "Resolved: scope=$scope mode=$mode years=$from_year-$to_year cache=$restored resume=$resume_run_id/$resume_phase"
+          for pair in \
+            "scope=$scope" "mode=$mode" "from_year=$from_year" "to_year=$to_year" \
+            "cache_restored=$restored" "resume_active=$resume_active" \
+            "resume_phase=$resume_phase" "resume_run_id=$resume_run_id" "resume_artifact=$resume_artifact" \
+            "run_core=$run_core" "run_station=$run_station" "run_stats=$run_stats" \
+            "run_spatial=$run_spatial" "run_resilience=$run_resilience" \
+            "run_jshis_ground=$run_jshis_ground" "run_jshis_hazard=$run_jshis_hazard" \
+            "run_elevation=$run_elevation"
+          do
+            echo "$pair" >> "$GITHUB_OUTPUT"
+          done
+          echo "Resolved: scope=$scope mode=$mode years=$from_year-$to_year resume=$resume_run_id/$resume_phase"
       - name: Initialize refresh status
         run: |
           python scripts/refresh_status.py init \
@@ -350,9 +378,7 @@ jobs:
       - name: Record resume source
         if: ${{ steps.config.outputs.resume_active == 'true' }}
         run: |
-          python scripts/refresh_status.py phase \
-            --name prepare \
-            --status success \
+          python scripts/refresh_status.py phase --name prepare --status success \
             --message "database artifact ${{ steps.config.outputs.resume_artifact }} restored from run ${{ steps.config.outputs.resume_run_id }}; workflow code is $GITHUB_SHA"
       - uses: actions/upload-artifact@v4
         with:
@@ -363,6 +389,7 @@ jobs:
           retention-days: ${{ env.DB_ARTIFACT_RETENTION_DAYS }}
 
   core:
+    name: core
     needs: prepare
     runs-on: ubuntu-latest
     timeout-minutes: 150
@@ -371,46 +398,28 @@ jobs:
       ESTAT_APP_ID: ${{ secrets.ESTAT_APP_ID }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.sha }}
+        with: {ref: "${{ github.sha }}"}
       - uses: actions/setup-python@v5
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-          cache: pip
+        with: {python-version: "${{ env.PYTHON_VERSION }}", cache: pip}
       - run: pip install -e ".[dev]"
       - uses: actions/download-artifact@v4
-        with:
-          name: refresh-db-prepare-${{ github.run_id }}
-          path: .
-      - name: Mark core skipped
-        if: ${{ needs.prepare.outputs.resume_active != 'true' && needs.prepare.outputs.scope != 'all' && needs.prepare.outputs.scope != 'core' }}
-        run: python scripts/refresh_status.py phase --name core --status skipped --message "scope not selected"
-      - name: Mark core restored
-        if: ${{ needs.prepare.outputs.resume_active == 'true' && (needs.prepare.outputs.resume_phase == 'core' || needs.prepare.outputs.resume_phase == 'station' || needs.prepare.outputs.resume_phase == 'stats' || needs.prepare.outputs.resume_phase == 'spatial') }}
+        with: {name: "refresh-db-prepare-${{ github.run_id }}", path: .}
+      - name: Mark core state
         run: |
-          python scripts/refresh_status.py phase --name core --status skipped \
-            --message "database restored from run ${{ needs.prepare.outputs.resume_run_id }} artifact ${{ needs.prepare.outputs.resume_artifact }}"
-      - name: Mark core running
-        if: ${{ (needs.prepare.outputs.scope == 'all' || needs.prepare.outputs.scope == 'core') && (needs.prepare.outputs.resume_active != 'true' || needs.prepare.outputs.resume_phase == 'prepare') }}
-        run: python scripts/refresh_status.py phase --name core --status running
+          if [ "${{ needs.prepare.outputs.run_core }}" = "true" ]; then
+            python scripts/refresh_status.py phase --name core --status running
+          else
+            python scripts/refresh_status.py phase --name core --status skipped --message "scope/resume checkpoint reused"
+          fi
       - id: fetch
-        name: Refresh core ward datasets
-        if: ${{ (needs.prepare.outputs.scope == 'all' || needs.prepare.outputs.scope == 'core') && (needs.prepare.outputs.resume_active != 'true' || needs.prepare.outputs.resume_phase == 'prepare') }}
+        if: ${{ needs.prepare.outputs.run_core == 'true' }}
         continue-on-error: true
-        shell: bash
         run: |
-          test -n "$REINFOLIB_API_KEY" || (echo "REINFOLIB_API_KEY is missing" && exit 1)
-          test -n "$ESTAT_APP_ID" || (echo "ESTAT_APP_ID is missing" && exit 1)
-
-          python scripts/fetch_reinfolib_transactions.py \
-            --from-year "${{ needs.prepare.outputs.from_year }}" \
-            --to-year "${{ needs.prepare.outputs.to_year }}"
-          python scripts/fetch_land_prices.py \
-            --from-year "${{ needs.prepare.outputs.from_year }}" \
-            --to-year "${{ needs.prepare.outputs.to_year }}" \
-            --interval 0.5
+          test -n "$REINFOLIB_API_KEY"
+          test -n "$ESTAT_APP_ID"
+          python scripts/fetch_reinfolib_transactions.py --from-year "${{ needs.prepare.outputs.from_year }}" --to-year "${{ needs.prepare.outputs.to_year }}"
+          python scripts/fetch_land_prices.py --from-year "${{ needs.prepare.outputs.from_year }}" --to-year "${{ needs.prepare.outputs.to_year }}" --interval 0.5
           python scripts/fetch_population.py
-
           need_reference="false"
           if [ "${{ needs.prepare.outputs.mode }}" = "full" ]; then
             need_reference="true"
@@ -426,24 +435,19 @@ jobs:
               conn.close()
           PY
           fi
-
           if [ "$need_reference" = "true" ]; then
-            echo "Refreshing annual/reference datasets."
             python scripts/fetch_future_population.py --zoom 12 --interval 0.3
             python scripts/fetch_facilities.py --zoom 13 --interval 0.3
             python scripts/fetch_transport.py --zoom 12 --interval 0.3
-          else
-            echo "Incremental mode: reusing cached future-population/facility/transport datasets."
           fi
-
           python scripts/sync_geo_units.py
       - name: Record core outcome
-        if: ${{ (needs.prepare.outputs.scope == 'all' || needs.prepare.outputs.scope == 'core') && (needs.prepare.outputs.resume_active != 'true' || needs.prepare.outputs.resume_phase == 'prepare') }}
+        if: ${{ needs.prepare.outputs.run_core == 'true' }}
         run: |
           if [ "${{ steps.fetch.outcome }}" = "success" ]; then
             python scripts/refresh_status.py phase --name core --status success
           else
-            python scripts/refresh_status.py phase --name core --status failure --message "core fetch failed; rerun the core phase"
+            python scripts/refresh_status.py phase --name core --status failure --message "core fetch failed"
           fi
       - uses: actions/upload-artifact@v4
         if: always()
@@ -453,11 +457,11 @@ jobs:
             database/area_insights.db
             data/cache/refresh-run.json
           retention-days: ${{ env.DB_ARTIFACT_RETENTION_DAYS }}
-      - name: Fail core phase
-        if: ${{ steps.fetch.outcome == 'failure' }}
+      - if: ${{ steps.fetch.outcome == 'failure' }}
         run: exit 1
 
   station:
+    name: station
     needs: [prepare, core]
     runs-on: ubuntu-latest
     timeout-minutes: 180
@@ -465,46 +469,33 @@ jobs:
       REINFOLIB_API_KEY: ${{ secrets.REINFOLIB_API_KEY }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.sha }}
+        with: {ref: "${{ github.sha }}"}
       - uses: actions/setup-python@v5
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-          cache: pip
+        with: {python-version: "${{ env.PYTHON_VERSION }}", cache: pip}
       - run: pip install -e ".[dev]"
       - uses: actions/download-artifact@v4
-        with:
-          name: refresh-db-core-${{ github.run_id }}
-          path: .
-      - name: Mark station skipped
-        if: ${{ needs.prepare.outputs.resume_active != 'true' && needs.prepare.outputs.scope != 'all' && needs.prepare.outputs.scope != 'station' }}
-        run: python scripts/refresh_status.py phase --name station --status skipped --message "scope not selected"
-      - name: Mark station restored
-        if: ${{ needs.prepare.outputs.resume_active == 'true' && (needs.prepare.outputs.resume_phase == 'station' || needs.prepare.outputs.resume_phase == 'stats' || needs.prepare.outputs.resume_phase == 'spatial') }}
+        with: {name: "refresh-db-core-${{ github.run_id }}", path: .}
+      - name: Mark station state
         run: |
-          python scripts/refresh_status.py phase --name station --status skipped \
-            --message "database restored from run ${{ needs.prepare.outputs.resume_run_id }} artifact ${{ needs.prepare.outputs.resume_artifact }}"
-      - name: Mark station running
-        if: ${{ (needs.prepare.outputs.scope == 'all' || needs.prepare.outputs.scope == 'station') && (needs.prepare.outputs.resume_active != 'true' || needs.prepare.outputs.resume_phase == 'prepare' || needs.prepare.outputs.resume_phase == 'core') }}
-        run: python scripts/refresh_status.py phase --name station --status running
+          if [ "${{ needs.prepare.outputs.run_station }}" = "true" ]; then
+            python scripts/refresh_status.py phase --name station --status running
+          else
+            python scripts/refresh_status.py phase --name station --status skipped --message "scope/resume checkpoint reused"
+          fi
       - id: fetch
-        name: Refresh station transactions
-        if: ${{ (needs.prepare.outputs.scope == 'all' || needs.prepare.outputs.scope == 'station') && (needs.prepare.outputs.resume_active != 'true' || needs.prepare.outputs.resume_phase == 'prepare' || needs.prepare.outputs.resume_phase == 'core') }}
+        if: ${{ needs.prepare.outputs.run_station == 'true' }}
         continue-on-error: true
         run: |
-          test -n "$REINFOLIB_API_KEY" || (echo "REINFOLIB_API_KEY is missing" && exit 1)
+          test -n "$REINFOLIB_API_KEY"
           python scripts/sync_station_areas.py
-          python scripts/fetch_station_transactions.py \
-            --from-year "${{ needs.prepare.outputs.from_year }}" \
-            --to-year "${{ needs.prepare.outputs.to_year }}" \
-            --interval 0.3
+          python scripts/fetch_station_transactions.py --from-year "${{ needs.prepare.outputs.from_year }}" --to-year "${{ needs.prepare.outputs.to_year }}" --interval 0.3
       - name: Record station outcome
-        if: ${{ (needs.prepare.outputs.scope == 'all' || needs.prepare.outputs.scope == 'station') && (needs.prepare.outputs.resume_active != 'true' || needs.prepare.outputs.resume_phase == 'prepare' || needs.prepare.outputs.resume_phase == 'core') }}
+        if: ${{ needs.prepare.outputs.run_station == 'true' }}
         run: |
           if [ "${{ steps.fetch.outcome }}" = "success" ]; then
             python scripts/refresh_status.py phase --name station --status success
           else
-            python scripts/refresh_status.py phase --name station --status failure --message "station transaction fetch failed; rerun the station phase"
+            python scripts/refresh_status.py phase --name station --status failure --message "station fetch failed"
           fi
       - uses: actions/upload-artifact@v4
         if: always()
@@ -514,11 +505,11 @@ jobs:
             database/area_insights.db
             data/cache/refresh-run.json
           retention-days: ${{ env.DB_ARTIFACT_RETENTION_DAYS }}
-      - name: Fail station phase
-        if: ${{ steps.fetch.outcome == 'failure' }}
+      - if: ${{ steps.fetch.outcome == 'failure' }}
         run: exit 1
 
   stats:
+    name: stats
     needs: [prepare, station]
     runs-on: ubuntu-latest
     timeout-minutes: 120
@@ -527,47 +518,34 @@ jobs:
       ESTAT_APP_ID: ${{ secrets.ESTAT_APP_ID }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.sha }}
+        with: {ref: "${{ github.sha }}"}
       - uses: actions/setup-python@v5
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-          cache: pip
+        with: {python-version: "${{ env.PYTHON_VERSION }}", cache: pip}
       - run: pip install -e ".[dev]"
       - uses: actions/download-artifact@v4
-        with:
-          name: refresh-db-station-${{ github.run_id }}
-          path: .
-      - name: Mark stats skipped
-        if: ${{ needs.prepare.outputs.resume_active != 'true' && needs.prepare.outputs.scope != 'all' && needs.prepare.outputs.scope != 'stats' }}
-        run: python scripts/refresh_status.py phase --name stats --status skipped --message "scope not selected"
-      - name: Mark stats restored
-        if: ${{ needs.prepare.outputs.resume_active == 'true' && (needs.prepare.outputs.resume_phase == 'stats' || needs.prepare.outputs.resume_phase == 'spatial') }}
+        with: {name: "refresh-db-station-${{ github.run_id }}", path: .}
+      - name: Mark stats state
         run: |
-          python scripts/refresh_status.py phase --name stats --status skipped \
-            --message "database restored from run ${{ needs.prepare.outputs.resume_run_id }} artifact ${{ needs.prepare.outputs.resume_artifact }}"
-      - name: Mark stats running
-        if: ${{ (needs.prepare.outputs.scope == 'all' || needs.prepare.outputs.scope == 'stats') && (needs.prepare.outputs.resume_active != 'true' || needs.prepare.outputs.resume_phase == 'prepare' || needs.prepare.outputs.resume_phase == 'core' || needs.prepare.outputs.resume_phase == 'station') }}
-        run: python scripts/refresh_status.py phase --name stats --status running
+          if [ "${{ needs.prepare.outputs.run_stats }}" = "true" ]; then
+            python scripts/refresh_status.py phase --name stats --status running
+          else
+            python scripts/refresh_status.py phase --name stats --status skipped --message "scope/resume checkpoint reused"
+          fi
       - id: fetch
-        name: Refresh detailed statistics and appraisal
-        if: ${{ (needs.prepare.outputs.scope == 'all' || needs.prepare.outputs.scope == 'stats') && (needs.prepare.outputs.resume_active != 'true' || needs.prepare.outputs.resume_phase == 'prepare' || needs.prepare.outputs.resume_phase == 'core' || needs.prepare.outputs.resume_phase == 'station') }}
+        if: ${{ needs.prepare.outputs.run_stats == 'true' }}
         continue-on-error: true
         run: |
-          test -n "$REINFOLIB_API_KEY" || (echo "REINFOLIB_API_KEY is missing" && exit 1)
-          test -n "$ESTAT_APP_ID" || (echo "ESTAT_APP_ID is missing" && exit 1)
+          test -n "$REINFOLIB_API_KEY"
+          test -n "$ESTAT_APP_ID"
           python scripts/fetch_extended_estat.py
-          python scripts/fetch_appraisals.py \
-            --from-year "${{ needs.prepare.outputs.from_year }}" \
-            --to-year "${{ needs.prepare.outputs.to_year }}" \
-            --interval 0.5
+          python scripts/fetch_appraisals.py --from-year "${{ needs.prepare.outputs.from_year }}" --to-year "${{ needs.prepare.outputs.to_year }}" --interval 0.5
       - name: Record stats outcome
-        if: ${{ (needs.prepare.outputs.scope == 'all' || needs.prepare.outputs.scope == 'stats') && (needs.prepare.outputs.resume_active != 'true' || needs.prepare.outputs.resume_phase == 'prepare' || needs.prepare.outputs.resume_phase == 'core' || needs.prepare.outputs.resume_phase == 'station') }}
+        if: ${{ needs.prepare.outputs.run_stats == 'true' }}
         run: |
           if [ "${{ steps.fetch.outcome }}" = "success" ]; then
             python scripts/refresh_status.py phase --name stats --status success
           else
-            python scripts/refresh_status.py phase --name stats --status failure --message "extended statistics fetch failed; rerun the stats phase"
+            python scripts/refresh_status.py phase --name stats --status failure --message "stats fetch failed"
           fi
       - uses: actions/upload-artifact@v4
         if: always()
@@ -577,57 +555,44 @@ jobs:
             database/area_insights.db
             data/cache/refresh-run.json
           retention-days: ${{ env.DB_ARTIFACT_RETENTION_DAYS }}
-      - name: Fail stats phase
-        if: ${{ steps.fetch.outcome == 'failure' }}
+      - if: ${{ steps.fetch.outcome == 'failure' }}
         run: exit 1
 
   spatial:
+    name: spatial
     needs: [prepare, stats]
     runs-on: ubuntu-latest
-    timeout-minutes: 150
+    timeout-minutes: 90
     env:
       REINFOLIB_API_KEY: ${{ secrets.REINFOLIB_API_KEY }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.sha }}
+        with: {ref: "${{ github.sha }}"}
       - uses: actions/setup-python@v5
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-          cache: pip
+        with: {python-version: "${{ env.PYTHON_VERSION }}", cache: pip}
       - run: pip install -e ".[dev]"
       - uses: actions/download-artifact@v4
-        with:
-          name: refresh-db-stats-${{ github.run_id }}
-          path: .
-      - name: Mark spatial skipped
-        if: ${{ needs.prepare.outputs.resume_active != 'true' && needs.prepare.outputs.scope != 'all' && needs.prepare.outputs.scope != 'spatial' }}
-        run: python scripts/refresh_status.py phase --name spatial --status skipped --message "scope not selected"
-      - name: Mark spatial restored
-        if: ${{ needs.prepare.outputs.resume_active == 'true' && needs.prepare.outputs.resume_phase == 'spatial' }}
+        with: {name: "refresh-db-stats-${{ github.run_id }}", path: .}
+      - name: Mark spatial state
         run: |
-          python scripts/refresh_status.py phase --name spatial --status skipped \
-            --message "database restored from run ${{ needs.prepare.outputs.resume_run_id }} artifact ${{ needs.prepare.outputs.resume_artifact }}"
-      - name: Mark spatial running
-        if: ${{ (needs.prepare.outputs.scope == 'all' || needs.prepare.outputs.scope == 'spatial') && (needs.prepare.outputs.resume_active != 'true' || needs.prepare.outputs.resume_phase == 'prepare' || needs.prepare.outputs.resume_phase == 'core' || needs.prepare.outputs.resume_phase == 'station' || needs.prepare.outputs.resume_phase == 'stats') }}
-        run: python scripts/refresh_status.py phase --name spatial --status running
+          if [ "${{ needs.prepare.outputs.run_spatial }}" = "true" ]; then
+            python scripts/refresh_status.py phase --name spatial --status running
+          else
+            python scripts/refresh_status.py phase --name spatial --status skipped --message "scope/resume checkpoint reused"
+          fi
       - id: fetch
-        name: Refresh urban, hazard, seismic and terrain layers
-        if: ${{ (needs.prepare.outputs.scope == 'all' || needs.prepare.outputs.scope == 'spatial') && (needs.prepare.outputs.resume_active != 'true' || needs.prepare.outputs.resume_phase == 'prepare' || needs.prepare.outputs.resume_phase == 'core' || needs.prepare.outputs.resume_phase == 'station' || needs.prepare.outputs.resume_phase == 'stats') }}
+        if: ${{ needs.prepare.outputs.run_spatial == 'true' }}
         continue-on-error: true
         run: |
-          test -n "$REINFOLIB_API_KEY" || (echo "REINFOLIB_API_KEY is missing" && exit 1)
+          test -n "$REINFOLIB_API_KEY"
           python scripts/fetch_extended_spatial.py --zoom 12 --interval 0.2
-          python scripts/fetch_resilience.py --zoom 12 --interval 0.2
-          python scripts/fetch_jshis.py --interval 0.2
-          python scripts/fetch_gsi_elevation.py --interval 0.15
       - name: Record spatial outcome
-        if: ${{ (needs.prepare.outputs.scope == 'all' || needs.prepare.outputs.scope == 'spatial') && (needs.prepare.outputs.resume_active != 'true' || needs.prepare.outputs.resume_phase == 'prepare' || needs.prepare.outputs.resume_phase == 'core' || needs.prepare.outputs.resume_phase == 'station' || needs.prepare.outputs.resume_phase == 'stats') }}
+        if: ${{ needs.prepare.outputs.run_spatial == 'true' }}
         run: |
           if [ "${{ steps.fetch.outcome }}" = "success" ]; then
             python scripts/refresh_status.py phase --name spatial --status success
           else
-            python scripts/refresh_status.py phase --name spatial --status failure --message "spatial fetch failed; rerun the spatial phase"
+            python scripts/refresh_status.py phase --name spatial --status failure --message "urban/hazard fetch failed"
           fi
       - uses: actions/upload-artifact@v4
         if: always()
@@ -637,12 +602,188 @@ jobs:
             database/area_insights.db
             data/cache/refresh-run.json
           retention-days: ${{ env.DB_ARTIFACT_RETENTION_DAYS }}
-      - name: Fail spatial phase
-        if: ${{ steps.fetch.outcome == 'failure' }}
+      - if: ${{ steps.fetch.outcome == 'failure' }}
+        run: exit 1
+
+  resilience:
+    name: resilience
+    needs: [prepare, spatial]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      REINFOLIB_API_KEY: ${{ secrets.REINFOLIB_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: "${{ github.sha }}"}
+      - uses: actions/setup-python@v5
+        with: {python-version: "${{ env.PYTHON_VERSION }}", cache: pip}
+      - run: pip install -e ".[dev]"
+      - uses: actions/download-artifact@v4
+        with: {name: "refresh-db-spatial-${{ github.run_id }}", path: .}
+      - name: Mark resilience state
+        run: |
+          if [ "${{ needs.prepare.outputs.run_resilience }}" = "true" ]; then
+            python scripts/refresh_status.py phase --name resilience --status running
+          else
+            python scripts/refresh_status.py phase --name resilience --status skipped --message "scope/resume checkpoint reused"
+          fi
+      - id: fetch
+        if: ${{ needs.prepare.outputs.run_resilience == 'true' }}
+        continue-on-error: true
+        run: |
+          test -n "$REINFOLIB_API_KEY"
+          python scripts/fetch_resilience.py --zoom 12 --interval 0.2
+      - name: Record resilience outcome
+        if: ${{ needs.prepare.outputs.run_resilience == 'true' }}
+        run: |
+          if [ "${{ steps.fetch.outcome }}" = "success" ]; then
+            python scripts/refresh_status.py phase --name resilience --status success
+          else
+            python scripts/refresh_status.py phase --name resilience --status failure --message "resilience fetch failed"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: refresh-db-resilience-${{ github.run_id }}
+          path: |
+            database/area_insights.db
+            data/cache/refresh-run.json
+          retention-days: ${{ env.DB_ARTIFACT_RETENTION_DAYS }}
+      - if: ${{ steps.fetch.outcome == 'failure' }}
+        run: exit 1
+
+  jshis_ground:
+    name: jshis_ground
+    needs: [prepare, resilience]
+    runs-on: ubuntu-latest
+    timeout-minutes: 210
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: "${{ github.sha }}"}
+      - uses: actions/setup-python@v5
+        with: {python-version: "${{ env.PYTHON_VERSION }}", cache: pip}
+      - run: pip install -e ".[dev]"
+      - uses: actions/download-artifact@v4
+        with: {name: "refresh-db-resilience-${{ github.run_id }}", path: .}
+      - name: Mark J-SHIS ground state
+        run: |
+          if [ "${{ needs.prepare.outputs.run_jshis_ground }}" = "true" ]; then
+            python scripts/refresh_status.py phase --name jshis_ground --status running
+          else
+            python scripts/refresh_status.py phase --name jshis_ground --status skipped --message "scope/resume checkpoint reused"
+          fi
+      - id: fetch
+        if: ${{ needs.prepare.outputs.run_jshis_ground == 'true' }}
+        continue-on-error: true
+        run: python scripts/fetch_jshis.py --component ground --interval 0.2
+      - name: Record J-SHIS ground outcome
+        if: ${{ needs.prepare.outputs.run_jshis_ground == 'true' }}
+        run: |
+          if [ "${{ steps.fetch.outcome }}" = "success" ]; then
+            python scripts/refresh_status.py phase --name jshis_ground --status success
+          else
+            python scripts/refresh_status.py phase --name jshis_ground --status failure --message "J-SHIS ground fetch failed"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: refresh-db-jshis_ground-${{ github.run_id }}
+          path: |
+            database/area_insights.db
+            data/cache/refresh-run.json
+          retention-days: ${{ env.DB_ARTIFACT_RETENTION_DAYS }}
+      - if: ${{ steps.fetch.outcome == 'failure' }}
+        run: exit 1
+
+  jshis_hazard:
+    name: jshis_hazard
+    needs: [prepare, jshis_ground]
+    runs-on: ubuntu-latest
+    timeout-minutes: 210
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: "${{ github.sha }}"}
+      - uses: actions/setup-python@v5
+        with: {python-version: "${{ env.PYTHON_VERSION }}", cache: pip}
+      - run: pip install -e ".[dev]"
+      - uses: actions/download-artifact@v4
+        with: {name: "refresh-db-jshis_ground-${{ github.run_id }}", path: .}
+      - name: Mark J-SHIS hazard state
+        run: |
+          if [ "${{ needs.prepare.outputs.run_jshis_hazard }}" = "true" ]; then
+            python scripts/refresh_status.py phase --name jshis_hazard --status running
+          else
+            python scripts/refresh_status.py phase --name jshis_hazard --status skipped --message "scope/resume checkpoint reused"
+          fi
+      - id: fetch
+        if: ${{ needs.prepare.outputs.run_jshis_hazard == 'true' }}
+        continue-on-error: true
+        run: python scripts/fetch_jshis.py --component hazard --interval 0.2
+      - name: Record J-SHIS hazard outcome
+        if: ${{ needs.prepare.outputs.run_jshis_hazard == 'true' }}
+        run: |
+          if [ "${{ steps.fetch.outcome }}" = "success" ]; then
+            python scripts/refresh_status.py phase --name jshis_hazard --status success
+          else
+            python scripts/refresh_status.py phase --name jshis_hazard --status failure --message "J-SHIS hazard fetch failed"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: refresh-db-jshis_hazard-${{ github.run_id }}
+          path: |
+            database/area_insights.db
+            data/cache/refresh-run.json
+          retention-days: ${{ env.DB_ARTIFACT_RETENTION_DAYS }}
+      - if: ${{ steps.fetch.outcome == 'failure' }}
+        run: exit 1
+
+  elevation:
+    name: elevation
+    needs: [prepare, jshis_hazard]
+    runs-on: ubuntu-latest
+    timeout-minutes: 110
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: "${{ github.sha }}"}
+      - uses: actions/setup-python@v5
+        with: {python-version: "${{ env.PYTHON_VERSION }}", cache: pip}
+      - run: pip install -e ".[dev]"
+      - uses: actions/download-artifact@v4
+        with: {name: "refresh-db-jshis_hazard-${{ github.run_id }}", path: .}
+      - name: Mark elevation state
+        run: |
+          if [ "${{ needs.prepare.outputs.run_elevation }}" = "true" ]; then
+            python scripts/refresh_status.py phase --name elevation --status running
+          else
+            python scripts/refresh_status.py phase --name elevation --status skipped --message "scope/resume checkpoint reused"
+          fi
+      - id: fetch
+        if: ${{ needs.prepare.outputs.run_elevation == 'true' }}
+        continue-on-error: true
+        run: python scripts/fetch_gsi_elevation.py --interval 0.15
+      - name: Record elevation outcome
+        if: ${{ needs.prepare.outputs.run_elevation == 'true' }}
+        run: |
+          if [ "${{ steps.fetch.outcome }}" = "success" ]; then
+            python scripts/refresh_status.py phase --name elevation --status success
+          else
+            python scripts/refresh_status.py phase --name elevation --status failure --message "elevation fetch failed"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: refresh-db-elevation-${{ github.run_id }}
+          path: |
+            database/area_insights.db
+            data/cache/refresh-run.json
+          retention-days: ${{ env.DB_ARTIFACT_RETENTION_DAYS }}
+      - if: ${{ steps.fetch.outcome == 'failure' }}
         run: exit 1
 
   build:
-    needs: [prepare, spatial]
+    name: build
+    needs: [prepare, elevation]
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -657,12 +798,11 @@ jobs:
       - run: pip install -e ".[dev]"
       - uses: actions/download-artifact@v4
         with:
-          name: refresh-db-spatial-${{ github.run_id }}
+          name: refresh-db-elevation-${{ github.run_id }}
           path: .
       - name: Mark build running
         run: python scripts/refresh_status.py phase --name build --status running
       - id: build
-        name: Validate, score, build and test
         continue-on-error: true
         run: |
           python scripts/validate_refresh_db.py --require-stations
@@ -687,8 +827,7 @@ jobs:
             data/cache/refresh-run.json
             web/data/refresh-status.json
           retention-days: 7
-      - name: Stop before publishing on validation failure
-        if: ${{ steps.build.outcome == 'failure' }}
+      - if: ${{ steps.build.outcome == 'failure' }}
         run: exit 1
       - name: Save validated database for the next incremental run
         uses: actions/cache/save@v4

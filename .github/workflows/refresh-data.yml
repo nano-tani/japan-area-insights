@@ -60,7 +60,7 @@ on:
     - cron: "20 20 * * 0"
 
 permissions:
-  actions: read
+  actions: write
   contents: write
 
 concurrency:

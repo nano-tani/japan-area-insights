@@ -2,7 +2,7 @@
   "area_id": "13106",
   "prefecture_name": "東京都",
   "municipality_name": "台東区",
-  "calculation_date": "2026-09-13",
+  "calculation_date": "2026-09-20",
   "price_score": 20.0,
   "population_score": 20.0,
   "future_population_score": 17.0,
@@ -77,20 +77,20 @@
       "change_3y": 34.5692,
       "change_5y": null,
       "transaction_count": 738,
-      "source_id": 345
+      "source_id": 394
     },
     {
       "area_id": "13106",
       "year": 2026,
       "official_land_price": 2377924.53,
-      "prefectural_land_price": null,
+      "prefectural_land_price": 2552962.96,
       "avg_transaction_unit_price": 1789970.29,
       "median_transaction_unit_price": 1310989.01,
       "yoy_change": 17.8247,
       "change_3y": 52.2088,
       "change_5y": 59.3704,
       "transaction_count": 76,
-      "source_id": 346
+      "source_id": 395
     }
   ],
   "population": [
@@ -106,7 +106,7 @@
       "age_40_64": null,
       "age_65_plus": null,
       "single_households": null,
-      "source_id": 347
+      "source_id": 396
     },
     {
       "area_id": "13106",
@@ -120,7 +120,7 @@
       "age_40_64": null,
       "age_65_plus": null,
       "single_households": null,
-      "source_id": 347
+      "source_id": 396
     }
   ],
   "future_population": [
@@ -549,22 +549,22 @@
       "fetched_at": "2026-09-05T10:01:06.174540+00:00"
     },
     {
-      "source_id": 345,
+      "source_id": 394,
       "source_name": "国土交通省 不動産情報ライブラリ",
       "dataset_id": "XPT002:2025",
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-13T22:34:35.025056+00:00"
+      "fetched_at": "2026-09-20T22:39:20.278238+00:00"
     },
     {
-      "source_id": 346,
+      "source_id": 395,
       "source_name": "国土交通省 不動産情報ライブラリ",
       "dataset_id": "XPT002:2026",
       "source_url": "https://www.reinfolib.mlit.go.jp/ex-api/external/XPT002",
       "terms_url": "https://www.reinfolib.mlit.go.jp/help/termsOfUse/",
       "published_at": null,
-      "fetched_at": "2026-09-13T22:37:25.298784+00:00"
+      "fetched_at": "2026-09-20T22:43:42.634176+00:00"
     },
     {
       "source_id": 147,
@@ -630,13 +630,13 @@
       "fetched_at": "2026-09-05T10:21:23.499867+00:00"
     },
     {
-      "source_id": 347,
+      "source_id": 396,
       "source_name": "政府統計の総合窓口 e-Stat / 令和7年国勢調査 速報集計",
       "dataset_id": "0004050397,0004050417",
       "source_url": "https://www.e-stat.go.jp/stat-search/database?statdisp_id=0004050417",
       "terms_url": "https://www.e-stat.go.jp/terms-of-use",
       "published_at": "2026-05-29",
-      "fetched_at": "2026-09-13T22:37:31.164092+00:00"
+      "fetched_at": "2026-09-20T22:43:48.719027+00:00"
     }
   ]
 }

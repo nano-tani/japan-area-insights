@@ -1,66 +1,66 @@
 {
   "schema_version": 1,
   "run": {
-    "run_id": "36357668166",
-    "run_url": "https://github.com/nano-tani/japan-area-insights/actions/runs/36357668166",
+    "run_id": "37243236499",
+    "run_url": "https://github.com/nano-tani/japan-area-insights/actions/runs/37243236499",
     "scope": "core",
     "mode": "incremental",
     "from_year": 2025,
     "to_year": 2026,
     "cache_restored": true,
-    "started_at": "2026-09-27T23:08:35.670700+00:00",
-    "finished_at": "2026-09-27T23:30:52.951977+00:00",
+    "started_at": "2026-10-04T23:18:05.378936+00:00",
+    "finished_at": "2026-10-04T23:38:51.319408+00:00",
     "status": "success"
   },
   "phases": {
     "prepare": {
       "status": "success",
-      "updated_at": "2026-09-27T23:08:35.670716+00:00",
+      "updated_at": "2026-10-04T23:18:05.378948+00:00",
       "message": null
     },
     "core": {
       "status": "success",
-      "updated_at": "2026-09-27T23:19:59.026285+00:00",
+      "updated_at": "2026-10-04T23:28:53.741253+00:00",
       "message": null
     },
     "station": {
       "status": "skipped",
-      "updated_at": "2026-09-27T23:20:52.990148+00:00",
+      "updated_at": "2026-10-04T23:29:46.920239+00:00",
       "message": "scope/resume checkpoint reused"
     },
     "stats": {
       "status": "skipped",
-      "updated_at": "2026-09-27T23:21:46.327222+00:00",
+      "updated_at": "2026-10-04T23:30:34.092544+00:00",
       "message": "scope/resume checkpoint reused"
     },
     "spatial": {
       "status": "skipped",
-      "updated_at": "2026-09-27T23:22:40.822546+00:00",
+      "updated_at": "2026-10-04T23:31:14.646047+00:00",
       "message": "scope/resume checkpoint reused"
     },
     "resilience": {
       "status": "skipped",
-      "updated_at": "2026-09-27T23:23:32.978870+00:00",
+      "updated_at": "2026-10-04T23:32:07.851376+00:00",
       "message": "scope/resume checkpoint reused"
     },
     "jshis_ground": {
       "status": "skipped",
-      "updated_at": "2026-09-27T23:24:30.712174+00:00",
+      "updated_at": "2026-10-04T23:32:57.976218+00:00",
       "message": "scope/resume checkpoint reused"
     },
     "jshis_hazard": {
       "status": "skipped",
-      "updated_at": "2026-09-27T23:25:24.020302+00:00",
+      "updated_at": "2026-10-04T23:33:52.232976+00:00",
       "message": "scope/resume checkpoint reused"
     },
     "elevation": {
       "status": "skipped",
-      "updated_at": "2026-09-27T23:26:19.394390+00:00",
+      "updated_at": "2026-10-04T23:34:40.988669+00:00",
       "message": "scope/resume checkpoint reused"
     },
     "build": {
       "status": "success",
-      "updated_at": "2026-09-27T23:30:52.912064+00:00",
+      "updated_at": "2026-10-04T23:38:51.280533+00:00",
       "message": null
     }
   },
@@ -75,11 +75,11 @@
       "facilities": 28325,
       "stations": 648,
       "station_transactions": 124131,
-      "area_scores": 92,
-      "geo_scores": 1848,
-      "data_sources": 445
+      "area_scores": 115,
+      "geo_scores": 2310,
+      "data_sources": 494
     },
-    "latest_fetch_at": "2026-09-27T23:19:58.562669+00:00",
+    "latest_fetch_at": "2026-10-04T23:28:53.283527+00:00",
     "source_families": [
       {
         "family": "0000020101",
@@ -208,8 +208,8 @@
       },
       {
         "family": "0004050397,0004050417",
-        "records": 5,
-        "latest_fetched_at": "2026-09-27T23:19:58.562669+00:00"
+        "records": 6,
+        "latest_fetched_at": "2026-10-04T23:28:53.283527+00:00"
       },
       {
         "family": "GSI",
@@ -238,8 +238,8 @@
       },
       {
         "family": "XIT001",
-        "records": 323,
-        "latest_fetched_at": "2026-09-27T23:10:50.741265+00:00"
+        "records": 369,
+        "latest_fetched_at": "2026-10-04T23:20:24.364289+00:00"
       },
       {
         "family": "XKT001",
@@ -383,8 +383,8 @@
       },
       {
         "family": "XPT002",
-        "records": 14,
-        "latest_fetched_at": "2026-09-27T23:19:52.189758+00:00"
+        "records": 16,
+        "latest_fetched_at": "2026-10-04T23:28:46.336488+00:00"
       },
       {
         "family": "XST001",
@@ -393,5 +393,5 @@
       }
     ]
   },
-  "generated_at": "2026-09-27T23:30:52.960758+00:00"
+  "generated_at": "2026-10-04T23:38:51.326901+00:00"
 }
